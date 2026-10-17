@@ -1,0 +1,24 @@
+{
+  "bindings": [
+    {
+      "nodeId": "node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
+      "field": "src_select",
+      "sourceName": "Fusion Invoices",
+      "authentication": "Configure locally in PAF; not included.",
+      "openapi": "invoice-read-openapi.json"
+    },
+    {
+      "nodeId": "node-1789340088638-d9d7dbd4-97be-4e21-bfbf-d7b047007b07",
+      "field": "src_select",
+      "sourceName": "Fusion Invoices Actions",
+      "authentication": "Configure locally in PAF; not included.",
+      "openapi": "invoice-actions-openapi.json"
+    }
+  ],
+  "model": "Select an available target model",
+  "memory": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "publication": "Keep unpublished until destination validation completes."
+}

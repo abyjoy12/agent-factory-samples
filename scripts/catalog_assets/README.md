@@ -52,3 +52,7 @@ python scripts/generate_docs.py \
 ```
 
 The existing Pages workflow regenerates and publishes the site on push to `main`. The release workflow continues to package each original workflow into its encrypted PAF archive.
+
+## Purpose-first names
+
+Use the business or operational purpose first and append the application: `Invoice Review and Actions — Fusion ERP`. `catalog.displayName` optionally controls catalog display and falls back to `title`; the guide also records the actual PAF workflow name. Keep the manifest title and version aligned with its official export.

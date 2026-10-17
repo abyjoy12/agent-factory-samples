@@ -1,6 +1,6 @@
 {
   "workflowId": "5E01CE5667BE84E2E0638001000A285F",
-  "name": "PeopleSoft Service Case Workload",
+  "name": "Service Case Workload — PeopleSoft",
   "description": "Review non-secure CRM case workload by business unit, raw status and priority without exposing case text.",
   "category": 1,
   "icon": "briefcase",
@@ -494,18 +494,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "2894229e-be2d-4efa-a847-6142caedd95f",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T05:05:22.249571Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:43.818895Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "2894229e-be2d-4efa-a847-6142caedd95f",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T05:05:22.249571Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:43.818895Z",
   "_workflowMetadata": {
     "originWorkflowId": "2894229e-be2d-4efa-a847-6142caedd95f",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T05:05:22.249571Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:43.818895Z"
   }
 }

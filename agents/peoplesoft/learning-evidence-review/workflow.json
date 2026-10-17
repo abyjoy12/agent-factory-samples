@@ -1,6 +1,6 @@
 {
   "workflowId": "5E0080AA47A5F9BFE0638001000A4579",
-  "name": "PeopleSoft Learning Evidence Review",
+  "name": "Learning Evidence Review — PeopleSoft",
   "description": "Prepare a training-evidence review queue using completion dates, raw enrollment status, and target dates.",
   "category": 1,
   "icon": "briefcase",
@@ -3048,18 +3048,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "7d1d348a-011c-4310-967f-d5c9bbfaab55",
-      "version": 2,
-      "lastUpdatedOn": "2026-10-17T01:57:29.789524Z"
+      "version": 3,
+      "lastUpdatedOn": "2026-10-17T07:53:43.535311Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "7d1d348a-011c-4310-967f-d5c9bbfaab55",
-  "version": 2,
-  "lastUpdatedOn": "2026-10-17T01:57:29.789524Z",
+  "version": 3,
+  "lastUpdatedOn": "2026-10-17T07:53:43.535311Z",
   "_workflowMetadata": {
     "originWorkflowId": "7d1d348a-011c-4310-967f-d5c9bbfaab55",
-    "version": 2,
-    "lastUpdatedOn": "2026-10-17T01:57:29.789524Z"
+    "version": 3,
+    "lastUpdatedOn": "2026-10-17T07:53:43.535311Z"
   }
 }

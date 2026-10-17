@@ -9,10 +9,10 @@
     "slug": "sales-commitment-review",
     "name": "Sales commitment review"
   },
-  "title": "EBS Sales Commitment Review",
+  "title": "Sales Commitment Review — Oracle E-Business Suite",
   "summary": "Help an account team explain unshipped sales-order lines and prepare a grounded customer update.",
   "category": "Sales",
-  "version": "4",
+  "version": "5",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -110,6 +110,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which sales commitments need follow-up on requested versus scheduled dates?"
+    "question": "Which sales commitments need follow-up on requested versus scheduled dates?",
+    "displayName": "Sales Commitment Review — Oracle E-Business Suite"
   }
 }

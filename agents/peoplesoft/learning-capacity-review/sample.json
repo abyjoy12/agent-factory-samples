@@ -9,10 +9,10 @@
     "slug": "learning-capacity-review",
     "name": "PeopleSoft Learning Capacity Review"
   },
-  "title": "PeopleSoft Learning Capacity Review",
+  "title": "Learning Capacity Review — PeopleSoft",
   "summary": "Review learning offering enrollment and waitlist capacity without asserting eligibility or available seats.",
   "category": "Learning",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -110,6 +110,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which training offerings show capacity pressure or a waitlist?"
+    "question": "Which training offerings show capacity pressure or a waitlist?",
+    "displayName": "Learning Capacity Review — PeopleSoft"
   }
 }

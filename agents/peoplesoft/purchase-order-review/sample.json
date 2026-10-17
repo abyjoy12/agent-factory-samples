@@ -9,10 +9,10 @@
     "slug": "purchase-order-review",
     "name": "PeopleSoft Purchase Order Review"
   },
-  "title": "PeopleSoft Purchase Order Review",
+  "title": "Purchase Order Review — PeopleSoft",
   "summary": "Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope.",
   "category": "Procurement",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -116,6 +116,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "What should a buyer verify on the most recently dated purchase orders?"
+    "question": "What should a buyer verify on the most recently dated purchase orders?",
+    "displayName": "Purchase Order Review — PeopleSoft"
   }
 }

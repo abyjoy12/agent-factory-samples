@@ -1,4 +1,4 @@
-# PeopleSoft Learning Capacity Review — presenter outline
+# Learning Capacity Review — PeopleSoft — presenter outline
 
 1. **Question:** Review the ten sampled learning offerings and explain the enrollment, capacity and waitlist evidence.
 2. **Evidence path:** Fixed SELECT evidence, Text combiner, grounded Agent and Chat output. Show the database binding and the fixed query or routine allowlist.

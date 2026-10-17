@@ -1,6 +1,6 @@
 {
   "workflowId": "5E01CE5667BC84E2E0638001000A285F",
-  "name": "PeopleSoft Purchase Order Review",
+  "name": "Purchase Order Review — PeopleSoft",
   "description": "Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope.",
   "category": 1,
   "icon": "briefcase",
@@ -494,18 +494,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "bf5f188b-9e69-4af4-bb4a-340d669bc696",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T05:05:21.436185Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:43.726966Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "bf5f188b-9e69-4af4-bb4a-340d669bc696",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T05:05:21.436185Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:43.726966Z",
   "_workflowMetadata": {
     "originWorkflowId": "bf5f188b-9e69-4af4-bb4a-340d669bc696",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T05:05:21.436185Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:43.726966Z"
   }
 }

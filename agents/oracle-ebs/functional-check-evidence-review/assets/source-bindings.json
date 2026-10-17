@@ -1,0 +1,26 @@
+{
+  "bindings": [
+    {
+      "nodeId": "node-1784918496675-95aacc71-0c53-4b4c-bdc8-6a6917687207",
+      "field": "database",
+      "sourceName": "EBS Sensor Control",
+      "requiredPackage": "PAF_DEMO.EBS_CHECK_API",
+      "allowedRoutines": [
+        "GET_CAPABILITIES",
+        "FIND_SENSORS",
+        "GET_SENSOR",
+        "GET_PROGRESS",
+        "GET_REPORT",
+        "GET_EVIDENCE"
+      ],
+      "autoCommit": false,
+      "backendIncluded": false
+    }
+  ],
+  "model": "Select an available target model",
+  "memory": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "publication": "Keep unpublished until destination validation completes."
+}

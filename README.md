@@ -8,13 +8,19 @@ The [agent catalog](https://kgvarun.github.io/agent-factory-samples/) has search
 
 For example, **Capacity planning** brings together workforce, learning and campus scenarios; **Supplier follow-up** spans JDE, EBS and PeopleSoft. Technical filters describe features implemented in the saved graphs. See the [catalog authoring guide](scripts/catalog_assets/README.md) for metadata, vocabulary and presentation changes.
 
+## Selective account consolidation — 2026-10-17
+
+The catalog now has **28 samples** with purpose-first names. Six relevant source-account flows were consolidated as editor-owned drafts: four existing JDE fulfillment/memory samples, [Invoice Review and Actions — Fusion ERP](agents/fusion-erp/invoice-review-actions/), and [Functional Check Evidence Review — Oracle EBS](agents/oracle-ebs/functional-check-evidence-review/). The originals are retained. The existing 22 editor flows were renamed consistently.
+
+See the [selection decisions, migration status and replication guide](integrations/account-consolidation/). Source access, ownership and settings were checked; these new copies were not run end to end. The Fusion draft has write tools and requires target-environment validation before use. The EBS copy reviews existing evidence only.
+
 ## Shared-session baseline
 
 [Repository and live PAF reconciliation](integrations/session-consolidation/) records the 26 retained samples, 22 matching accessible live flows, four access-limited comparisons, and outstanding integration work. Consult it before editing shared flows.
 
 ## Module expansion and JDE replica drafts — 2026-10-17
 
-The catalog now contains **26 workflow samples**. This expansion adds **eight PSFT/EBS module drafts** and records the **four JDE replica drafts** from the preceding setup. All twelve are saved on build PAF under `editor@oracleagentfactory.com`, with Agent Memory and cross-thread sharing disabled. They remain unpublished.
+At this earlier expansion the catalog contained **26 workflow samples**. This expansion adds **eight PSFT/EBS module drafts** and records the **four JDE replica drafts** from the preceding setup. All twelve are saved on build PAF under `editor@oracleagentfactory.com`, with Agent Memory and cross-thread sharing disabled. They remain unpublished.
 
 | Application / module | New draft |
 | --- | --- |
@@ -46,7 +52,7 @@ These drafts currently use direct PAF SQL/PLSQL components. Neither remote MCP p
 
 ## Original business demo collection
 
-**Ten original business demos, plus the four original JDE fulfillment and memory examples.** The new demos are deployed on [build.oracleagentfactory.com](https://build.oracleagentfactory.com). Find them by the exact titles below. The public [catalog](https://kgvarun.github.io/agent-factory-samples/) provides setup guides and the [latest release](https://github.com/kgvarun/agent-factory-samples/releases/tag/latest) provides importable `.paf` files.
+**Ten original business demos, plus the four original JDE fulfillment and memory examples.** The new demos are deployed on [build.oracleagentfactory.com](https://build.oracleagentfactory.com). The linked guides contain their current purpose-first titles; the table describes the original collection. The public [catalog](https://kgvarun.github.io/agent-factory-samples/) provides setup guides and the [latest release](https://github.com/kgvarun/agent-factory-samples/releases/tag/latest) provides importable `.paf` files.
 
 | Business audience | Demo | Builder capability to show |
 | --- | --- | --- |
@@ -76,7 +82,7 @@ For a Finance audience substitute Invoice Duplicate Review; for HR or Compliance
 
 ### Implemented feature coverage
 
-The new collection uses Chat input/output, Agent, native Agent subagents, Oracle database tools, Oracle PL/SQL executor, SQL query, Parser, Condition, Current Date, Text combiner, File upload and Read CSV file. The original examples add REST API tools and explicit/implicit Agent Memory. No new flow sends email, posts to Slack, changes application records or executes approvals.
+The new collection uses Chat input/output, Agent, native Agent subagents, Oracle database tools, Oracle PL/SQL executor, SQL query, Parser, Condition, Current Date, Text combiner, File upload and Read CSV file. The original examples add REST API tools and explicit/implicit Agent Memory. Those original business demos do not send email, post to Slack, change application records or execute approvals. The subsequently added Fusion invoice draft has explicitly documented write tools.
 
 Policy Desk uses direct file grounding; it is not a vector Knowledge Agent. The executive specialists share one EBS Finance source; they are not a cross-database federation demo. Select AI/In-Database Agent, A2A, image processing and Deep Research are not claimed by this collection. The optional [OCI Database Tools MCP blueprint](integrations/oci-database-tools-mcp/) is prepared but not deployed.
 

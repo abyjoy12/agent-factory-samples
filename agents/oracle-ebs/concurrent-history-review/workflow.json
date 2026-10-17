@@ -1,6 +1,6 @@
 {
   "workflowId": "5E01CE5667C284E2E0638001000A285F",
-  "name": "EBS Concurrent Processing History",
+  "name": "Concurrent Processing History — Oracle E-Business Suite",
   "description": "Review recent stored concurrent-request history and completed elapsed times without restarting or cancelling jobs.",
   "category": 1,
   "icon": "briefcase",
@@ -494,18 +494,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "5c501d20-6439-43fe-8423-d670548ce836",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T05:05:24.564237Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:42.688995Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "5c501d20-6439-43fe-8423-d670548ce836",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T05:05:24.564237Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:42.688995Z",
   "_workflowMetadata": {
     "originWorkflowId": "5c501d20-6439-43fe-8423-d670548ce836",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T05:05:24.564237Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:42.688995Z"
   }
 }

@@ -1,4 +1,4 @@
-# PeopleSoft Database Service Pulse
+# Database Service Pulse — PeopleSoft
 
 Translate live PDB tablespace capacity, session counts and interval metrics into a business-service monitoring brief.
 

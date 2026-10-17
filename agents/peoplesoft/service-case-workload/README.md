@@ -1,4 +1,4 @@
-# PeopleSoft Service Case Workload
+# Service Case Workload — PeopleSoft
 
 Review non-secure CRM case workload by business unit, raw status and priority without exposing case text.
 

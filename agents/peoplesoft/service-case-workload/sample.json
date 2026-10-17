@@ -9,10 +9,10 @@
     "slug": "service-case-workload",
     "name": "PeopleSoft Service Case Workload"
   },
-  "title": "PeopleSoft Service Case Workload",
+  "title": "Service Case Workload — PeopleSoft",
   "summary": "Review non-secure CRM case workload by business unit, raw status and priority without exposing case text.",
   "category": "Customer Service",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -110,6 +110,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which case-status and priority groups carry the largest support workload?"
+    "question": "Which case-status and priority groups carry the largest support workload?",
+    "displayName": "Service Case Workload — PeopleSoft"
   }
 }

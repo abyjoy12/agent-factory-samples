@@ -1,6 +1,6 @@
 {
   "workflowId": "5E0080AA47A0F9BFE0638001000A4579",
-  "name": "PeopleSoft Invoice Duplicate Review",
+  "name": "Invoice Duplicate Review — PeopleSoft",
   "description": "Surface repeated supplier invoice references for AP review with deterministic SQL and explainable matching.",
   "category": 1,
   "icon": "briefcase",
@@ -644,18 +644,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "d695cf27-2f05-40c9-9b25-1e7b4c2d3d56",
-      "version": 5,
-      "lastUpdatedOn": "2026-10-17T02:09:58.380478Z"
+      "version": 6,
+      "lastUpdatedOn": "2026-10-17T07:53:43.341544Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "d695cf27-2f05-40c9-9b25-1e7b4c2d3d56",
-  "version": 5,
-  "lastUpdatedOn": "2026-10-17T02:09:58.380478Z",
+  "version": 6,
+  "lastUpdatedOn": "2026-10-17T07:53:43.341544Z",
   "_workflowMetadata": {
     "originWorkflowId": "d695cf27-2f05-40c9-9b25-1e7b4c2d3d56",
-    "version": 5,
-    "lastUpdatedOn": "2026-10-17T02:09:58.380478Z"
+    "version": 6,
+    "lastUpdatedOn": "2026-10-17T07:53:43.341544Z"
   }
 }

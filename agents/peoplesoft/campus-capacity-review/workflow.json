@@ -1,6 +1,6 @@
 {
   "workflowId": "5E01CE5667BF84E2E0638001000A285F",
-  "name": "PeopleSoft Campus Capacity Review",
+  "name": "Campus Capacity Review — PeopleSoft",
   "description": "Review class enrollment and waitlist counters by institution, career and term without making enrollment promises.",
   "category": 1,
   "icon": "briefcase",
@@ -494,18 +494,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "14b5d282-8bd5-4240-9bb0-71ec58dcd7e6",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T05:05:22.963738Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:43.156029Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "14b5d282-8bd5-4240-9bb0-71ec58dcd7e6",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T05:05:22.963738Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:43.156029Z",
   "_workflowMetadata": {
     "originWorkflowId": "14b5d282-8bd5-4240-9bb0-71ec58dcd7e6",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T05:05:22.963738Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:43.156029Z"
   }
 }

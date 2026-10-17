@@ -9,10 +9,10 @@
     "slug": "replica-finance-activity-review",
     "name": "JDE Replica - Finance Activity Review"
   },
-  "title": "JDE Replica - Finance Activity Review",
+  "title": "Finance Activity Review — JD Edwards replica",
   "summary": "Pre-cutover read-only finance activity review against the GoldenGate JDEDEMO replica.",
   "category": "Finance",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -108,6 +108,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "What do the latest stored GL entries show by company, currency and ledger?"
+    "question": "What do the latest stored GL entries show by company, currency and ledger?",
+    "displayName": "Finance Activity Review — JD Edwards replica"
   }
 }

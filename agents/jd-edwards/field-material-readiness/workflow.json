@@ -1,6 +1,6 @@
 {
   "workflowId": "5E0080AA47A4F9BFE0638001000A4579",
-  "name": "JDE Field Material Readiness",
+  "name": "Field Material Readiness — JD Edwards EnterpriseOne",
   "description": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit.",
   "category": 1,
   "icon": "briefcase",
@@ -655,18 +655,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "cf0a76c2-5e5e-4c68-b63a-320bde45579f",
-      "version": 6,
-      "lastUpdatedOn": "2026-10-17T02:19:14.443513Z"
+      "version": 7,
+      "lastUpdatedOn": "2026-10-17T07:53:42.132923Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "cf0a76c2-5e5e-4c68-b63a-320bde45579f",
-  "version": 6,
-  "lastUpdatedOn": "2026-10-17T02:19:14.443513Z",
+  "version": 7,
+  "lastUpdatedOn": "2026-10-17T07:53:42.132923Z",
   "_workflowMetadata": {
     "originWorkflowId": "cf0a76c2-5e5e-4c68-b63a-320bde45579f",
-    "version": 6,
-    "lastUpdatedOn": "2026-10-17T02:19:14.443513Z"
+    "version": 7,
+    "lastUpdatedOn": "2026-10-17T07:53:42.132923Z"
   }
 }

@@ -1,4 +1,4 @@
-# PeopleSoft Position Coverage Review — presenter outline
+# Position Coverage Review — PeopleSoft — presenter outline
 
 1. **Question:** Review the ten sampled positions and explain what the assignment counts and position capacity can tell an HR planner.
 2. **Evidence path:** Fixed SELECT evidence, Text combiner, grounded Agent and Chat output. Show the database binding and the fixed query or routine allowlist.

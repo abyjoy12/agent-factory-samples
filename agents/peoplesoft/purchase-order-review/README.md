@@ -1,4 +1,4 @@
-# PeopleSoft Purchase Order Review
+# Purchase Order Review — PeopleSoft
 
 Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope.
 

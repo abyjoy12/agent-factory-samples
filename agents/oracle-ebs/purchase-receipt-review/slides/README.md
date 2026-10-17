@@ -1,4 +1,4 @@
-# EBS Purchase Receipt Review — presenter outline
+# Purchase Receipt Review — Oracle E-Business Suite — presenter outline
 
 1. **Question:** Review ten sampled purchase shipments with positive unreceived arithmetic and draft one buyer follow-up.
 2. **Evidence path:** Fixed SELECT evidence, Text combiner, grounded Agent and Chat output. Show the database binding and the fixed query or routine allowlist.

@@ -1,4 +1,4 @@
-# JDE Replica - Backorder Triage
+# Backorder Triage — JD Edwards replica
 
 Pre-cutover read-only backorder triage against the GoldenGate JDEDEMO replica.
 

@@ -9,10 +9,10 @@
     "slug": "field-material-readiness",
     "name": "Field material readiness"
   },
-  "title": "JDE Field Material Readiness",
+  "title": "Field Material Readiness — JD Edwards EnterpriseOne",
   "summary": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit.",
   "category": "Field Ops",
-  "version": "6",
+  "version": "7",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -131,6 +131,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Do we have the parts for this field visit, and what needs a planner check?"
+    "question": "Do we have the parts for this field visit, and what needs a planner check?",
+    "displayName": "Field Material Readiness — JD Edwards EnterpriseOne"
   }
 }

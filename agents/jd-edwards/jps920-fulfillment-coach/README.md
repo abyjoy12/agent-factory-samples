@@ -1,4 +1,4 @@
-# JDE JPS920 Fulfillment Coach
+# Fulfillment Coach (JPS920) — JD Edwards EnterpriseOne
 
 End-user-oriented, read-only fulfillment coach configured for JDE environment `JPS920`, role `*ALL`, and device `paf-jde-agent`. Builder-managed connection settings stay out of the conversation while the coach learns business corrections incrementally across chat sessions.
 
@@ -10,7 +10,7 @@ End-user-oriented, read-only fulfillment coach configured for JDE environment `J
 - A visible `Applied from your prior feedback` audit section when recalled feedback materially affects an analysis.
 - Read-only recommendations with an explicit human approval boundary.
 
-The included workflow was exported from Private Agent Factory 26.7.0.0.0 after live cross-session validation. The archive contains the workflow, not its learned memories or credentials.
+The current export is the editor-owned consolidation copy created on 2026-10-17. Source access, metadata and memory settings were checked; this new workflow ID has not been run end to end. Original validation described below is historical. Learned memories and credentials are excluded.
 
 ## Prerequisites
 

@@ -1,4 +1,4 @@
-# EBS Concurrent Processing History — presenter outline
+# Concurrent Processing History — Oracle E-Business Suite — presenter outline
 
 1. **Question:** Review the ten latest stored concurrent requests and distinguish the query time from historical run times.
 2. **Evidence path:** Fixed SELECT evidence, Text combiner, grounded Agent and Chat output. Show the database binding and the fixed query or routine allowlist.

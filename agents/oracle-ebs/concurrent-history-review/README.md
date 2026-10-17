@@ -1,4 +1,4 @@
-# EBS Concurrent Processing History
+# Concurrent Processing History — Oracle E-Business Suite
 
 Review recent stored concurrent-request history and completed elapsed times without restarting or cancelling jobs.
 

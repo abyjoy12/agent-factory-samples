@@ -1,4 +1,4 @@
-# PeopleSoft Workforce Planning Brief
+# Workforce Planning Brief — PeopleSoft
 
 Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs.
 

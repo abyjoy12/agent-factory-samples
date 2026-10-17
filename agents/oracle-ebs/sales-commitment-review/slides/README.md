@@ -1,4 +1,4 @@
-# Presenter notes: EBS Sales Commitment Review
+# Presenter notes: Sales Commitment Review — Oracle E-Business Suite
 
 | Slide | Message | What to show |
 | --- | --- | --- |

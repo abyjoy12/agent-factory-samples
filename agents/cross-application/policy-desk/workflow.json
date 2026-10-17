@@ -1,6 +1,6 @@
 {
   "workflowId": "5E0080AA47A6F9BFE0638001000A4579",
-  "name": "Business Policy Desk",
+  "name": "Business Policy Desk — Cross-application",
   "description": "Answer operational policy questions from a small supplied handbook with section citations and explicit gaps.",
   "category": 1,
   "icon": "briefcase",
@@ -449,18 +449,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "dbdf4746-7d79-4814-9cea-457a83091aac",
-      "version": 2,
-      "lastUpdatedOn": "2026-10-17T01:57:29.866916Z"
+      "version": 3,
+      "lastUpdatedOn": "2026-10-17T07:53:42.039736Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "dbdf4746-7d79-4814-9cea-457a83091aac",
-  "version": 2,
-  "lastUpdatedOn": "2026-10-17T01:57:29.866916Z",
+  "version": 3,
+  "lastUpdatedOn": "2026-10-17T07:53:42.039736Z",
   "_workflowMetadata": {
     "originWorkflowId": "dbdf4746-7d79-4814-9cea-457a83091aac",
-    "version": 2,
-    "lastUpdatedOn": "2026-10-17T01:57:29.866916Z"
+    "version": 3,
+    "lastUpdatedOn": "2026-10-17T07:53:42.039736Z"
   }
 }

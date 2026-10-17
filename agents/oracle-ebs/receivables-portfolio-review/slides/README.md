@@ -1,4 +1,4 @@
-# EBS Receivables Portfolio Review — presenter outline
+# Receivables Portfolio Review — Oracle E-Business Suite — presenter outline
 
 1. **Question:** Summarize the sampled positive receivable balances by organization and currency, stating what the schedule counts mean.
 2. **Evidence path:** Fixed SELECT evidence, Text combiner, grounded Agent and Chat output. Show the database binding and the fixed query or routine allowlist.

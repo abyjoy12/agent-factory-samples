@@ -1,4 +1,4 @@
-# JDE Replica - Finance Activity Review — presenter outline
+# Finance Activity Review — JD Edwards replica — presenter outline
 
 1. **Question:** Review the five most recent GL activity rows available in the replica. Show their actual dates, company, currency and ledger context, then suggest a finance review step. Treat this as a bounded sample, not a ledger balance.
 2. **Evidence path:** Oracle PL/SQL executor with an explicit one-routine allowlist. Show the database binding and the fixed query or routine allowlist.

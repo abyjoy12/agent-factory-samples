@@ -9,10 +9,10 @@
     "slug": "policy-desk",
     "name": "Policy desk"
   },
-  "title": "Business Policy Desk",
+  "title": "Business Policy Desk — Cross-application",
   "summary": "Answer operational policy questions from a small supplied handbook with section citations and explicit gaps.",
   "category": "Knowledge Management",
-  "version": "2",
+  "version": "3",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -110,6 +110,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Who needs to approve a $750 freight expedite—and which policy says so?"
+    "question": "Who needs to approve a $750 freight expedite—and which policy says so?",
+    "displayName": "Business Policy Desk — Cross-application"
   }
 }

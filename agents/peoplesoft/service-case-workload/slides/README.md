@@ -1,4 +1,4 @@
-# PeopleSoft Service Case Workload — presenter outline
+# Service Case Workload — PeopleSoft — presenter outline
 
 1. **Question:** Summarize the ten largest non-secure CRM case groups and suggest a service-manager review.
 2. **Evidence path:** Fixed SELECT evidence, Text combiner, grounded Agent and Chat output. Show the database binding and the fixed query or routine allowlist.

@@ -9,10 +9,10 @@
     "slug": "learning-evidence-review",
     "name": "Learning evidence review"
   },
-  "title": "PeopleSoft Learning Evidence Review",
+  "title": "Learning Evidence Review — PeopleSoft",
   "summary": "Prepare a training-evidence review queue using completion dates, raw enrollment status, and target dates.",
   "category": "Compliance",
-  "version": "2",
+  "version": "3",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -115,6 +115,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which training groups passed their target date without recorded completion?"
+    "question": "Which training groups passed their target date without recorded completion?",
+    "displayName": "Learning Evidence Review — PeopleSoft"
   }
 }

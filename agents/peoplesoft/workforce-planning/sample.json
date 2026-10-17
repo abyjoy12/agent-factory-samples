@@ -9,10 +9,10 @@
     "slug": "workforce-planning",
     "name": "Workforce planning"
   },
-  "title": "PeopleSoft Workforce Planning Brief",
+  "title": "Workforce Planning Brief — PeopleSoft",
   "summary": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs.",
   "category": "HR",
-  "version": "2",
+  "version": "3",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -120,6 +120,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which departments have the most assignments and FTE—and what do those counts mean?"
+    "question": "Which departments have the most assignments and FTE—and what do those counts mean?",
+    "displayName": "Workforce Planning Brief — PeopleSoft"
   }
 }

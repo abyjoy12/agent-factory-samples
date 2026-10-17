@@ -9,10 +9,10 @@
     "slug": "database-service-pulse",
     "name": "Database service pulse"
   },
-  "title": "PeopleSoft Database Service Pulse",
+  "title": "Database Service Pulse — PeopleSoft",
   "summary": "Translate live PDB tablespace capacity, session counts and interval metrics into a business-service monitoring brief.",
   "category": "Database Performance",
-  "version": "2",
+  "version": "3",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -124,6 +124,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Is the database showing resource pressure, and what should the DBA check?"
+    "question": "Is the database showing resource pressure, and what should the DBA check?",
+    "displayName": "Database Service Pulse — PeopleSoft"
   }
 }

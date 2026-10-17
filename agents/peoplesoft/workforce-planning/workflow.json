@@ -1,6 +1,6 @@
 {
   "workflowId": "5E0080AA47A1F9BFE0638001000A4579",
-  "name": "PeopleSoft Workforce Planning Brief",
+  "name": "Workforce Planning Brief — PeopleSoft",
   "description": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs.",
   "category": 1,
   "icon": "briefcase",
@@ -2942,18 +2942,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "1326c3b5-b73c-44cb-a394-c9b17f72a815",
-      "version": 2,
-      "lastUpdatedOn": "2026-10-17T01:57:29.500014Z"
+      "version": 3,
+      "lastUpdatedOn": "2026-10-17T07:53:43.918625Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "1326c3b5-b73c-44cb-a394-c9b17f72a815",
-  "version": 2,
-  "lastUpdatedOn": "2026-10-17T01:57:29.500014Z",
+  "version": 3,
+  "lastUpdatedOn": "2026-10-17T07:53:43.918625Z",
   "_workflowMetadata": {
     "originWorkflowId": "1326c3b5-b73c-44cb-a394-c9b17f72a815",
-    "version": 2,
-    "lastUpdatedOn": "2026-10-17T01:57:29.500014Z"
+    "version": 3,
+    "lastUpdatedOn": "2026-10-17T07:53:43.918625Z"
   }
 }

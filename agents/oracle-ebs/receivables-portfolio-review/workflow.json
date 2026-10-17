@@ -1,6 +1,6 @@
 {
   "workflowId": "5E01CE5667C084E2E0638001000A285F",
-  "name": "EBS Receivables Portfolio Review",
+  "name": "Receivables Portfolio Review — Oracle E-Business Suite",
   "description": "Review positive remaining receivable payment schedules by operating unit, currency and raw status.",
   "category": 1,
   "icon": "briefcase",
@@ -494,18 +494,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "445db5da-01c7-4b7d-8e0f-e89b9e5209eb",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T05:05:23.280599Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:42.969316Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "445db5da-01c7-4b7d-8e0f-e89b9e5209eb",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T05:05:23.280599Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:42.969316Z",
   "_workflowMetadata": {
     "originWorkflowId": "445db5da-01c7-4b7d-8e0f-e89b9e5209eb",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T05:05:23.280599Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:42.969316Z"
   }
 }

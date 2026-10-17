@@ -1,6 +1,6 @@
 {
   "workflowId": "5E01CE5667BB84E2E0638001000A285F",
-  "name": "PeopleSoft Position Coverage Review",
+  "name": "Position Coverage Review — PeopleSoft",
   "description": "Review nonconfidential position capacity alongside current effective-dated assignment counts without making employee decisions.",
   "category": 1,
   "icon": "briefcase",
@@ -494,18 +494,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "38b81431-c460-4a30-8516-27875338c7ba",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T05:05:21.285458Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:43.635464Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "38b81431-c460-4a30-8516-27875338c7ba",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T05:05:21.285458Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:43.635464Z",
   "_workflowMetadata": {
     "originWorkflowId": "38b81431-c460-4a30-8516-27875338c7ba",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T05:05:21.285458Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:43.635464Z"
   }
 }

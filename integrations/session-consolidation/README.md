@@ -1,5 +1,7 @@
 # Shared-session consolidation — 2026-10-17
 
+**Later update:** [Selective account consolidation](../account-consolidation/) resolves the four access-limited JDE entries with owner-authorized editor copies, adds two curated drafts, and records the current 28-sample catalog. The report below remains the historical pre-change baseline.
+
 This is the reconciliation baseline for the shared sample repository and build PAF instance, before the requested MCP repairs and action-capable agents.
 
 ## Reconciled state

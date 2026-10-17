@@ -9,10 +9,10 @@
     "slug": "campus-capacity-review",
     "name": "PeopleSoft Campus Capacity Review"
   },
-  "title": "PeopleSoft Campus Capacity Review",
+  "title": "Campus Capacity Review — PeopleSoft",
   "summary": "Review class enrollment and waitlist counters by institution, career and term without making enrollment promises.",
   "category": "Campus Operations",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -109,6 +109,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which sampled classes show enrollment pressure or waitlists?"
+    "question": "Which sampled classes show enrollment pressure or waitlists?",
+    "displayName": "Campus Capacity Review — PeopleSoft"
   }
 }

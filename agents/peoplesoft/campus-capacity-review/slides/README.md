@@ -1,4 +1,4 @@
-# PeopleSoft Campus Capacity Review — presenter outline
+# Campus Capacity Review — PeopleSoft — presenter outline
 
 1. **Question:** Review the sampled class capacity and waitlist counters, keeping institution, career and term separate.
 2. **Evidence path:** Fixed SELECT evidence, Text combiner, grounded Agent and Chat output. Show the database binding and the fixed query or routine allowlist.

@@ -1,4 +1,4 @@
-# JD Edwards Fulfillment Memory Agent
+# Fulfillment Memory Agent — JD Edwards EnterpriseOne
 
 Read-only JDE fulfillment analysis that carries a user-specific execution context and recovery policy across chat sessions with Private Agent Factory Agent Memory.
 
@@ -11,7 +11,7 @@ Read-only JDE fulfillment analysis that carries a user-specific execution contex
 
 This variant is intentionally explicit about establishing and recalling a named operating profile. For a more natural correction-driven experience, use the Adaptive Fulfillment Advisor or JPS920 Fulfillment Coach samples.
 
-The included workflow was exported from Private Agent Factory 26.7.0.0.0 after a live two-session validation. Learned memory records are user-specific runtime data and are not part of the export.
+The current export is the editor-owned consolidation copy created on 2026-10-17. Source access, metadata and memory settings were checked; this new workflow ID has not been run end to end. Original validation described below is historical. Learned memories and credentials are excluded.
 
 ## Prerequisites
 

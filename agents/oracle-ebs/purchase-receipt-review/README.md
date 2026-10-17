@@ -1,4 +1,4 @@
-# EBS Purchase Receipt Review
+# Purchase Receipt Review — Oracle E-Business Suite
 
 Review noncancelled PO shipment rows with positive shipment-minus-received arithmetic for buyer follow-up.
 

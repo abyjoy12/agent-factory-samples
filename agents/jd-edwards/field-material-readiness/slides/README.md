@@ -1,4 +1,4 @@
-# Presenter notes: JDE Field Material Readiness
+# Presenter notes: Field Material Readiness — JD Edwards EnterpriseOne
 
 | Slide | Message | What to show |
 | --- | --- | --- |

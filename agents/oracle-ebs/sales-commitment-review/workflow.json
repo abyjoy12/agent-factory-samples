@@ -1,6 +1,6 @@
 {
   "workflowId": "5E0080AA47A2F9BFE0638001000A4579",
-  "name": "EBS Sales Commitment Review",
+  "name": "Sales Commitment Review — Oracle E-Business Suite",
   "description": "Help an account team explain unshipped sales-order lines and prepare a grounded customer update.",
   "category": 1,
   "icon": "briefcase",
@@ -644,18 +644,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "12f97b93-1661-415a-882c-d482ea0a0765",
-      "version": 4,
-      "lastUpdatedOn": "2026-10-17T02:09:58.444422Z"
+      "version": 5,
+      "lastUpdatedOn": "2026-10-17T07:53:43.062354Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "12f97b93-1661-415a-882c-d482ea0a0765",
-  "version": 4,
-  "lastUpdatedOn": "2026-10-17T02:09:58.444422Z",
+  "version": 5,
+  "lastUpdatedOn": "2026-10-17T07:53:43.062354Z",
   "_workflowMetadata": {
     "originWorkflowId": "12f97b93-1661-415a-882c-d482ea0a0765",
-    "version": 4,
-    "lastUpdatedOn": "2026-10-17T02:09:58.444422Z"
+    "version": 5,
+    "lastUpdatedOn": "2026-10-17T07:53:43.062354Z"
   }
 }

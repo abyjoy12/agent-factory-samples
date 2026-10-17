@@ -9,10 +9,10 @@
     "slug": "concurrent-history-review",
     "name": "EBS Concurrent Processing History"
   },
-  "title": "EBS Concurrent Processing History",
+  "title": "Concurrent Processing History — Oracle E-Business Suite",
   "summary": "Review recent stored concurrent-request history and completed elapsed times without restarting or cancelling jobs.",
   "category": "IT Operations",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -110,6 +110,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "What do the latest stored batch requests tell us to investigate?"
+    "question": "What do the latest stored batch requests tell us to investigate?",
+    "displayName": "Concurrent Processing History — Oracle E-Business Suite"
   }
 }

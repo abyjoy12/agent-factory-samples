@@ -1,7 +1,7 @@
 {
   "workflowId": "5E00829F9867F9F0E0638001000A8F08",
-  "name": "JDE Replica - Backorder Triage",
-  "description": "Draft pre-cutover backorder review using JDEDEMO read-only fulfillment procedure.",
+  "name": "Backorder Triage — JD Edwards replica",
+  "description": "Pre-cutover read-only backorder triage against the GoldenGate JDEDEMO replica.",
   "category": 1,
   "icon": "workflow",
   "published": false,
@@ -418,18 +418,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "122244ad-7af7-46c3-a6cd-9b5c834a6111",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T03:23:15.916524Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:42.228402Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "122244ad-7af7-46c3-a6cd-9b5c834a6111",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T03:23:15.916524Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:42.228402Z",
   "_workflowMetadata": {
     "originWorkflowId": "122244ad-7af7-46c3-a6cd-9b5c834a6111",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T03:23:15.916524Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:42.228402Z"
   }
 }

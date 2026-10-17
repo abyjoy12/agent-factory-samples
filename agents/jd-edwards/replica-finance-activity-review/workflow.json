@@ -1,7 +1,7 @@
 {
   "workflowId": "5E00829F9869F9F0E0638001000A8F08",
-  "name": "JDE Replica - Finance Activity Review",
-  "description": "Draft company and date-scoped GL activity review from the JDEDEMO replica.",
+  "name": "Finance Activity Review — JD Edwards replica",
+  "description": "Pre-cutover read-only finance activity review against the GoldenGate JDEDEMO replica.",
   "category": 1,
   "icon": "workflow",
   "published": false,
@@ -418,18 +418,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "49a704f2-4634-4dbf-b456-f16c2d9c779a",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T03:23:15.990781Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:42.320065Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "49a704f2-4634-4dbf-b456-f16c2d9c779a",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T03:23:15.990781Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:42.320065Z",
   "_workflowMetadata": {
     "originWorkflowId": "49a704f2-4634-4dbf-b456-f16c2d9c779a",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T03:23:15.990781Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:42.320065Z"
   }
 }

@@ -1,12 +1,55 @@
 {
-  "workflowId": "5D66973D9AAB2B60E0638001000A3149",
-  "name": "JD Edwards Fulfillment Exception Agent",
-  "description": "Read-only JDE sales-order shortage diagnosis and approval-ready recovery recommendations using live EnterpriseOne data.",
+  "workflowId": "5E01CE5667DE84E2E0638001000A285F",
+  "name": "Fulfillment Exception Agent — JD Edwards EnterpriseOne",
+  "description": "Read-only fulfillment exception analysis using live sales-order, inventory, inbound-supply, item, and address-book evidence.",
   "category": 1,
-  "icon": "workflow",
-  "published": true,
+  "icon": "briefcase",
+  "published": false,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "5bca9781-a8f5-4af6-8f8c-d11385ea0c2f",
+      "version": 4,
+      "lastUpdatedOn": "2026-10-11T04:46:37.634612Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "xy-edge__node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4user_provided_input-node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943prompt-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "source": "node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
+        "sourceHandle": "user_provided_input-node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
+        "target": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "targetHandle": "prompt-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "xy-edge__node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943tool_output-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1amessage-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
+        "source": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "sourceHandle": "tool_output-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "target": "node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
+        "targetHandle": "message-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "xy-edge__node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1tools-node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943tools-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "source": "node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
+        "sourceHandle": "tools-node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
+        "target": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "targetHandle": "tools-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -55,7 +98,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Investigates JDE sales-order fulfillment exceptions and recommends evidence-backed recovery options without changing JDE.",
+              "value": "Read-only fulfillment exception analysis using live sales-order, inventory, inbound-supply, item, and address-book evidence.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -99,7 +142,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "az-router",
+              "value": "xai.grok-4.3",
               "valueType": "str"
             },
             "prompt": {
@@ -344,50 +387,7 @@
         },
         "type": "flowGenericNode"
       }
-    ],
-    "edges": [
-      {
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false,
-        "id": "xy-edge__node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4user_provided_input-node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943prompt-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "source": "node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
-        "sourceHandle": "user_provided_input-node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
-        "target": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "targetHandle": "prompt-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943"
-      },
-      {
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false,
-        "id": "xy-edge__node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943tool_output-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1amessage-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
-        "source": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "sourceHandle": "tool_output-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "target": "node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
-        "targetHandle": "message-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a"
-      },
-      {
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false,
-        "id": "xy-edge__node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1tools-node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943tools-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "source": "node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
-        "sourceHandle": "tools-node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
-        "target": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "targetHandle": "tools-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943"
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "5bca9781-a8f5-4af6-8f8c-d11385ea0c2f",
-      "version": 4,
-      "lastUpdatedOn": "2026-10-11T04:46:37.634612Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,

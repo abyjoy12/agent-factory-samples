@@ -1,4 +1,4 @@
-# JDE Replica - Supplier Follow-up — presenter outline
+# Supplier Follow-up — JD Edwards replica — presenter outline
 
 1. **Question:** Find five open purchase lines in the replica. Identify a dated line to investigate and draft a concise supplier follow-up for human review. Do not send anything.
 2. **Evidence path:** Oracle PL/SQL executor with an explicit one-routine allowlist. Show the database binding and the fixed query or routine allowlist.

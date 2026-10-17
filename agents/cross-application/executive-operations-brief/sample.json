@@ -9,10 +9,10 @@
     "slug": "executive-operations-brief",
     "name": "Executive operations brief"
   },
-  "title": "Executive Working Capital Brief",
+  "title": "Executive Working Capital Brief — Cross-application",
   "summary": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes.",
   "category": "Executive Insights",
-  "version": "2",
+  "version": "3",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -119,6 +119,7 @@
       "Agent subagents"
     ],
     "actionMode": "Read-only",
-    "question": "What should leadership review in receivables and unpaid supplier invoices?"
+    "question": "What should leadership review in receivables and unpaid supplier invoices?",
+    "displayName": "Executive Working Capital Brief — Cross-application"
   }
 }

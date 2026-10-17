@@ -1,4 +1,4 @@
-# Presenter notes: PeopleSoft Workforce Planning Brief
+# Presenter notes: Workforce Planning Brief — PeopleSoft
 
 | Slide | Message | What to show |
 | --- | --- | --- |

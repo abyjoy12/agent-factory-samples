@@ -9,10 +9,10 @@
     "slug": "invoice-duplicate-review",
     "name": "Invoice duplicate review"
   },
-  "title": "PeopleSoft Invoice Duplicate Review",
+  "title": "Invoice Duplicate Review — PeopleSoft",
   "summary": "Surface repeated supplier invoice references for AP review with deterministic SQL and explainable matching.",
   "category": "Finance",
-  "version": "5",
+  "version": "6",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -109,6 +109,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which supplier invoice references may be duplicates that AP should investigate?"
+    "question": "Which supplier invoice references may be duplicates that AP should investigate?",
+    "displayName": "Invoice Duplicate Review — PeopleSoft"
   }
 }

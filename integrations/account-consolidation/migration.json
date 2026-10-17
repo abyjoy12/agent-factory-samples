@@ -1,0 +1,212 @@
+{
+  "date": "2026-10-17",
+  "visibleFlowCount": 152,
+  "namedDefinitionsReviewed": 103,
+  "ownedNamedFlows": 31,
+  "migratedFlows": 6,
+  "newCatalogEntries": 2,
+  "existingCatalogEntriesReplacedWithEditorCopies": 4,
+  "originalFlowsDeleted": 0,
+  "runtimeTestsExecuted": 0,
+  "policy": "Only owner-accessible, relevant flows with resolved dependencies were selected. Original flows and conversations retained.",
+  "decisions": [
+    {
+      "sourceId": "596B8136EB505ACFE0638001000A5091",
+      "sourceName": "litellmtest",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB535ACFE0638001000A5091",
+      "sourceName": "Email Validator Node Test",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB585ACFE0638001000A5091",
+      "sourceName": "EBS-PLSQL",
+      "decision": "retained at source",
+      "reason": "Excluded: generic PL/SQL draft with empty instructions and empty routine allowlist; the diagnostic flow is the curated replacement."
+    },
+    {
+      "sourceId": "596B8136EB5A5ACFE0638001000A5091",
+      "sourceName": "LLM-test",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB625ACFE0638001000A5091",
+      "sourceName": "DBA Tools EBS",
+      "decision": "retained at source",
+      "reason": "Deferred: bound MCP source 22 is absent from the account selection and its sharing endpoint returns 403; duplicate/general DBA variants need a working scoped connection."
+    },
+    {
+      "sourceId": "596B8136EB5E5ACFE0638001000A5091",
+      "sourceName": "EBS DBA User",
+      "decision": "retained at source",
+      "reason": "Deferred: bound MCP source 22 is absent from the account selection and its sharing endpoint returns 403; duplicate/general DBA variants need a working scoped connection."
+    },
+    {
+      "sourceId": "596B8136EB3A5ACFE0638001000A5091",
+      "sourceName": "Better Money Habits (KA)",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB3B5ACFE0638001000A5091",
+      "sourceName": "Financial Wellness Agent",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB3C5ACFE0638001000A5091",
+      "sourceName": "Oracle DB and Knowldge - Orig Table",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB3E5ACFE0638001000A5091",
+      "sourceName": "Support KB - D01",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB405ACFE0638001000A5091",
+      "sourceName": "Simplest A",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB415ACFE0638001000A5091",
+      "sourceName": "Export-1",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB465ACFE0638001000A5091",
+      "sourceName": "Copied KB",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB485ACFE0638001000A5091",
+      "sourceName": "Demo -22",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "596B8136EB4B5ACFE0638001000A5091",
+      "sourceName": "AJ - EBS Query",
+      "decision": "retained at source",
+      "reason": "Deferred: bound MCP source 22 is absent from the account selection and its sharing endpoint returns 403; duplicate/general DBA variants need a working scoped connection."
+    },
+    {
+      "sourceId": "596B8136EB665ACFE0638001000A5091",
+      "sourceName": "AJEBS",
+      "decision": "retained at source",
+      "reason": "Deferred: bound MCP source 22 is absent from the account selection and its sharing endpoint returns 403; duplicate/general DBA variants need a working scoped connection."
+    },
+    {
+      "sourceId": "596B8136EB915ACFE0638001000A5091",
+      "sourceName": "Agent Memory",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "5AF479EB308424C8E0638001000A5065",
+      "sourceName": "EBS Functional Checks",
+      "decision": "migrated",
+      "destinationId": "5E01CE5667E384E2E0638001000A285F",
+      "destinationName": "Functional Check Evidence Review — Oracle EBS",
+      "sample": "agents/oracle-ebs/functional-check-evidence-review"
+    },
+    {
+      "sourceId": "5AF479EB309D24C8E0638001000A5065",
+      "sourceName": "Gaelic",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "5D89CAFB1B354A75E0638001000A552A",
+      "sourceName": "JDE JPS920 Fulfillment Coach",
+      "decision": "migrated",
+      "destinationId": "5E01CE5667E184E2E0638001000A285F",
+      "destinationName": "Fulfillment Coach (JPS920) — JD Edwards EnterpriseOne",
+      "sample": "agents/jd-edwards/jps920-fulfillment-coach"
+    },
+    {
+      "sourceId": "59D2761DF934CC4FE0638001000A757D",
+      "sourceName": "Agent to Agent",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "59D2761DF949CC4FE0638001000A757D",
+      "sourceName": "EBS/ASCP Inventory Working-Capital Analyst.",
+      "decision": "retained at source",
+      "reason": "Deferred: detailed SQL-analysis instructions are wired only to four inventory/ATP PL/SQL routines; advertised scope exceeds actual tools. Retain as design input for a scoped SQL reader."
+    },
+    {
+      "sourceId": "59D2761DF94ECC4FE0638001000A757D",
+      "sourceName": "OIC MCP Server - Demo",
+      "decision": "retained at source",
+      "reason": "Deferred: patient-care utilization project is outside the requested ERP/HCM/SCM and infrastructure scope."
+    },
+    {
+      "sourceId": "5B9F4C9AD09FE984E0638001000A56AD",
+      "sourceName": "Fusion Apps - Invoice REST API",
+      "decision": "migrated",
+      "destinationId": "5E01CE5667E284E2E0638001000A285F",
+      "destinationName": "Invoice Review and Actions — Fusion ERP",
+      "sample": "agents/fusion-erp/invoice-review-actions"
+    },
+    {
+      "sourceId": "5BC04DA5A34A6A83E0638001000A7856",
+      "sourceName": "AIDP-PP-Shared",
+      "decision": "retained at source",
+      "reason": "Excluded: input/agent/output only, empty instructions and no connected tools. Does not implement an AIDP integration."
+    },
+    {
+      "sourceId": "5D66973D9AAB2B60E0638001000A3149",
+      "sourceName": "JD Edwards Fulfillment Exception Agent",
+      "decision": "migrated",
+      "destinationId": "5E01CE5667DE84E2E0638001000A285F",
+      "destinationName": "Fulfillment Exception Agent — JD Edwards EnterpriseOne",
+      "sample": "agents/jd-edwards/fulfillment-exception"
+    },
+    {
+      "sourceId": "5D66973D9ABC2B60E0638001000A3149",
+      "sourceName": "JD Edwards Fulfillment Memory Agent",
+      "decision": "migrated",
+      "destinationId": "5E01CE5667DF84E2E0638001000A285F",
+      "destinationName": "Fulfillment Memory Agent — JD Edwards EnterpriseOne",
+      "sample": "agents/jd-edwards/fulfillment-memory"
+    },
+    {
+      "sourceId": "5D8A579B1EE32BA7E0638001000A55AB",
+      "sourceName": "JD Edwards Adaptive Fulfillment Advisor",
+      "decision": "migrated",
+      "destinationId": "5E01CE5667E084E2E0638001000A285F",
+      "destinationName": "Adaptive Fulfillment Advisor — JD Edwards EnterpriseOne",
+      "sample": "agents/jd-edwards/adaptive-fulfillment-advisor"
+    },
+    {
+      "sourceId": "5D8A579B1F162BA7E0638001000A55AB",
+      "sourceName": "Demo-1",
+      "decision": "retained at source",
+      "reason": "Excluded: generic multi-node JDE experiment overlaps the four more clearly scoped fulfillment examples."
+    },
+    {
+      "sourceId": "5D8A579B1F1B2BA7E0638001000A55AB",
+      "sourceName": "openai-test",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    },
+    {
+      "sourceId": "59EF43D47C9CCF72E0638001000AEFE7",
+      "sourceName": "Router Test",
+      "decision": "retained at source",
+      "reason": "Scratch, generic, language/model test, or unrelated demo; no distinct supported use case for this catalog."
+    }
+  ]
+}

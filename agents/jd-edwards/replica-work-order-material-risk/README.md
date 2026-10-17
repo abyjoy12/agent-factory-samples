@@ -1,4 +1,4 @@
-# JDE Replica - Work Order Material Risk
+# Work Order Material Risk — JD Edwards replica
 
 Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica.
 

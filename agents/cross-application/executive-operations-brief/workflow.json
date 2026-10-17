@@ -1,6 +1,6 @@
 {
   "workflowId": "5E00829F9840F9F0E0638001000A8F08",
-  "name": "Executive Working Capital Brief",
+  "name": "Executive Working Capital Brief — Cross-application",
   "description": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes.",
   "category": 1,
   "icon": "briefcase",
@@ -783,18 +783,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "73453904-f7b3-4436-a337-8100bf6b6d04",
-      "version": 2,
-      "lastUpdatedOn": "2026-10-17T02:15:46.730910Z"
+      "version": 3,
+      "lastUpdatedOn": "2026-10-17T07:53:41.939270Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "73453904-f7b3-4436-a337-8100bf6b6d04",
-  "version": 2,
-  "lastUpdatedOn": "2026-10-17T02:15:46.730910Z",
+  "version": 3,
+  "lastUpdatedOn": "2026-10-17T07:53:41.939270Z",
   "_workflowMetadata": {
     "originWorkflowId": "73453904-f7b3-4436-a337-8100bf6b6d04",
-    "version": 2,
-    "lastUpdatedOn": "2026-10-17T02:15:46.730910Z"
+    "version": 3,
+    "lastUpdatedOn": "2026-10-17T07:53:41.939270Z"
   }
 }

@@ -1,4 +1,4 @@
-# PeopleSoft Invoice Duplicate Review
+# Invoice Duplicate Review — PeopleSoft
 
 Surface repeated supplier invoice references for AP review with deterministic SQL and explainable matching.
 

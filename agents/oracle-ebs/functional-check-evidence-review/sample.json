@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "ebs-functional-check-evidence-review",
+  "application": {
+    "slug": "oracle-ebs",
+    "name": "Oracle E-Business Suite"
+  },
+  "useCase": {
+    "slug": "functional-check-evidence-review",
+    "name": "Functional check evidence review"
+  },
+  "title": "Functional Check Evidence Review — Oracle EBS",
+  "summary": "Find cataloged EBS functional checks, inspect their impact and guidance, and review progress, reports, and evidence from existing runs through six allowlisted control-package routines. Does not start or cancel runs or execute remediation.",
+  "category": "IT Operations",
+  "version": "15",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "EBS Sensor Control; custom PAF_DEMO.EBS_CHECK_API package.",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "No persistent memories or cross-thread context."
+  },
+  "capabilities": [
+    "Six explicitly allowlisted PL/SQL routines for catalog and existing-run evidence.",
+    "Preserves pagination, run status, execution-window limitations and source guidance."
+  ],
+  "prerequisites": [
+    "PAF 26.7-compatible visual Agent Builder and a registered model.",
+    "An existing EBS Sensor Control deployment with its catalog, run ledger and diagnostic package."
+  ],
+  "tools": [
+    {
+      "name": "GET_CAPABILITIES",
+      "method": "PLSQL",
+      "path": "PAF_DEMO.EBS_CHECK_API.GET_CAPABILITIES",
+      "purpose": "Read existing control-catalog or run evidence."
+    },
+    {
+      "name": "FIND_SENSORS",
+      "method": "PLSQL",
+      "path": "PAF_DEMO.EBS_CHECK_API.FIND_SENSORS",
+      "purpose": "Read existing control-catalog or run evidence."
+    },
+    {
+      "name": "GET_SENSOR",
+      "method": "PLSQL",
+      "path": "PAF_DEMO.EBS_CHECK_API.GET_SENSOR",
+      "purpose": "Read existing control-catalog or run evidence."
+    },
+    {
+      "name": "GET_PROGRESS",
+      "method": "PLSQL",
+      "path": "PAF_DEMO.EBS_CHECK_API.GET_PROGRESS",
+      "purpose": "Read existing control-catalog or run evidence."
+    },
+    {
+      "name": "GET_REPORT",
+      "method": "PLSQL",
+      "path": "PAF_DEMO.EBS_CHECK_API.GET_REPORT",
+      "purpose": "Read existing control-catalog or run evidence."
+    },
+    {
+      "name": "GET_EVIDENCE",
+      "method": "PLSQL",
+      "path": "PAF_DEMO.EBS_CHECK_API.GET_EVIDENCE",
+      "purpose": "Read existing control-catalog or run evidence."
+    }
+  ],
+  "safetyControls": [
+    "Removed generic database tools and the REST run controller from this copy.",
+    "Only six diagnostic routines are allowlisted; no run creation, cancellation or remediation tool is attached.",
+    "The database account privileges remain the security boundary; a package-wide EXECUTE grant can expose more routines to other clients."
+  ],
+  "setup": [
+    "Import the release .paf into an unpublished destination flow.",
+    "Provide the pre-existing PAF_DEMO.EBS_CHECK_API package and its control catalog. This sample does not install that custom backend. Use a control reader able to call the six documented routines; preserve the node routine allowlist and auto_commit=false.",
+    "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
+    "Select a registered model on every Agent node. Disable Agent Memory and cross-thread sharing.",
+    "Check permissions and connectivity against the intended demo environment before publishing."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Guided review",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Show the available check families and explain what evidence I need to review an existing run."
+          },
+          {
+            "speaker": "User",
+            "text": "For run <run_id>, summarize recorded failures, warnings, execution time and incomplete evidence. Do not start a run."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "Evidence is distinguished from assumptions and unavailable data.",
+      "Only persisted diagnostics are reported, with pagination and scope caveats."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build PAF; authorized account consolidation",
+    "status": "Editor-owned draft; runtime not exercised",
+    "notes": [
+      "Source sharing, new-flow ownership, metadata and memory settings were read back; an official export was captured.",
+      "No Fusion action or EBS diagnostic run was executed during migration.",
+      "The destination must validate source authentication, backend compatibility and expected behavior before use.",
+      "Shared control-source access succeeded through the permission-checked database-detail API. The current owner-filtered database selector omits this shared source; retain the saved binding, or create an editor-owned source on another instance."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "ebs-functional-check-evidence-review.paf"
+  },
+  "catalog": {
+    "displayName": "Functional Check Evidence Review — Oracle EBS",
+    "domains": [
+      "IT operations"
+    ],
+    "modules": [
+      "Database operations"
+    ],
+    "useCases": [
+      "Operations monitoring",
+      "Exception triage"
+    ],
+    "technicalFeatures": [],
+    "keywords": [
+      "sensor",
+      "diagnostics",
+      "catalog",
+      "run ledger"
+    ],
+    "actionMode": "Read-only",
+    "question": "Which EBS checks explain this run’s warnings, and what should the operator investigate?"
+  }
+}

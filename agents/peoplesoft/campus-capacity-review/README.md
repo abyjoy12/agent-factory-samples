@@ -1,4 +1,4 @@
-# PeopleSoft Campus Capacity Review
+# Campus Capacity Review — PeopleSoft
 
 Review class enrollment and waitlist counters by institution, career and term without making enrollment promises.
 

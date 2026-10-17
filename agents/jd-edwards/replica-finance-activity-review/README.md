@@ -1,4 +1,4 @@
-# JDE Replica - Finance Activity Review
+# Finance Activity Review — JD Edwards replica
 
 Pre-cutover read-only finance activity review against the GoldenGate JDEDEMO replica.
 

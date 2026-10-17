@@ -1,4 +1,4 @@
-# JDE Supplier Follow-up Desk
+# Supplier Follow-up Desk — JD Edwards EnterpriseOne
 
 Prepare a focused supplier follow-up list from open purchase lines without changing purchase orders.
 

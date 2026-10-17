@@ -1,4 +1,4 @@
-# JD Edwards Fulfillment Exception Agent
+# Fulfillment Exception Agent — JD Edwards EnterpriseOne
 
 Read-only fulfillment exception analysis for JD Edwards EnterpriseOne. The agent uses live sales-order, inventory, inbound-supply, item, and address-book evidence to recommend an approval-ready recovery plan without changing JDE.
 
@@ -10,7 +10,7 @@ Read-only fulfillment exception analysis for JD Edwards EnterpriseOne. The agent
 - Explicit separation between evidence, recommendations, verification, and execution.
 - A hard read-only control: the agent ends live analyses with `JDE changes made: none (read-only analysis).`
 
-The included workflow was exported from Private Agent Factory 26.7.0.0.0 after live validation against the JPS920 sample environment. Results depend on the data and permissions in the target JDE environment.
+The current export is the editor-owned consolidation copy created on 2026-10-17. Source access, metadata and memory settings were checked; this new workflow ID has not been run end to end. Original validation described below is historical. Learned memories and credentials are excluded.
 
 ## Prerequisites
 

@@ -1,0 +1,398 @@
+{
+  "observedAt": "2026-10-17T07:57:38.569999+00:00",
+  "workflowCount": 28,
+  "flows": [
+    {
+      "path": "agents/cross-application/executive-operations-brief",
+      "id": "5E00829F9840F9F0E0638001000A8F08",
+      "name": "Executive Working Capital Brief — Cross-application",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "60fbd924bd49727c4cdf7e81606733bafaddb9140ac9c43081fab2363c238099",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/cross-application/policy-desk",
+      "id": "5E0080AA47A6F9BFE0638001000A4579",
+      "name": "Business Policy Desk — Cross-application",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "a98caa47a58d0e2d5af4e8144026ed68e37a79b9ed1720b26127d53e63a9caba",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/fusion-erp/invoice-review-actions",
+      "id": "5E01CE5667E284E2E0638001000A285F",
+      "name": "Invoice Review and Actions — Fusion ERP",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "6bf4b71f1f4691a4cb7e8d9abde0bf85aa121f15a5b20328f908ce894abd4752",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/adaptive-fulfillment-advisor",
+      "id": "5E01CE5667E084E2E0638001000A285F",
+      "name": "Adaptive Fulfillment Advisor — JD Edwards EnterpriseOne",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "743561220513f569832a1cc61ebb40ae3690f620a9583d3a804e161f9e0169f6",
+      "memory": {
+        "enabled": true,
+        "shareBetweenChatThreads": true
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/field-material-readiness",
+      "id": "5E0080AA47A4F9BFE0638001000A4579",
+      "name": "Field Material Readiness — JD Edwards EnterpriseOne",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "bcfcd338ce699f41b56dcc1c5dcffac1d77eac0d3e52b84f7286eba5cfacced9",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/fulfillment-exception",
+      "id": "5E01CE5667DE84E2E0638001000A285F",
+      "name": "Fulfillment Exception Agent — JD Edwards EnterpriseOne",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "fa9560a9214bf13f5e31ac21205306024d8d22f126be82c66c7d27909105e9b2",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/fulfillment-memory",
+      "id": "5E01CE5667DF84E2E0638001000A285F",
+      "name": "Fulfillment Memory Agent — JD Edwards EnterpriseOne",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "ecd8542e3b2e698831728f23ed8d2010b0db7b2cb1aed5537585d8ba8633ec73",
+      "memory": {
+        "enabled": true,
+        "shareBetweenChatThreads": true
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/jps920-fulfillment-coach",
+      "id": "5E01CE5667E184E2E0638001000A285F",
+      "name": "Fulfillment Coach (JPS920) — JD Edwards EnterpriseOne",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "48590d895d4c1e91b884da4fb41b2fe1839b62190437e61eb2e02ad09f9dd554",
+      "memory": {
+        "enabled": true,
+        "shareBetweenChatThreads": true
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/replica-backorder-triage",
+      "id": "5E00829F9867F9F0E0638001000A8F08",
+      "name": "Backorder Triage — JD Edwards replica",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "b6ef45011e2c447246e9f9c5b1433b1d89a0b0536bb94d4c56ff2dbed3fb8f80",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/replica-finance-activity-review",
+      "id": "5E00829F9869F9F0E0638001000A8F08",
+      "name": "Finance Activity Review — JD Edwards replica",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "ffda98217242b8b1b0149a4522778ceda7e58f7cfcaea192a383a8e057309c31",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/replica-supplier-follow-up",
+      "id": "5E00829F9868F9F0E0638001000A8F08",
+      "name": "Supplier Follow-up — JD Edwards replica",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "78d31a67049aeaf9fc0c2e5567a9c1b183a6392b005996b63571c42e938123e3",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/replica-work-order-material-risk",
+      "id": "5E00829F986AF9F0E0638001000A8F08",
+      "name": "Work Order Material Risk — JD Edwards replica",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "9d21c9202b676e0dd9c0e0ce87c7b775afb81b89551b250a0d521d0a0a97032d",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/jd-edwards/supplier-follow-up",
+      "id": "5E0080AA479FF9BFE0638001000A4579",
+      "name": "Supplier Follow-up Desk — JD Edwards EnterpriseOne",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "52cb61fc858f37e836df7c0408ee6404da874def79ce5e8dde0ac283aae09d94",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/oracle-ebs/concurrent-history-review",
+      "id": "5E01CE5667C284E2E0638001000A285F",
+      "name": "Concurrent Processing History — Oracle E-Business Suite",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "f61d57304d03b5dbfd0c4ecadc777cdf80dd07c2c6f3a05ec7ec398057df6b84",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/oracle-ebs/functional-check-evidence-review",
+      "id": "5E01CE5667E384E2E0638001000A285F",
+      "name": "Functional Check Evidence Review — Oracle EBS",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "6091a3661135f745286c7c55f845560c1992cca569f8ee8aa0257f2b8c59bd7c",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/oracle-ebs/it-operations-triage",
+      "id": "5E0080AA47A3F9BFE0638001000A4579",
+      "name": "IT Operations Triage — Oracle E-Business Suite",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "4c9d90d820edfbc395a0f5bb396ab4eebf91c3ba7c6ef2132cf4ee41f33bc784",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/oracle-ebs/purchase-receipt-review",
+      "id": "5E01CE5667C184E2E0638001000A285F",
+      "name": "Purchase Receipt Review — Oracle E-Business Suite",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "edaeb86c6393b557cdd96bf6f2efd84dc49f5c01e53787f6a4d6a88d6fe7589a",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/oracle-ebs/receivables-portfolio-review",
+      "id": "5E01CE5667C084E2E0638001000A285F",
+      "name": "Receivables Portfolio Review — Oracle E-Business Suite",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "dce02979b5e3edc4861423e1756ae8c8518e165bf3b11083ab1d5c31e5da5c7e",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/oracle-ebs/sales-commitment-review",
+      "id": "5E0080AA47A2F9BFE0638001000A4579",
+      "name": "Sales Commitment Review — Oracle E-Business Suite",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "e9dc159c3ca39bd227205476ca1a97a291845c363cd9e7a452fc2237635b322d",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/peoplesoft/campus-capacity-review",
+      "id": "5E01CE5667BF84E2E0638001000A285F",
+      "name": "Campus Capacity Review — PeopleSoft",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "2fd14f93baf438d6ba9219d8ba1c2ba267ffa10464477e5b9fd0523926b6dd83",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/peoplesoft/database-service-pulse",
+      "id": "5E0080AA47B7F9BFE0638001000A4579",
+      "name": "Database Service Pulse — PeopleSoft",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "f2b33a088d94a93b63a893b45e7ba11d613758e313f8a4fbc3c99020f2fee89e",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/peoplesoft/invoice-duplicate-review",
+      "id": "5E0080AA47A0F9BFE0638001000A4579",
+      "name": "Invoice Duplicate Review — PeopleSoft",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "e8cae9620370c228c22891da0f18fd266664a164652b8a98be88287180f63291",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/peoplesoft/learning-capacity-review",
+      "id": "5E01CE5667BD84E2E0638001000A285F",
+      "name": "Learning Capacity Review — PeopleSoft",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "228a0ae1382cac9c03bfa019b7fad31d61125d1ac7dd5c37a1d2daf31e4c2f19",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/peoplesoft/learning-evidence-review",
+      "id": "5E0080AA47A5F9BFE0638001000A4579",
+      "name": "Learning Evidence Review — PeopleSoft",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "651211eeb8ea4900ec8d964f757103507fa6be7947b795426d72bbba0aa4ae7e",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/peoplesoft/position-coverage-review",
+      "id": "5E01CE5667BB84E2E0638001000A285F",
+      "name": "Position Coverage Review — PeopleSoft",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "9ff50e58da7d378bb5c67f09b9c7349a6b417cee3f2d6d0ecf8262a8ec487704",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/peoplesoft/purchase-order-review",
+      "id": "5E01CE5667BC84E2E0638001000A285F",
+      "name": "Purchase Order Review — PeopleSoft",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "4c3061e0b59581d46aa51c415c37a90f514f470f656af536e40e5cd22f9f10a5",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/peoplesoft/service-case-workload",
+      "id": "5E01CE5667BE84E2E0638001000A285F",
+      "name": "Service Case Workload — PeopleSoft",
+      "published": false,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "f3b65355559b76c5c775f21f2c5f55466038dea0a34e293f972c32b536495438",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    },
+    {
+      "path": "agents/peoplesoft/workforce-planning",
+      "id": "5E0080AA47A1F9BFE0638001000A4579",
+      "name": "Workforce Planning Brief — PeopleSoft",
+      "published": true,
+      "isEditorOwned": true,
+      "sourceBindingsAccessible": true,
+      "graphSha256": "75037e70bf7f0ecb99fb6032b7225c715e8e22f9cc4e57ffea42ff1e2781fd00",
+      "memory": {
+        "enabled": false,
+        "shareBetweenChatThreads": false
+      },
+      "runtimeExercisedDuringConsolidation": false
+    }
+  ]
+}

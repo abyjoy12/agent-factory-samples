@@ -1,12 +1,55 @@
 {
-  "workflowId": "5D89CAFB1B354A75E0638001000A552A",
-  "name": "JDE JPS920 Fulfillment Coach",
-  "description": "Read-only fulfillment advisor connected to JDE environment JPS920 with role *ALL; adapts to each user’s operational corrections across chats.",
+  "workflowId": "5E01CE5667E184E2E0638001000A285F",
+  "name": "Fulfillment Coach (JPS920) — JD Edwards EnterpriseOne",
+  "description": "End-user-oriented read-only fulfillment coach with builder-managed JPS920 context and implicit learning from incremental corrections.",
   "category": 1,
-  "icon": "workflow",
-  "published": true,
+  "icon": "briefcase",
+  "published": false,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "4ecfdffc-47b2-4912-88db-e94840b76c84",
+      "version": 8,
+      "lastUpdatedOn": "2026-10-11T05:42:39.895329Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "xy-edge__node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4user_provided_input-node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943prompt-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "source": "node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
+        "sourceHandle": "user_provided_input-node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
+        "target": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "targetHandle": "prompt-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "xy-edge__node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943tool_output-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1amessage-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
+        "source": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "sourceHandle": "tool_output-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "target": "node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
+        "targetHandle": "message-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "xy-edge__node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1tools-node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943tools-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "source": "node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
+        "sourceHandle": "tools-node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
+        "target": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
+        "targetHandle": "tools-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -55,7 +98,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Read-only fulfillment advisor for the statically configured JDE JPS920 environment that improves recommendations from ordinary user corrections across sessions.",
+              "value": "End-user-oriented read-only fulfillment coach with builder-managed JPS920 context and implicit learning from incremental corrections.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -99,7 +142,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "az-router",
+              "value": "xai.grok-4.3",
               "valueType": "str"
             },
             "prompt": {
@@ -344,50 +387,7 @@
         },
         "type": "flowGenericNode"
       }
-    ],
-    "edges": [
-      {
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false,
-        "id": "xy-edge__node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4user_provided_input-node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943prompt-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "source": "node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
-        "sourceHandle": "user_provided_input-node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
-        "target": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "targetHandle": "prompt-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943"
-      },
-      {
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false,
-        "id": "xy-edge__node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943tool_output-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1amessage-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
-        "source": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "sourceHandle": "tool_output-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "target": "node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
-        "targetHandle": "message-node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a"
-      },
-      {
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false,
-        "id": "xy-edge__node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1tools-node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943tools-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "source": "node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
-        "sourceHandle": "tools-node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
-        "target": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "targetHandle": "tools-node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943"
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "4ecfdffc-47b2-4912-88db-e94840b76c84",
-      "version": 8,
-      "lastUpdatedOn": "2026-10-11T05:42:39.895329Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,

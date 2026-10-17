@@ -9,10 +9,10 @@
     "slug": "replica-work-order-material-risk",
     "name": "JDE Replica - Work Order Material Risk"
   },
-  "title": "JDE Replica - Work Order Material Risk",
+  "title": "Work Order Material Risk — JD Edwards replica",
   "summary": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica.",
   "category": "Manufacturing",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -123,6 +123,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which components need checking before we confirm this work order is ready?"
+    "question": "Which components need checking before we confirm this work order is ready?",
+    "displayName": "Work Order Material Risk — JD Edwards replica"
   }
 }

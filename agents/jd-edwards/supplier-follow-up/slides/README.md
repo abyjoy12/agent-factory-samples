@@ -1,4 +1,4 @@
-# Presenter notes: JDE Supplier Follow-up Desk
+# Presenter notes: Supplier Follow-up Desk — JD Edwards EnterpriseOne
 
 | Slide | Message | What to show |
 | --- | --- | --- |

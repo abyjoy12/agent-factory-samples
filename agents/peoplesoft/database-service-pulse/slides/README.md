@@ -1,4 +1,4 @@
-# Presenter notes: PeopleSoft Database Service Pulse
+# Presenter notes: Database Service Pulse — PeopleSoft
 
 | Slide | Message | What to show |
 | --- | --- | --- |

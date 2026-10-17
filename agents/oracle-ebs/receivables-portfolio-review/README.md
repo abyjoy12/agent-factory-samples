@@ -1,4 +1,4 @@
-# EBS Receivables Portfolio Review
+# Receivables Portfolio Review — Oracle E-Business Suite
 
 Review positive remaining receivable payment schedules by operating unit, currency and raw status.
 

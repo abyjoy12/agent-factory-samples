@@ -9,10 +9,10 @@
     "slug": "it-operations-triage",
     "name": "It operations triage"
   },
-  "title": "EBS IT Operations Triage",
+  "title": "IT Operations Triage — Oracle E-Business Suite",
   "summary": "Route outage questions and batch-performance questions to focused read-only operations assistants.",
   "category": "IT",
-  "version": "2",
+  "version": "3",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -116,6 +116,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Where should IT start investigating this batch or service concern?"
+    "question": "Where should IT start investigating this batch or service concern?",
+    "displayName": "IT Operations Triage — Oracle E-Business Suite"
   }
 }

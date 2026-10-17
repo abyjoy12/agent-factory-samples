@@ -1,4 +1,4 @@
-# Executive Working Capital Brief
+# Executive Working Capital Brief — Cross-application
 
 Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes.
 

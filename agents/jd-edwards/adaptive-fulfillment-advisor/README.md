@@ -1,4 +1,4 @@
-# JD Edwards Adaptive Fulfillment Advisor
+# Adaptive Fulfillment Advisor — JD Edwards EnterpriseOne
 
 Read-only JDE fulfillment advisor that learns connection details, operating constraints, and corrections through ordinary work conversations, then applies relevant context in later sessions.
 
@@ -9,7 +9,7 @@ Read-only JDE fulfillment advisor that learns connection details, operating cons
 - Incremental correction of prioritization, status, donor-reserve, and approval assumptions.
 - Silent cross-session continuity in a later fulfillment review.
 
-The included workflow was exported from Private Agent Factory 26.7.0.0.0 after live cross-session validation. Learned memory records are deliberately excluded from the sample.
+The current export is the editor-owned consolidation copy created on 2026-10-17. Source access, metadata and memory settings were checked; this new workflow ID has not been run end to end. Original validation described below is historical. Learned memories and credentials are excluded.
 
 ## Prerequisites
 

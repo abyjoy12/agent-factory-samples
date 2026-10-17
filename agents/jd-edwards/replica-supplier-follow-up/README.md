@@ -1,4 +1,4 @@
-# JDE Replica - Supplier Follow-up
+# Supplier Follow-up — JD Edwards replica
 
 Pre-cutover read-only supplier follow-up against the GoldenGate JDEDEMO replica.
 

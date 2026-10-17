@@ -1,0 +1,327 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Fusion Invoices Actions",
+    "version": "1.0.0",
+    "description": "Portable reconstruction of the configured demo source, not a validated Oracle release specification. Confirm fields and actions against the destination release."
+  },
+  "servers": [
+    {
+      "url": "https://your-fusion-environment.example.com"
+    }
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "Link": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  },
+  "paths": {
+    "/fscmRestApi/resources/11.13.18.05/invoices/action/cancelInvoice": {
+      "post": {
+        "operationId": "invoiceAction24",
+        "summary": "Cancel invoice",
+        "responses": {
+          "200": {
+            "description": "Cancel result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Action status.",
+                  "required": [
+                    "result"
+                  ],
+                  "additionalProperties": true,
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "description": "Oracle action result message."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/vnd.oracle.adf.action+json": {
+              "schema": {
+                "type": "object",
+                "format": "",
+                "additionalProperties": false,
+                "properties": {
+                  "BusinessUnit": {
+                    "type": "string",
+                    "description": "Business unit."
+                  },
+                  "Supplier": {
+                    "type": "string",
+                    "description": "Supplier name."
+                  },
+                  "InvoiceNumber": {
+                    "type": "string",
+                    "description": "Supplier invoice number."
+                  }
+                },
+                "required": [
+                  "BusinessUnit",
+                  "Supplier",
+                  "InvoiceNumber"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fscmRestApi/resources/11.13.18.05/invoices/action/cancelLine": {
+      "post": {
+        "operationId": "invoiceAction25",
+        "summary": "Cancel invoice line",
+        "responses": {
+          "200": {
+            "description": "Cancel result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Action status.",
+                  "required": [
+                    "result"
+                  ],
+                  "additionalProperties": true,
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "description": "Oracle action result message."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/vnd.oracle.adf.action+json": {
+              "schema": {
+                "type": "object",
+                "format": "",
+                "additionalProperties": false,
+                "properties": {
+                  "BusinessUnit": {
+                    "type": "string",
+                    "description": "Business unit."
+                  },
+                  "Supplier": {
+                    "type": "string",
+                    "description": "Supplier name."
+                  },
+                  "InvoiceNumber": {
+                    "type": "string",
+                    "description": "Supplier invoice number."
+                  },
+                  "LineNumber": {
+                    "type": "number",
+                    "description": "Invoice line number."
+                  }
+                },
+                "required": [
+                  "BusinessUnit",
+                  "Supplier",
+                  "InvoiceNumber",
+                  "LineNumber"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fscmRestApi/resources/11.13.18.05/invoices": {
+      "post": {
+        "operationId": "invoiceAction23",
+        "summary": "Create invoice",
+        "responses": {
+          "200": {
+            "description": "Created invoice.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Compact invoice response.",
+                  "additionalProperties": true,
+                  "properties": {
+                    "InvoiceId": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "Internal invoice ID."
+                    },
+                    "InvoiceNumber": {
+                      "type": "string",
+                      "description": "Supplier invoice number."
+                    },
+                    "InvoiceDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Invoice date."
+                    },
+                    "InvoiceAmount": {
+                      "type": "number",
+                      "description": "Invoice amount."
+                    },
+                    "InvoiceCurrency": {
+                      "type": "string",
+                      "description": "Invoice currency."
+                    },
+                    "BusinessUnit": {
+                      "type": "string",
+                      "description": "Business unit."
+                    },
+                    "Supplier": {
+                      "type": "string",
+                      "description": "Supplier name."
+                    },
+                    "SupplierNumber": {
+                      "type": "string",
+                      "description": "Supplier number."
+                    },
+                    "ApprovalStatus": {
+                      "type": "string",
+                      "description": "Approval status."
+                    },
+                    "ValidationStatus": {
+                      "type": "string",
+                      "description": "Validation status."
+                    },
+                    "links": {
+                      "type": "array",
+                      "description": "Related links.",
+                      "items": {
+                        "type": "object",
+                        "description": "Link object.",
+                        "additionalProperties": true,
+                        "properties": {
+                          "rel": {
+                            "type": "string",
+                            "description": "Link relation."
+                          },
+                          "href": {
+                            "type": "string",
+                            "description": "Link URL."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Link name."
+                          },
+                          "kind": {
+                            "type": "string",
+                            "description": "Link kind."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "format": "",
+                "additionalProperties": false,
+                "properties": {
+                  "AccountingDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Accounting date."
+                  },
+                  "BusinessUnit": {
+                    "type": "string",
+                    "description": "Business unit."
+                  },
+                  "InvoiceAmount": {
+                    "type": "number",
+                    "description": "Invoice amount."
+                  },
+                  "InvoiceCurrency": {
+                    "type": "string",
+                    "description": "Invoice currency."
+                  },
+                  "InvoiceDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Supplier invoice date."
+                  },
+                  "InvoiceNumber": {
+                    "type": "string",
+                    "description": "Supplier invoice number."
+                  },
+                  "PaymentCurrency": {
+                    "type": "string",
+                    "description": "Payment currency."
+                  },
+                  "PaymentMethodCode": {
+                    "type": "string",
+                    "description": "Payment method code."
+                  },
+                  "Supplier": {
+                    "type": "string",
+                    "description": "Supplier name."
+                  },
+                  "SupplierSite": {
+                    "type": "string",
+                    "description": "Supplier site."
+                  },
+                  "TermsDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Terms date."
+                  }
+                },
+                "required": [
+                  "AccountingDate",
+                  "BusinessUnit",
+                  "InvoiceAmount",
+                  "InvoiceCurrency",
+                  "InvoiceDate",
+                  "InvoiceNumber",
+                  "PaymentCurrency",
+                  "PaymentMethodCode",
+                  "Supplier",
+                  "SupplierSite",
+                  "TermsDate"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -56,6 +56,7 @@ class Agent:
     keywords: tuple[str, ...]
     action_mode: str
     business_question: str
+    display_name: str
     version: str
     platform_version: str
     connection_context: str
@@ -259,6 +260,7 @@ def load_agent(folder: Path, repository_url: str = "", release_base_url: str = "
         domains=domains, modules=modules, functional_use_cases=functional_use_cases,
         technical_features=tuple(sorted(features)), keywords=keywords, action_mode=action_mode,
         business_question=_text(catalog.get("question", name), f"{path}: catalog.question"),
+        display_name=_text(catalog.get("displayName", name), f"{path}: catalog.displayName"),
         version=version,
         platform_version=platform_version,
         connection_context=connection_context,
@@ -339,10 +341,10 @@ def _agent_card(a: Agent) -> str:
         f'<article class="card agent-card" data-slug="{html.escape(a.slug, quote=True)}" data-application="{html.escape(a.application_slug, quote=True)}">'
         f'<div class="card-eyebrow"><span class="app-badge">{html.escape(a.application_name)}</span><span class="mode">{html.escape(a.action_mode)}</span></div>'
         f'<h2><a class="agent-link" href="{html.escape(a.page_url, quote=True)}">{html.escape(a.business_question)}</a></h2><p class="card-summary">{html.escape(a.description)}</p>'
-        f'<div class="agent-name">{html.escape(a.name)}</div>'
+        f'<div class="agent-name">{html.escape(a.display_name)}</div>'
         f'<div class="card-domain">{html.escape(" / ".join(a.domains))}</div>'
         f'<div class="use-case-tags">{"".join(f"<span>{html.escape(x)}</span>" for x in a.functional_use_cases)}</div>'
-        f'<div class="card-bottom"><div class="feature-tags">{tags}</div><a class="agent-link guide-link" href="{html.escape(a.page_url, quote=True)}" aria-label="Explore {html.escape(a.name, quote=True)}">Explore guide <span aria-hidden="true">↗</span></a></div></article>'
+        f'<div class="card-bottom"><div class="feature-tags">{tags}</div><a class="agent-link guide-link" href="{html.escape(a.page_url, quote=True)}" aria-label="Explore {html.escape(a.display_name, quote=True)}">Explore guide <span aria-hidden="true">↗</span></a></div></article>'
     )
 
 
@@ -350,8 +352,8 @@ def render_index(agents: list[Agent], generated_at: str) -> str:
     filters = []
     records = []
     for a in agents:
-        record = {"slug": a.slug, "name": a.name, "page": a.page_url,
-                  "search": " ".join((a.name, a.business_question, a.description, a.use_case_name, a.category,
+        record = {"slug": a.slug, "name": a.display_name, "page": a.page_url,
+                  "search": " ".join((a.name, a.display_name, a.business_question, a.description, a.use_case_name, a.category,
                                        a.memory_mode, a.memory_description, *a.capabilities, *a.keywords)),
                   "facets": {key: [getattr(a, attr)] if key == "application" else list(getattr(a, attr)) for key, _, attr in FACETS}}
         records.append(record)
@@ -399,9 +401,9 @@ def render_agent(agent: Agent, generated_at: str) -> str:
     if agent.dependency_path:
         dependency_links += f'<li>{_link(agent.dependency_url, agent.dependency_path)} — source bindings and supporting assets</li>'
     return f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(agent.name)} · Agent Samples</title><link rel="stylesheet" href="../../../assets/styles.css"></head>
-<body>{MARKER}<a class="skip-link" href="#guide-content">Skip to guide</a><header class="detail-hero"><div><a class="back" id="back-to-catalog" href="../../../">← Back to agent catalog</a><span class="kicker">{html.escape(agent.application_name)} · {html.escape(agent.use_case_name)}</span><h1>{html.escape(agent.name)}</h1><p>{html.escape(agent.description)}</p><nav>{download}{_link(agent.folder_url, "Browse source")}</nav></div></header>
-<main class="detail" id="guide-content"><aside class="facts"><nav class="guide-nav" aria-label="On this page"><h2>In this guide</h2><a href="#overview">Overview</a><a href="#prerequisites">Prerequisites</a><a href="#tools">Tools &amp; controls</a><a href="#setup">Import &amp; configure</a><a href="#demo">Demo flow</a><a href="#validation">Validation</a><a href="#artifacts">Source artifacts</a></nav><h2>At a glance</h2><dl><dt>Application</dt><dd>{html.escape(agent.application_name)}</dd><dt>Business domain</dt><dd>{_facet_links("domain", agent.domains)}</dd><dt>Module</dt><dd>{_facet_links("module", agent.modules)}</dd><dt>Functional use case</dt><dd>{_facet_links("usecase", agent.functional_use_cases)}</dd><dt>Technical features</dt><dd>{_facet_links("feature", agent.technical_features)}</dd><dt>Behavior</dt><dd>{html.escape(agent.action_mode)}</dd><dt>Use case</dt><dd>{html.escape(agent.use_case_name)}</dd><dt>Agent flow</dt><dd>v{html.escape(agent.version)}</dd><dt>PAF release</dt><dd>{html.escape(agent.platform_version)}</dd><dt>Memory</dt><dd>{html.escape(agent.memory_mode.title())}</dd><dt>Cross-thread</dt><dd>{"Enabled" if agent.cross_thread_memory else "Not required"}</dd><dt>Validation</dt><dd>{html.escape(agent.validation_status)}</dd></dl></aside>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(agent.display_name)} · Agent Samples</title><link rel="stylesheet" href="../../../assets/styles.css"></head>
+<body>{MARKER}<a class="skip-link" href="#guide-content">Skip to guide</a><header class="detail-hero"><div><a class="back" id="back-to-catalog" href="../../../">← Back to agent catalog</a><span class="kicker">{html.escape(agent.application_name)} · {html.escape(agent.use_case_name)}</span><h1>{html.escape(agent.display_name)}</h1><p>{html.escape(agent.description)}</p><nav>{download}{_link(agent.folder_url, "Browse source")}</nav></div></header>
+<main class="detail" id="guide-content"><aside class="facts"><nav class="guide-nav" aria-label="On this page"><h2>In this guide</h2><a href="#overview">Overview</a><a href="#prerequisites">Prerequisites</a><a href="#tools">Tools &amp; controls</a><a href="#setup">Import &amp; configure</a><a href="#demo">Demo flow</a><a href="#validation">Validation</a><a href="#artifacts">Source artifacts</a></nav><h2>At a glance</h2><dl><dt>Application</dt><dd>{html.escape(agent.application_name)}</dd><dt>Business domain</dt><dd>{_facet_links("domain", agent.domains)}</dd><dt>Module</dt><dd>{_facet_links("module", agent.modules)}</dd><dt>Functional use case</dt><dd>{_facet_links("usecase", agent.functional_use_cases)}</dd><dt>Technical features</dt><dd>{_facet_links("feature", agent.technical_features)}</dd><dt>Behavior</dt><dd>{html.escape(agent.action_mode)}</dd><dt>Use case</dt><dd>{html.escape(agent.use_case_name)}</dd><dt>PAF workflow name</dt><dd>{html.escape(agent.name)}</dd><dt>Agent flow</dt><dd>v{html.escape(agent.version)}</dd><dt>PAF release</dt><dd>{html.escape(agent.platform_version)}</dd><dt>Memory</dt><dd>{html.escape(agent.memory_mode.title())}</dd><dt>Cross-thread</dt><dd>{"Enabled" if agent.cross_thread_memory else "Not required"}</dd><dt>Validation</dt><dd>{html.escape(agent.validation_status)}</dd></dl></aside>
 <div class="sections"><section id="overview"><h2>What it demonstrates</h2><p class="guide-question">{html.escape(agent.business_question)}</p>{_list(agent.capabilities)}</section><section><h2>Connection context</h2><p>{html.escape(agent.connection_context)}</p></section><section><h2>Agent Memory</h2><p>{html.escape(agent.memory_description)}</p></section><section id="prerequisites"><h2>Prerequisites</h2>{_list(agent.prerequisites)}</section>
 <section id="tools"><h2>Tools and data sources</h2><div class="table"><table><thead><tr><th>Source or tool</th><th>Method</th><th>Path</th><th>Purpose</th></tr></thead><tbody>{rows}</tbody></table></div></section><section><h2>Safety controls</h2>{_list(agent.safety_controls)}</section><section id="setup"><h2>Import and configure</h2>{_list(agent.setup, ordered=True)}</section>
 <section id="demo"><h2>Demo flow</h2>{sessions}<h3>Expected outcomes</h3>{_list(agent.expected_outcomes)}</section><section id="validation"><h2>Validation record</h2><p><strong>{html.escape(agent.validation_status)}</strong> on {html.escape(agent.validation_date)} in {html.escape(agent.validation_environment)}.</p>{_list(agent.validation_notes) if agent.validation_notes else "<p>No additional notes.</p>"}</section>

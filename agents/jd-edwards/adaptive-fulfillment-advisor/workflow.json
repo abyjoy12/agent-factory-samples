@@ -1,10 +1,10 @@
 {
-  "workflowId": "5D8A579B1EE32BA7E0638001000A55AB",
-  "name": "JD Edwards Adaptive Fulfillment Advisor",
-  "description": "Read-only JDE fulfillment advisor that silently incorporates connection details, constraints, and corrections learned through ordinary conversations.",
+  "workflowId": "5E01CE5667E084E2E0638001000A285F",
+  "name": "Adaptive Fulfillment Advisor — JD Edwards EnterpriseOne",
+  "description": "Read-only JDE fulfillment advisor that learns connection details and operational corrections through ordinary work conversations.",
   "category": 1,
-  "icon": "workflow",
-  "published": true,
+  "icon": "briefcase",
+  "published": false,
   "flowGraph": true,
   "data": {
     "_workflowMetadata": {
@@ -98,7 +98,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Investigates JDE fulfillment exceptions while silently applying connection details, operating constraints, and corrections learned through normal user interactions.",
+              "value": "Read-only JDE fulfillment advisor that learns connection details and operational corrections through ordinary work conversations.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -142,7 +142,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "az-router",
+              "value": "xai.grok-4.3",
               "valueType": "str"
             },
             "prompt": {

@@ -9,10 +9,10 @@
     "slug": "purchase-receipt-review",
     "name": "EBS Purchase Receipt Review"
   },
-  "title": "EBS Purchase Receipt Review",
+  "title": "Purchase Receipt Review — Oracle E-Business Suite",
   "summary": "Review noncancelled PO shipment rows with positive shipment-minus-received arithmetic for buyer follow-up.",
   "category": "Procurement",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -112,6 +112,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which sampled purchase shipments still have unreceived quantities?"
+    "question": "Which sampled purchase shipments still have unreceived quantities?",
+    "displayName": "Purchase Receipt Review — Oracle E-Business Suite"
   }
 }

@@ -1,4 +1,4 @@
-# JDE Field Material Readiness
+# Field Material Readiness — JD Edwards EnterpriseOne
 
 Compare a fictional dispatch plan with live work-order components before a planner commits a field visit.
 

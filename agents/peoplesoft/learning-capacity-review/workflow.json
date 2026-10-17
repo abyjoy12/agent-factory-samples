@@ -1,6 +1,6 @@
 {
   "workflowId": "5E01CE5667BD84E2E0638001000A285F",
-  "name": "PeopleSoft Learning Capacity Review",
+  "name": "Learning Capacity Review — PeopleSoft",
   "description": "Review learning offering enrollment and waitlist capacity without asserting eligibility or available seats.",
   "category": 1,
   "icon": "briefcase",
@@ -494,18 +494,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "ad995c5c-2fa0-4fb2-99ba-f7fa1a0176f6",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T05:05:21.587507Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:43.433673Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "ad995c5c-2fa0-4fb2-99ba-f7fa1a0176f6",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T05:05:21.587507Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:43.433673Z",
   "_workflowMetadata": {
     "originWorkflowId": "ad995c5c-2fa0-4fb2-99ba-f7fa1a0176f6",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T05:05:21.587507Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:43.433673Z"
   }
 }

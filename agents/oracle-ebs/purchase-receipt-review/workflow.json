@@ -1,6 +1,6 @@
 {
   "workflowId": "5E01CE5667C184E2E0638001000A285F",
-  "name": "EBS Purchase Receipt Review",
+  "name": "Purchase Receipt Review — Oracle E-Business Suite",
   "description": "Review noncancelled PO shipment rows with positive shipment-minus-received arithmetic for buyer follow-up.",
   "category": 1,
   "icon": "briefcase",
@@ -494,18 +494,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "99d25d66-1479-4ad3-af47-cc8bc50dbafd",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-17T05:05:24.230571Z"
+      "version": 2,
+      "lastUpdatedOn": "2026-10-17T07:53:42.875326Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "99d25d66-1479-4ad3-af47-cc8bc50dbafd",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-17T05:05:24.230571Z",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-17T07:53:42.875326Z",
   "_workflowMetadata": {
     "originWorkflowId": "99d25d66-1479-4ad3-af47-cc8bc50dbafd",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-17T05:05:24.230571Z"
+    "version": 2,
+    "lastUpdatedOn": "2026-10-17T07:53:42.875326Z"
   }
 }

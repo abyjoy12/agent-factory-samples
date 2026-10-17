@@ -1,6 +1,6 @@
 {
   "workflowId": "5E0080AA479FF9BFE0638001000A4579",
-  "name": "JDE Supplier Follow-up Desk",
+  "name": "Supplier Follow-up Desk — JD Edwards EnterpriseOne",
   "description": "Prepare a focused supplier follow-up list from open purchase lines without changing purchase orders.",
   "category": 1,
   "icon": "briefcase",
@@ -418,18 +418,18 @@
     ],
     "_workflowMetadata": {
       "originWorkflowId": "e18ca185-c08f-4990-afd5-442d3769224b",
-      "version": 2,
-      "lastUpdatedOn": "2026-10-17T01:57:29.300633Z"
+      "version": 3,
+      "lastUpdatedOn": "2026-10-17T07:53:42.597193Z"
     }
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "e18ca185-c08f-4990-afd5-442d3769224b",
-  "version": 2,
-  "lastUpdatedOn": "2026-10-17T01:57:29.300633Z",
+  "version": 3,
+  "lastUpdatedOn": "2026-10-17T07:53:42.597193Z",
   "_workflowMetadata": {
     "originWorkflowId": "e18ca185-c08f-4990-afd5-442d3769224b",
-    "version": 2,
-    "lastUpdatedOn": "2026-10-17T01:57:29.300633Z"
+    "version": 3,
+    "lastUpdatedOn": "2026-10-17T07:53:42.597193Z"
   }
 }

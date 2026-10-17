@@ -1,4 +1,4 @@
-# Business Policy Desk
+# Business Policy Desk — Cross-application
 
 Answer operational policy questions from a small supplied handbook with section citations and explicit gaps.
 

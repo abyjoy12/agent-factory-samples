@@ -1,4 +1,4 @@
-# PeopleSoft Learning Evidence Review
+# Learning Evidence Review — PeopleSoft
 
 Prepare a training-evidence review queue using completion dates, raw enrollment status, and target dates.
 

@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "fusion-invoice-review-actions",
+  "application": {
+    "slug": "fusion-erp",
+    "name": "Oracle Fusion Cloud ERP"
+  },
+  "useCase": {
+    "slug": "invoice-review-actions",
+    "name": "Invoice review and confirmed actions"
+  },
+  "title": "Invoice Review and Actions — Fusion ERP",
+  "summary": "Review supplier invoices and prepare or execute explicitly requested invoice creation, cancellation, or line cancellation through the configured Fusion REST sources. Shows the exact target and proposed values before requesting confirmation. Draft: source authentication and action behavior require target-environment validation.",
+  "category": "Finance",
+  "version": "9",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "Existing Fusion invoice read and action sources; endpoint and credentials remain environment-local.",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "No persistent memories or cross-thread context."
+  },
+  "capabilities": [
+    "Invoice reads, creation, cancellation and line cancellation through separate read/action REST sources.",
+    "Exact-target confirmation, no automatic retry of ambiguous writes, and API-result-based outcome reporting."
+  ],
+  "prerequisites": [
+    "PAF 26.7-compatible visual Agent Builder and a registered model.",
+    "Confirmed Fusion demo endpoint and a suitably scoped integration account."
+  ],
+  "tools": [
+    {
+      "name": "List invoices",
+      "method": "GET",
+      "path": "/fscmRestApi/resources/11.13.18.05/invoices",
+      "purpose": "Review a bounded invoice page."
+    },
+    {
+      "name": "Get invoice",
+      "method": "GET",
+      "path": "/fscmRestApi/resources/11.13.18.05/invoices/{invoicesUniqID}",
+      "purpose": "Read the selected invoice."
+    },
+    {
+      "name": "Create invoice",
+      "method": "POST",
+      "path": "/fscmRestApi/resources/11.13.18.05/invoices",
+      "purpose": "Create the specifically confirmed invoice."
+    },
+    {
+      "name": "Cancel invoice",
+      "method": "POST",
+      "path": "/fscmRestApi/resources/11.13.18.05/invoices/action/cancelInvoice",
+      "purpose": "Cancel the specifically confirmed invoice."
+    },
+    {
+      "name": "Cancel line",
+      "method": "POST",
+      "path": "/fscmRestApi/resources/11.13.18.05/invoices/action/cancelLine",
+      "purpose": "Cancel the specifically confirmed invoice line."
+    }
+  ],
+  "safetyControls": [
+    "The flow can change Fusion invoices. It is an unpublished draft; no transaction was executed during migration.",
+    "Conversational confirmation is an instruction, not a server-enforced approval mechanism. Restrict integration-account permissions and add an external approval gateway before unattended use.",
+    "Do not retry an ambiguous write automatically. Do not claim payment, posting or approval capabilities."
+  ],
+  "setup": [
+    "Import the release .paf into an unpublished destination flow.",
+    "Import assets/invoice-read-openapi.json and assets/invoice-actions-openapi.json as separate REST sources. Replace the example server URL with your confirmed Fusion endpoint and configure authentication in PAF. These reconstructed contracts require target-release validation.",
+    "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
+    "Select a registered model on every Agent node. Disable Agent Memory and cross-thread sharing.",
+    "Check permissions and connectivity against the intended demo environment before publishing."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Guided review",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "List up to five supplier invoices and explain which fields need review. Do not change anything."
+          },
+          {
+            "speaker": "User",
+            "text": "Prepare the exact proposal for an invoice change I specify. Show the target and required fields; do not execute it."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "Evidence is distinguished from assumptions and unavailable data.",
+      "Writes require a specific user-confirmed proposal; drafts are not reported as executed."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build PAF; authorized account consolidation",
+    "status": "Editor-owned draft; runtime not exercised",
+    "notes": [
+      "Source sharing, new-flow ownership, metadata and memory settings were read back; an official export was captured.",
+      "No Fusion action or EBS diagnostic run was executed during migration.",
+      "The destination must validate source authentication, backend compatibility and expected behavior before use."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "fusion-invoice-review-actions.paf"
+  },
+  "catalog": {
+    "displayName": "Invoice Review and Actions — Fusion ERP",
+    "domains": [
+      "Finance"
+    ],
+    "modules": [
+      "Payables"
+    ],
+    "useCases": [
+      "Financial review",
+      "Exception triage"
+    ],
+    "technicalFeatures": [],
+    "keywords": [
+      "invoice",
+      "supplier",
+      "cancel",
+      "create"
+    ],
+    "actionMode": "Confirmed actions (draft)",
+    "question": "Which supplier invoice needs attention, and what exact change should I approve?"
+  }
+}

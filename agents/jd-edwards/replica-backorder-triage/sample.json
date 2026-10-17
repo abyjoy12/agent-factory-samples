@@ -9,10 +9,10 @@
     "slug": "replica-backorder-triage",
     "name": "JDE Replica - Backorder Triage"
   },
-  "title": "JDE Replica - Backorder Triage",
+  "title": "Backorder Triage — JD Edwards replica",
   "summary": "Pre-cutover read-only backorder triage against the GoldenGate JDEDEMO replica.",
   "category": "Fulfillment",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -112,6 +112,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which sampled backorder has the earliest requested date, and what should we check?"
+    "question": "Which sampled backorder has the earliest requested date, and what should we check?",
+    "displayName": "Backorder Triage — JD Edwards replica"
   }
 }

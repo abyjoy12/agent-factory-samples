@@ -1,4 +1,4 @@
-# Presenter notes: EBS IT Operations Triage
+# Presenter notes: IT Operations Triage — Oracle E-Business Suite
 
 | Slide | Message | What to show |
 | --- | --- | --- |

@@ -1,0 +1,296 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Fusion Invoices",
+    "version": "1.0.0",
+    "description": "Portable reconstruction of the configured demo source, not a validated Oracle release specification. Confirm fields and actions against the destination release."
+  },
+  "servers": [
+    {
+      "url": "https://your-fusion-environment.example.com"
+    }
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "Link": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  },
+  "paths": {
+    "/fscmRestApi/resources/11.13.18.05/invoices/{invoicesUniqID}": {
+      "get": {
+        "operationId": "readInvoice22",
+        "summary": "Get invoice",
+        "responses": {
+          "200": {
+            "description": "Invoice details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Invoice record.",
+                  "additionalProperties": true,
+                  "properties": {
+                    "InvoiceId": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "Internal invoice ID."
+                    },
+                    "InvoiceNumber": {
+                      "type": "string",
+                      "description": "Supplier invoice number."
+                    },
+                    "InvoiceDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Invoice date."
+                    },
+                    "InvoiceAmount": {
+                      "type": "number",
+                      "description": "Invoice amount."
+                    },
+                    "InvoiceCurrency": {
+                      "type": "string",
+                      "description": "Invoice currency."
+                    },
+                    "BusinessUnit": {
+                      "type": "string",
+                      "description": "Business unit."
+                    },
+                    "Supplier": {
+                      "type": "string",
+                      "description": "Supplier name."
+                    },
+                    "SupplierNumber": {
+                      "type": "string",
+                      "description": "Supplier number."
+                    },
+                    "ApprovalStatus": {
+                      "type": "string",
+                      "description": "Approval status."
+                    },
+                    "ValidationStatus": {
+                      "type": "string",
+                      "description": "Validation status."
+                    },
+                    "links": {
+                      "type": "array",
+                      "description": "Related links.",
+                      "items": {
+                        "type": "object",
+                        "description": "Link object.",
+                        "additionalProperties": true,
+                        "properties": {
+                          "rel": {
+                            "type": "string",
+                            "description": "Link relation."
+                          },
+                          "href": {
+                            "type": "string",
+                            "description": "Link URL."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Link name."
+                          },
+                          "kind": {
+                            "type": "string",
+                            "description": "Link kind."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "invoicesUniqID",
+            "in": "path",
+            "required": true,
+            "description": "Oracle invoice resource ID returned by the list endpoint or self link.",
+            "schema": {
+              "type": "string",
+              "format": ""
+            }
+          }
+        ]
+      }
+    },
+    "/fscmRestApi/resources/11.13.18.05/invoices": {
+      "get": {
+        "operationId": "readInvoice21",
+        "summary": "List invoices",
+        "responses": {
+          "200": {
+            "description": "Invoice list.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Paginated invoice list.",
+                  "additionalProperties": true,
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "description": "Items in this page."
+                    },
+                    "hasMore": {
+                      "type": "boolean",
+                      "description": "Whether more pages exist."
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Page size used."
+                    },
+                    "offset": {
+                      "type": "integer",
+                      "description": "Page offset."
+                    },
+                    "items": {
+                      "type": "array",
+                      "description": "Invoices in this page.",
+                      "items": {
+                        "type": "object",
+                        "description": "Invoice record.",
+                        "additionalProperties": true,
+                        "properties": {
+                          "InvoiceId": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Internal invoice ID."
+                          },
+                          "InvoiceNumber": {
+                            "type": "string",
+                            "description": "Supplier invoice number."
+                          },
+                          "InvoiceDate": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "Invoice date."
+                          },
+                          "InvoiceAmount": {
+                            "type": "number",
+                            "description": "Invoice amount."
+                          },
+                          "InvoiceCurrency": {
+                            "type": "string",
+                            "description": "Invoice currency."
+                          },
+                          "BusinessUnit": {
+                            "type": "string",
+                            "description": "Business unit."
+                          },
+                          "Supplier": {
+                            "type": "string",
+                            "description": "Supplier name."
+                          },
+                          "SupplierNumber": {
+                            "type": "string",
+                            "description": "Supplier number."
+                          },
+                          "ApprovalStatus": {
+                            "type": "string",
+                            "description": "Approval status."
+                          },
+                          "ValidationStatus": {
+                            "type": "string",
+                            "description": "Validation status."
+                          },
+                          "links": {
+                            "type": "array",
+                            "description": "Related links.",
+                            "items": {
+                              "type": "object",
+                              "description": "Link object.",
+                              "additionalProperties": true,
+                              "properties": {
+                                "rel": {
+                                  "type": "string",
+                                  "description": "Link relation."
+                                },
+                                "href": {
+                                  "type": "string",
+                                  "description": "Link URL."
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "Link name."
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "description": "Link kind."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "links": {
+                      "type": "array",
+                      "description": "Related links.",
+                      "items": {
+                        "$ref": "#/components/schemas/Link",
+                        "warning": "circular_reference"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "effectiveDate",
+            "in": "query",
+            "required": false,
+            "description": "Return invoices effective on this date (`yyyy-MM-dd`).",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": false,
+            "description": "Sort expression, for example `InvoiceDate:desc`.",
+            "schema": {
+              "type": "string",
+              "format": ""
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of invoices to return.",
+            "schema": {
+              "type": "integer",
+              "format": "",
+              "minimum": 1
+            }
+          }
+        ]
+      }
+    }
+  }
+}

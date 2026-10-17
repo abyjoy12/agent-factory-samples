@@ -1,4 +1,4 @@
-# PeopleSoft Purchase Order Review — presenter outline
+# Purchase Order Review — PeopleSoft — presenter outline
 
 1. **Question:** Review the ten most recently dated purchase-order headers and suggest what the buyer should verify next.
 2. **Evidence path:** Fixed SELECT evidence, Text combiner, grounded Agent and Chat output. Show the database binding and the fixed query or routine allowlist.

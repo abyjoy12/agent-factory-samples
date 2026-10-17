@@ -9,10 +9,10 @@
     "slug": "receivables-portfolio-review",
     "name": "EBS Receivables Portfolio Review"
   },
-  "title": "EBS Receivables Portfolio Review",
+  "title": "Receivables Portfolio Review — Oracle E-Business Suite",
   "summary": "Review positive remaining receivable payment schedules by operating unit, currency and raw status.",
   "category": "Finance",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -110,6 +110,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Where are positive receivable balances concentrated by organization and currency?"
+    "question": "Where are positive receivable balances concentrated by organization and currency?",
+    "displayName": "Receivables Portfolio Review — Oracle E-Business Suite"
   }
 }

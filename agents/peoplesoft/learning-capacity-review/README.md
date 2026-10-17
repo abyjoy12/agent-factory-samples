@@ -1,4 +1,4 @@
-# PeopleSoft Learning Capacity Review
+# Learning Capacity Review — PeopleSoft
 
 Review learning offering enrollment and waitlist capacity without asserting eligibility or available seats.
 

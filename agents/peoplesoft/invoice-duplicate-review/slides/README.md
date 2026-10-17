@@ -1,4 +1,4 @@
-# Presenter notes: PeopleSoft Invoice Duplicate Review
+# Presenter notes: Invoice Duplicate Review — PeopleSoft
 
 | Slide | Message | What to show |
 | --- | --- | --- |

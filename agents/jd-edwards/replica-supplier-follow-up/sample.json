@@ -9,10 +9,10 @@
     "slug": "replica-supplier-follow-up",
     "name": "JDE Replica - Supplier Follow-up"
   },
-  "title": "JDE Replica - Supplier Follow-up",
+  "title": "Supplier Follow-up — JD Edwards replica",
   "summary": "Pre-cutover read-only supplier follow-up against the GoldenGate JDEDEMO replica.",
   "category": "Procurement",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -110,6 +110,7 @@
     ],
     "technicalFeatures": [],
     "actionMode": "Read-only",
-    "question": "Which open purchase line needs a supplier follow-up, and what should we ask?"
+    "question": "Which open purchase line needs a supplier follow-up, and what should we ask?",
+    "displayName": "Supplier Follow-up — JD Edwards replica"
   }
 }
