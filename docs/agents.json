@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-17T02:20:11Z",
+  "generatedAt": "2026-10-17T07:00:07Z",
   "agents": [
     {
       "slug": "business-policy-desk",
@@ -181,6 +181,366 @@
       "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/assets/agent-instructions.md",
       "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/executive-operations-brief.paf",
       "page_url": "agents/cross-application/executive-operations-brief/"
+    },
+    {
+      "slug": "jde-replica-backorder-triage",
+      "application_slug": "jd-edwards",
+      "application_name": "JD Edwards",
+      "use_case_slug": "replica-backorder-triage",
+      "use_case_name": "JDE Replica - Backorder Triage",
+      "name": "JDE Replica - Backorder Triage",
+      "description": "Pre-cutover read-only backorder triage against the GoldenGate JDEDEMO replica.",
+      "category": "Fulfillment",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "JDE Replica Fulfillment Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Oracle PL/SQL executor with an explicit one-routine allowlist",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "JDE Replica Fulfillment Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "GET_ACTIVE_BACKORDERS",
+          "method": "EXECUTE",
+          "path": "PAF_JDE_FULFILL.GET_ACTIVE_BACKORDERS",
+          "purpose": "Pre-cutover read-only backorder triage against the GoldenGate JDEDEMO replica."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to JDE Replica Fulfillment Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review up to five active backorder lines from the replica. Prioritize the earliest requested line and explain what a planner should verify next. Keep historical dates and make no JDE changes."
+            },
+            {
+              "speaker": "User",
+              "text": "Explain what this bounded replica evidence cannot prove and what a human owner should verify before acting."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
+        "PAF SQL identity checks confirmed the target PDB is JDEDEMO under the matching demo account. Application cutover was not performed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "jde-replica-backorder-triage.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-backorder-triage.paf",
+      "page_url": "agents/jd-edwards/replica-backorder-triage/"
+    },
+    {
+      "slug": "jde-replica-finance-activity-review",
+      "application_slug": "jd-edwards",
+      "application_name": "JD Edwards",
+      "use_case_slug": "replica-finance-activity-review",
+      "use_case_name": "JDE Replica - Finance Activity Review",
+      "name": "JDE Replica - Finance Activity Review",
+      "description": "Pre-cutover read-only finance activity review against the GoldenGate JDEDEMO replica.",
+      "category": "Finance",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "JDE Replica Finance Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Oracle PL/SQL executor with an explicit one-routine allowlist",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "JDE Replica Finance Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "GET_GL_ACTIVITY",
+          "method": "EXECUTE",
+          "path": "PAF_JDE_FINANCE.GET_GL_ACTIVITY",
+          "purpose": "Pre-cutover read-only finance activity review against the GoldenGate JDEDEMO replica."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to JDE Replica Finance Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review the five most recent GL activity rows available in the replica. Show their actual dates, company, currency and ledger context, then suggest a finance review step. Treat this as a bounded sample, not a ledger balance."
+            },
+            {
+              "speaker": "User",
+              "text": "Explain what this bounded replica evidence cannot prove and what a human owner should verify before acting."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
+        "PAF SQL identity checks confirmed the target PDB is JDEDEMO under the matching demo account. Application cutover was not performed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "jde-replica-finance-activity-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-finance-activity-review.paf",
+      "page_url": "agents/jd-edwards/replica-finance-activity-review/"
+    },
+    {
+      "slug": "jde-replica-supplier-follow-up",
+      "application_slug": "jd-edwards",
+      "application_name": "JD Edwards",
+      "use_case_slug": "replica-supplier-follow-up",
+      "use_case_name": "JDE Replica - Supplier Follow-up",
+      "name": "JDE Replica - Supplier Follow-up",
+      "description": "Pre-cutover read-only supplier follow-up against the GoldenGate JDEDEMO replica.",
+      "category": "Procurement",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "JDE Replica Procurement Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Oracle PL/SQL executor with an explicit one-routine allowlist",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "JDE Replica Procurement Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "GET_OPEN_PURCHASE_LINES",
+          "method": "EXECUTE",
+          "path": "PAF_JDE_PROCURE.GET_OPEN_PURCHASE_LINES",
+          "purpose": "Pre-cutover read-only supplier follow-up against the GoldenGate JDEDEMO replica."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to JDE Replica Procurement Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Find five open purchase lines in the replica. Identify a dated line to investigate and draft a concise supplier follow-up for human review. Do not send anything."
+            },
+            {
+              "speaker": "User",
+              "text": "Explain what this bounded replica evidence cannot prove and what a human owner should verify before acting."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
+        "PAF SQL identity checks confirmed the target PDB is JDEDEMO under the matching demo account. Application cutover was not performed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "jde-replica-supplier-follow-up.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-supplier-follow-up.paf",
+      "page_url": "agents/jd-edwards/replica-supplier-follow-up/"
+    },
+    {
+      "slug": "jde-replica-work-order-material-risk",
+      "application_slug": "jd-edwards",
+      "application_name": "JD Edwards",
+      "use_case_slug": "replica-work-order-material-risk",
+      "use_case_name": "JDE Replica - Work Order Material Risk",
+      "name": "JDE Replica - Work Order Material Risk",
+      "description": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica.",
+      "category": "Manufacturing",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "JDE Replica Manufacturing Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Oracle PL/SQL executor with an explicit one-routine allowlist and fixed candidate-work-order SQL",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "JDE Replica Manufacturing Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "GET_WO_MATERIAL_RISK",
+          "method": "EXECUTE",
+          "path": "PAF_JDE_MFG.GET_WO_MATERIAL_RISK",
+          "purpose": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica."
+        },
+        {
+          "name": "WORK_ORDERS",
+          "method": "SELECT",
+          "path": "PAF_JDE_API.WORK_ORDERS",
+          "purpose": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica."
+        },
+        {
+          "name": "WORK_ORDER_PARTS",
+          "method": "SELECT",
+          "path": "PAF_JDE_API.WORK_ORDER_PARTS",
+          "purpose": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to JDE Replica Manufacturing Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Choose the first candidate work order with component rows in the replica and review up to five component risks. Identify the order and explain the inventory, unit and requirement-grain checks a planner must make before confirming readiness."
+            },
+            {
+              "speaker": "User",
+              "text": "Explain what this bounded replica evidence cannot prove and what a human owner should verify before acting."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
+        "PAF SQL identity checks confirmed the target PDB is JDEDEMO under the matching demo account. Application cutover was not performed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "jde-replica-work-order-material-risk.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-work-order-material-risk.paf",
+      "page_url": "agents/jd-edwards/replica-work-order-material-risk/"
     },
     {
       "slug": "jd-edwards-adaptive-fulfillment-advisor",
@@ -921,6 +1281,94 @@
       "page_url": "agents/jd-edwards/supplier-follow-up/"
     },
     {
+      "slug": "ebs-concurrent-history-review",
+      "application_slug": "oracle-ebs",
+      "application_name": "Oracle E-Business Suite",
+      "use_case_slug": "concurrent-history-review",
+      "use_case_name": "EBS Concurrent Processing History",
+      "name": "EBS Concurrent Processing History",
+      "description": "Review recent stored concurrent-request history and completed elapsed times without restarting or cancelling jobs.",
+      "category": "IT Operations",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "Oracle EBS Operations Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed SELECT evidence, Text combiner, grounded Agent and Chat output",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "Oracle EBS Operations Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "XXAF_OPS_CONCURRENT_REQUESTS_V",
+          "method": "SELECT",
+          "path": "APPS.XXAF_OPS_CONCURRENT_REQUESTS_V",
+          "purpose": "Review recent stored concurrent-request history and completed elapsed times without restarting or cancelling jobs."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to Oracle EBS Operations Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review the ten latest stored concurrent requests and distinguish the query time from historical run times."
+            },
+            {
+              "speaker": "User",
+              "text": "Do the raw codes and elapsed minutes prove an outage or SLA breach? Explain what the operator should check next."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
+        "Both the primary prompt and the documented limitations follow-up completed in the same conversation.",
+        "The existing reader had CREATE SESSION, no assigned roles, and SELECT/READ on the required objects. No new grant was applied."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "ebs-concurrent-history-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-concurrent-history-review.paf",
+      "page_url": "agents/oracle-ebs/concurrent-history-review/"
+    },
+    {
       "slug": "ebs-it-operations-triage",
       "application_slug": "oracle-ebs",
       "application_name": "Oracle E-Business Suite",
@@ -1014,6 +1462,182 @@
       "page_url": "agents/oracle-ebs/it-operations-triage/"
     },
     {
+      "slug": "ebs-purchase-receipt-review",
+      "application_slug": "oracle-ebs",
+      "application_name": "Oracle E-Business Suite",
+      "use_case_slug": "purchase-receipt-review",
+      "use_case_name": "EBS Purchase Receipt Review",
+      "name": "EBS Purchase Receipt Review",
+      "description": "Review noncancelled PO shipment rows with positive shipment-minus-received arithmetic for buyer follow-up.",
+      "category": "Procurement",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "Oracle EBS Supply Chain Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed SELECT evidence, Text combiner, grounded Agent and Chat output",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "Oracle EBS Supply Chain Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "XXAF_SCM_PURCHASE_ORDERS_V",
+          "method": "SELECT",
+          "path": "APPS.XXAF_SCM_PURCHASE_ORDERS_V",
+          "purpose": "Review noncancelled PO shipment rows with positive shipment-minus-received arithmetic for buyer follow-up."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to Oracle EBS Supply Chain Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review ten sampled purchase shipments with positive unreceived arithmetic and draft one buyer follow-up."
+            },
+            {
+              "speaker": "User",
+              "text": "Why is this not necessarily an open purchase-order backlog, and why should we avoid adding quantities across these rows?"
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
+        "Both the primary prompt and the documented limitations follow-up completed in the same conversation.",
+        "The existing reader had CREATE SESSION, no assigned roles, and SELECT/READ on the required objects. No new grant was applied."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "ebs-purchase-receipt-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-purchase-receipt-review.paf",
+      "page_url": "agents/oracle-ebs/purchase-receipt-review/"
+    },
+    {
+      "slug": "ebs-receivables-portfolio-review",
+      "application_slug": "oracle-ebs",
+      "application_name": "Oracle E-Business Suite",
+      "use_case_slug": "receivables-portfolio-review",
+      "use_case_name": "EBS Receivables Portfolio Review",
+      "name": "EBS Receivables Portfolio Review",
+      "description": "Review positive remaining receivable payment schedules by operating unit, currency and raw status.",
+      "category": "Finance",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "Oracle EBS Finance Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed SELECT evidence, Text combiner, grounded Agent and Chat output",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "Oracle EBS Finance Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "XXAF_FIN_AR_BALANCES_V",
+          "method": "SELECT",
+          "path": "APPS.XXAF_FIN_AR_BALANCES_V",
+          "purpose": "Review positive remaining receivable payment schedules by operating unit, currency and raw status."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to Oracle EBS Finance Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Summarize the sampled positive receivable balances by organization and currency, stating what the schedule counts mean."
+            },
+            {
+              "speaker": "User",
+              "text": "Can we use these groups as net receivables or expected cash this week? Explain the missing evidence."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The fixed SELECT returned 15 rows on the validation date; counts and data can change.",
+        "Both the primary prompt and the documented limitations follow-up completed in the same conversation.",
+        "The existing reader had CREATE SESSION, no assigned roles, and SELECT/READ on the required objects. No new grant was applied."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "ebs-receivables-portfolio-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-receivables-portfolio-review.paf",
+      "page_url": "agents/oracle-ebs/receivables-portfolio-review/"
+    },
+    {
       "slug": "ebs-sales-commitment-review",
       "application_slug": "oracle-ebs",
       "application_name": "Oracle E-Business Suite",
@@ -1099,6 +1723,94 @@
       "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/assets/agent-instructions.md",
       "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-sales-commitment-review.paf",
       "page_url": "agents/oracle-ebs/sales-commitment-review/"
+    },
+    {
+      "slug": "psft-campus-capacity-review",
+      "application_slug": "peoplesoft",
+      "application_name": "PeopleSoft",
+      "use_case_slug": "campus-capacity-review",
+      "use_case_name": "PeopleSoft Campus Capacity Review",
+      "name": "PeopleSoft Campus Capacity Review",
+      "description": "Review class enrollment and waitlist counters by institution, career and term without making enrollment promises.",
+      "category": "Campus Operations",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "PeopleSoft Campus Solutions Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed SELECT evidence, Text combiner, grounded Agent and Chat output",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "PeopleSoft Campus Solutions Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "CS_CLASSES",
+          "method": "SELECT",
+          "path": "PAF_DATA.CS_CLASSES",
+          "purpose": "Review class enrollment and waitlist counters by institution, career and term without making enrollment promises."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to PeopleSoft Campus Solutions Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review the sampled class capacity and waitlist counters, keeping institution, career and term separate."
+            },
+            {
+              "speaker": "User",
+              "text": "Can we promise a seat or total these classes into campus headcount? Explain the checks the registrar needs first."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
+        "Both the primary prompt and the documented limitations follow-up completed in the same conversation.",
+        "The existing reader had CREATE SESSION, no assigned roles, and SELECT/READ on the required objects. No new grant was applied."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "psft-campus-capacity-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-campus-capacity-review.paf",
+      "page_url": "agents/peoplesoft/campus-capacity-review/"
     },
     {
       "slug": "psft-database-service-pulse",
@@ -1289,6 +2001,94 @@
       "page_url": "agents/peoplesoft/invoice-duplicate-review/"
     },
     {
+      "slug": "psft-learning-capacity-review",
+      "application_slug": "peoplesoft",
+      "application_name": "PeopleSoft",
+      "use_case_slug": "learning-capacity-review",
+      "use_case_name": "PeopleSoft Learning Capacity Review",
+      "name": "PeopleSoft Learning Capacity Review",
+      "description": "Review learning offering enrollment and waitlist capacity without asserting eligibility or available seats.",
+      "category": "Learning",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "PeopleSoft Enterprise Learning Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed SELECT evidence, Text combiner, grounded Agent and Chat output",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "PeopleSoft Enterprise Learning Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "ELM_ACTIVITIES",
+          "method": "SELECT",
+          "path": "PAF_DATA.ELM_ACTIVITIES",
+          "purpose": "Review learning offering enrollment and waitlist capacity without asserting eligibility or available seats."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to PeopleSoft Enterprise Learning Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review the ten sampled learning offerings and explain the enrollment, capacity and waitlist evidence."
+            },
+            {
+              "speaker": "User",
+              "text": "Which additional checks are needed before telling someone they can enroll? Do not treat stored capacity arithmetic as a booking promise."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
+        "Both the primary prompt and the documented limitations follow-up completed in the same conversation.",
+        "The existing reader had CREATE SESSION, no assigned roles, and SELECT/READ on the required objects. No new grant was applied."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "psft-learning-capacity-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-learning-capacity-review.paf",
+      "page_url": "agents/peoplesoft/learning-capacity-review/"
+    },
+    {
       "slug": "psft-learning-evidence-review",
       "application_slug": "peoplesoft",
       "application_name": "PeopleSoft",
@@ -1380,6 +2180,282 @@
       "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/assets/agent-instructions.md",
       "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-learning-evidence-review.paf",
       "page_url": "agents/peoplesoft/learning-evidence-review/"
+    },
+    {
+      "slug": "psft-position-coverage-review",
+      "application_slug": "peoplesoft",
+      "application_name": "PeopleSoft",
+      "use_case_slug": "position-coverage-review",
+      "use_case_name": "PeopleSoft Position Coverage Review",
+      "name": "PeopleSoft Position Coverage Review",
+      "description": "Review nonconfidential position capacity alongside current effective-dated assignment counts without making employee decisions.",
+      "category": "HR",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "PeopleSoft Human Capital Management Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed SELECT evidence, Text combiner, grounded Agent and Chat output",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "PeopleSoft Human Capital Management Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "HCM_POSITIONS",
+          "method": "SELECT",
+          "path": "PAF_DATA.HCM_POSITIONS",
+          "purpose": "Review nonconfidential position capacity alongside current effective-dated assignment counts without making employee decisions."
+        },
+        {
+          "name": "HCM_ASSIGNMENTS",
+          "method": "SELECT",
+          "path": "PAF_DATA.HCM_ASSIGNMENTS",
+          "purpose": "Review nonconfidential position capacity alongside current effective-dated assignment counts without making employee decisions."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to PeopleSoft Human Capital Management Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review the ten sampled positions and explain what the assignment counts and position capacity can tell an HR planner."
+            },
+            {
+              "speaker": "User",
+              "text": "Can we call every sampled position with zero assignments a vacancy? Explain the evidence gaps without making hiring decisions."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
+        "Both the primary prompt and the documented limitations follow-up completed in the same conversation.",
+        "The existing reader had CREATE SESSION, no assigned roles, and SELECT/READ on the required objects. No new grant was applied."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "psft-position-coverage-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-position-coverage-review.paf",
+      "page_url": "agents/peoplesoft/position-coverage-review/"
+    },
+    {
+      "slug": "psft-purchase-order-review",
+      "application_slug": "peoplesoft",
+      "application_name": "PeopleSoft",
+      "use_case_slug": "purchase-order-review",
+      "use_case_name": "PeopleSoft Purchase Order Review",
+      "name": "PeopleSoft Purchase Order Review",
+      "description": "Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope.",
+      "category": "Procurement",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "PeopleSoft Financials and Supply Chain Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed SELECT evidence, Text combiner, grounded Agent and Chat output",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "PeopleSoft Financials and Supply Chain Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "FSCM_PURCHASE_ORDERS",
+          "method": "SELECT",
+          "path": "PAF_DATA.FSCM_PURCHASE_ORDERS",
+          "purpose": "Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope."
+        },
+        {
+          "name": "FSCM_PO_LINES",
+          "method": "SELECT",
+          "path": "PAF_DATA.FSCM_PO_LINES",
+          "purpose": "Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to PeopleSoft Financials and Supply Chain Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review the ten most recently dated purchase-order headers and suggest what the buyer should verify next."
+            },
+            {
+              "speaker": "User",
+              "text": "Does this sample prove that any PO is open, approved or late? Explain the limitations of the raw status and date fields."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
+        "Both the primary prompt and the documented limitations follow-up completed in the same conversation.",
+        "The existing reader had CREATE SESSION, no assigned roles, and SELECT/READ on the required objects. No new grant was applied."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "psft-purchase-order-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-purchase-order-review.paf",
+      "page_url": "agents/peoplesoft/purchase-order-review/"
+    },
+    {
+      "slug": "psft-service-case-workload",
+      "application_slug": "peoplesoft",
+      "application_name": "PeopleSoft",
+      "use_case_slug": "service-case-workload",
+      "use_case_name": "PeopleSoft Service Case Workload",
+      "name": "PeopleSoft Service Case Workload",
+      "description": "Review non-secure CRM case workload by business unit, raw status and priority without exposing case text.",
+      "category": "Customer Service",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "PeopleSoft Customer Relationship Management Read Only",
+      "memory_mode": "none",
+      "memory_description": "Fresh evidence on every run; disable memory and cross-thread sharing after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed SELECT evidence, Text combiner, grounded Agent and Chat output",
+        "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+      ],
+      "prerequisites": [
+        "PAF 26.7-compatible visual Agent Builder and an available model.",
+        "PeopleSoft Customer Relationship Management Read Only with the documented views or read-only routine."
+      ],
+      "tools": [
+        {
+          "name": "CRM_CASE_SUMMARY",
+          "method": "SELECT",
+          "path": "PAF_DATA.CRM_CASE_SUMMARY",
+          "purpose": "Review non-secure CRM case workload by business unit, raw status and priority without exposing case text."
+        }
+      ],
+      "safety_controls": [
+        "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+        "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+        "The shared integration reader does not reproduce per-person application authorization."
+      ],
+      "setup": [
+        "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+        "Rebind each database node to PeopleSoft Customer Relationship Management Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Module evidence and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Summarize the ten largest non-secure CRM case groups and suggest a service-manager review."
+            },
+            {
+              "speaker": "User",
+              "text": "Can the priority codes and missing closure dates prove SLA breaches or tell us how many cases are currently open? Explain why or why not."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+        "A clear distinction between the observed sample and claims it cannot establish."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_status": "Passed live demo run; unpublished draft",
+      "validation_notes": [
+        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+        "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+        "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
+        "Both the primary prompt and the documented limitations follow-up completed in the same conversation.",
+        "The existing reader had CREATE SESSION, no assigned roles, and SELECT/READ on the required objects. No new grant was applied."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "psft-service-case-workload.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-service-case-workload.paf",
+      "page_url": "agents/peoplesoft/service-case-workload/"
     },
     {
       "slug": "psft-workforce-planning",

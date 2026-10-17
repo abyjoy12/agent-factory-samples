@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "jde-replica-backorder-triage",
+  "application": {
+    "slug": "jd-edwards",
+    "name": "JD Edwards"
+  },
+  "useCase": {
+    "slug": "replica-backorder-triage",
+    "name": "JDE Replica - Backorder Triage"
+  },
+  "title": "JDE Replica - Backorder Triage",
+  "summary": "Pre-cutover read-only backorder triage against the GoldenGate JDEDEMO replica.",
+  "category": "Fulfillment",
+  "version": "1",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "JDE Replica Fulfillment Read Only",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "Fresh evidence on every run; disable memory and cross-thread sharing after import."
+  },
+  "capabilities": [
+    "Oracle PL/SQL executor with an explicit one-routine allowlist",
+    "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+  ],
+  "prerequisites": [
+    "PAF 26.7-compatible visual Agent Builder and an available model.",
+    "JDE Replica Fulfillment Read Only with the documented views or read-only routine."
+  ],
+  "tools": [
+    {
+      "name": "GET_ACTIVE_BACKORDERS",
+      "method": "EXECUTE",
+      "path": "PAF_JDE_FULFILL.GET_ACTIVE_BACKORDERS",
+      "purpose": "Pre-cutover read-only backorder triage against the GoldenGate JDEDEMO replica."
+    }
+  ],
+  "safetyControls": [
+    "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+    "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+    "The shared integration reader does not reproduce per-person application authorization."
+  ],
+  "setup": [
+    "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+    "Rebind each database node to JDE Replica Fulfillment Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
+    "Select the model on every Agent node; model connections are excluded from the archive.",
+    "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+    "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Module evidence and limitations",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Review up to five active backorder lines from the replica. Prioritize the earliest requested line and explain what a planner should verify next. Keep historical dates and make no JDE changes."
+          },
+          {
+            "speaker": "User",
+            "text": "Explain what this bounded replica evidence cannot prove and what a human owner should verify before acting."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+      "A clear distinction between the observed sample and claims it cannot establish."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+    "status": "Passed live demo run; unpublished draft",
+    "notes": [
+      "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+      "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+      "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+      "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
+      "PAF SQL identity checks confirmed the target PDB is JDEDEMO under the matching demo account. Application cutover was not performed."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "jde-replica-backorder-triage.paf"
+  }
+}

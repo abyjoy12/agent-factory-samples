@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "bindings": [
+    {
+      "nodeId": "replica-manufacturing-1",
+      "component": "oraclePLSQLExecutor",
+      "field": "database",
+      "sourceName": "JDE Replica Manufacturing Read Only",
+      "requiredAccess": "Read-only access to the exact objects below; no application writes or administration."
+    },
+    {
+      "nodeId": "replica-manufacturing-candidate-orders",
+      "component": "SelectSqlQueryNode",
+      "field": "database",
+      "sourceName": "JDE Replica Manufacturing Read Only",
+      "requiredAccess": "Read-only access to the exact objects below; no application writes or administration."
+    }
+  ],
+  "objects": [
+    "PAF_JDE_MFG.GET_WO_MATERIAL_RISK",
+    "PAF_JDE_API.WORK_ORDERS",
+    "PAF_JDE_API.WORK_ORDER_PARTS"
+  ],
+  "queryFiles": [
+    "evidence.sql"
+  ],
+  "memorySettings": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "sourceNote": "Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
+  "modelBinding": "Select an available model on every Agent node. Validated with the existing xai.grok-4.3 connection.",
+  "portableExportNote": "Official workflow-only export retains local source IDs as hints; no credentials or connection definitions are bundled. Rebind sources after import."
+}

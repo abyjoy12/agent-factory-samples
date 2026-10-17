@@ -2,9 +2,45 @@
 
 This repository is a source-first catalog of documented agents for Oracle AI Database Private Agent Factory. Human-reviewable workflow sources and supporting assets live in Git; password-protected `.paf` archives are generated, verified, and published by GitHub Actions.
 
-## Business demo collection
+## Shared-session baseline
 
-**Ten new business demos, plus the four original JDE fulfillment and memory examples.** The new demos are deployed on [build.oracleagentfactory.com](https://build.oracleagentfactory.com). Find them by the exact titles below. The public [catalog](https://kgvarun.github.io/agent-factory-samples/) provides setup guides and the [latest release](https://github.com/kgvarun/agent-factory-samples/releases/tag/latest) provides importable `.paf` files.
+[Repository and live PAF reconciliation](integrations/session-consolidation/) records the 26 retained samples, 22 matching accessible live flows, four access-limited comparisons, and outstanding integration work. Consult it before editing shared flows.
+
+## Module expansion and JDE replica drafts — 2026-10-17
+
+The catalog now contains **26 workflow samples**. This expansion adds **eight PSFT/EBS module drafts** and records the **four JDE replica drafts** from the preceding setup. All twelve are saved on build PAF under `editor@oracleagentfactory.com`, with Agent Memory and cross-thread sharing disabled. They remain unpublished.
+
+| Application / module | New draft |
+| --- | --- |
+| PeopleSoft / HR | [PeopleSoft Position Coverage Review](agents/peoplesoft/position-coverage-review/) |
+| PeopleSoft / Procurement | [PeopleSoft Purchase Order Review](agents/peoplesoft/purchase-order-review/) |
+| PeopleSoft / Learning | [PeopleSoft Learning Capacity Review](agents/peoplesoft/learning-capacity-review/) |
+| PeopleSoft / Customer Service | [PeopleSoft Service Case Workload](agents/peoplesoft/service-case-workload/) |
+| PeopleSoft / Campus Operations | [PeopleSoft Campus Capacity Review](agents/peoplesoft/campus-capacity-review/) |
+| EBS / Finance | [EBS Receivables Portfolio Review](agents/oracle-ebs/receivables-portfolio-review/) |
+| EBS / Procurement | [EBS Purchase Receipt Review](agents/oracle-ebs/purchase-receipt-review/) |
+| EBS / IT Operations | [EBS Concurrent Processing History](agents/oracle-ebs/concurrent-history-review/) |
+
+JDE replica drafts: [Backorder Triage](agents/jd-edwards/replica-backorder-triage/), [Supplier Follow-up](agents/jd-edwards/replica-supplier-follow-up/), [Finance Activity Review](agents/jd-edwards/replica-finance-activity-review/), [Work Order Material Risk](agents/jd-edwards/replica-work-order-material-risk/). These bind separately to **JDEDEMO**; they do not switch the existing JDE source or published application flows.
+
+### What was exercised
+
+- All eight module fixed queries ran through the existing integration readers. Each new flow completed its primary business prompt and its limitations follow-up: **16 successful conversation requests**.
+- All four JDE replica drafts completed a fresh primary conversation with memory explicitly disabled.
+- Reader grant inspection showed only `CREATE SESSION` as a system privilege, no assigned roles, and existing SELECT/READ access to each required view. **No new grants, DML permissions or schema changes were needed for this expansion.** Each module includes an exact `assets/reader-grants.sql` setup reference for another installation.
+- The new source exports, manifests, binding maps, SQL, prompts and presenter outlines are included here. Runtime records and model responses are retained only in private audit files.
+- [Module access and validation notes](integrations/module-readers/README.md) explain scope and limits. New local `.paf` files are generated in ignored `dist/`; adding these source files does not itself publish a GitHub release.
+
+### MCP checks
+
+These drafts currently use direct PAF SQL/PLSQL components. Neither remote MCP path completed an authenticated tool invocation:
+
+- **OCI Database Tools MCP:** the existing server is ACTIVE, and a fresh initialization request returned **401 with an OAuth bearer challenge**. It targets a different database. The earlier attempt to create a dedicated EBS server remains blocked by the identity-domain issuer prerequisite; no shared domain or server was changed. See [Database Tools MCP](integrations/oci-database-tools-mcp/).
+- **ORDS MCP:** the existing ORDS runtime is **26.3.0**. The MCP and discovery requests returned **404**; MCP feature/JWT settings and dedicated MCP pools are absent. See the [ORDS MCP setup and probe notes](integrations/ords-mcp/). This is not an authenticated database/tool test.
+
+## Original business demo collection
+
+**Ten original business demos, plus the four original JDE fulfillment and memory examples.** The new demos are deployed on [build.oracleagentfactory.com](https://build.oracleagentfactory.com). Find them by the exact titles below. The public [catalog](https://kgvarun.github.io/agent-factory-samples/) provides setup guides and the [latest release](https://github.com/kgvarun/agent-factory-samples/releases/tag/latest) provides importable `.paf` files.
 
 | Business audience | Demo | Builder capability to show |
 | --- | --- | --- |

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "bindings": [
+    {
+      "nodeId": "psft-service-case-workload-sql",
+      "component": "SelectSqlQueryNode",
+      "field": "database",
+      "sourceName": "PeopleSoft Customer Relationship Management Read Only",
+      "requiredAccess": "Read-only access to the exact objects below; no application writes or administration."
+    }
+  ],
+  "objects": [
+    "PAF_DATA.CRM_CASE_SUMMARY"
+  ],
+  "queryFiles": [
+    "evidence.sql"
+  ],
+  "memorySettings": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "sourceNote": "Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+  "modelBinding": "Select an available model on every Agent node. Validated with the existing xai.grok-4.3 connection.",
+  "portableExportNote": "Official workflow-only export retains local source IDs as hints; no credentials or connection definitions are bundled. Rebind sources after import."
+}

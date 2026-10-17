@@ -1,0 +1,376 @@
+{
+  "observed_at": "2026-10-17T06:07:07.655811+00:00",
+  "paf_instance": "https://build.oracleagentfactory.com/agentFactory/",
+  "paf_account": "editor@oracleagentfactory.com",
+  "git_head": "db70a4e9090a88373029567257118adce45bbca2",
+  "remote_main": "db70a4e9090a88373029567257118adce45bbca2",
+  "workflow_count": 26,
+  "matched_live_flows": 22,
+  "access_denied_flows": 4,
+  "conflicts_found_in_accessible_flows": 0,
+  "live_flow_mutations": 0,
+  "flows": [
+    {
+      "path": "agents/cross-application/executive-operations-brief",
+      "id": "5E00829F9840F9F0E0638001000A8F08",
+      "name": "Executive Working Capital Brief",
+      "source_graph_sha256": "ac6e9ae08b001da8a92e9dce0f22c345dd2f19510f52b6b125a32e36ca386147",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.659842+00:00"
+      }
+    },
+    {
+      "path": "agents/cross-application/policy-desk",
+      "id": "5E0080AA47A6F9BFE0638001000A4579",
+      "name": "Business Policy Desk",
+      "source_graph_sha256": "7b3af480320f94edc4531527817a98be5ae49b9dc69d4b53916ae2b352b738ab",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.600366+00:00"
+      }
+    },
+    {
+      "path": "agents/jd-edwards/adaptive-fulfillment-advisor",
+      "id": "5D8A579B1EE32BA7E0638001000A55AB",
+      "name": "JD Edwards Adaptive Fulfillment Advisor",
+      "source_graph_sha256": "af446752d539fc3f3f979c7d3487ac9fdd50459a884509fa5e8bc4c31d239790",
+      "status": "access-denied",
+      "live_graph_verified": false
+    },
+    {
+      "path": "agents/jd-edwards/field-material-readiness",
+      "id": "5E0080AA47A4F9BFE0638001000A4579",
+      "name": "JDE Field Material Readiness",
+      "source_graph_sha256": "6bc19a4e9442cc4dd19d450cfde68f0599dca657dfacd73153a43de7714f4310",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.427966+00:00"
+      }
+    },
+    {
+      "path": "agents/jd-edwards/fulfillment-exception",
+      "id": "5D66973D9AAB2B60E0638001000A3149",
+      "name": "JD Edwards Fulfillment Exception Agent",
+      "source_graph_sha256": "5a6e690412e2d49b443513473010f9962a5620177d29ba11ee391106dc48e293",
+      "status": "access-denied",
+      "live_graph_verified": false
+    },
+    {
+      "path": "agents/jd-edwards/fulfillment-memory",
+      "id": "5D66973D9ABC2B60E0638001000A3149",
+      "name": "JD Edwards Fulfillment Memory Agent",
+      "source_graph_sha256": "700bb6ade00422393cc4d3f960198a8081672a23b6690f75f91986b7f90a87a2",
+      "status": "access-denied",
+      "live_graph_verified": false
+    },
+    {
+      "path": "agents/jd-edwards/jps920-fulfillment-coach",
+      "id": "5D89CAFB1B354A75E0638001000A552A",
+      "name": "JDE JPS920 Fulfillment Coach",
+      "source_graph_sha256": "cec812e99395457a4723a2a694d28b3777a1466361a0bf9f2798598478709a46",
+      "status": "access-denied",
+      "live_graph_verified": false
+    },
+    {
+      "path": "agents/jd-edwards/replica-backorder-triage",
+      "id": "5E00829F9867F9F0E0638001000A8F08",
+      "name": "JDE Replica - Backorder Triage",
+      "source_graph_sha256": "b4b8dceae0ceec9f875fc241ee2b212db9fc61bd4925565eaa4fd6782c24f9e1",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:07:21.264473+00:00"
+      }
+    },
+    {
+      "path": "agents/jd-edwards/replica-finance-activity-review",
+      "id": "5E00829F9869F9F0E0638001000A8F08",
+      "name": "JDE Replica - Finance Activity Review",
+      "source_graph_sha256": "61bee7743f0fd648ba5443def3c894f59c6d7f6071b5ac5df4e2d0cec2959c79",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:07:21.449287+00:00"
+      }
+    },
+    {
+      "path": "agents/jd-edwards/replica-supplier-follow-up",
+      "id": "5E00829F9868F9F0E0638001000A8F08",
+      "name": "JDE Replica - Supplier Follow-up",
+      "source_graph_sha256": "216f89914a139dc5e29c7397cdee566fb9a1ab25507ca096edc3d2247bfd44d9",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:07:21.356170+00:00"
+      }
+    },
+    {
+      "path": "agents/jd-edwards/replica-work-order-material-risk",
+      "id": "5E00829F986AF9F0E0638001000A8F08",
+      "name": "JDE Replica - Work Order Material Risk",
+      "source_graph_sha256": "0a4b99a6e2a0588ee5b23fc00d5516215fe988cd5ff183803d71f5857629f3ed",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:07:21.544664+00:00"
+      }
+    },
+    {
+      "path": "agents/jd-edwards/supplier-follow-up",
+      "id": "5E0080AA479FF9BFE0638001000A4579",
+      "name": "JDE Supplier Follow-up Desk",
+      "source_graph_sha256": "613397d41766218d25f49cef2df6ce69a590e7fa61d34cf0461a2efc63461604",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.045694+00:00"
+      }
+    },
+    {
+      "path": "agents/oracle-ebs/concurrent-history-review",
+      "id": "5E01CE5667C284E2E0638001000A285F",
+      "name": "EBS Concurrent Processing History",
+      "source_graph_sha256": "1ab2911a483706f20913a5a7a8564fd437f0160140b7c52821ce41ca8bf5270e",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:05:24.590019+00:00"
+      }
+    },
+    {
+      "path": "agents/oracle-ebs/it-operations-triage",
+      "id": "5E0080AA47A3F9BFE0638001000A4579",
+      "name": "EBS IT Operations Triage",
+      "source_graph_sha256": "cd1b2db5615912eda67c79ae0c14e2d869ca0aef438b6ae00070be52dfe50efe",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.325284+00:00"
+      }
+    },
+    {
+      "path": "agents/oracle-ebs/purchase-receipt-review",
+      "id": "5E01CE5667C184E2E0638001000A285F",
+      "name": "EBS Purchase Receipt Review",
+      "source_graph_sha256": "c76a7ace9fc42777ee0861635b503db3b207095420e239e842b9ae6a2406eb7b",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:05:24.256159+00:00"
+      }
+    },
+    {
+      "path": "agents/oracle-ebs/receivables-portfolio-review",
+      "id": "5E01CE5667C084E2E0638001000A285F",
+      "name": "EBS Receivables Portfolio Review",
+      "source_graph_sha256": "f670ed6ea12d5c4386bcb42f841b391231f701671488cb1d007766567440f341",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:05:23.305246+00:00"
+      }
+    },
+    {
+      "path": "agents/oracle-ebs/sales-commitment-review",
+      "id": "5E0080AA47A2F9BFE0638001000A4579",
+      "name": "EBS Sales Commitment Review",
+      "source_graph_sha256": "b3a7eb9798b02cf1d5e63bd21ae826d029099dbc638e525cf42445149927fe13",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.252450+00:00"
+      }
+    },
+    {
+      "path": "agents/peoplesoft/campus-capacity-review",
+      "id": "5E01CE5667BF84E2E0638001000A285F",
+      "name": "PeopleSoft Campus Capacity Review",
+      "source_graph_sha256": "ed78962620a78298ef888d102b0ba76dda9adb0a82127be3fb41a64782007340",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:05:22.989069+00:00"
+      }
+    },
+    {
+      "path": "agents/peoplesoft/database-service-pulse",
+      "id": "5E0080AA47B7F9BFE0638001000A4579",
+      "name": "PeopleSoft Database Service Pulse",
+      "source_graph_sha256": "5462cb487ec09828d09e1ebac722a9fa9c0aebdaf533a7fd7fcc35505e2ff2e0",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.711850+00:00"
+      }
+    },
+    {
+      "path": "agents/peoplesoft/invoice-duplicate-review",
+      "id": "5E0080AA47A0F9BFE0638001000A4579",
+      "name": "PeopleSoft Invoice Duplicate Review",
+      "source_graph_sha256": "614ef09ee37a18088629c56780a3f7179d33aac384b38e1cbae5caf6ab699b13",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.124391+00:00"
+      }
+    },
+    {
+      "path": "agents/peoplesoft/learning-capacity-review",
+      "id": "5E01CE5667BD84E2E0638001000A285F",
+      "name": "PeopleSoft Learning Capacity Review",
+      "source_graph_sha256": "98adb7972b0c3663226d97e396245abef63755da10c1b1bd071b74e854543b98",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:05:21.614924+00:00"
+      }
+    },
+    {
+      "path": "agents/peoplesoft/learning-evidence-review",
+      "id": "5E0080AA47A5F9BFE0638001000A4579",
+      "name": "PeopleSoft Learning Evidence Review",
+      "source_graph_sha256": "420d62013ba91f97ed03e1dde154a4f4d3b806b78a22b6fca9d93b47ef4f470d",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.532318+00:00"
+      }
+    },
+    {
+      "path": "agents/peoplesoft/position-coverage-review",
+      "id": "5E01CE5667BB84E2E0638001000A285F",
+      "name": "PeopleSoft Position Coverage Review",
+      "source_graph_sha256": "b0bb58079f073c79c955c5a8bb4c0cd0c2b131d6f81f2bd6502afb5ea072e8de",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:05:21.313093+00:00"
+      }
+    },
+    {
+      "path": "agents/peoplesoft/purchase-order-review",
+      "id": "5E01CE5667BC84E2E0638001000A285F",
+      "name": "PeopleSoft Purchase Order Review",
+      "source_graph_sha256": "1dea0eb33aad53a2acd57b99393bef5427e27bfb83023842b9cd7144e160d29f",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:05:21.461713+00:00"
+      }
+    },
+    {
+      "path": "agents/peoplesoft/service-case-workload",
+      "id": "5E01CE5667BE84E2E0638001000A285F",
+      "name": "PeopleSoft Service Case Workload",
+      "source_graph_sha256": "36d5bc60ed1b5d1bda70aa8166086fa800358d42b180e0a90df5494d9b93f139",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": false,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T05:05:22.275563+00:00"
+      }
+    },
+    {
+      "path": "agents/peoplesoft/workforce-planning",
+      "id": "5E0080AA47A1F9BFE0638001000A4579",
+      "name": "PeopleSoft Workforce Planning Brief",
+      "source_graph_sha256": "a2a3ddc8fe9fbfb137d5e60abceb6513d059fec912773a65f2a83fa5ea026c1a",
+      "status": "matched",
+      "live_graph_verified": true,
+      "published": true,
+      "memory": {
+        "enabled": false,
+        "isAvailable": true,
+        "shareBetweenChatThreads": false,
+        "updatedAt": "2026-10-17T02:13:08.195310+00:00"
+      }
+    }
+  ]
+}

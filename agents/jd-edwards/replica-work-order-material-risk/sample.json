@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "jde-replica-work-order-material-risk",
+  "application": {
+    "slug": "jd-edwards",
+    "name": "JD Edwards"
+  },
+  "useCase": {
+    "slug": "replica-work-order-material-risk",
+    "name": "JDE Replica - Work Order Material Risk"
+  },
+  "title": "JDE Replica - Work Order Material Risk",
+  "summary": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica.",
+  "category": "Manufacturing",
+  "version": "1",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "JDE Replica Manufacturing Read Only",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "Fresh evidence on every run; disable memory and cross-thread sharing after import."
+  },
+  "capabilities": [
+    "Oracle PL/SQL executor with an explicit one-routine allowlist and fixed candidate-work-order SQL",
+    "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+  ],
+  "prerequisites": [
+    "PAF 26.7-compatible visual Agent Builder and an available model.",
+    "JDE Replica Manufacturing Read Only with the documented views or read-only routine."
+  ],
+  "tools": [
+    {
+      "name": "GET_WO_MATERIAL_RISK",
+      "method": "EXECUTE",
+      "path": "PAF_JDE_MFG.GET_WO_MATERIAL_RISK",
+      "purpose": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica."
+    },
+    {
+      "name": "WORK_ORDERS",
+      "method": "SELECT",
+      "path": "PAF_JDE_API.WORK_ORDERS",
+      "purpose": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica."
+    },
+    {
+      "name": "WORK_ORDER_PARTS",
+      "method": "SELECT",
+      "path": "PAF_JDE_API.WORK_ORDER_PARTS",
+      "purpose": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica."
+    }
+  ],
+  "safetyControls": [
+    "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+    "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+    "The shared integration reader does not reproduce per-person application authorization."
+  ],
+  "setup": [
+    "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+    "Rebind each database node to JDE Replica Manufacturing Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
+    "Select the model on every Agent node; model connections are excluded from the archive.",
+    "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+    "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Module evidence and limitations",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Choose the first candidate work order with component rows in the replica and review up to five component risks. Identify the order and explain the inventory, unit and requirement-grain checks a planner must make before confirming readiness."
+          },
+          {
+            "speaker": "User",
+            "text": "Explain what this bounded replica evidence cannot prove and what a human owner should verify before acting."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+      "A clear distinction between the observed sample and claims it cannot establish."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+    "status": "Passed live demo run; unpublished draft",
+    "notes": [
+      "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+      "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+      "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+      "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
+      "PAF SQL identity checks confirmed the target PDB is JDEDEMO under the matching demo account. Application cutover was not performed."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "jde-replica-work-order-material-risk.paf"
+  }
+}

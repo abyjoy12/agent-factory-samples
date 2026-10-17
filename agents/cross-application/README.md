@@ -1,4 +1,4 @@
 # Cross-application demos
 
-- [Business Policy Desk](policy-desk/) — File upload, Text combiner, and document-grounded Agent
-- [Executive Working Capital Brief](executive-operations-brief/) — Native Agent subagents with one shared read-only finance source
+- [Executive Working Capital Brief](executive-operations-brief/) — Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes.
+- [Business Policy Desk](policy-desk/) — Answer operational policy questions from a small supplied handbook with section citations and explicit gaps.

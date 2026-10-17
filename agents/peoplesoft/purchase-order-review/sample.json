@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "psft-purchase-order-review",
+  "application": {
+    "slug": "peoplesoft",
+    "name": "PeopleSoft"
+  },
+  "useCase": {
+    "slug": "purchase-order-review",
+    "name": "PeopleSoft Purchase Order Review"
+  },
+  "title": "PeopleSoft Purchase Order Review",
+  "summary": "Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope.",
+  "category": "Procurement",
+  "version": "1",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "PeopleSoft Financials and Supply Chain Read Only",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "Fresh evidence on every run; disable memory and cross-thread sharing after import."
+  },
+  "capabilities": [
+    "Fixed SELECT evidence, Text combiner, grounded Agent and Chat output",
+    "Bounded read-only evidence with explicit grain, dates and interpretation limits."
+  ],
+  "prerequisites": [
+    "PAF 26.7-compatible visual Agent Builder and an available model.",
+    "PeopleSoft Financials and Supply Chain Read Only with the documented views or read-only routine."
+  ],
+  "tools": [
+    {
+      "name": "FSCM_PURCHASE_ORDERS",
+      "method": "SELECT",
+      "path": "PAF_DATA.FSCM_PURCHASE_ORDERS",
+      "purpose": "Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope."
+    },
+    {
+      "name": "FSCM_PO_LINES",
+      "method": "SELECT",
+      "path": "PAF_DATA.FSCM_PO_LINES",
+      "purpose": "Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope."
+    }
+  ],
+  "safetyControls": [
+    "Read-only application access; no posting, approvals, payments, enrollment, messages, job restart or cancellation.",
+    "Historical dates, organization, currency, units and row grain stay visible; empty and failed queries must be disclosed.",
+    "The shared integration reader does not reproduce per-person application authorization."
+  ],
+  "setup": [
+    "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
+    "Rebind each database node to PeopleSoft Financials and Supply Chain Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
+    "Select the model on every Agent node; model connections are excluded from the archive.",
+    "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
+    "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Module evidence and limitations",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Review the ten most recently dated purchase-order headers and suggest what the buyer should verify next."
+          },
+          {
+            "speaker": "User",
+            "text": "Does this sample prove that any PO is open, approved or late? Explain the limitations of the raw status and date fields."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A bounded evidence-backed explanation and a concrete next step for a human owner.",
+      "A clear distinction between the observed sample and claims it cannot establish."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+    "status": "Passed live demo run; unpublished draft",
+    "notes": [
+      "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+      "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
+      "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
+      "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
+      "Both the primary prompt and the documented limitations follow-up completed in the same conversation.",
+      "The existing reader had CREATE SESSION, no assigned roles, and SELECT/READ on the required objects. No new grant was applied."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "psft-purchase-order-review.paf"
+  }
+}

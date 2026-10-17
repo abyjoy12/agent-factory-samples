@@ -13,5 +13,8 @@ Each use-case directory contains one reviewable Agent Builder workflow, its arch
 ## Applications
 
 - [JD Edwards EnterpriseOne](jd-edwards/)
+- [PeopleSoft](peoplesoft/)
+- [Oracle E-Business Suite](oracle-ebs/)
+- [Cross-application](cross-application/)
 
 Application and use-case slugs in `sample.json` must match their directory names. The agent `slug` remains independent and determines the stable release asset filename.

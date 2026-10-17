@@ -2,6 +2,12 @@
 
 **Status: prepared, blocked, not deployed — 2026-10-17.** This is an extension blueprint, not an eleventh downloadable or working agent. The ten published business demos use direct Builder database/file integrations.
 
+## Fresh endpoint check — 2026-10-17
+
+The existing managed server `PAF` is still ACTIVE and targets its original, different database connection. A fresh unauthenticated JSON-RPC `initialize` request to its invocation endpoint returned HTTP **401**, with a bearer challenge containing protected-resource metadata and the server-specific scope. This confirms a reachable authenticated endpoint; it does **not** establish authenticated initialization, tool discovery, SQL execution, or PAF integration.
+
+No usable OAuth/PAT credential for this invocation was supplied to this check, and no authentication changes were made to the shared server or identity domain. The earlier dedicated EBS server creation attempts below were not repeated or reported as successful. The new [direct receivables flow](../../agents/oracle-ebs/receivables-portfolio-review/) exercises the same bounded SQL without MCP; it does not validate the MCP transport. See also the separate [ORDS MCP probe](../ords-mcp/).
+
 ## Business demonstration
 
 An EBS collections lead asks: “Summarize positive remaining receivables by organization and currency.” A managed MCP tool executes [receivables-summary.sql](receivables-summary.sql) and the PAF Agent explains the returned groups. The SQL is fixed, SELECT-only, limited to 15 groups, and runs under the existing EBS Finance integration reader. It returns payment-schedule counts, amounts and due-date ranges. It does not send collection notices, return customer contact details, net different currencies, or forecast cash.
