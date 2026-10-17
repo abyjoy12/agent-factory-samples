@@ -104,5 +104,26 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "psft-database-service-pulse.paf"
+  },
+  "catalog": {
+    "domains": [
+      "IT operations"
+    ],
+    "modules": [
+      "Database operations"
+    ],
+    "useCases": [
+      "Operations monitoring",
+      "Capacity planning"
+    ],
+    "keywords": [
+      "DBA",
+      "PDB",
+      "tablespace",
+      "performance"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Is the database showing resource pressure, and what should the DBA check?"
   }
 }

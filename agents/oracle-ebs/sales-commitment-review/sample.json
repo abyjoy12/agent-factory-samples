@@ -90,5 +90,26 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "ebs-sales-commitment-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Sales",
+      "Supply chain"
+    ],
+    "modules": [
+      "Order management"
+    ],
+    "useCases": [
+      "Order fulfillment",
+      "Exception triage"
+    ],
+    "keywords": [
+      "customer",
+      "promise",
+      "shipment"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which sales commitments need follow-up on requested versus scheduled dates?"
   }
 }

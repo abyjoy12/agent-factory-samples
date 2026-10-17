@@ -61,5 +61,28 @@
     ]
   },
   "validation": {"date": "2026-10-11", "environment": "JPS920 sample data, same user across two chats", "status": "Passed live cross-session validation", "notes": ["Agent Memory retrieval is user-specific and relevance-based."]},
-  "artifacts": {"workflow": "workflow.json", "archiveMetadata": "archive-metadata.json", "instructions": "assets/agent-instructions.md", "openapi": "assets/jde-fulfillment-openapi.json", "releaseAsset": "jd-edwards-fulfillment-memory-agent.paf"}
+  "artifacts": {"workflow": "workflow.json", "archiveMetadata": "archive-metadata.json", "instructions": "assets/agent-instructions.md", "openapi": "assets/jde-fulfillment-openapi.json", "releaseAsset": "jd-edwards-fulfillment-memory-agent.paf"},
+  "catalog": {
+    "domains": [
+      "Supply chain",
+      "Sales"
+    ],
+    "modules": [
+      "Order management",
+      "Inventory"
+    ],
+    "useCases": [
+      "Order fulfillment",
+      "Exception triage"
+    ],
+    "keywords": [
+      "backorder",
+      "shortage",
+      "stock",
+      "recovery"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Can you review backorders using our saved fulfillment policy?"
+  }
 }

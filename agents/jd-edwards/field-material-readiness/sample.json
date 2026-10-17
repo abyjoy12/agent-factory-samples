@@ -110,5 +110,27 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "jde-field-material-readiness.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Field service",
+      "Supply chain"
+    ],
+    "modules": [
+      "Inventory",
+      "Work orders"
+    ],
+    "useCases": [
+      "Material readiness",
+      "Capacity planning"
+    ],
+    "keywords": [
+      "dispatch",
+      "parts",
+      "technician"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Do we have the parts for this field visit, and what needs a planner check?"
   }
 }

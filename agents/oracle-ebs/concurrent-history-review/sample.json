@@ -91,5 +91,25 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "ebs-concurrent-history-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "IT operations"
+    ],
+    "modules": [
+      "Batch processing"
+    ],
+    "useCases": [
+      "Operations monitoring",
+      "Exception triage"
+    ],
+    "keywords": [
+      "concurrent request",
+      "jobs",
+      "batch"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "What do the latest stored batch requests tell us to investigate?"
   }
 }

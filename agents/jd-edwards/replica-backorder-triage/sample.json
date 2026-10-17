@@ -90,5 +90,28 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "jde-replica-backorder-triage.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Supply chain",
+      "Sales"
+    ],
+    "modules": [
+      "Order management",
+      "Inventory"
+    ],
+    "useCases": [
+      "Order fulfillment",
+      "Exception triage"
+    ],
+    "keywords": [
+      "backorder",
+      "shortage",
+      "stock",
+      "recovery"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which sampled backorder has the earliest requested date, and what should we check?"
   }
 }

@@ -90,5 +90,24 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "jde-replica-finance-activity-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Finance"
+    ],
+    "modules": [
+      "General ledger"
+    ],
+    "useCases": [
+      "Financial review"
+    ],
+    "keywords": [
+      "GL",
+      "journal",
+      "replica"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "What do the latest stored GL entries show by company, currency and ledger?"
   }
 }

@@ -90,5 +90,26 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "business-policy-desk.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Knowledge management",
+      "Compliance"
+    ],
+    "modules": [
+      "Policies and procedures"
+    ],
+    "useCases": [
+      "Policy Q&A",
+      "Compliance review"
+    ],
+    "keywords": [
+      "handbook",
+      "knowledge",
+      "documents"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Who needs to approve a $750 freight expedite—and which policy says so?"
   }
 }

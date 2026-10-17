@@ -91,5 +91,25 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "psft-service-case-workload.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Customer service"
+    ],
+    "modules": [
+      "Service operations"
+    ],
+    "useCases": [
+      "Workload review",
+      "Capacity planning"
+    ],
+    "keywords": [
+      "CRM",
+      "cases",
+      "support"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which case-status and priority groups carry the largest support workload?"
   }
 }

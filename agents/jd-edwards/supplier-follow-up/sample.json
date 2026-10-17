@@ -89,5 +89,26 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "jde-supplier-follow-up.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Procurement",
+      "Supply chain"
+    ],
+    "modules": [
+      "Purchasing"
+    ],
+    "useCases": [
+      "Supplier follow-up",
+      "Exception triage"
+    ],
+    "keywords": [
+      "vendor",
+      "purchase order",
+      "PO"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which supplier commitments should the buyer check first?"
   }
 }

@@ -96,5 +96,26 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "ebs-it-operations-triage.paf"
+  },
+  "catalog": {
+    "domains": [
+      "IT operations"
+    ],
+    "modules": [
+      "Batch processing",
+      "Service operations"
+    ],
+    "useCases": [
+      "Exception triage",
+      "Operations monitoring"
+    ],
+    "keywords": [
+      "outage",
+      "incident",
+      "escalation"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Where should IT start investigating this batch or service concern?"
   }
 }

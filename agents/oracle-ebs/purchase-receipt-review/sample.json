@@ -91,5 +91,27 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "ebs-purchase-receipt-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Procurement",
+      "Supply chain"
+    ],
+    "modules": [
+      "Purchasing",
+      "Receiving"
+    ],
+    "useCases": [
+      "Supplier follow-up",
+      "Exception triage"
+    ],
+    "keywords": [
+      "PO",
+      "receipts",
+      "delivery"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which sampled purchase shipments still have unreceived quantities?"
   }
 }

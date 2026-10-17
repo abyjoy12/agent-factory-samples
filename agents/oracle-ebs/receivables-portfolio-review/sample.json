@@ -91,5 +91,25 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "ebs-receivables-portfolio-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Finance"
+    ],
+    "modules": [
+      "Receivables"
+    ],
+    "useCases": [
+      "Financial review",
+      "Management briefing"
+    ],
+    "keywords": [
+      "AR",
+      "collections",
+      "balance"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Where are positive receivable balances concentrated by organization and currency?"
   }
 }

@@ -97,5 +97,26 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "psft-position-coverage-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Human resources"
+    ],
+    "modules": [
+      "Workforce management"
+    ],
+    "useCases": [
+      "Capacity planning",
+      "Management briefing"
+    ],
+    "keywords": [
+      "HR",
+      "headcount",
+      "positions",
+      "staffing"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "How do assignment counts compare with capacity for the sampled positions?"
   }
 }

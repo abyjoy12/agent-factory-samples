@@ -12,6 +12,7 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from typing import Any
+from urllib.parse import urlencode
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +49,13 @@ class Agent:
     name: str
     description: str
     category: str
+    domains: tuple[str, ...]
+    modules: tuple[str, ...]
+    functional_use_cases: tuple[str, ...]
+    technical_features: tuple[str, ...]
+    keywords: tuple[str, ...]
+    action_mode: str
+    business_question: str
     version: str
     platform_version: str
     connection_context: str
@@ -209,6 +217,34 @@ def load_agent(folder: Path, repository_url: str = "", release_base_url: str = "
     if metadata.get("applicationVersion") != platform_version:
         raise ValueError(f"{path}: platform version must match archive metadata")
 
+    catalog = _object(sample.get("catalog", {}), f"{path}: catalog")
+    vocabulary = _json(Path(__file__).parent / "catalog_taxonomy.json", "catalog taxonomy")
+    for field in ("domains", "modules", "useCases", "technicalFeatures"):
+        if field in catalog:
+            values = _strings(catalog[field], f"{path}: catalog.{field}", empty=field == "technicalFeatures")
+            unknown = set(values) - set(vocabulary[field])
+            if unknown:
+                raise ValueError(f"{path}: unknown catalog.{field} labels: {sorted(unknown)}; update catalog_taxonomy.json intentionally")
+    domains = _strings(catalog.get("domains", [category]), f"{path}: catalog.domains")
+    modules = _strings(catalog.get("modules", [use_case_name]), f"{path}: catalog.modules")
+    functional_use_cases = _strings(catalog.get("useCases", [use_case_name]), f"{path}: catalog.useCases")
+    keywords = _strings(catalog.get("keywords", []), f"{path}: catalog.keywords", empty=True)
+    features = set(_strings(catalog.get("technicalFeatures", []), f"{path}: catalog.technicalFeatures", empty=True))
+    node_features = {
+        "SelectSqlQueryNode": "SQL queries", "oracleDatabaseTools": "Database tools",
+        "oraclePLSQLExecutor": "PL/SQL tools", "restAPITools": "REST API tools",
+        "fileUpload": "Document upload", "readCsv": "CSV input", "parser": "Structured parsing",
+        "conditionComponent": "Conditional routing", "currentDateTime": "Current date/time",
+        "textCombiner": "Text composition",
+    }
+    for node in workflow.get("data", {}).get("nodes", []):
+        feature = node_features.get(node.get("data", {}).get("type"))
+        if feature:
+            features.add(feature)
+    if memory_mode != "none":
+        features.add("Agent Memory")
+    action_mode = _text(catalog.get("actionMode", "Not classified"), f"{path}: catalog.actionMode")
+
     relative_folder = f"agents/{application_slug}/{use_case_slug}"
     folder_url = f"{repository_url.rstrip('/')}/{relative_folder}" if repository_url else ""
     return Agent(
@@ -220,6 +256,9 @@ def load_agent(folder: Path, repository_url: str = "", release_base_url: str = "
         name=name,
         description=description,
         category=category,
+        domains=domains, modules=modules, functional_use_cases=functional_use_cases,
+        technical_features=tuple(sorted(features)), keywords=keywords, action_mode=action_mode,
+        business_question=_text(catalog.get("question", name), f"{path}: catalog.question"),
         version=version,
         platform_version=platform_version,
         connection_context=connection_context,
@@ -267,6 +306,8 @@ def discover_agents(root: Path, repository_url: str = "", release_base_url: str 
         and (use_case / "sample.json").is_file()
     )
     agents = [load_agent(folder, repository_url, release_base_url) for folder in folders]
+    if len({a.slug for a in agents}) != len(agents):
+        raise ValueError("catalog sample slugs must be unique")
     return sorted(agents, key=lambda agent: (agent.application_name.casefold(), agent.name.casefold()))
 
 
@@ -279,29 +320,62 @@ def _link(url: str, label: str) -> str:
     return f'<a href="{html.escape(url, quote=True)}">{html.escape(label)}</a>' if url else f"<span>{html.escape(label)}</span>"
 
 
+FACETS = (("application", "Application", "application_name"),
+          ("domain", "Business domain", "domains"),
+          ("usecase", "Functional use case", "functional_use_cases"),
+          ("module", "Application module", "modules"),
+          ("feature", "Technical feature", "technical_features"))
+
+
+def _facet_links(key: str, values: tuple[str, ...]) -> str:
+    return ', '.join(_link('../../../?' + urlencode({key: value}), value) for value in values)
+
+
 def _agent_card(a: Agent) -> str:
+    tags = ''.join(f'<span>{html.escape(t)}</span>' for t in a.technical_features[:3])
+    if len(a.technical_features) > 3:
+        tags += f'<span title="{html.escape(", ".join(a.technical_features[3:]), quote=True)}">+{len(a.technical_features)-3} more</span>'
     return (
-        f'<article class="card"><div class="meta"><span>{html.escape(a.use_case_name)}</span><span>Flow v{html.escape(a.version)}</span></div>'
-        f'<h2><a href="{html.escape(a.page_url, quote=True)}">{html.escape(a.name)}</a></h2><p>{html.escape(a.description)}</p>'
-        f'<div class="badges"><b>{html.escape(a.category)}</b><b>Release PAF</b><b>{"No memory" if a.memory_mode == "none" else html.escape(a.memory_mode.title() + " memory")}</b><b>Read only</b></div></article>'
+        f'<article class="card agent-card" data-slug="{html.escape(a.slug, quote=True)}" data-application="{html.escape(a.application_slug, quote=True)}">'
+        f'<div class="card-eyebrow"><span class="app-badge">{html.escape(a.application_name)}</span><span class="mode">{html.escape(a.action_mode)}</span></div>'
+        f'<h2><a class="agent-link" href="{html.escape(a.page_url, quote=True)}">{html.escape(a.business_question)}</a></h2><p class="card-summary">{html.escape(a.description)}</p>'
+        f'<div class="agent-name">{html.escape(a.name)}</div>'
+        f'<div class="card-domain">{html.escape(" / ".join(a.domains))}</div>'
+        f'<div class="use-case-tags">{"".join(f"<span>{html.escape(x)}</span>" for x in a.functional_use_cases)}</div>'
+        f'<div class="card-bottom"><div class="feature-tags">{tags}</div><a class="agent-link guide-link" href="{html.escape(a.page_url, quote=True)}" aria-label="Explore {html.escape(a.name, quote=True)}">Explore guide <span aria-hidden="true">↗</span></a></div></article>'
     )
 
 
 def render_index(agents: list[Agent], generated_at: str) -> str:
-    applications: dict[tuple[str, str], list[Agent]] = {}
-    for agent in agents:
-        applications.setdefault((agent.application_slug, agent.application_name), []).append(agent)
-    groups = "".join(
-        f'<section class="application-group" id="{html.escape(application_slug, quote=True)}">'
-        f'<div class="application-heading"><span class="kicker">Application</span><h2>{html.escape(application_name)}</h2><p>{len(items)} use case{"s" if len(items) != 1 else ""}</p></div>'
-        f'<div class="grid">{"".join(_agent_card(agent) for agent in items)}</div></section>'
-        for (application_slug, application_name), items in applications.items()
-    ) or '<section class="card"><h2>No samples yet</h2></section>'
-    return f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Private Agent Factory Agent Samples</title><link rel="stylesheet" href="assets/styles.css"></head>
-<body>{MARKER}<header class="hero"><div><span class="kicker">Oracle AI Database</span><h1>Private Agent Factory Agent Samples</h1><p>Review the design, follow the documented demo, and download a CI-built import archive.</p><strong>{len(agents)} agent{"s" if len(agents) != 1 else ""} available</strong></div></header>
-<main><div class="heading"><div><span class="kicker">Catalog</span><h2>Applications and use cases</h2></div><p>Generated from validated <code>sample.json</code> manifests.</p></div>{groups}</main>
-<footer>Generated {html.escape(generated_at)} · <a href="agents.json">Machine-readable catalog</a></footer></body></html>"""
+    filters = []
+    records = []
+    for a in agents:
+        record = {"slug": a.slug, "name": a.name, "page": a.page_url,
+                  "search": " ".join((a.name, a.business_question, a.description, a.use_case_name, a.category,
+                                       a.memory_mode, a.memory_description, *a.capabilities, *a.keywords)),
+                  "facets": {key: [getattr(a, attr)] if key == "application" else list(getattr(a, attr)) for key, _, attr in FACETS}}
+        records.append(record)
+    for key, label, _ in FACETS:
+        values = sorted({v for r in records for v in r['facets'][key]})
+        options = ''.join(
+            f'<label class="filter-option"><input type="checkbox" name="{key}" value="{html.escape(v, quote=True)}"><span>{html.escape(v)}</span><span class="facet-count" aria-hidden="true">{sum(v in r["facets"][key] for r in records)}</span></label>'
+            for v in values)
+        filters.append(f'<details class="facet" open><summary>{label}<span aria-hidden="true">⌄</span></summary><fieldset><legend class="sr-only">{label}</legend>{options}</fieldset></details>')
+    embedded = json.dumps(records, ensure_ascii=False).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
+    domains = len({v for a in agents for v in a.domains})
+    app_count = len({a.application_slug for a in agents})
+    quick_links = ''.join(f'<a href="?{html.escape(urlencode({"usecase": value}), quote=True)}" data-preset="{html.escape(value, quote=True)}">{value} <span aria-hidden="true">↗</span></a>' for value in ('Exception triage', 'Capacity planning', 'Financial review', 'Operations monitoring'))
+    cards = ''.join(_agent_card(a) for a in agents)
+    return f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Find Oracle Private Agent Factory samples by business need, application, domain and technical capability."><title>Agent catalog · Private Agent Factory</title><link rel="stylesheet" href="assets/styles.css"><script src="assets/catalog.js" defer></script></head>
+<body class="catalog-page">{MARKER}<a class="skip-link" href="#catalog-main">Skip to agents</a>
+<header class="site-header"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">af</span><span>Private Agent Factory<small>AGENT SAMPLE LIBRARY</small></span></a><nav aria-label="Site"><a class="current" href="./" aria-current="page">Explore agents</a><a href="https://github.com/kgvarun/agent-factory-samples">Source repository <span aria-hidden="true">↗</span></a></nav></header>
+<div class="catalog-shell"><aside class="catalog-sidebar" id="catalog-sidebar"><div class="sidebar-heading"><div><span class="kicker">Discovery</span><h2>Find your agent</h2></div><button type="button" class="text-button js-control" id="clear-sidebar" hidden>Reset</button></div><p class="filter-help">Combine categories to narrow your search. Multiple choices within a category match any.</p><div class="filters js-control" hidden>{''.join(filters)}</div><noscript><p>Enable JavaScript to search and filter. All agent guides remain available below.</p></noscript><a class="sidebar-source" href="agents.json">Download catalog data ↗</a></aside>
+<main class="catalog-main" id="catalog-main"><section class="catalog-intro"><div><span class="kicker">Explore. Adapt. Build.</span><h1>A starting point for<br>your next agent.</h1><p>Start with a business problem. Find a working example, explore its design, and make it your own.</p></div><div class="catalog-stats"><div><strong>{len(agents):02d}</strong><span>agent samples</span></div><div><strong>{app_count:02d}</strong><span>application groups</span></div><div><strong>{domains:02d}</strong><span>business domains</span></div></div></section>
+<div class="discovery-tools js-control" hidden><label class="search-box" for="catalog-search"><span aria-hidden="true">⌕</span><input id="catalog-search" type="search" placeholder="Search a task, business topic, or technical feature…" autocomplete="off"><span class="search-hint">Search all agents</span></label><div class="quick-start"><span>Start with a task</span>{quick_links}</div></div>
+<section class="results-section" aria-labelledby="results-title"><div class="results-toolbar"><div><h2 id="results-title">All agents</h2><p id="result-count" role="status" aria-live="polite" aria-atomic="true">{len(agents)} agents to explore</p></div><div class="results-actions js-control" hidden><button id="mobile-filters" type="button" aria-controls="catalog-sidebar" aria-expanded="false">Filters</button><button id="share-filters" type="button">Copy link</button><label for="sort-order" class="sr-only">Sort agents</label><select id="sort-order"><option value="application">Sort: application</option><option value="name">Sort: name</option><option value="domain">Sort: business domain</option><option value="usecase">Sort: functional use case</option></select></div></div>
+<div id="active-filters" class="active-filters" aria-label="Active filters"></div><p id="share-status" class="share-status" role="status"></p><div class="grid catalog-grid" id="agent-grid">{cards}</div><div class="empty-state" id="empty-state" hidden><span class="kicker">Try a broader search</span><h2>No agents match these choices.</h2><p>Remove a filter or try another term. You can explore the same task across applications.</p><button type="button" id="clear-empty">Clear search &amp; filters</button></div></section>
+<footer class="catalog-footer"><span>Private Agent Factory · Sample library</span><span>Explore the guide for setup, capabilities and validation limits.</span></footer></main></div><script type="application/json" id="catalog-data">{embedded}</script></body></html>'''
 
 
 def render_agent(agent: Agent, generated_at: str) -> str:
@@ -326,13 +400,13 @@ def render_agent(agent: Agent, generated_at: str) -> str:
         dependency_links += f'<li>{_link(agent.dependency_url, agent.dependency_path)} — source bindings and supporting assets</li>'
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(agent.name)} · Agent Samples</title><link rel="stylesheet" href="../../../assets/styles.css"></head>
-<body>{MARKER}<header class="detail-hero"><div><a class="back" href="../../../">← All applications</a><span class="kicker">{html.escape(agent.application_name)} · {html.escape(agent.use_case_name)}</span><h1>{html.escape(agent.name)}</h1><p>{html.escape(agent.description)}</p><nav>{download}{_link(agent.folder_url, "Browse source")}</nav></div></header>
-<main class="detail"><aside class="facts"><h2>At a glance</h2><dl><dt>Application</dt><dd>{html.escape(agent.application_name)}</dd><dt>Use case</dt><dd>{html.escape(agent.use_case_name)}</dd><dt>Agent flow</dt><dd>v{html.escape(agent.version)}</dd><dt>PAF release</dt><dd>{html.escape(agent.platform_version)}</dd><dt>Memory</dt><dd>{html.escape(agent.memory_mode.title())}</dd><dt>Cross-thread</dt><dd>{"Enabled" if agent.cross_thread_memory else "Not required"}</dd><dt>Validation</dt><dd>{html.escape(agent.validation_status)}</dd></dl></aside>
-<div class="sections"><section><h2>What it demonstrates</h2>{_list(agent.capabilities)}</section><section><h2>Connection context</h2><p>{html.escape(agent.connection_context)}</p></section><section><h2>Agent Memory</h2><p>{html.escape(agent.memory_description)}</p></section><section><h2>Prerequisites</h2>{_list(agent.prerequisites)}</section>
-<section><h2>Read-only tools</h2><div class="table"><table><thead><tr><th>Source or tool</th><th>Method</th><th>Path</th><th>Purpose</th></tr></thead><tbody>{rows}</tbody></table></div></section><section><h2>Safety controls</h2>{_list(agent.safety_controls)}</section><section><h2>Import and configure</h2>{_list(agent.setup, ordered=True)}</section>
-<section><h2>Demo flow</h2>{sessions}<h3>Expected outcomes</h3>{_list(agent.expected_outcomes)}</section><section><h2>Validation record</h2><p><strong>{html.escape(agent.validation_status)}</strong> on {html.escape(agent.validation_date)} in {html.escape(agent.validation_environment)}.</p>{_list(agent.validation_notes) if agent.validation_notes else "<p>No additional notes.</p>"}</section>
-<section><h2>Source artifacts</h2><ul><li>{_link(agent.workflow_url, "workflow.json")} — exact Agent Builder workflow payload</li>{dependency_links}<li>{_link(agent.instructions_url, agent.instructions_path)} — readable instructions</li><li>{_link(agent.readme_url, "README.md")} — contributor documentation</li></ul><p>The generated PAF contains the workflow only. Connection credentials, data-source definitions, model mappings, uploaded file contents, and learned memories are excluded. Rebind the documented dependencies after import.</p></section></div></main>
-<footer>Generated {html.escape(generated_at)} · <a href="../../../agents.json">Machine-readable catalog</a></footer></body></html>"""
+<body>{MARKER}<a class="skip-link" href="#guide-content">Skip to guide</a><header class="detail-hero"><div><a class="back" id="back-to-catalog" href="../../../">← Back to agent catalog</a><span class="kicker">{html.escape(agent.application_name)} · {html.escape(agent.use_case_name)}</span><h1>{html.escape(agent.name)}</h1><p>{html.escape(agent.description)}</p><nav>{download}{_link(agent.folder_url, "Browse source")}</nav></div></header>
+<main class="detail" id="guide-content"><aside class="facts"><nav class="guide-nav" aria-label="On this page"><h2>In this guide</h2><a href="#overview">Overview</a><a href="#prerequisites">Prerequisites</a><a href="#tools">Tools &amp; controls</a><a href="#setup">Import &amp; configure</a><a href="#demo">Demo flow</a><a href="#validation">Validation</a><a href="#artifacts">Source artifacts</a></nav><h2>At a glance</h2><dl><dt>Application</dt><dd>{html.escape(agent.application_name)}</dd><dt>Business domain</dt><dd>{_facet_links("domain", agent.domains)}</dd><dt>Module</dt><dd>{_facet_links("module", agent.modules)}</dd><dt>Functional use case</dt><dd>{_facet_links("usecase", agent.functional_use_cases)}</dd><dt>Technical features</dt><dd>{_facet_links("feature", agent.technical_features)}</dd><dt>Behavior</dt><dd>{html.escape(agent.action_mode)}</dd><dt>Use case</dt><dd>{html.escape(agent.use_case_name)}</dd><dt>Agent flow</dt><dd>v{html.escape(agent.version)}</dd><dt>PAF release</dt><dd>{html.escape(agent.platform_version)}</dd><dt>Memory</dt><dd>{html.escape(agent.memory_mode.title())}</dd><dt>Cross-thread</dt><dd>{"Enabled" if agent.cross_thread_memory else "Not required"}</dd><dt>Validation</dt><dd>{html.escape(agent.validation_status)}</dd></dl></aside>
+<div class="sections"><section id="overview"><h2>What it demonstrates</h2><p class="guide-question">{html.escape(agent.business_question)}</p>{_list(agent.capabilities)}</section><section><h2>Connection context</h2><p>{html.escape(agent.connection_context)}</p></section><section><h2>Agent Memory</h2><p>{html.escape(agent.memory_description)}</p></section><section id="prerequisites"><h2>Prerequisites</h2>{_list(agent.prerequisites)}</section>
+<section id="tools"><h2>Tools and data sources</h2><div class="table"><table><thead><tr><th>Source or tool</th><th>Method</th><th>Path</th><th>Purpose</th></tr></thead><tbody>{rows}</tbody></table></div></section><section><h2>Safety controls</h2>{_list(agent.safety_controls)}</section><section id="setup"><h2>Import and configure</h2>{_list(agent.setup, ordered=True)}</section>
+<section id="demo"><h2>Demo flow</h2>{sessions}<h3>Expected outcomes</h3>{_list(agent.expected_outcomes)}</section><section id="validation"><h2>Validation record</h2><p><strong>{html.escape(agent.validation_status)}</strong> on {html.escape(agent.validation_date)} in {html.escape(agent.validation_environment)}.</p>{_list(agent.validation_notes) if agent.validation_notes else "<p>No additional notes.</p>"}</section>
+<section id="artifacts"><h2>Source artifacts</h2><ul><li>{_link(agent.workflow_url, "workflow.json")} — exact Agent Builder workflow payload</li>{dependency_links}<li>{_link(agent.instructions_url, agent.instructions_path)} — readable instructions</li><li>{_link(agent.readme_url, "README.md")} — contributor documentation</li></ul><p>The generated PAF contains the workflow only. Connection credentials, data-source definitions, model mappings, uploaded file contents, and learned memories are excluded. Rebind the documented dependencies after import.</p></section></div></main>
+<footer>Generated {html.escape(generated_at)} · <a href="../../../agents.json">Machine-readable catalog</a></footer><script src="../../../assets/catalog.js" defer></script></body></html>"""
 
 
 STYLES = """/* Generated by scripts/generate_docs.py. */
@@ -364,7 +438,9 @@ def build_site(root: Path, output: Path, repository_url: str = "", release_base_
         page.mkdir(parents=True, exist_ok=True)
         (page / "index.html").write_text(render_agent(agent, generated), encoding="utf-8")
     (output / "agents.json").write_text(json.dumps({"schemaVersion":"1.0","generatedAt":generated,"agents":[asdict(a) for a in agents]}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (output / "assets" / "styles.css").write_text(STYLES, encoding="utf-8")
+    assets = Path(__file__).parent / "catalog_assets"
+    (output / "assets" / "styles.css").write_text(STYLES + (assets / "catalog.css").read_text(encoding="utf-8"), encoding="utf-8")
+    shutil.copyfile(assets / "catalog.js", output / "assets" / "catalog.js")
     (output / ".nojekyll").write_text("", encoding="utf-8")
     return agents
 

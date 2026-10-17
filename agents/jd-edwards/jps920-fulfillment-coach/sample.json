@@ -64,5 +64,28 @@
     ]
   },
   "validation": {"date": "2026-10-11", "environment": "JPS920 sample data, clean memory then two chats", "status": "Passed live cross-session validation", "notes": ["Memory retrieval is relevance-based; the audit section reports only feedback actually applied in that turn."]},
-  "artifacts": {"workflow": "workflow.json", "archiveMetadata": "archive-metadata.json", "instructions": "assets/agent-instructions.md", "openapi": "assets/jde-fulfillment-openapi.json", "releaseAsset": "jde-jps920-fulfillment-coach.paf"}
+  "artifacts": {"workflow": "workflow.json", "archiveMetadata": "archive-metadata.json", "instructions": "assets/agent-instructions.md", "openapi": "assets/jde-fulfillment-openapi.json", "releaseAsset": "jde-jps920-fulfillment-coach.paf"},
+  "catalog": {
+    "domains": [
+      "Supply chain",
+      "Sales"
+    ],
+    "modules": [
+      "Order management",
+      "Inventory"
+    ],
+    "useCases": [
+      "Order fulfillment",
+      "Exception triage"
+    ],
+    "keywords": [
+      "backorder",
+      "shortage",
+      "stock",
+      "recovery"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "How do my latest priority and stock-reserve rules change the backorder review?"
+  }
 }

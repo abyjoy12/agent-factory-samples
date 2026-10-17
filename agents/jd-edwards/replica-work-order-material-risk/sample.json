@@ -102,5 +102,27 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "jde-replica-work-order-material-risk.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Manufacturing",
+      "Supply chain"
+    ],
+    "modules": [
+      "Work orders",
+      "Inventory"
+    ],
+    "useCases": [
+      "Material readiness",
+      "Exception triage"
+    ],
+    "keywords": [
+      "production",
+      "components",
+      "replica"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which components need checking before we confirm this work order is ready?"
   }
 }

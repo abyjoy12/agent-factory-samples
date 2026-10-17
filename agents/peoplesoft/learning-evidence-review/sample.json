@@ -96,5 +96,25 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "psft-learning-evidence-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Human resources",
+      "Compliance"
+    ],
+    "modules": [
+      "Learning management"
+    ],
+    "useCases": [
+      "Compliance review"
+    ],
+    "keywords": [
+      "training",
+      "completion",
+      "evidence"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which training groups passed their target date without recorded completion?"
   }
 }

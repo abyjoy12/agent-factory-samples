@@ -1,0 +1,51 @@
+{
+  "domains": [
+    "Compliance",
+    "Customer service",
+    "Education",
+    "Executive operations",
+    "Field service",
+    "Finance",
+    "Human resources",
+    "IT operations",
+    "Knowledge management",
+    "Manufacturing",
+    "Procurement",
+    "Sales",
+    "Supply chain"
+  ],
+  "modules": [
+    "Batch processing",
+    "Campus enrollment",
+    "Database operations",
+    "General ledger",
+    "Inventory",
+    "Learning management",
+    "Order management",
+    "Payables",
+    "Policies and procedures",
+    "Purchasing",
+    "Receivables",
+    "Receiving",
+    "Service operations",
+    "Work orders",
+    "Workforce management"
+  ],
+  "useCases": [
+    "Capacity planning",
+    "Compliance review",
+    "Duplicate detection",
+    "Exception triage",
+    "Financial review",
+    "Management briefing",
+    "Material readiness",
+    "Operations monitoring",
+    "Order fulfillment",
+    "Policy Q&A",
+    "Supplier follow-up",
+    "Workload review"
+  ],
+  "technicalFeatures": [
+    "Agent subagents"
+  ]
+}

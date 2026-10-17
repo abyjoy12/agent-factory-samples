@@ -90,5 +90,26 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "jde-replica-supplier-follow-up.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Procurement",
+      "Supply chain"
+    ],
+    "modules": [
+      "Purchasing"
+    ],
+    "useCases": [
+      "Supplier follow-up",
+      "Exception triage"
+    ],
+    "keywords": [
+      "vendor",
+      "PO",
+      "replica"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which open purchase line needs a supplier follow-up, and what should we ask?"
   }
 }

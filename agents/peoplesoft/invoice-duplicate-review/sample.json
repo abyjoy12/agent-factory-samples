@@ -90,5 +90,25 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "psft-invoice-duplicate-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Finance"
+    ],
+    "modules": [
+      "Payables"
+    ],
+    "useCases": [
+      "Duplicate detection",
+      "Exception triage"
+    ],
+    "keywords": [
+      "AP",
+      "invoice",
+      "voucher"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which supplier invoice references may be duplicates that AP should investigate?"
   }
 }

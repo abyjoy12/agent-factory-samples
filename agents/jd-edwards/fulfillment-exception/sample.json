@@ -55,5 +55,28 @@
     ]
   },
   "validation": {"date": "2026-10-11", "environment": "JPS920 sample data", "status": "Passed live tool-call validation", "notes": ["Exact orders and balances vary with the target JDE environment."]},
-  "artifacts": {"workflow": "workflow.json", "archiveMetadata": "archive-metadata.json", "instructions": "assets/agent-instructions.md", "openapi": "assets/jde-fulfillment-openapi.json", "releaseAsset": "jd-edwards-fulfillment-exception-agent.paf"}
+  "artifacts": {"workflow": "workflow.json", "archiveMetadata": "archive-metadata.json", "instructions": "assets/agent-instructions.md", "openapi": "assets/jde-fulfillment-openapi.json", "releaseAsset": "jd-edwards-fulfillment-exception-agent.paf"},
+  "catalog": {
+    "domains": [
+      "Supply chain",
+      "Sales"
+    ],
+    "modules": [
+      "Order management",
+      "Inventory"
+    ],
+    "useCases": [
+      "Order fulfillment",
+      "Exception triage"
+    ],
+    "keywords": [
+      "backorder",
+      "shortage",
+      "stock",
+      "recovery"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which backordered sales line is the best candidate for recovery?"
+  }
 }

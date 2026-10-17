@@ -97,5 +97,25 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "psft-purchase-order-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Procurement"
+    ],
+    "modules": [
+      "Purchasing"
+    ],
+    "useCases": [
+      "Supplier follow-up",
+      "Exception triage"
+    ],
+    "keywords": [
+      "PO",
+      "buyer",
+      "vendor"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "What should a buyer verify on the most recently dated purchase orders?"
   }
 }

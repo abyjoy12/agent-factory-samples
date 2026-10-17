@@ -2,6 +2,12 @@
 
 This repository is a source-first catalog of documented agents for Oracle AI Database Private Agent Factory. Human-reviewable workflow sources and supporting assets live in Git; password-protected `.paf` archives are generated, verified, and published by GitHub Actions.
 
+## Find an agent
+
+The [agent catalog](https://kgvarun.github.io/agent-factory-samples/) has search and a responsive filter sidebar for **application, business domain, functional use case, application module and technical feature**. Each card starts with a specific business question, followed by its description. Combine filters, copy a link to the current view, and explore the same business task across applications. Agent guides include section navigation and links back to matching samples.
+
+For example, **Capacity planning** brings together workforce, learning and campus scenarios; **Supplier follow-up** spans JDE, EBS and PeopleSoft. Technical filters describe features implemented in the saved graphs. See the [catalog authoring guide](scripts/catalog_assets/README.md) for metadata, vocabulary and presentation changes.
+
 ## Shared-session baseline
 
 [Repository and live PAF reconciliation](integrations/session-consolidation/) records the 26 retained samples, 22 matching accessible live flows, four access-limited comparisons, and outstanding integration work. Consult it before editing shared flows.

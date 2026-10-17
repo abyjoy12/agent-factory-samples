@@ -91,5 +91,24 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "psft-campus-capacity-review.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Education"
+    ],
+    "modules": [
+      "Campus enrollment"
+    ],
+    "useCases": [
+      "Capacity planning"
+    ],
+    "keywords": [
+      "student",
+      "class",
+      "waitlist"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only",
+    "question": "Which sampled classes show enrollment pressure or waitlists?"
   }
 }

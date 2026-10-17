@@ -96,5 +96,29 @@
     "instructions": "assets/agent-instructions.md",
     "dependencies": "assets/source-bindings.json",
     "releaseAsset": "executive-operations-brief.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Finance",
+      "Executive operations"
+    ],
+    "modules": [
+      "Payables",
+      "Receivables"
+    ],
+    "useCases": [
+      "Financial review",
+      "Management briefing"
+    ],
+    "keywords": [
+      "working capital",
+      "AP",
+      "AR"
+    ],
+    "technicalFeatures": [
+      "Agent subagents"
+    ],
+    "actionMode": "Read-only",
+    "question": "What should leadership review in receivables and unpaid supplier invoices?"
   }
 }

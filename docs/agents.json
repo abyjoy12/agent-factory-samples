@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-17T07:00:07Z",
+  "generatedAt": "2026-10-17T07:14:06Z",
   "agents": [
     {
       "slug": "business-policy-desk",
@@ -11,6 +11,28 @@
       "name": "Business Policy Desk",
       "description": "Answer operational policy questions from a small supplied handbook with section citations and explicit gaps.",
       "category": "Knowledge Management",
+      "domains": [
+        "Knowledge management",
+        "Compliance"
+      ],
+      "modules": [
+        "Policies and procedures"
+      ],
+      "functional_use_cases": [
+        "Policy Q&A",
+        "Compliance review"
+      ],
+      "technical_features": [
+        "Document upload",
+        "Text composition"
+      ],
+      "keywords": [
+        "handbook",
+        "knowledge",
+        "documents"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Who needs to approve a $750 freight expedite—and which policy says so?",
       "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Builder-uploaded fictional policy handbook; no application database is required.",
@@ -98,6 +120,29 @@
       "name": "Executive Working Capital Brief",
       "description": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes.",
       "category": "Executive Insights",
+      "domains": [
+        "Finance",
+        "Executive operations"
+      ],
+      "modules": [
+        "Payables",
+        "Receivables"
+      ],
+      "functional_use_cases": [
+        "Financial review",
+        "Management briefing"
+      ],
+      "technical_features": [
+        "Agent subagents",
+        "Database tools"
+      ],
+      "keywords": [
+        "working capital",
+        "AP",
+        "AR"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "What should leadership review in receivables and unpaid supplier invoices?",
       "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Finance Read Only",
@@ -191,6 +236,29 @@
       "name": "JDE Replica - Backorder Triage",
       "description": "Pre-cutover read-only backorder triage against the GoldenGate JDEDEMO replica.",
       "category": "Fulfillment",
+      "domains": [
+        "Supply chain",
+        "Sales"
+      ],
+      "modules": [
+        "Order management",
+        "Inventory"
+      ],
+      "functional_use_cases": [
+        "Order fulfillment",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "PL/SQL tools"
+      ],
+      "keywords": [
+        "backorder",
+        "shortage",
+        "stock",
+        "recovery"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which sampled backorder has the earliest requested date, and what should we check?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JDE Replica Fulfillment Read Only",
@@ -278,6 +346,25 @@
       "name": "JDE Replica - Finance Activity Review",
       "description": "Pre-cutover read-only finance activity review against the GoldenGate JDEDEMO replica.",
       "category": "Finance",
+      "domains": [
+        "Finance"
+      ],
+      "modules": [
+        "General ledger"
+      ],
+      "functional_use_cases": [
+        "Financial review"
+      ],
+      "technical_features": [
+        "PL/SQL tools"
+      ],
+      "keywords": [
+        "GL",
+        "journal",
+        "replica"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "What do the latest stored GL entries show by company, currency and ledger?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JDE Replica Finance Read Only",
@@ -365,6 +452,27 @@
       "name": "JDE Replica - Supplier Follow-up",
       "description": "Pre-cutover read-only supplier follow-up against the GoldenGate JDEDEMO replica.",
       "category": "Procurement",
+      "domains": [
+        "Procurement",
+        "Supply chain"
+      ],
+      "modules": [
+        "Purchasing"
+      ],
+      "functional_use_cases": [
+        "Supplier follow-up",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "PL/SQL tools"
+      ],
+      "keywords": [
+        "vendor",
+        "PO",
+        "replica"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which open purchase line needs a supplier follow-up, and what should we ask?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JDE Replica Procurement Read Only",
@@ -452,6 +560,30 @@
       "name": "JDE Replica - Work Order Material Risk",
       "description": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica.",
       "category": "Manufacturing",
+      "domains": [
+        "Manufacturing",
+        "Supply chain"
+      ],
+      "modules": [
+        "Work orders",
+        "Inventory"
+      ],
+      "functional_use_cases": [
+        "Material readiness",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "PL/SQL tools",
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "production",
+        "components",
+        "replica"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which components need checking before we confirm this work order is ready?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JDE Replica Manufacturing Read Only",
@@ -551,6 +683,30 @@
       "name": "JD Edwards Adaptive Fulfillment Advisor",
       "description": "Read-only JDE fulfillment advisor that learns connection details and operational corrections through ordinary work conversations.",
       "category": "Supply Chain",
+      "domains": [
+        "Supply chain",
+        "Sales"
+      ],
+      "modules": [
+        "Order management",
+        "Inventory"
+      ],
+      "functional_use_cases": [
+        "Order fulfillment",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "Agent Memory",
+        "REST API tools"
+      ],
+      "keywords": [
+        "backorder",
+        "shortage",
+        "stock",
+        "recovery"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which backorders should we tackle first, using the priorities I taught you?",
       "version": "6",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Environment, role, and device headers come from the current conversation or relevant prior context. Basic Auth remains environment-local.",
@@ -694,6 +850,29 @@
       "name": "JD Edwards Fulfillment Exception Agent",
       "description": "Read-only fulfillment exception analysis using live sales-order, inventory, inbound-supply, item, and address-book evidence.",
       "category": "Supply Chain",
+      "domains": [
+        "Supply chain",
+        "Sales"
+      ],
+      "modules": [
+        "Order management",
+        "Inventory"
+      ],
+      "functional_use_cases": [
+        "Order fulfillment",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "backorder",
+        "shortage",
+        "stock",
+        "recovery"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which backordered sales line is the best candidate for recovery?",
       "version": "4",
       "platform_version": "26.7.0.0.0",
       "connection_context": "The REST source statically supplies JPS920, role *ALL, and device paf-jde-agent. Basic Auth remains environment-local.",
@@ -814,6 +993,30 @@
       "name": "JD Edwards Fulfillment Memory Agent",
       "description": "Read-only JDE fulfillment analysis with an explicitly named connection and recovery profile recalled across chat sessions.",
       "category": "Supply Chain",
+      "domains": [
+        "Supply chain",
+        "Sales"
+      ],
+      "modules": [
+        "Order management",
+        "Inventory"
+      ],
+      "functional_use_cases": [
+        "Order fulfillment",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "Agent Memory",
+        "REST API tools"
+      ],
+      "keywords": [
+        "backorder",
+        "shortage",
+        "stock",
+        "recovery"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Can you review backorders using our saved fulfillment policy?",
       "version": "6",
       "platform_version": "26.7.0.0.0",
       "connection_context": "The end user supplies environment, role, and device values; the agent recalls them from a named operating profile. Basic Auth remains environment-local.",
@@ -952,6 +1155,30 @@
       "name": "JDE Field Material Readiness",
       "description": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit.",
       "category": "Field Ops",
+      "domains": [
+        "Field service",
+        "Supply chain"
+      ],
+      "modules": [
+        "Inventory",
+        "Work orders"
+      ],
+      "functional_use_cases": [
+        "Material readiness",
+        "Capacity planning"
+      ],
+      "technical_features": [
+        "CSV input",
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "dispatch",
+        "parts",
+        "technician"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Do we have the parts for this field visit, and what needs a planner check?",
       "version": "6",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JD Edwards Manufacturing Read Only",
@@ -1059,6 +1286,30 @@
       "name": "JDE JPS920 Fulfillment Coach",
       "description": "End-user-oriented read-only fulfillment coach with builder-managed JPS920 context and implicit learning from incremental corrections.",
       "category": "Supply Chain",
+      "domains": [
+        "Supply chain",
+        "Sales"
+      ],
+      "modules": [
+        "Order management",
+        "Inventory"
+      ],
+      "functional_use_cases": [
+        "Order fulfillment",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "Agent Memory",
+        "REST API tools"
+      ],
+      "keywords": [
+        "backorder",
+        "shortage",
+        "stock",
+        "recovery"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "How do my latest priority and stock-reserve rules change the backorder review?",
       "version": "8",
       "platform_version": "26.7.0.0.0",
       "connection_context": "The builder fixes environment JPS920, role *ALL, and device paf-jde-agent in the REST source. End users are never asked for technical connection headers.",
@@ -1203,6 +1454,27 @@
       "name": "JDE Supplier Follow-up Desk",
       "description": "Prepare a focused supplier follow-up list from open purchase lines without changing purchase orders.",
       "category": "Procurement",
+      "domains": [
+        "Procurement",
+        "Supply chain"
+      ],
+      "modules": [
+        "Purchasing"
+      ],
+      "functional_use_cases": [
+        "Supplier follow-up",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "PL/SQL tools"
+      ],
+      "keywords": [
+        "vendor",
+        "purchase order",
+        "PO"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which supplier commitments should the buyer check first?",
       "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JD Edwards Procurement Read Only",
@@ -1289,6 +1561,27 @@
       "name": "EBS Concurrent Processing History",
       "description": "Review recent stored concurrent-request history and completed elapsed times without restarting or cancelling jobs.",
       "category": "IT Operations",
+      "domains": [
+        "IT operations"
+      ],
+      "modules": [
+        "Batch processing"
+      ],
+      "functional_use_cases": [
+        "Operations monitoring",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "concurrent request",
+        "jobs",
+        "batch"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "What do the latest stored batch requests tell us to investigate?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Operations Read Only",
@@ -1377,6 +1670,28 @@
       "name": "EBS IT Operations Triage",
       "description": "Route outage questions and batch-performance questions to focused read-only operations assistants.",
       "category": "IT",
+      "domains": [
+        "IT operations"
+      ],
+      "modules": [
+        "Batch processing",
+        "Service operations"
+      ],
+      "functional_use_cases": [
+        "Exception triage",
+        "Operations monitoring"
+      ],
+      "technical_features": [
+        "Conditional routing",
+        "Database tools"
+      ],
+      "keywords": [
+        "outage",
+        "incident",
+        "escalation"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Where should IT start investigating this batch or service concern?",
       "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Operations Read Only",
@@ -1470,6 +1785,29 @@
       "name": "EBS Purchase Receipt Review",
       "description": "Review noncancelled PO shipment rows with positive shipment-minus-received arithmetic for buyer follow-up.",
       "category": "Procurement",
+      "domains": [
+        "Procurement",
+        "Supply chain"
+      ],
+      "modules": [
+        "Purchasing",
+        "Receiving"
+      ],
+      "functional_use_cases": [
+        "Supplier follow-up",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "PO",
+        "receipts",
+        "delivery"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which sampled purchase shipments still have unreceived quantities?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Supply Chain Read Only",
@@ -1558,6 +1896,27 @@
       "name": "EBS Receivables Portfolio Review",
       "description": "Review positive remaining receivable payment schedules by operating unit, currency and raw status.",
       "category": "Finance",
+      "domains": [
+        "Finance"
+      ],
+      "modules": [
+        "Receivables"
+      ],
+      "functional_use_cases": [
+        "Financial review",
+        "Management briefing"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "AR",
+        "collections",
+        "balance"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Where are positive receivable balances concentrated by organization and currency?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Finance Read Only",
@@ -1646,6 +2005,29 @@
       "name": "EBS Sales Commitment Review",
       "description": "Help an account team explain unshipped sales-order lines and prepare a grounded customer update.",
       "category": "Sales",
+      "domains": [
+        "Sales",
+        "Supply chain"
+      ],
+      "modules": [
+        "Order management"
+      ],
+      "functional_use_cases": [
+        "Order fulfillment",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Structured parsing",
+        "Text composition"
+      ],
+      "keywords": [
+        "customer",
+        "promise",
+        "shipment"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which sales commitments need follow-up on requested versus scheduled dates?",
       "version": "4",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Supply Chain Read Only",
@@ -1733,6 +2115,26 @@
       "name": "PeopleSoft Campus Capacity Review",
       "description": "Review class enrollment and waitlist counters by institution, career and term without making enrollment promises.",
       "category": "Campus Operations",
+      "domains": [
+        "Education"
+      ],
+      "modules": [
+        "Campus enrollment"
+      ],
+      "functional_use_cases": [
+        "Capacity planning"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "student",
+        "class",
+        "waitlist"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which sampled classes show enrollment pressure or waitlists?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Campus Solutions Read Only",
@@ -1821,6 +2223,29 @@
       "name": "PeopleSoft Database Service Pulse",
       "description": "Translate live PDB tablespace capacity, session counts and interval metrics into a business-service monitoring brief.",
       "category": "Database Performance",
+      "domains": [
+        "IT operations"
+      ],
+      "modules": [
+        "Database operations"
+      ],
+      "functional_use_cases": [
+        "Operations monitoring",
+        "Capacity planning"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Structured parsing",
+        "Text composition"
+      ],
+      "keywords": [
+        "DBA",
+        "PDB",
+        "tablespace",
+        "performance"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Is the database showing resource pressure, and what should the DBA check?",
       "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Human Capital Management Read Only",
@@ -1922,6 +2347,28 @@
       "name": "PeopleSoft Invoice Duplicate Review",
       "description": "Surface repeated supplier invoice references for AP review with deterministic SQL and explainable matching.",
       "category": "Finance",
+      "domains": [
+        "Finance"
+      ],
+      "modules": [
+        "Payables"
+      ],
+      "functional_use_cases": [
+        "Duplicate detection",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Structured parsing",
+        "Text composition"
+      ],
+      "keywords": [
+        "AP",
+        "invoice",
+        "voucher"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which supplier invoice references may be duplicates that AP should investigate?",
       "version": "5",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Financials and Supply Chain Read Only",
@@ -2009,6 +2456,27 @@
       "name": "PeopleSoft Learning Capacity Review",
       "description": "Review learning offering enrollment and waitlist capacity without asserting eligibility or available seats.",
       "category": "Learning",
+      "domains": [
+        "Human resources",
+        "Education"
+      ],
+      "modules": [
+        "Learning management"
+      ],
+      "functional_use_cases": [
+        "Capacity planning"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "training",
+        "course",
+        "waitlist"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which training offerings show capacity pressure or a waitlist?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Enterprise Learning Read Only",
@@ -2097,6 +2565,28 @@
       "name": "PeopleSoft Learning Evidence Review",
       "description": "Prepare a training-evidence review queue using completion dates, raw enrollment status, and target dates.",
       "category": "Compliance",
+      "domains": [
+        "Human resources",
+        "Compliance"
+      ],
+      "modules": [
+        "Learning management"
+      ],
+      "functional_use_cases": [
+        "Compliance review"
+      ],
+      "technical_features": [
+        "Current date/time",
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "training",
+        "completion",
+        "evidence"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which training groups passed their target date without recorded completion?",
       "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Enterprise Learning Read Only",
@@ -2190,6 +2680,28 @@
       "name": "PeopleSoft Position Coverage Review",
       "description": "Review nonconfidential position capacity alongside current effective-dated assignment counts without making employee decisions.",
       "category": "HR",
+      "domains": [
+        "Human resources"
+      ],
+      "modules": [
+        "Workforce management"
+      ],
+      "functional_use_cases": [
+        "Capacity planning",
+        "Management briefing"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "HR",
+        "headcount",
+        "positions",
+        "staffing"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "How do assignment counts compare with capacity for the sampled positions?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Human Capital Management Read Only",
@@ -2284,6 +2796,27 @@
       "name": "PeopleSoft Purchase Order Review",
       "description": "Prepare a buyer review of purchase-order headers and line counts while preserving business-unit and raw status scope.",
       "category": "Procurement",
+      "domains": [
+        "Procurement"
+      ],
+      "modules": [
+        "Purchasing"
+      ],
+      "functional_use_cases": [
+        "Supplier follow-up",
+        "Exception triage"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "PO",
+        "buyer",
+        "vendor"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "What should a buyer verify on the most recently dated purchase orders?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Financials and Supply Chain Read Only",
@@ -2378,6 +2911,27 @@
       "name": "PeopleSoft Service Case Workload",
       "description": "Review non-secure CRM case workload by business unit, raw status and priority without exposing case text.",
       "category": "Customer Service",
+      "domains": [
+        "Customer service"
+      ],
+      "modules": [
+        "Service operations"
+      ],
+      "functional_use_cases": [
+        "Workload review",
+        "Capacity planning"
+      ],
+      "technical_features": [
+        "SQL queries",
+        "Text composition"
+      ],
+      "keywords": [
+        "CRM",
+        "cases",
+        "support"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which case-status and priority groups carry the largest support workload?",
       "version": "1",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Customer Relationship Management Read Only",
@@ -2466,6 +3020,28 @@
       "name": "PeopleSoft Workforce Planning Brief",
       "description": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs.",
       "category": "HR",
+      "domains": [
+        "Human resources"
+      ],
+      "modules": [
+        "Workforce management"
+      ],
+      "functional_use_cases": [
+        "Capacity planning",
+        "Management briefing"
+      ],
+      "technical_features": [
+        "Current date/time",
+        "Database tools",
+        "Text composition"
+      ],
+      "keywords": [
+        "HR",
+        "FTE",
+        "staffing"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which departments have the most assignments and FTE—and what do those counts mean?",
       "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Human Capital Management Read Only",
