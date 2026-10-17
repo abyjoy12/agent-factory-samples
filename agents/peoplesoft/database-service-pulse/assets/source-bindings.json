@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "bindings": [
+    {
+      "nodeId": "node-psft-database-service-pulse-evidence",
+      "component": "SelectSqlQueryNode",
+      "field": "database",
+      "sourceName": "PeopleSoft Human Capital Management Read Only",
+      "requiredAccess": "Read-only curated views or the documented report routine"
+    }
+  ],
+  "objects": [
+    "PAF_DATA.DEMO_DB_RESOURCE_PULSE",
+    "PAF_DATA.DEMO_DB_SESSION_PULSE",
+    "PAF_DATA.DEMO_DB_METRIC_PULSE"
+  ],
+  "queryFiles": [
+    "evidence.sql"
+  ],
+  "memorySettings": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "modelBinding": "Select an available tool-capable model on every Agent node after import.",
+  "portableExportNote": "Exact official export retains environment-local source IDs, model names and upload filenames as hints. It does not include the connections, credentials, model definitions or uploaded file contents. Rebind each dependency."
+}

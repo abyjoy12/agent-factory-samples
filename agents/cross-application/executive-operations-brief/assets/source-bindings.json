@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "bindings": [
+    {
+      "nodeId": "node-executive-operations-brief-finance-database",
+      "component": "oracleDatabaseTools",
+      "field": "default_database",
+      "sourceName": "Oracle EBS Finance Read Only",
+      "requiredAccess": "Read-only curated views or the documented report routine"
+    }
+  ],
+  "objects": [
+    "APPS.XXAF_FIN_AR_BALANCES_V",
+    "APPS.XXAF_FIN_AP_INVOICES_V"
+  ],
+  "queryFiles": [
+    "receivables-specialist-reference.sql",
+    "payables-specialist-reference.sql"
+  ],
+  "memorySettings": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "modelBinding": "Select an available tool-capable model on every Agent node after import.",
+  "portableExportNote": "Exact official export retains environment-local source IDs, model names and upload filenames as hints. It does not include the connections, credentials, model definitions or uploaded file contents. Rebind each dependency."
+}

@@ -1,0 +1,19 @@
+{
+  "compartmentId": "<agent-factory-compartment-ocid>",
+  "displayName": "PAF EBS Finance Demo",
+  "description": "Fixed read-only EBS receivables demo",
+  "databaseToolsConnectionId": "<existing-ebs-finance-read-only-connection-ocid>",
+  "domainId": "<compatible-isolated-identity-domain-ocid>",
+  "runtimeIdentity": "RESOURCE_PRINCIPAL",
+  "storage": {
+    "type": "OBJECT_STORAGE",
+    "bucket": {
+      "namespace": "<namespace>",
+      "bucketName": "<dedicated-results-bucket>"
+    }
+  },
+  "freeformTags": {
+    "managed-by": "paf-business-demos",
+    "repository": "agent-factory-samples"
+  }
+}

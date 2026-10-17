@@ -148,7 +148,7 @@ def build_release(root: Path, output: Path, password: str) -> dict[str, Any]:
         "",
         "Each PAF was generated from the reviewable `workflow.json` source, decrypted in memory, and compared byte-for-byte at the JSON payload level before publication.",
         "",
-        "The archives are workflow-only. Configure the target model, REST data source, credentials, and Agent Memory settings after import. Obtain the common archive passphrase through the approved secret-sharing channel.",
+        "The archives are workflow-only. Configure the target model, database/REST/MCP sources, private credentials, uploaded assets, and Agent Memory settings after import. Obtain the common archive passphrase through the approved secret-sharing channel.",
         "",
         "## Assets",
         "",

@@ -1,7 +1,187 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-13T18:53:03Z",
+  "generatedAt": "2026-10-17T02:20:11Z",
   "agents": [
+    {
+      "slug": "business-policy-desk",
+      "application_slug": "cross-application",
+      "application_name": "Cross-application",
+      "use_case_slug": "policy-desk",
+      "use_case_name": "Policy desk",
+      "name": "Business Policy Desk",
+      "description": "Answer operational policy questions from a small supplied handbook with section citations and explicit gaps.",
+      "category": "Knowledge Management",
+      "version": "2",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "Builder-uploaded fictional policy handbook; no application database is required.",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "File upload, Text combiner, and document-grounded Agent",
+        "A cited answer from a small handbook and a clear response when the rule is absent.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "txt",
+          "method": "READ",
+          "path": "assets/paf-demo-policy-handbook.txt",
+          "purpose": "Answer operational policy questions from a small supplied handbook with section citations and explicit gaps."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Upload the supplied paf-demo-policy-handbook.txt using the corresponding Builder component and select the uploaded filename.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "For a USD 750 freight expedite, whose approval do we need? Cite the handbook."
+            },
+            {
+              "speaker": "User",
+              "text": "What is the tax retention period for invoices under this handbook?"
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A cited answer from a small handbook and a clear response when the rule is absent.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+        "The approval question cited PROC-02; the missing tax-retention question correctly reported the GAP-01 scope limit."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "business-policy-desk.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/business-policy-desk.paf",
+      "page_url": "agents/cross-application/policy-desk/"
+    },
+    {
+      "slug": "executive-operations-brief",
+      "application_slug": "cross-application",
+      "application_name": "Cross-application",
+      "use_case_slug": "executive-operations-brief",
+      "use_case_name": "Executive operations brief",
+      "name": "Executive Working Capital Brief",
+      "description": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes.",
+      "category": "Executive Insights",
+      "version": "2",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "Oracle EBS Finance Read Only",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Native Agent subagents with one shared read-only finance source",
+        "Two specialists produce bounded finance evidence without mixing currencies or claiming a cash forecast.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "XXAF_FIN_AR_BALANCES_V",
+          "method": "SELECT",
+          "path": "APPS.XXAF_FIN_AR_BALANCES_V",
+          "purpose": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes."
+        },
+        {
+          "name": "XXAF_FIN_AP_INVOICES_V",
+          "method": "SELECT",
+          "path": "APPS.XXAF_FIN_AP_INVOICES_V",
+          "purpose": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Create or reuse Oracle EBS Finance Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Give me an executive brief on receivables and unpaid supplier invoices. Call both specialists and separate facts from decisions."
+            },
+            {
+              "speaker": "User",
+              "text": "Why can we not use these samples as a cash forecast or net the balances across organizations and currencies?"
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "Two specialists produce bounded finance evidence without mixing currencies or claiming a cash forecast.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+        "Receivables and payables specialists share the same EBS Finance binding. The earlier cross-database prototype was discarded after source-context failures; this is not a cross-database demonstration."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "executive-operations-brief.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/executive-operations-brief.paf",
+      "page_url": "agents/cross-application/executive-operations-brief/"
+    },
     {
       "slug": "jd-edwards-adaptive-fulfillment-advisor",
       "application_slug": "jd-edwards",
@@ -134,11 +314,13 @@
       "metadata_path": "archive-metadata.json",
       "instructions_path": "assets/agent-instructions.md",
       "openapi_path": "assets/jde-fulfillment-openapi.json",
+      "dependency_path": "",
       "release_asset": "jd-edwards-adaptive-fulfillment-advisor.paf",
       "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor",
       "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/README.md",
       "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/workflow.json",
       "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/assets/jde-fulfillment-openapi.json",
+      "dependency_url": "",
       "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/assets/agent-instructions.md",
       "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jd-edwards-adaptive-fulfillment-advisor.paf",
       "page_url": "agents/jd-edwards/adaptive-fulfillment-advisor/"
@@ -252,11 +434,13 @@
       "metadata_path": "archive-metadata.json",
       "instructions_path": "assets/agent-instructions.md",
       "openapi_path": "assets/jde-fulfillment-openapi.json",
+      "dependency_path": "",
       "release_asset": "jd-edwards-fulfillment-exception-agent.paf",
       "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception",
       "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/README.md",
       "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/workflow.json",
       "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/assets/jde-fulfillment-openapi.json",
+      "dependency_url": "",
       "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/assets/agent-instructions.md",
       "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jd-edwards-fulfillment-exception-agent.paf",
       "page_url": "agents/jd-edwards/fulfillment-exception/"
@@ -388,14 +572,123 @@
       "metadata_path": "archive-metadata.json",
       "instructions_path": "assets/agent-instructions.md",
       "openapi_path": "assets/jde-fulfillment-openapi.json",
+      "dependency_path": "",
       "release_asset": "jd-edwards-fulfillment-memory-agent.paf",
       "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory",
       "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/README.md",
       "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/workflow.json",
       "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/assets/jde-fulfillment-openapi.json",
+      "dependency_url": "",
       "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/assets/agent-instructions.md",
       "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jd-edwards-fulfillment-memory-agent.paf",
       "page_url": "agents/jd-edwards/fulfillment-memory/"
+    },
+    {
+      "slug": "jde-field-material-readiness",
+      "application_slug": "jd-edwards",
+      "application_name": "JD Edwards EnterpriseOne",
+      "use_case_slug": "field-material-readiness",
+      "use_case_name": "Field material readiness",
+      "name": "JDE Field Material Readiness",
+      "description": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit.",
+      "category": "Field Ops",
+      "version": "6",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "JD Edwards Manufacturing Read Only",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Read CSV file, fixed SQL material/inventory join, and Agent",
+        "A fictional dispatch plan paired with real work-order components and indicative stock.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "WORK_ORDERS",
+          "method": "SELECT",
+          "path": "PAF_JDE_API.WORK_ORDERS",
+          "purpose": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit."
+        },
+        {
+          "name": "WORK_ORDER_PARTS",
+          "method": "SELECT",
+          "path": "PAF_JDE_API.WORK_ORDER_PARTS",
+          "purpose": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit."
+        },
+        {
+          "name": "BRANCH_INVENTORY",
+          "method": "SELECT",
+          "path": "PAF_JDE_API.BRANCH_INVENTORY",
+          "purpose": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit."
+        },
+        {
+          "name": "ITEMS",
+          "method": "SELECT",
+          "path": "PAF_JDE_API.ITEMS",
+          "purpose": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Create or reuse JD Edwards Manufacturing Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Upload the supplied paf-demo-dispatch-plan.csv using the corresponding Builder component and select the uploaded filename.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Use the sample dispatch plan to check material readiness for one work order. Explain which parts need a planner check."
+            },
+            {
+              "speaker": "User",
+              "text": "Turn that into a pre-dispatch checklist and keep the fictional visit separate from the JDE evidence."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A fictional dispatch plan paired with real work-order components and indicative stock.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+        "Fixed-query check returned 2 rows on the validation date; live counts can change.",
+        "Repeated visible JDE requirement rows are surfaced through REQUIREMENT_SOURCE_ROWS; readiness stays unconfirmed until the planner resolves them."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "jde-field-material-readiness.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-field-material-readiness.paf",
+      "page_url": "agents/jd-edwards/field-material-readiness/"
     },
     {
       "slug": "jde-jps920-fulfillment-coach",
@@ -530,14 +823,661 @@
       "metadata_path": "archive-metadata.json",
       "instructions_path": "assets/agent-instructions.md",
       "openapi_path": "assets/jde-fulfillment-openapi.json",
+      "dependency_path": "",
       "release_asset": "jde-jps920-fulfillment-coach.paf",
       "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach",
       "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/README.md",
       "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/workflow.json",
       "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/assets/jde-fulfillment-openapi.json",
+      "dependency_url": "",
       "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/assets/agent-instructions.md",
       "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-jps920-fulfillment-coach.paf",
       "page_url": "agents/jd-edwards/jps920-fulfillment-coach/"
+    },
+    {
+      "slug": "jde-supplier-follow-up",
+      "application_slug": "jd-edwards",
+      "application_name": "JD Edwards EnterpriseOne",
+      "use_case_slug": "supplier-follow-up",
+      "use_case_name": "Supplier follow up",
+      "name": "JDE Supplier Follow-up Desk",
+      "description": "Prepare a focused supplier follow-up list from open purchase lines without changing purchase orders.",
+      "category": "Procurement",
+      "version": "2",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "JD Edwards Procurement Read Only",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Oracle PL/SQL executor with an explicit routine allowlist",
+        "A short evidence-backed follow-up queue and a draft inquiry.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "GET_OPEN_PURCHASE_LINES",
+          "method": "EXECUTE",
+          "path": "PAF_JDE_PROCURE.GET_OPEN_PURCHASE_LINES",
+          "purpose": "Prepare a focused supplier follow-up list from open purchase lines without changing purchase orders."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Create or reuse JD Edwards Procurement Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Show ten open purchase lines and tell the buyer which supplier commitments to check first. Keep historical dates visible."
+            },
+            {
+              "speaker": "User",
+              "text": "Draft a short follow-up for the first supplier, referencing the PO and item. Do not send it."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short evidence-backed follow-up queue and a draft inquiry.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "jde-supplier-follow-up.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-supplier-follow-up.paf",
+      "page_url": "agents/jd-edwards/supplier-follow-up/"
+    },
+    {
+      "slug": "ebs-it-operations-triage",
+      "application_slug": "oracle-ebs",
+      "application_name": "Oracle E-Business Suite",
+      "use_case_slug": "it-operations-triage",
+      "use_case_name": "It operations triage",
+      "name": "EBS IT Operations Triage",
+      "description": "Route outage questions and batch-performance questions to focused read-only operations assistants.",
+      "category": "IT",
+      "version": "2",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "Oracle EBS Operations Read Only",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Condition routing with separate outage and batch Agent paths",
+        "Intent routing to a focused evidence check and an actionable escalation brief.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "XXAF_OPS_CONCURRENT_REQUESTS_V",
+          "method": "SELECT",
+          "path": "APPS.XXAF_OPS_CONCURRENT_REQUESTS_V",
+          "purpose": "Route outage questions and batch-performance questions to focused read-only operations assistants."
+        },
+        {
+          "name": "XXAF_OPS_NODES_V",
+          "method": "SELECT",
+          "path": "APPS.XXAF_OPS_NODES_V",
+          "purpose": "Route outage questions and batch-performance questions to focused read-only operations assistants."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Create or reuse Oracle EBS Operations Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review the latest concurrent requests and summarize batch operations follow-up."
+            },
+            {
+              "speaker": "User",
+              "text": "Users report an outage and cannot log in. What can we verify from the application-node evidence?"
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "Intent routing to a focused evidence check and an actionable escalation brief.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+        "Both the batch and outage routing branches were exercised; node configuration is not a live login test."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "ebs-it-operations-triage.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-it-operations-triage.paf",
+      "page_url": "agents/oracle-ebs/it-operations-triage/"
+    },
+    {
+      "slug": "ebs-sales-commitment-review",
+      "application_slug": "oracle-ebs",
+      "application_name": "Oracle E-Business Suite",
+      "use_case_slug": "sales-commitment-review",
+      "use_case_name": "Sales commitment review",
+      "name": "EBS Sales Commitment Review",
+      "description": "Help an account team explain unshipped sales-order lines and prepare a grounded customer update.",
+      "category": "Sales",
+      "version": "4",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "Oracle EBS Supply Chain Read Only",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Deterministic SQL evidence followed by an Agent",
+        "Order-level follow-up with requested versus scheduled dates and no invented promise.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "XXAF_SCM_SALES_ORDERS_V",
+          "method": "SELECT",
+          "path": "APPS.XXAF_SCM_SALES_ORDERS_V",
+          "purpose": "Help an account team explain unshipped sales-order lines and prepare a grounded customer update."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Create or reuse Oracle EBS Supply Chain Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which sales commitments need follow-up? Show the requested and scheduled dates from the sample orders."
+            },
+            {
+              "speaker": "User",
+              "text": "Draft a customer update for the first order without promising an unconfirmed ship date."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "Order-level follow-up with requested versus scheduled dates and no invented promise.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+        "Fixed-query check returned 5 rows on the validation date; live counts can change."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "ebs-sales-commitment-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-sales-commitment-review.paf",
+      "page_url": "agents/oracle-ebs/sales-commitment-review/"
+    },
+    {
+      "slug": "psft-database-service-pulse",
+      "application_slug": "peoplesoft",
+      "application_name": "PeopleSoft",
+      "use_case_slug": "database-service-pulse",
+      "use_case_name": "Database service pulse",
+      "name": "PeopleSoft Database Service Pulse",
+      "description": "Translate live PDB tablespace capacity, session counts and interval metrics into a business-service monitoring brief.",
+      "category": "Database Performance",
+      "version": "2",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "PeopleSoft Human Capital Management Read Only",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Read-only monitoring views, SQL query, Parser, and Agent",
+        "A timestamped PDB pulse with clear units, scope, and a DBA follow-up.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "DEMO_DB_RESOURCE_PULSE",
+          "method": "SELECT",
+          "path": "PAF_DATA.DEMO_DB_RESOURCE_PULSE",
+          "purpose": "Translate live PDB tablespace capacity, session counts and interval metrics into a business-service monitoring brief."
+        },
+        {
+          "name": "DEMO_DB_SESSION_PULSE",
+          "method": "SELECT",
+          "path": "PAF_DATA.DEMO_DB_SESSION_PULSE",
+          "purpose": "Translate live PDB tablespace capacity, session counts and interval metrics into a business-service monitoring brief."
+        },
+        {
+          "name": "DEMO_DB_METRIC_PULSE",
+          "method": "SELECT",
+          "path": "PAF_DATA.DEMO_DB_METRIC_PULSE",
+          "purpose": "Translate live PDB tablespace capacity, session counts and interval metrics into a business-service monitoring brief."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Create or reuse PeopleSoft Human Capital Management Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "A DBA runs assets/monitoring-setup.sql in the chosen HCM demo PDB after reviewing the existing PAF_DATA owner and PAF_AGENT_RO reader. This is the only new database setup required by this collection.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Give the service owner a database pulse: current resource pressure, session states and interval metrics. State the scope and time."
+            },
+            {
+              "speaker": "User",
+              "text": "Does this snapshot prove PeopleSoft is healthy, and what would a DBA need to diagnose a reported slowdown?"
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A timestamped PDB pulse with clear units, scope, and a DBA follow-up.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+        "Fixed-query check returned 14 rows on the validation date; live counts can change.",
+        "DELETE against each monitoring view was denied for the integration reader. Only aggregate PDB metadata is exposed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "psft-database-service-pulse.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-database-service-pulse.paf",
+      "page_url": "agents/peoplesoft/database-service-pulse/"
+    },
+    {
+      "slug": "psft-invoice-duplicate-review",
+      "application_slug": "peoplesoft",
+      "application_name": "PeopleSoft",
+      "use_case_slug": "invoice-duplicate-review",
+      "use_case_name": "Invoice duplicate review",
+      "name": "PeopleSoft Invoice Duplicate Review",
+      "description": "Surface repeated supplier invoice references for AP review with deterministic SQL and explainable matching.",
+      "category": "Finance",
+      "version": "5",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "PeopleSoft Financials and Supply Chain Read Only",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed SQL query, JSON Parser, and grounded Agent",
+        "A small candidate queue with an explicit match key and review checklist.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "FSCM_INVOICES",
+          "method": "SELECT",
+          "path": "PAF_DATA.FSCM_INVOICES",
+          "purpose": "Surface repeated supplier invoice references for AP review with deterministic SQL and explainable matching."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Create or reuse PeopleSoft Financials and Supply Chain Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Review the duplicate-invoice candidates and explain which vouchers AP should investigate."
+            },
+            {
+              "speaker": "User",
+              "text": "Explain the matching rule and what evidence a reviewer must check before taking action."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A small candidate queue with an explicit match key and review checklist.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+        "Fixed-query check returned 5 rows on the validation date; live counts can change."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "psft-invoice-duplicate-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-invoice-duplicate-review.paf",
+      "page_url": "agents/peoplesoft/invoice-duplicate-review/"
+    },
+    {
+      "slug": "psft-learning-evidence-review",
+      "application_slug": "peoplesoft",
+      "application_name": "PeopleSoft",
+      "use_case_slug": "learning-evidence-review",
+      "use_case_name": "Learning evidence review",
+      "name": "PeopleSoft Learning Evidence Review",
+      "description": "Prepare a training-evidence review queue using completion dates, raw enrollment status, and target dates.",
+      "category": "Compliance",
+      "version": "2",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "PeopleSoft Enterprise Learning Read Only",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Fixed aggregate SQL, Current Date, and a policy-aware Agent",
+        "Grouped completion and target-date signals with explicit policy and evidence gaps.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "ELM_ENROLLMENTS",
+          "method": "SELECT",
+          "path": "PAF_DATA.ELM_ENROLLMENTS",
+          "purpose": "Prepare a training-evidence review queue using completion dates, raw enrollment status, and target dates."
+        },
+        {
+          "name": "ELM_COURSES",
+          "method": "SELECT",
+          "path": "PAF_DATA.ELM_COURSES",
+          "purpose": "Prepare a training-evidence review queue using completion dates, raw enrollment status, and target dates."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Create or reuse PeopleSoft Enterprise Learning Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Prepare a training-evidence review queue. Which groups have past target dates without a recorded completion?"
+            },
+            {
+              "speaker": "User",
+              "text": "What additional evidence would be needed before calling these employees noncompliant?"
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "Grouped completion and target-date signals with explicit policy and evidence gaps.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+        "Fixed-query check returned 12 rows on the validation date; live counts can change."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "psft-learning-evidence-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-learning-evidence-review.paf",
+      "page_url": "agents/peoplesoft/learning-evidence-review/"
+    },
+    {
+      "slug": "psft-workforce-planning",
+      "application_slug": "peoplesoft",
+      "application_name": "PeopleSoft",
+      "use_case_slug": "workforce-planning",
+      "use_case_name": "Workforce planning",
+      "name": "PeopleSoft Workforce Planning Brief",
+      "description": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs.",
+      "category": "HR",
+      "version": "2",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "PeopleSoft Human Capital Management Read Only",
+      "memory_mode": "none",
+      "memory_description": "No learned user memory is required; evidence is obtained for each run.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Oracle database tools plus Current Date and Text combiner",
+        "A staffing discussion grounded in effective-dated assignments and clear measures.",
+        "Business-focused follow-up with traceable evidence and explicit limitations."
+      ],
+      "prerequisites": [
+        "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+        "The documented curated views/routine or supplied file assets; application readers must remain limited."
+      ],
+      "tools": [
+        {
+          "name": "HCM_WORKFORCE_SUMMARY",
+          "method": "SELECT",
+          "path": "PAF_DATA.HCM_WORKFORCE_SUMMARY",
+          "purpose": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs."
+        },
+        {
+          "name": "HCM_DEPARTMENTS",
+          "method": "SELECT",
+          "path": "PAF_DATA.HCM_DEPARTMENTS",
+          "purpose": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs."
+        },
+        {
+          "name": "HCM_ASSIGNMENTS",
+          "method": "SELECT",
+          "path": "PAF_DATA.HCM_ASSIGNMENTS",
+          "purpose": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs."
+        }
+      ],
+      "safety_controls": [
+        "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+        "Historical application dates remain historical. The agent must disclose empty or failed results.",
+        "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+      ],
+      "setup": [
+        "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+        "Create or reuse PeopleSoft Human Capital Management Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Three-minute business demonstration",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which departments have the most assignments and FTE? Explain what the numbers count."
+            },
+            {
+              "speaker": "User",
+              "text": "Why can we not add the employee counts across those groups to obtain global headcount?"
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A staffing discussion grounded in effective-dated assignments and clear measures.",
+        "The first prompt returns source-backed findings with source dates and units.",
+        "The follow-up stays within the documented data and action boundaries."
+      ],
+      "validation_date": "2026-10-17",
+      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_status": "Passed live smoke validation",
+      "validation_notes": [
+        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+        "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "psft-workforce-planning.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/workflow.json",
+      "openapi_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-workforce-planning.paf",
+      "page_url": "agents/peoplesoft/workforce-planning/"
     }
   ]
 }

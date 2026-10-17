@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "business-policy-desk",
+  "application": {
+    "slug": "cross-application",
+    "name": "Cross-application"
+  },
+  "useCase": {
+    "slug": "policy-desk",
+    "name": "Policy desk"
+  },
+  "title": "Business Policy Desk",
+  "summary": "Answer operational policy questions from a small supplied handbook with section citations and explicit gaps.",
+  "category": "Knowledge Management",
+  "version": "2",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "Builder-uploaded fictional policy handbook; no application database is required.",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "No learned user memory is required; evidence is obtained for each run."
+  },
+  "capabilities": [
+    "File upload, Text combiner, and document-grounded Agent",
+    "A cited answer from a small handbook and a clear response when the rule is absent.",
+    "Business-focused follow-up with traceable evidence and explicit limitations."
+  ],
+  "prerequisites": [
+    "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+    "The documented curated views/routine or supplied file assets; application readers must remain limited."
+  ],
+  "tools": [
+    {
+      "name": "txt",
+      "method": "READ",
+      "path": "assets/paf-demo-policy-handbook.txt",
+      "purpose": "Answer operational policy questions from a small supplied handbook with section citations and explicit gaps."
+    }
+  ],
+  "safetyControls": [
+    "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+    "Historical application dates remain historical. The agent must disclose empty or failed results.",
+    "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+  ],
+  "setup": [
+    "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+    "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+    "Upload the supplied paf-demo-policy-handbook.txt using the corresponding Builder component and select the uploaded filename.",
+    "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Three-minute business demonstration",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "For a USD 750 freight expedite, whose approval do we need? Cite the handbook."
+          },
+          {
+            "speaker": "User",
+            "text": "What is the tax retention period for invoices under this handbook?"
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A cited answer from a small handbook and a clear response when the rule is absent.",
+      "The first prompt returns source-backed findings with source dates and units.",
+      "The follow-up stays within the documented data and action boundaries."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+    "status": "Passed live smoke validation",
+    "notes": [
+      "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+      "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+      "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+      "The approval question cited PROC-02; the missing tax-retention question correctly reported the GAP-01 scope limit."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "business-policy-desk.paf"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "psft-invoice-duplicate-review",
+  "application": {
+    "slug": "peoplesoft",
+    "name": "PeopleSoft"
+  },
+  "useCase": {
+    "slug": "invoice-duplicate-review",
+    "name": "Invoice duplicate review"
+  },
+  "title": "PeopleSoft Invoice Duplicate Review",
+  "summary": "Surface repeated supplier invoice references for AP review with deterministic SQL and explainable matching.",
+  "category": "Finance",
+  "version": "5",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "PeopleSoft Financials and Supply Chain Read Only",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "No learned user memory is required; evidence is obtained for each run."
+  },
+  "capabilities": [
+    "Fixed SQL query, JSON Parser, and grounded Agent",
+    "A small candidate queue with an explicit match key and review checklist.",
+    "Business-focused follow-up with traceable evidence and explicit limitations."
+  ],
+  "prerequisites": [
+    "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+    "The documented curated views/routine or supplied file assets; application readers must remain limited."
+  ],
+  "tools": [
+    {
+      "name": "FSCM_INVOICES",
+      "method": "SELECT",
+      "path": "PAF_DATA.FSCM_INVOICES",
+      "purpose": "Surface repeated supplier invoice references for AP review with deterministic SQL and explainable matching."
+    }
+  ],
+  "safetyControls": [
+    "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+    "Historical application dates remain historical. The agent must disclose empty or failed results.",
+    "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+  ],
+  "setup": [
+    "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+    "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+    "Create or reuse PeopleSoft Financials and Supply Chain Read Only and rebind the nodes listed in assets/source-bindings.json.",
+    "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Three-minute business demonstration",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Review the duplicate-invoice candidates and explain which vouchers AP should investigate."
+          },
+          {
+            "speaker": "User",
+            "text": "Explain the matching rule and what evidence a reviewer must check before taking action."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A small candidate queue with an explicit match key and review checklist.",
+      "The first prompt returns source-backed findings with source dates and units.",
+      "The follow-up stays within the documented data and action boundaries."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+    "status": "Passed live smoke validation",
+    "notes": [
+      "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+      "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+      "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+      "Fixed-query check returned 5 rows on the validation date; live counts can change."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "psft-invoice-duplicate-review.paf"
+  }
+}

@@ -59,7 +59,7 @@ class DocumentationGeneratorTests(unittest.TestCase):
         self.assertNotIn("<script>alert", index)
         self.assertIn("Download encrypted PAF", detail)
         self.assertIn("releases/download/latest/research-assistant.paf", detail)
-        self.assertIn("Tested demo flow", detail)
+        self.assertIn("Demo flow", detail)
         self.assertEqual("Research <Assistant>", catalog["agents"][0]["name"])
         self.assertEqual("Test Application", catalog["agents"][0]["application_name"])
         self.assertEqual("Research assistance", catalog["agents"][0]["use_case_name"])

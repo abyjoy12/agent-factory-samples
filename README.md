@@ -2,7 +2,65 @@
 
 This repository is a source-first catalog of documented agents for Oracle AI Database Private Agent Factory. Human-reviewable workflow sources and supporting assets live in Git; password-protected `.paf` archives are generated, verified, and published by GitHub Actions.
 
-## Included samples
+## Business demo collection
+
+**Ten new business demos, plus the four original JDE fulfillment and memory examples.** The new demos are deployed on [build.oracleagentfactory.com](https://build.oracleagentfactory.com). Find them by the exact titles below. The public [catalog](https://kgvarun.github.io/agent-factory-samples/) provides setup guides and the [latest release](https://github.com/kgvarun/agent-factory-samples/releases/tag/latest) provides importable `.paf` files.
+
+| Business audience | Demo | Builder capability to show |
+| --- | --- | --- |
+| Procurement | [JDE Supplier Follow-up Desk](agents/jd-edwards/supplier-follow-up/) | Oracle PL/SQL executor with an explicit routine allowlist |
+| Finance | [PeopleSoft Invoice Duplicate Review](agents/peoplesoft/invoice-duplicate-review/) | Fixed SQL query, JSON Parser, and grounded Agent |
+| HR | [PeopleSoft Workforce Planning Brief](agents/peoplesoft/workforce-planning/) | Oracle database tools plus Current Date and Text combiner |
+| Sales | [EBS Sales Commitment Review](agents/oracle-ebs/sales-commitment-review/) | Deterministic SQL evidence followed by an Agent |
+| IT | [EBS IT Operations Triage](agents/oracle-ebs/it-operations-triage/) | Condition routing with separate outage and batch Agent paths |
+| Field Ops | [JDE Field Material Readiness](agents/jd-edwards/field-material-readiness/) | Read CSV file, fixed SQL material/inventory join, and Agent |
+| Compliance | [PeopleSoft Learning Evidence Review](agents/peoplesoft/learning-evidence-review/) | Fixed aggregate SQL, Current Date, and a policy-aware Agent |
+| Knowledge Management | [Business Policy Desk](agents/cross-application/policy-desk/) | File upload, Text combiner, and document-grounded Agent |
+| Executive Insights | [Executive Working Capital Brief](agents/cross-application/executive-operations-brief/) | Native Agent subagents with one shared read-only finance source |
+| Database Performance | [PeopleSoft Database Service Pulse](agents/peoplesoft/database-service-pulse/) | Read-only monitoring views, SQL query, Parser, and Agent |
+
+Each sample includes a business story, two demo prompts, evidence and interpretation rules, import bindings, validation notes, and a four-slide presenter sequence. Start with its README; `slides/README.md` is the short presenter outline. These are workflow demonstrations, with no measured ROI or production-readiness claim.
+
+### Suggested 15-minute demo tour
+
+1. **Policy Desk — 2 minutes:** ask about a USD 750 expedite. Show the file upload, the PROC-02 citation, and a missing-policy question. Explain that the handbook is fictional.
+2. **Supplier Follow-up — 3 minutes:** show ten open PO lines. Open the PL/SQL routine allowlist and draft a supplier inquiry. The draft is not sent.
+3. **IT Operations Triage — 3 minutes:** run the batch prompt, then the outage prompt. Show the Condition node taking different paths and explain why node configuration cannot prove login availability.
+4. **Executive Working Capital Brief — 3 minutes:** show the supervisor and two native Agent subagents using the same read-only Finance source. Keep AP invoices distinct from AR payment schedules and preserve currencies.
+5. **Field Material Readiness — 2 minutes:** contrast the fictional dispatch CSV with live JDE requirements. Repeated visible requirement rows need planner review; indicative inventory cannot confirm a visit.
+6. **Database Service Pulse — 2 minutes:** show current HCM PDB metrics, units and timestamps. One snapshot is insufficient to diagnose a slowdown.
+
+For a Finance audience substitute Invoice Duplicate Review; for HR or Compliance use Workforce Planning or Learning Evidence Review. For Sales use the five-line commitment sample and customer-update draft. The original four examples below remain the tour for persistent Agent Memory.
+
+### Implemented feature coverage
+
+The new collection uses Chat input/output, Agent, native Agent subagents, Oracle database tools, Oracle PL/SQL executor, SQL query, Parser, Condition, Current Date, Text combiner, File upload and Read CSV file. The original examples add REST API tools and explicit/implicit Agent Memory. No new flow sends email, posts to Slack, changes application records or executes approvals.
+
+Policy Desk uses direct file grounding; it is not a vector Knowledge Agent. The executive specialists share one EBS Finance source; they are not a cross-database federation demo. Select AI/In-Database Agent, A2A, image processing and Deep Research are not claimed by this collection. The optional [OCI Database Tools MCP blueprint](integrations/oci-database-tools-mcp/) is prepared but not deployed.
+
+### Source and environment setup
+
+- Reuse the existing curated JDE, PeopleSoft and EBS sources. Each `assets/source-bindings.json` names the exact source and affected nodes; schema references and deterministic SQL are included where applicable. Credentials and actual database rows are excluded.
+- **Disable Agent Memory and sharing between chat threads for all ten new demos.** This instance enables them by default. Old prototype responses were recalled during development until these per-flow switches were disabled. The official export does not bundle these switches. Do not alter the original memory demos.
+- After import, rebind source IDs and the model, and upload supplied file assets again. The validated model was `xai.grok-4.3`; output wording and model quality can vary.
+- Historical JDE/EBS/PeopleSoft dates remain historical. Only database-monitoring observations and actual query clocks describe the observation time. The fictional policy and visit are labeled in their assets.
+- To adapt a demo to another application/version, copy it into a new use-case folder with a distinct slug/title, inspect that version's view columns and grain, revise SQL and instructions, and repeat the business prompt. Do not assume EBS, PeopleSoft and JDE status codes, effective dates or units are interchangeable. These samples do not claim validation on every application version.
+
+### Database changes and reversibility
+
+Only the HCM demo PDB needed new database objects: three `PAF_DATA.DEMO_DB_*_PULSE` views, limited owner grants on `DBA_TABLESPACE_USAGE_METRICS`, `V_$SESSION` and `V_$CON_SYSMETRIC`, and SELECT on those views for the existing `PAF_AGENT_RO` reader. The owner remains locked. The reader sees selected tablespace counts, aggregate user-session states and five interval metrics, without session identities, SQL text or bind values.
+
+The [monitoring setup](agents/peoplesoft/database-service-pulse/assets/monitoring-setup.sql) and [reader-access disable script](agents/peoplesoft/database-service-pulse/assets/monitoring-disable.sql) document the change. The disable script revokes only the three reader grants; it deliberately leaves the views and existing owner intact. No application tables, application configuration, initialization parameters or runtime services were changed. No EBS or JDE database change was needed for these demos.
+
+### Validation and known limits — 2026-10-17
+
+All ten final graphs completed their primary business prompt on the live instance with Agent Memory disabled. The IT batch and outage branches and Policy Desk's missing-policy response were also exercised. Fixed SQL was checked against its documented source; attempted writes through the three monitoring views were denied. Repository release generation decrypts and compares each archive with its source payload.
+
+These checks establish a working demo path, not comprehensive business accuracy or application regression coverage. Inspect dates, amounts and evidence during a presentation. Suggested follow-ups are illustrative unless the sample validation notes say they were exercised. No app-wide regression or load test was performed. Real responses are intentionally not copied into this public repository.
+
+The earlier executive prototype using different database connections failed with source-context errors on this build; the shipped two-specialist version uses one Finance connection. OCI managed MCP creation is blocked by an identity-domain issuer mismatch and lack of permission to create an isolated domain. See the integration README for the exact state and completion steps; no demo MCP server or replacement identity domain was created.
+
+## Original JDE fulfillment and memory samples
 
 | Sample | Connection context | Agent Memory behavior |
 | --- | --- | --- |
@@ -11,7 +69,7 @@ This repository is a source-first catalog of documented agents for Oracle AI Dat
 | [JD Edwards Adaptive Fulfillment Advisor](agents/jd-edwards/adaptive-fulfillment-advisor/) | Learned when first needed | Implicit learning through ordinary work and corrections |
 | [JDE JPS920 Fulfillment Coach](agents/jd-edwards/jps920-fulfillment-coach/) | Builder-managed JPS920 headers | Implicit incremental corrections with a user-facing audit section |
 
-The samples form a progression from a stateless shortage investigation to a realistic, end-user-oriented Agent Memory demonstration. All six JDE tools are read-only Simple Table Query operations over F4211, F4201, F41021, F4311, F4101, and F0101.
+These four samples form a progression from a stateless shortage investigation to a realistic, end-user-oriented Agent Memory demonstration. Their six JDE tools are read-only Simple Table Query operations over F4211, F4201, F41021, F4311, F4101, and F0101.
 
 ## Source and release contract
 
@@ -27,7 +85,7 @@ Each use-case folder under `agents/<application>/<use-case>/` contains:
 | `assets/*.json` | Sanitized OpenAPI or other distributable dependencies |
 | `slides/` | Optional presentation material |
 
-`workflow.json` is not presented as Open Agent Spec. It is the product's serialized visual custom-flow payload. These JDE flows currently cannot be exported as portable Open Agent Spec because their REST API Tools nodes are implemented by the Agent Builder runtime.
+`workflow.json` is not presented as Open Agent Spec. It is the product's serialized visual custom-flow payload. The original REST-based JDE flows currently cannot be exported as portable Open Agent Spec because their REST API Tools nodes are implemented by the Agent Builder runtime.
 
 Generated `.paf` files are ignored by Git and must never be committed. The release workflow packages every `workflow.json`, decrypts the new archive in memory, compares the recovered JSON and metadata with the source, and only then publishes it.
 
@@ -42,13 +100,13 @@ The generated archives are complete workflow-only imports for Private Agent Fact
 They intentionally exclude:
 
 - JDE or other application credentials;
-- REST API data-source definitions and environment-local source IDs;
-- LLM connection mappings;
+- database, REST and MCP connection definitions or credentials;
+- LLM connection definitions;
 - Agent Memory configuration switches;
 - learned user memory records;
-- JDE sample data.
+- application rows and uploaded file contents.
 
-After import, create the documented REST source, configure authentication, rebind the REST API Tools node, select a model, and enable Agent Memory where the sample requires it. Imported workflows remain unpublished until reviewed.
+Exact product exports can retain environment-local database IDs, model names, and uploaded filenames as binding hints. Those identifiers are not portable connection definitions. After import, create or reuse each documented source, configure authentication privately, rebind its nodes, select a model, and upload the supplied assets. Set Agent Memory according to the sample: off for the ten new business demos, enabled only for the memory examples that require it. Imported workflows remain unpublished until reviewed.
 
 ## Repository layout
 
@@ -178,7 +236,8 @@ Pushing a `v*` tag publishes a permanent versioned release using the same valida
 - import and binding steps;
 - realistic multi-session demo turns and expected outcomes;
 - validation date, environment, status, and notes;
-- source and release artifact names.
+- source and release artifact names;
+- either `artifacts.openapi` for REST definitions or `artifacts.dependencies` for database/file bindings (both may be supplied).
 
 Generate the site locally:
 
@@ -189,7 +248,7 @@ python scripts/generate_docs.py \
 python -m http.server 8000 --directory docs
 ```
 
-Open `http://localhost:8000`. The site groups use cases by application and includes a detailed page for every agent, a tested chat flow, direct release downloads, source links, and `agents.json` for machine-readable discovery.
+Open `http://localhost:8000`. The site groups use cases by application and includes a detailed page for every agent, documented demo prompts and validation scope, direct release downloads, source links, and `agents.json` for machine-readable discovery.
 
 The Pages workflow regenerates and validates the site on every push to `main` and always uploads `rendered-agent-pages-<commit>` as an Actions artifact. Public repositories deploy automatically.
 

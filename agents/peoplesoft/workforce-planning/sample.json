@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "psft-workforce-planning",
+  "application": {
+    "slug": "peoplesoft",
+    "name": "PeopleSoft"
+  },
+  "useCase": {
+    "slug": "workforce-planning",
+    "name": "Workforce planning"
+  },
+  "title": "PeopleSoft Workforce Planning Brief",
+  "summary": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs.",
+  "category": "HR",
+  "version": "2",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "PeopleSoft Human Capital Management Read Only",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "No learned user memory is required; evidence is obtained for each run."
+  },
+  "capabilities": [
+    "Oracle database tools plus Current Date and Text combiner",
+    "A staffing discussion grounded in effective-dated assignments and clear measures.",
+    "Business-focused follow-up with traceable evidence and explicit limitations."
+  ],
+  "prerequisites": [
+    "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+    "The documented curated views/routine or supplied file assets; application readers must remain limited."
+  ],
+  "tools": [
+    {
+      "name": "HCM_WORKFORCE_SUMMARY",
+      "method": "SELECT",
+      "path": "PAF_DATA.HCM_WORKFORCE_SUMMARY",
+      "purpose": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs."
+    },
+    {
+      "name": "HCM_DEPARTMENTS",
+      "method": "SELECT",
+      "path": "PAF_DATA.HCM_DEPARTMENTS",
+      "purpose": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs."
+    },
+    {
+      "name": "HCM_ASSIGNMENTS",
+      "method": "SELECT",
+      "path": "PAF_DATA.HCM_ASSIGNMENTS",
+      "purpose": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs."
+    }
+  ],
+  "safetyControls": [
+    "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+    "Historical application dates remain historical. The agent must disclose empty or failed results.",
+    "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+  ],
+  "setup": [
+    "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+    "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+    "Create or reuse PeopleSoft Human Capital Management Read Only and rebind the nodes listed in assets/source-bindings.json.",
+    "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Three-minute business demonstration",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Which departments have the most assignments and FTE? Explain what the numbers count."
+          },
+          {
+            "speaker": "User",
+            "text": "Why can we not add the employee counts across those groups to obtain global headcount?"
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A staffing discussion grounded in effective-dated assignments and clear measures.",
+      "The first prompt returns source-backed findings with source dates and units.",
+      "The follow-up stays within the documented data and action boundaries."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+    "status": "Passed live smoke validation",
+    "notes": [
+      "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+      "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+      "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "psft-workforce-planning.paf"
+  }
+}

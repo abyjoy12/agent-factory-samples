@@ -1,0 +1,5 @@
+-- Run in the HCM demo PDB as an authorized DBA.
+-- Removes reader access only; leaves owner views and source objects intact.
+REVOKE SELECT ON PAF_DATA.DEMO_DB_RESOURCE_PULSE FROM PAF_AGENT_RO;
+REVOKE SELECT ON PAF_DATA.DEMO_DB_SESSION_PULSE FROM PAF_AGENT_RO;
+REVOKE SELECT ON PAF_DATA.DEMO_DB_METRIC_PULSE FROM PAF_AGENT_RO;

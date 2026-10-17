@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "jde-field-material-readiness",
+  "application": {
+    "slug": "jd-edwards",
+    "name": "JD Edwards EnterpriseOne"
+  },
+  "useCase": {
+    "slug": "field-material-readiness",
+    "name": "Field material readiness"
+  },
+  "title": "JDE Field Material Readiness",
+  "summary": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit.",
+  "category": "Field Ops",
+  "version": "6",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "JD Edwards Manufacturing Read Only",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "No learned user memory is required; evidence is obtained for each run."
+  },
+  "capabilities": [
+    "Read CSV file, fixed SQL material/inventory join, and Agent",
+    "A fictional dispatch plan paired with real work-order components and indicative stock.",
+    "Business-focused follow-up with traceable evidence and explicit limitations."
+  ],
+  "prerequisites": [
+    "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+    "The documented curated views/routine or supplied file assets; application readers must remain limited."
+  ],
+  "tools": [
+    {
+      "name": "WORK_ORDERS",
+      "method": "SELECT",
+      "path": "PAF_JDE_API.WORK_ORDERS",
+      "purpose": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit."
+    },
+    {
+      "name": "WORK_ORDER_PARTS",
+      "method": "SELECT",
+      "path": "PAF_JDE_API.WORK_ORDER_PARTS",
+      "purpose": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit."
+    },
+    {
+      "name": "BRANCH_INVENTORY",
+      "method": "SELECT",
+      "path": "PAF_JDE_API.BRANCH_INVENTORY",
+      "purpose": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit."
+    },
+    {
+      "name": "ITEMS",
+      "method": "SELECT",
+      "path": "PAF_JDE_API.ITEMS",
+      "purpose": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit."
+    }
+  ],
+  "safetyControls": [
+    "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+    "Historical application dates remain historical. The agent must disclose empty or failed results.",
+    "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+  ],
+  "setup": [
+    "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+    "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+    "Create or reuse JD Edwards Manufacturing Read Only and rebind the nodes listed in assets/source-bindings.json.",
+    "Upload the supplied paf-demo-dispatch-plan.csv using the corresponding Builder component and select the uploaded filename.",
+    "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Three-minute business demonstration",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Use the sample dispatch plan to check material readiness for one work order. Explain which parts need a planner check."
+          },
+          {
+            "speaker": "User",
+            "text": "Turn that into a pre-dispatch checklist and keep the fictional visit separate from the JDE evidence."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A fictional dispatch plan paired with real work-order components and indicative stock.",
+      "The first prompt returns source-backed findings with source dates and units.",
+      "The follow-up stays within the documented data and action boundaries."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+    "status": "Passed live smoke validation",
+    "notes": [
+      "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+      "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+      "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+      "Fixed-query check returned 2 rows on the validation date; live counts can change.",
+      "Repeated visible JDE requirement rows are surfaced through REQUIREMENT_SOURCE_ROWS; readiness stays unconfirmed until the planner resolves them."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "jde-field-material-readiness.paf"
+  }
+}

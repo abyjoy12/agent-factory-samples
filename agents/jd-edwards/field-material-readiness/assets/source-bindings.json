@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0",
+  "bindings": [
+    {
+      "nodeId": "node-jde-field-material-readiness-dispatch-plan",
+      "component": "readCsv",
+      "field": "file",
+      "uploadAsset": "paf-demo-dispatch-plan.csv"
+    },
+    {
+      "nodeId": "node-jde-field-material-readiness-material-evidence",
+      "component": "SelectSqlQueryNode",
+      "field": "database",
+      "sourceName": "JD Edwards Manufacturing Read Only",
+      "requiredAccess": "Read-only curated views or the documented report routine"
+    }
+  ],
+  "objects": [
+    "PAF_JDE_API.WORK_ORDERS",
+    "PAF_JDE_API.WORK_ORDER_PARTS",
+    "PAF_JDE_API.BRANCH_INVENTORY",
+    "PAF_JDE_API.ITEMS"
+  ],
+  "queryFiles": [
+    "material-evidence.sql"
+  ],
+  "memorySettings": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "modelBinding": "Select an available tool-capable model on every Agent node after import.",
+  "portableExportNote": "Exact official export retains environment-local source IDs, model names and upload filenames as hints. It does not include the connections, credentials, model definitions or uploaded file contents. Rebind each dependency."
+}

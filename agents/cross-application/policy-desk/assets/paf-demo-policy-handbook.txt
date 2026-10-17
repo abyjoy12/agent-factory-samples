@@ -1,0 +1,10 @@
+DEMO POLICY HANDBOOK — Fictional policy, version 1.0, 2026-10-17
+This document is invented solely for the PAF demonstration. It is not an Oracle corporate policy or legal advice.
+
+[PROC-01] Supplier follow-up. A buyer checks the PO, line, item, unit of measure, requested date and promised date before drafting a supplier inquiry. A draft is reviewed by a buyer; it is never automatically sent.
+[PROC-02] Expedite approval. Freight expedites above USD 500 require the procurement manager's recorded approval. Below or equal to USD 500 still requires the buyer to confirm budget and supplier commitment. Other currencies require an approved conversion policy; none is supplied here.
+[FIN-01] Invoice review. Matching invoice reference, supplier, currency and amount is a review signal. AP checks reversals, credits, installments and supporting documentation before holding or paying an invoice.
+[IT-01] Batch delay. The service desk records the affected business process, request ID, observed time window and user impact. It consults the application owner before restarting or cancelling work. This handbook defines no numeric SLA.
+[FIELD-01] Dispatch readiness. A planner confirms required parts, units, site access and technician availability before a visit is committed. Indicative inventory is not a reservation.
+[LEARN-01] Training evidence. A completion date is evidence for review. Policy applicability, equivalency and approved exceptions must be confirmed by the training owner before any compliance conclusion.
+[GAP-01] Unspecified topics. Travel reimbursement, compensation, tax, sanctions screening and statutory retention periods are outside this handbook. State the gap and refer the question to the policy owner.

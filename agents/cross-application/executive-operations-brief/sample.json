@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "executive-operations-brief",
+  "application": {
+    "slug": "cross-application",
+    "name": "Cross-application"
+  },
+  "useCase": {
+    "slug": "executive-operations-brief",
+    "name": "Executive operations brief"
+  },
+  "title": "Executive Working Capital Brief",
+  "summary": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes.",
+  "category": "Executive Insights",
+  "version": "2",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "Oracle EBS Finance Read Only",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "No learned user memory is required; evidence is obtained for each run."
+  },
+  "capabilities": [
+    "Native Agent subagents with one shared read-only finance source",
+    "Two specialists produce bounded finance evidence without mixing currencies or claiming a cash forecast.",
+    "Business-focused follow-up with traceable evidence and explicit limitations."
+  ],
+  "prerequisites": [
+    "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+    "The documented curated views/routine or supplied file assets; application readers must remain limited."
+  ],
+  "tools": [
+    {
+      "name": "XXAF_FIN_AR_BALANCES_V",
+      "method": "SELECT",
+      "path": "APPS.XXAF_FIN_AR_BALANCES_V",
+      "purpose": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes."
+    },
+    {
+      "name": "XXAF_FIN_AP_INVOICES_V",
+      "method": "SELECT",
+      "path": "APPS.XXAF_FIN_AP_INVOICES_V",
+      "purpose": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes."
+    }
+  ],
+  "safetyControls": [
+    "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+    "Historical application dates remain historical. The agent must disclose empty or failed results.",
+    "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+  ],
+  "setup": [
+    "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+    "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+    "Create or reuse Oracle EBS Finance Read Only and rebind the nodes listed in assets/source-bindings.json.",
+    "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Three-minute business demonstration",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Give me an executive brief on receivables and unpaid supplier invoices. Call both specialists and separate facts from decisions."
+          },
+          {
+            "speaker": "User",
+            "text": "Why can we not use these samples as a cash forecast or net the balances across organizations and currencies?"
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "Two specialists produce bounded finance evidence without mixing currencies or claiming a cash forecast.",
+      "The first prompt returns source-backed findings with source dates and units.",
+      "The follow-up stays within the documented data and action boundaries."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+    "status": "Passed live smoke validation",
+    "notes": [
+      "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+      "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+      "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+      "Receivables and payables specialists share the same EBS Finance binding. The earlier cross-database prototype was discarded after source-context failures; this is not a cross-database demonstration."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "executive-operations-brief.paf"
+  }
+}

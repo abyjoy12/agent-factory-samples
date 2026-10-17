@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "bindings": [
+    {
+      "nodeId": "node-psft-invoice-duplicate-review-evidence",
+      "component": "SelectSqlQueryNode",
+      "field": "database",
+      "sourceName": "PeopleSoft Financials and Supply Chain Read Only",
+      "requiredAccess": "Read-only curated views or the documented report routine"
+    }
+  ],
+  "objects": [
+    "PAF_DATA.FSCM_INVOICES"
+  ],
+  "queryFiles": [
+    "evidence.sql"
+  ],
+  "memorySettings": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "modelBinding": "Select an available tool-capable model on every Agent node after import.",
+  "portableExportNote": "Exact official export retains environment-local source IDs, model names and upload filenames as hints. It does not include the connections, credentials, model definitions or uploaded file contents. Rebind each dependency."
+}

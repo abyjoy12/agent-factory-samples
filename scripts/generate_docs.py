@@ -69,11 +69,13 @@ class Agent:
     metadata_path: str
     instructions_path: str
     openapi_path: str
+    dependency_path: str
     release_asset: str
     folder_url: str
     readme_url: str
     workflow_url: str
     openapi_url: str
+    dependency_url: str
     instructions_url: str
     release_url: str
     page_url: str
@@ -193,7 +195,10 @@ def load_agent(folder: Path, repository_url: str = "", release_base_url: str = "
     workflow_path = _artifact(folder, artifacts.get("workflow"), f"{path}: artifacts.workflow")
     metadata_path = _artifact(folder, artifacts.get("archiveMetadata"), f"{path}: artifacts.archiveMetadata")
     instructions_path = _artifact(folder, artifacts.get("instructions"), f"{path}: artifacts.instructions")
-    openapi_path = _artifact(folder, artifacts.get("openapi"), f"{path}: artifacts.openapi")
+    openapi_path = _artifact(folder, artifacts["openapi"], f"{path}: artifacts.openapi") if artifacts.get("openapi") else ""
+    dependency_path = _artifact(folder, artifacts["dependencies"], f"{path}: artifacts.dependencies") if artifacts.get("dependencies") else ""
+    if not openapi_path and not dependency_path:
+        raise ValueError(f"{path}: artifacts requires openapi or dependencies")
     release_asset = _text(artifacts.get("releaseAsset"), f"{path}: artifacts.releaseAsset")
     if release_asset != f"{slug}.paf":
         raise ValueError(f"{path}: releaseAsset must be '{slug}.paf'")
@@ -236,11 +241,13 @@ def load_agent(folder: Path, repository_url: str = "", release_base_url: str = "
         metadata_path=metadata_path,
         instructions_path=instructions_path,
         openapi_path=openapi_path,
+        dependency_path=dependency_path,
         release_asset=release_asset,
         folder_url=folder_url,
         readme_url=_source_url(folder_url, "README.md"),
         workflow_url=_source_url(folder_url, workflow_path),
-        openapi_url=_source_url(folder_url, openapi_path),
+        openapi_url=_source_url(folder_url, openapi_path) if openapi_path else "",
+        dependency_url=_source_url(folder_url, dependency_path) if dependency_path else "",
         instructions_url=_source_url(folder_url, instructions_path),
         release_url=f"{release_base_url.rstrip('/')}/{release_asset}" if release_base_url else "",
         page_url=f"agents/{application_slug}/{use_case_slug}/",
@@ -276,7 +283,7 @@ def _agent_card(a: Agent) -> str:
     return (
         f'<article class="card"><div class="meta"><span>{html.escape(a.use_case_name)}</span><span>Flow v{html.escape(a.version)}</span></div>'
         f'<h2><a href="{html.escape(a.page_url, quote=True)}">{html.escape(a.name)}</a></h2><p>{html.escape(a.description)}</p>'
-        f'<div class="badges"><b>Release PAF</b><b>{"No memory" if a.memory_mode == "none" else html.escape(a.memory_mode.title() + " memory")}</b><b>Read only</b></div></article>'
+        f'<div class="badges"><b>{html.escape(a.category)}</b><b>Release PAF</b><b>{"No memory" if a.memory_mode == "none" else html.escape(a.memory_mode.title() + " memory")}</b><b>Read only</b></div></article>'
     )
 
 
@@ -292,7 +299,7 @@ def render_index(agents: list[Agent], generated_at: str) -> str:
     ) or '<section class="card"><h2>No samples yet</h2></section>'
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Private Agent Factory Agent Samples</title><link rel="stylesheet" href="assets/styles.css"></head>
-<body>{MARKER}<header class="hero"><div><span class="kicker">Oracle AI Database</span><h1>Private Agent Factory Agent Samples</h1><p>Review the design, follow the tested demo, and download a CI-built import archive.</p><strong>{len(agents)} agent{"s" if len(agents) != 1 else ""} available</strong></div></header>
+<body>{MARKER}<header class="hero"><div><span class="kicker">Oracle AI Database</span><h1>Private Agent Factory Agent Samples</h1><p>Review the design, follow the documented demo, and download a CI-built import archive.</p><strong>{len(agents)} agent{"s" if len(agents) != 1 else ""} available</strong></div></header>
 <main><div class="heading"><div><span class="kicker">Catalog</span><h2>Applications and use cases</h2></div><p>Generated from validated <code>sample.json</code> manifests.</p></div>{groups}</main>
 <footer>Generated {html.escape(generated_at)} · <a href="agents.json">Machine-readable catalog</a></footer></body></html>"""
 
@@ -312,14 +319,19 @@ def render_agent(agent: Agent, generated_at: str) -> str:
         if agent.release_url
         else '<span class="button disabled">Release link configured during deployment</span>'
     )
+    dependency_links = ""
+    if agent.openapi_path:
+        dependency_links += f'<li>{_link(agent.openapi_url, agent.openapi_path)} — sanitized OpenAPI definition</li>'
+    if agent.dependency_path:
+        dependency_links += f'<li>{_link(agent.dependency_url, agent.dependency_path)} — source bindings and supporting assets</li>'
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(agent.name)} · Agent Samples</title><link rel="stylesheet" href="../../../assets/styles.css"></head>
 <body>{MARKER}<header class="detail-hero"><div><a class="back" href="../../../">← All applications</a><span class="kicker">{html.escape(agent.application_name)} · {html.escape(agent.use_case_name)}</span><h1>{html.escape(agent.name)}</h1><p>{html.escape(agent.description)}</p><nav>{download}{_link(agent.folder_url, "Browse source")}</nav></div></header>
 <main class="detail"><aside class="facts"><h2>At a glance</h2><dl><dt>Application</dt><dd>{html.escape(agent.application_name)}</dd><dt>Use case</dt><dd>{html.escape(agent.use_case_name)}</dd><dt>Agent flow</dt><dd>v{html.escape(agent.version)}</dd><dt>PAF release</dt><dd>{html.escape(agent.platform_version)}</dd><dt>Memory</dt><dd>{html.escape(agent.memory_mode.title())}</dd><dt>Cross-thread</dt><dd>{"Enabled" if agent.cross_thread_memory else "Not required"}</dd><dt>Validation</dt><dd>{html.escape(agent.validation_status)}</dd></dl></aside>
 <div class="sections"><section><h2>What it demonstrates</h2>{_list(agent.capabilities)}</section><section><h2>Connection context</h2><p>{html.escape(agent.connection_context)}</p></section><section><h2>Agent Memory</h2><p>{html.escape(agent.memory_description)}</p></section><section><h2>Prerequisites</h2>{_list(agent.prerequisites)}</section>
-<section><h2>Read-only tools</h2><div class="table"><table><thead><tr><th>Table</th><th>Method</th><th>Path</th><th>Purpose</th></tr></thead><tbody>{rows}</tbody></table></div></section><section><h2>Safety controls</h2>{_list(agent.safety_controls)}</section><section><h2>Import and configure</h2>{_list(agent.setup, ordered=True)}</section>
-<section><h2>Tested demo flow</h2>{sessions}<h3>Expected outcomes</h3>{_list(agent.expected_outcomes)}</section><section><h2>Validation record</h2><p><strong>{html.escape(agent.validation_status)}</strong> on {html.escape(agent.validation_date)} in {html.escape(agent.validation_environment)}.</p>{_list(agent.validation_notes) if agent.validation_notes else "<p>No additional notes.</p>"}</section>
-<section><h2>Source artifacts</h2><ul><li>{_link(agent.workflow_url, "workflow.json")} — exact Agent Builder workflow payload</li><li>{_link(agent.openapi_url, agent.openapi_path)} — sanitized OpenAPI definition</li><li>{_link(agent.instructions_url, agent.instructions_path)} — readable instructions</li><li>{_link(agent.readme_url, "README.md")} — contributor documentation</li></ul><p>The generated PAF contains the workflow only. Credentials, REST bindings, model mappings, and learned memories are excluded.</p></section></div></main>
+<section><h2>Read-only tools</h2><div class="table"><table><thead><tr><th>Source or tool</th><th>Method</th><th>Path</th><th>Purpose</th></tr></thead><tbody>{rows}</tbody></table></div></section><section><h2>Safety controls</h2>{_list(agent.safety_controls)}</section><section><h2>Import and configure</h2>{_list(agent.setup, ordered=True)}</section>
+<section><h2>Demo flow</h2>{sessions}<h3>Expected outcomes</h3>{_list(agent.expected_outcomes)}</section><section><h2>Validation record</h2><p><strong>{html.escape(agent.validation_status)}</strong> on {html.escape(agent.validation_date)} in {html.escape(agent.validation_environment)}.</p>{_list(agent.validation_notes) if agent.validation_notes else "<p>No additional notes.</p>"}</section>
+<section><h2>Source artifacts</h2><ul><li>{_link(agent.workflow_url, "workflow.json")} — exact Agent Builder workflow payload</li>{dependency_links}<li>{_link(agent.instructions_url, agent.instructions_path)} — readable instructions</li><li>{_link(agent.readme_url, "README.md")} — contributor documentation</li></ul><p>The generated PAF contains the workflow only. Connection credentials, data-source definitions, model mappings, uploaded file contents, and learned memories are excluded. Rebind the documented dependencies after import.</p></section></div></main>
 <footer>Generated {html.escape(generated_at)} · <a href="../../../agents.json">Machine-readable catalog</a></footer></body></html>"""
 
 

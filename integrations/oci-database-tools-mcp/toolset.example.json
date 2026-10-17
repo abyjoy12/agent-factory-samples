@@ -1,0 +1,18 @@
+{
+  "type": "CUSTOM_SQL_TOOL",
+  "version": 1,
+  "compartmentId": "<agent-factory-compartment-ocid>",
+  "displayName": "EBS Receivables Summary",
+  "databaseToolsMcpServerId": "<new-mcp-server-ocid>",
+  "toolName": "ebs_receivables_summary",
+  "toolDescription": "Positive remaining receivables by organization, currency and raw status; counts payment schedules, not invoices; not a cash forecast.",
+  "source": {
+    "type": "INLINE",
+    "value": "SELECT ORG_ID,INVOICE_CURRENCY_CODE,STATUS,COUNT(*) SCHEDULE_COUNT,\n ROUND(SUM(AMOUNT_DUE_REMAINING),2) REMAINING_AMOUNT,\n MIN(DUE_DATE) EARLIEST_DUE_DATE,MAX(DUE_DATE) LATEST_DUE_DATE\nFROM APPS.XXAF_FIN_AR_BALANCES_V WHERE AMOUNT_DUE_REMAINING>0\nGROUP BY ORG_ID,INVOICE_CURRENCY_CODE,STATUS\nORDER BY REMAINING_AMOUNT DESC FETCH FIRST 15 ROWS ONLY"
+  },
+  "variables": [],
+  "allowedRoles": [
+    "MCP_User"
+  ],
+  "defaultExecutionType": "SYNCHRONOUS"
+}

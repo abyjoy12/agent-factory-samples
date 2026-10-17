@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "ebs-sales-commitment-review",
+  "application": {
+    "slug": "oracle-ebs",
+    "name": "Oracle E-Business Suite"
+  },
+  "useCase": {
+    "slug": "sales-commitment-review",
+    "name": "Sales commitment review"
+  },
+  "title": "EBS Sales Commitment Review",
+  "summary": "Help an account team explain unshipped sales-order lines and prepare a grounded customer update.",
+  "category": "Sales",
+  "version": "4",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "Oracle EBS Supply Chain Read Only",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "No learned user memory is required; evidence is obtained for each run."
+  },
+  "capabilities": [
+    "Deterministic SQL evidence followed by an Agent",
+    "Order-level follow-up with requested versus scheduled dates and no invented promise.",
+    "Business-focused follow-up with traceable evidence and explicit limitations."
+  ],
+  "prerequisites": [
+    "Private Agent Factory 26.7-compatible Builder and an available tool-capable LLM.",
+    "The documented curated views/routine or supplied file assets; application readers must remain limited."
+  ],
+  "tools": [
+    {
+      "name": "XXAF_SCM_SALES_ORDERS_V",
+      "method": "SELECT",
+      "path": "APPS.XXAF_SCM_SALES_ORDERS_V",
+      "purpose": "Help an account team explain unshipped sales-order lines and prepare a grounded customer update."
+    }
+  ],
+  "safetyControls": [
+    "Read-only data access; no sending, posting, approvals, payments, dispatch commits or database administration.",
+    "Historical application dates remain historical. The agent must disclose empty or failed results.",
+    "Currency, organization, join grain and evidence limitations remain visible. Integration users are for demos, not per-person application authorization."
+  ],
+  "setup": [
+    "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
+    "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
+    "Create or reuse Oracle EBS Supply Chain Read Only and rebind the nodes listed in assets/source-bindings.json.",
+    "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Three-minute business demonstration",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Which sales commitments need follow-up? Show the requested and scheduled dates from the sample orders."
+          },
+          {
+            "speaker": "User",
+            "text": "Draft a customer update for the first order without promising an unconfirmed ship date."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "Order-level follow-up with requested versus scheduled dates and no invented promise.",
+      "The first prompt returns source-backed findings with source dates and units.",
+      "The follow-up stays within the documented data and action boundaries."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-17",
+    "environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+    "status": "Passed live smoke validation",
+    "notes": [
+      "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+      "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
+      "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
+      "Fixed-query check returned 5 rows on the validation date; live counts can change."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "ebs-sales-commitment-review.paf"
+  }
+}
