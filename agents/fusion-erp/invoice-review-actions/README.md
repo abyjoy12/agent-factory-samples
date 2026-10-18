@@ -2,16 +2,18 @@
 
 **Which supplier invoice needs attention, and what exact change should I approve?**
 
-Review supplier invoices and prepare or execute explicitly requested invoice creation, cancellation, or line cancellation through the configured Fusion REST sources. Shows the exact target and proposed values before requesting confirmation. Draft: source authentication and action behavior require target-environment validation.
+Review supplier invoices and prepare or execute explicitly confirmed creation, line cancellation or whole-invoice cancellation. Shows exact targets and proposed values, then verifies outcomes through invoice and line reads. Unpublished draft; validate destination permissions and runtime support.
 
 ## Status
 
-Editor-owned draft using AIW26-PAF-HOL6004-BOO6096. The agent requested confirmation of a unique USD 0.02 invoice proposal. After confirmation, creation reported **HTTP 403 Forbidden**; independent Fusion lookups found no matching invoice before or after the attempt. Invoice and line cancellation remain untested because the isolated fixture could not be created. Review invoice-write permissions and business-unit access before continuing. See the [validation record](assets/validation.md) for evidence and limits. The workflow, sources, publication and memory settings were unchanged.
+Editor-owned Build draft using **AIW26-PAF-HOL6004-BOO6096**. Creation, line cancellation and whole-invoice cancellation passed with separate Fusion readback. The new USD 0.02 fixture is canceled at zero amount. Layout, description, publication and memory settings were checked again. See the [validation record](assets/validation.md) for evidence and limits.
+
+Factory required a [POST cancellation guard fix](../../../integrations/fusion-apps/runtime/). Verify this support on each destination before testing actions. No final-instance rollout has started.
 
 ## Capabilities
 
 - Invoice reads, creation, cancellation and line cancellation through separate read/action REST sources.
-- Exact-target confirmation, no automatic retry of ambiguous writes, and API-result-based outcome reporting.
+- Exact-target proposals, explicit confirmation, no automatic retry of ambiguous writes, and independent invoice/line readback before reporting success.
 
 ## Prerequisites
 
@@ -24,11 +26,11 @@ Editor-owned draft using AIW26-PAF-HOL6004-BOO6096. The agent requested confirma
 2. Import assets/invoice-read-openapi.json and assets/invoice-actions-openapi.json as separate REST sources. Replace the example server URL with your confirmed Fusion endpoint and configure authentication in PAF. These reconstructed contracts require target-release validation.
 3. Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.
 4. Select `AIW26-PAF-HOL6004-BOO6096` on every Agent node. Disable Agent Memory and cross-thread sharing.
-5. Check permissions and connectivity against the intended demo environment before publishing.
+5. Verify POST cancellation support, permissions and connectivity against the intended environment before publishing. Creation requires valid accounting dates, distribution combinations and item lines that sum to the header amount.
 
 ## Controls and limits
 
-- The flow can change Fusion invoices. It is an unpublished draft; no transaction was executed during migration.
+- Write-capable unpublished draft. A new USD 0.02 fixture was created, one line canceled, then the whole invoice canceled and independently verified; destination validation is still required.
 - Conversational confirmation is an instruction, not a server-enforced approval mechanism. Restrict integration-account permissions and add an external approval gateway before unattended use.
 - Do not retry an ambiguous write automatically. Do not claim payment, posting or approval capabilities.
 

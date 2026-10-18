@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "apiVersion": "11.13.18.05",
-  "status": "Twenty editor-owned Build drafts verified with AIW26-PAF-HOL6004-BOO6096; HTTP probes, layout and conversation smoke checks completed",
+  "status": "Twenty editor-owned Build drafts verified with AIW26-PAF-HOL6004-BOO6096; resource-specific credentials, HTTP probes, layout and primary conversation smoke checks completed",
   "agents": [
     {
       "slug": "fusion-payables-invoice-review",
@@ -117,7 +117,7 @@
       "documentation": "https://docs.oracle.com/en/cloud/saas/financials/26c/farfa/api-expense-reports.html",
       "instructions": "Omit employee names, personal expenses and attachments. Preserve returned status codes; do not label reports fraudulent, approve reimbursements or make employee judgments.",
       "sourceName": "Fusion Pack - expense-processing-review",
-      "probeStatus": "HTTP 200; empty collection; attributes checked through describe",
+      "probeStatus": "HTTP 200; expected projection verified with one row",
       "actionMode": "Read-only"
     },
     {
@@ -278,7 +278,7 @@
       "documentation": "https://docs.oracle.com/en/cloud/saas/human-resources/farws/api-recruiting-job-requisitions.html",
       "instructions": "Review requisition configuration and workflow status only. Do not retrieve candidates, rank people or infer time-to-fill and hiring success from this bounded header sample.",
       "sourceName": "Fusion Pack - recruiting-requisition-review",
-      "probeStatus": "HTTP 200; empty collection; attributes checked through describe",
+      "probeStatus": "HTTP 200; expected projection verified with one row",
       "actionMode": "Read-only"
     },
     {
@@ -324,7 +324,7 @@
       "module": "Inventory",
       "functionalUseCase": "Material readiness",
       "documentation": "https://docs.oracle.com/en/cloud/saas/supply-chain-and-manufacturing/26b/fasrp/api-inventory-management-inventory-on-hand-balances.html",
-      "instructions": "On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the approved scope from the REST tool description, or ask the user for the organization ID. Never guess or broaden it.",
+      "instructions": "On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the configured scope or the user-supplied organization ID. If neither is provided, look up at most three accessible inventory organizations, select the first and disclose that scope. Never guess IDs, scan other organizations or broaden a configured scope.",
       "sourceName": "Fusion Pack - inventory-position-review",
       "probeStatus": "HTTP 200; expected projection verified with one row",
       "actionMode": "Read-only",
@@ -349,7 +349,7 @@
       "documentation": "https://docs.oracle.com/en/cloud/saas/supply-chain-and-manufacturing/26b/fasrp/api-order-management-sales-orders-order-hub.html",
       "instructions": "A header status is not proof of line shipment, promised delivery or revenue recognition. Explain missing line and fulfillment evidence. Never release holds, submit or reschedule orders.",
       "sourceName": "Fusion Pack - order-fulfillment-review",
-      "probeStatus": "HTTP 200; empty collection; attributes checked through describe",
+      "probeStatus": "HTTP 200; expected projection verified with one row",
       "actionMode": "Read-only"
     },
     {

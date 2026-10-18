@@ -1,0 +1,456 @@
+{
+  "date": "2026-10-18",
+  "factory": "build.oracleagentfactory.com",
+  "account": "editor@oracleagentfactory.com",
+  "model": "AIW26-PAF-HOL6004-BOO6096",
+  "reviewSampleCount": 20,
+  "http200Count": 20,
+  "populatedProjectionCount": 19,
+  "emptyResourceSlugs": [
+    "fusion-opportunity-pipeline-review"
+  ],
+  "primaryConversationCount": 20,
+  "primaryConversationsWithoutProviderException": 20,
+  "credentialProfiles": {
+    "erp": 6,
+    "hcm": 6,
+    "scm": 6,
+    "cx": 2,
+    "invoiceActions": "separate verified payables write profile"
+  },
+  "checks": [
+    {
+      "slug": "fusion-payables-invoice-review",
+      "credentialProfile": "erp",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "ApprovalStatus",
+        "BusinessUnit",
+        "InvoiceAmount",
+        "InvoiceCurrency",
+        "InvoiceDate",
+        "InvoiceId",
+        "InvoiceNumber",
+        "PaidStatus",
+        "ValidationStatus"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-receivables-invoice-review",
+      "credentialProfile": "erp",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "BusinessUnit",
+        "CustomerTransactionId",
+        "InvoiceCurrencyCode",
+        "InvoiceStatus",
+        "TransactionDate",
+        "TransactionNumber"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-cash-receipt-review",
+      "credentialProfile": "erp",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "Amount",
+        "BusinessUnit",
+        "Currency",
+        "ReceiptDate",
+        "ReceiptNumber",
+        "StandardReceiptId",
+        "State"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-journal-close-review",
+      "credentialProfile": "erp",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "BatchName",
+        "DefaultPeriodName",
+        "JeBatchId",
+        "Status"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-expense-processing-review",
+      "credentialProfile": "erp",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "ExpenseReportDate",
+        "ExpenseReportId",
+        "ExpenseReportNumber",
+        "ExpenseReportTotal",
+        "ExpenseStatusCode",
+        "ReimbursementCurrencyCode"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-project-milestone-review",
+      "credentialProfile": "erp",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "ProjectEndDate",
+        "ProjectId",
+        "ProjectName",
+        "ProjectNumber",
+        "ProjectStartDate",
+        "ProjectStatus"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-position-structure-review",
+      "credentialProfile": "hcm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "ActiveStatus",
+        "EffectiveEndDate",
+        "EffectiveStartDate",
+        "FTE",
+        "HeadCount",
+        "Name",
+        "PositionCode",
+        "PositionId"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-department-structure-review",
+      "credentialProfile": "hcm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "EffectiveEndDate",
+        "EffectiveStartDate",
+        "Name",
+        "OrganizationId",
+        "Status"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-job-catalog-review",
+      "credentialProfile": "hcm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "ActiveStatus",
+        "EffectiveEndDate",
+        "EffectiveStartDate",
+        "JobCode",
+        "JobId",
+        "Name"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-location-readiness-review",
+      "credentialProfile": "hcm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "ActiveStatus",
+        "EffectiveEndDate",
+        "EffectiveStartDate",
+        "LocationCode",
+        "LocationId",
+        "LocationName"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-grade-catalog-review",
+      "credentialProfile": "hcm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "ActiveStatus",
+        "EffectiveEndDate",
+        "EffectiveStartDate",
+        "GradeCode",
+        "GradeId",
+        "GradeName"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-recruiting-requisition-review",
+      "credentialProfile": "hcm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "PhaseName",
+        "RequisitionId",
+        "RequisitionNumber",
+        "StateName",
+        "Title"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-purchase-order-follow-up",
+      "credentialProfile": "scm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "CurrencyCode",
+        "OrderDate",
+        "OrderNumber",
+        "POHeaderId",
+        "ProcurementBU",
+        "Status",
+        "Total"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-inventory-position-review",
+      "credentialProfile": "scm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "InventoryItemId",
+        "ItemNumber",
+        "OrganizationCode",
+        "OrganizationId",
+        "PrimaryQuantity",
+        "PrimaryUOMCode",
+        "SubinventoryCode"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-order-fulfillment-review",
+      "credentialProfile": "scm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "HeaderId",
+        "OrderNumber",
+        "StatusCode",
+        "TransactionOn",
+        "TransactionalCurrencyCode"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-staged-order-review",
+      "credentialProfile": "scm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "InterfaceStatusCode",
+        "OrderRequestId",
+        "SourceTransactionNumber",
+        "SourceTransactionSystem"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-supply-request-review",
+      "credentialProfile": "scm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "SupplyOrderNumber",
+        "SupplyOrderReferenceNumber",
+        "SupplyOrderStatus"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-supplier-profile-review",
+      "credentialProfile": "scm",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "BusinessRelationship",
+        "Status",
+        "Supplier",
+        "SupplierId",
+        "SupplierNumber"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-service-workload-review",
+      "credentialProfile": "cx",
+      "httpStatus": 200,
+      "rowCount": 1,
+      "returnedFields": [
+        "CreationDate",
+        "LastUpdateDate",
+        "SeverityCd",
+        "SrId",
+        "SrNumber",
+        "StatusCd"
+      ],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": true,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    },
+    {
+      "slug": "fusion-opportunity-pipeline-review",
+      "credentialProfile": "cx",
+      "httpStatus": 200,
+      "rowCount": 0,
+      "returnedFields": [],
+      "unexpectedFields": [],
+      "missingFields": [],
+      "eligible": true,
+      "projectionVerifiedWithRows": false,
+      "primaryResponseNonempty": true,
+      "primaryProviderExceptionDetected": false
+    }
+  ],
+  "invoiceActions": {
+    "proposalOnlyChecksWithoutMutation": 3,
+    "creationVerified": true,
+    "createdItemLinesVerified": true,
+    "lineCancellationVerified": true,
+    "otherItemLinePreserved": true,
+    "wholeCancellationVerified": true,
+    "fixtureInitiallyAbsent": true,
+    "fixtureFinalCanceledFlag": true,
+    "fixtureFinalAmount": "USD 0.00",
+    "fixtureInitialAmount": "USD 0.02",
+    "preExistingInvoiceWriteTargets": 0,
+    "exactToolCallCountsIndependentlyCaptured": false,
+    "observedLineCancellationEffects": "Target item line became zero; other item line stayed USD 0.01. Two zero tax lines appeared. Header stayed USD 0.02 until whole cancellation. No corrective write."
+  },
+  "runtimeFix": {
+    "component": "RestAPIsToolsStep.py",
+    "behavior": "Recognize cancellation intent for POST cancelInvoice/cancelLine action path endings while preserving ordinary POST creation checks and current-turn context.",
+    "hostsChanged": [
+      "build.oracleagentfactory.com"
+    ],
+    "sourcePatch": "runtime/patch_cancel_actions.py",
+    "backupAndRollbackAvailable": true,
+    "readinessPassed": true,
+    "guardRegressionChecksPassed": true
+  },
+  "buildAudit": {
+    "samples": 49,
+    "agentNodes": 52,
+    "allEditorOwned": true,
+    "allModelsVerified": true,
+    "publicationAndMemoryPreserved": true,
+    "changedWorkflowBrowserChecksPassed": 2,
+    "changedOfficialExportsMatchedLiveGraphs": 2
+  },
+  "finalInstanceDeploymentStarted": false,
+  "limitations": [
+    "Responses alone do not prove complete business accuracy or every tool invocation. Raw tool traces were not captured.",
+    "Opportunities returned an empty collection; populated-result behavior remains untested.",
+    "Conversational confirmation is not a server approval gateway. Runtime vocabulary checks are not destination authorization.",
+    "Row limits, projections and inventory scope in this REST converter are model guidance; constrain service credentials or use a gateway for hard enforcement.",
+    "Destination imports, bindings, credentials, accounting eligibility and runtime support require instance-specific validation."
+  ]
+}

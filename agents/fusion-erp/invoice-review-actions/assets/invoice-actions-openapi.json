@@ -57,7 +57,21 @@
             }
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Required Fusion request media type. Always send exactly application/vnd.oracle.adf.action+json",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "application/vnd.oracle.adf.action+json"
+              ],
+              "default": "application/vnd.oracle.adf.action+json"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -118,7 +132,21 @@
             }
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Required Fusion request media type. Always send exactly application/vnd.oracle.adf.action+json",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "application/vnd.oracle.adf.action+json"
+              ],
+              "default": "application/vnd.oracle.adf.action+json"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -162,8 +190,8 @@
         "operationId": "invoiceAction23",
         "summary": "Create invoice",
         "responses": {
-          "200": {
-            "description": "Created invoice.",
+          "201": {
+            "description": "Created invoice; reconcile its identity and lines with a GET.",
             "content": {
               "application/json": {
                 "schema": {
@@ -246,11 +274,25 @@
             }
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Required Fusion request media type. Always send exactly application/vnd.oracle.adf.resourceitem+json",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "application/vnd.oracle.adf.resourceitem+json"
+              ],
+              "default": "application/vnd.oracle.adf.resourceitem+json"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "application/vnd.oracle.adf.resourceitem+json": {
               "schema": {
                 "type": "object",
                 "format": "",
@@ -302,6 +344,48 @@
                     "type": "string",
                     "format": "date",
                     "description": "Terms date."
+                  },
+                  "Description": {
+                    "type": "string",
+                    "description": "Invoice description supplied in the confirmed proposal."
+                  },
+                  "invoiceLines": {
+                    "type": "array",
+                    "description": "The exact confirmed item lines; their amounts must sum to InvoiceAmount.",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "LineNumber": {
+                          "type": "integer",
+                          "description": "Unique positive line number."
+                        },
+                        "LineAmount": {
+                          "type": "number",
+                          "description": "Confirmed amount in the invoice currency."
+                        },
+                        "LineType": {
+                          "type": "string",
+                          "description": "Use Item for item lines."
+                        },
+                        "DistributionCombination": {
+                          "type": "string",
+                          "description": "Confirmed valid account combination; never guess."
+                        },
+                        "AccountingDate": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "Confirmed accounting date in an open period."
+                        }
+                      },
+                      "required": [
+                        "LineNumber",
+                        "LineAmount",
+                        "LineType",
+                        "DistributionCombination",
+                        "AccountingDate"
+                      ]
+                    }
                   }
                 },
                 "required": [
@@ -315,7 +399,9 @@
                   "PaymentMethodCode",
                   "Supplier",
                   "SupplierSite",
-                  "TermsDate"
+                  "TermsDate",
+                  "Description",
+                  "invoiceLines"
                 ]
               }
             }

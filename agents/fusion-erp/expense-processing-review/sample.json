@@ -79,14 +79,14 @@
   "validation": {
     "date": "2026-10-18",
     "environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
-    "status": "Build draft, model, layout and conversation smoke checks passed",
+    "status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
     "notes": [
-      "GET with limit=1 returned HTTP 200 and no rows. Root attributes were checked through /describe; populated-result behavior remains untested.",
-      "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
-      "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
-      "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
-      "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
-      "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
+      "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
+      "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+      "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
+      "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
+      "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
+      "The resource-version prefix remains in the OpenAPI server URL for valid Factory function names. Row, field and scope restrictions are model guidance in this converter; constrain the destination identity or gateway for hard enforcement."
     ]
   },
   "artifacts": {

@@ -45,7 +45,7 @@ class FusionPackTests(unittest.TestCase):
                 api = deploy.read_json(folder / 'assets/openapi.json')
                 self.assertEqual(deploy.openapi(spec, 'https://fusion.example.invalid'), api)
                 path = '/' + spec['resource'].rsplit('/', 1)[1]
-                self.assertEqual([path], list(api['paths']))
+                self.assertEqual([path] + (['/inventoryOrganizations'] if spec.get('requiresOrganization') else []), list(api['paths']))
                 self.assertEqual('https://fusion.example.invalid' + spec['resource'], api['servers'][0]['url'] + path)
                 self.assertRegex('GET_' + path[1:], r'^[a-zA-Z0-9_-]{1,64}$')
                 self.assertEqual(['get'], list(api['paths'][path]))
@@ -88,6 +88,25 @@ class FusionPackTests(unittest.TestCase):
         self.assertEqual([('/v1/agentBuilderGetRegisteredLLMS',)], [c.args for c in paf.request.call_args_list])
         paf.upload.assert_not_called()
 
+    def test_invoice_actions_expose_required_media_headers_and_item_lines(self):
+        folder = ROOT / 'agents/fusion-erp/invoice-review-actions/assets'
+        actions = deploy.read_json(folder / 'invoice-actions-openapi.json')
+        for endpoint, methods in actions['paths'].items():
+            operation = methods['post']
+            media = ('application/vnd.oracle.adf.action+json' if '/action/' in endpoint
+                     else 'application/vnd.oracle.adf.resourceitem+json')
+            headers = {p['name']: p for p in operation['parameters'] if p['in'] == 'header'}
+            self.assertTrue(headers['Content-Type']['required'])
+            self.assertEqual([media], headers['Content-Type']['schema']['enum'])
+            self.assertIn(media, operation['requestBody']['content'])
+        create = actions['paths']['/invoices']['post']['requestBody']['content']
+        schema = create['application/vnd.oracle.adf.resourceitem+json']['schema']
+        self.assertIn('invoiceLines', schema['required'])
+        line = schema['properties']['invoiceLines']['items']
+        self.assertTrue({'LineNumber', 'LineAmount', 'DistributionCombination'} <= set(line['required']))
+        reads = deploy.read_json(folder / 'invoice-read-openapi.json')
+        self.assertIn('/invoices/{invoicesUniqID}/child/invoiceLines', reads['paths'])
+
     def test_failed_resource_preflight_prevents_source_creation(self):
         paf = Mock()
         paf.request.return_value = {'data': [{'value': 'required-model'}]}
@@ -119,12 +138,77 @@ class FusionPackTests(unittest.TestCase):
         self.assertEqual(1, connection.open.call_count)
         self.assertFalse(result[PACK[0]['slug']]['eligible'])
 
-    def test_inventory_requires_approved_scope_before_read(self):
+    def inventory_connection(self, rows):
+        connection = Mock()
+        responses = []
+        for body in rows:
+            response = Mock()
+            response.__enter__ = Mock(return_value=io.StringIO(json.dumps(body)))
+            response.__enter__.return_value.status = 200
+            response.__exit__ = Mock(return_value=False)
+            responses.append(response)
+        connection.open.side_effect = responses
+        return connection
+
+    def test_inventory_discovers_scope_before_bounded_read(self):
         spec = next(s for s in PACK if s.get('requiresOrganization'))
-        with patch.object(deploy, 'credentials', return_value=('user', 'secret')), patch.object(deploy, 'opener') as op:
-            with self.assertRaisesRegex(deploy.DeploymentError, 'approved OrganizationId'):
-                deploy.probe({'fusionUrl': 'https://example.org', 'fusionCredentialsFile': 'unused'}, [spec])
-        op.return_value.open.assert_not_called()
+        row = {k: 'sample' for k in spec['fields']}
+        connection = self.inventory_connection([{'items': [{'OrganizationId': 321, 'OrganizationCode': 'SAMPLE'}]}, {'items': [row]}])
+        with patch.object(deploy, 'credentials', return_value=('user', 'secret')), patch.object(deploy, 'opener', return_value=connection), redirect_stdout(io.StringIO()):
+            result = deploy.probe({'fusionUrl': 'https://example.org', 'fusionCredentialsFile': 'unused'}, [spec])
+        self.assertTrue(result[spec['slug']]['eligible'])
+        lookup, onhand = [c.args[0].full_url for c in connection.open.call_args_list]
+        self.assertIn('/inventoryOrganizations?', lookup)
+        self.assertIn('limit=3', lookup)
+        self.assertIn('q=InventoryFlag%3Dtrue', lookup)
+        self.assertIn('q=OrganizationId%3D321', onhand)
+        self.assertIn('limit=1', onhand)
+
+    def test_inventory_empty_scope_does_not_query_onhand(self):
+        spec = next(s for s in PACK if s.get('requiresOrganization'))
+        connection = self.inventory_connection([{'items': []}])
+        with patch.object(deploy, 'credentials', return_value=('user', 'secret')), patch.object(deploy, 'opener', return_value=connection), redirect_stdout(io.StringIO()):
+            result = deploy.probe({'fusionUrl': 'https://example.org', 'fusionCredentialsFile': 'unused'}, [spec])
+        self.assertFalse(result[spec['slug']]['eligible'])
+        self.assertEqual(1, connection.open.call_count)
+
+    def test_configured_inventory_scope_disables_discovery(self):
+        spec = copy.deepcopy(next(s for s in PACK if s.get('requiresOrganization')))
+        spec['query'] = 'OrganizationId=321'
+        self.assertNotIn('/inventoryOrganizations', deploy.openapi(spec, 'https://example.org')['paths'])
+        self.assertIn('never broaden', deploy.inventory_scope(spec))
+        connection = self.inventory_connection([{'items': []}])
+        with patch.object(deploy, 'credentials', return_value=('user', 'secret')), patch.object(deploy, 'opener', return_value=connection), redirect_stdout(io.StringIO()):
+            result = deploy.probe({'fusionUrl': 'https://example.org', 'fusionCredentialsFile': 'unused'}, [spec])
+        self.assertTrue(result[spec['slug']]['eligible'])
+        self.assertEqual(1, connection.open.call_count)
+        self.assertIn('q=OrganizationId%3D321', connection.open.call_args.args[0].full_url)
+
+    def test_invalid_inventory_scope_stops_before_onhand(self):
+        spec = next(s for s in PACK if s.get('requiresOrganization'))
+        bodies = [[], {'items': {}}, {'items': ['invalid']},
+                  {'items': [{'OrganizationId': True}]},
+                  {'items': [{'OrganizationId': '1;OrganizationId=2'}]}]
+        for body in bodies:
+            with self.subTest(body=body):
+                connection = self.inventory_connection([body])
+                with patch.object(deploy, 'credentials', return_value=('user', 'secret')), patch.object(deploy, 'opener', return_value=connection), redirect_stdout(io.StringIO()):
+                    result = deploy.probe({'fusionUrl': 'https://example.org', 'fusionCredentialsFile': 'unused'}, [spec])
+                self.assertFalse(result[spec['slug']]['eligible'])
+                self.assertEqual(1, connection.open.call_count)
+
+    def test_auth_failure_does_not_retry_profile_or_block_another_profile(self):
+        connection = self.inventory_connection([{'items': []}])
+        good = connection.open.side_effect
+        connection.open.side_effect = [urllib.error.HTTPError('https://example.org', 401, 'Unauthorized', {}, None), next(good)]
+        specs = PACK[:3]
+        config = {'fusionUrl': 'https://example.org', 'fusionCredentialsFile': 'default', 'credentialOverrides': {specs[2]['slug']: 'different'}}
+        with patch.object(deploy, 'credentials', return_value=('user', 'secret')) as credentials, patch.object(deploy, 'opener', return_value=connection), redirect_stdout(io.StringIO()):
+            result = deploy.probe(config, specs)
+        self.assertEqual(2, connection.open.call_count)
+        self.assertFalse(result[specs[1]['slug']]['eligible'])
+        self.assertTrue(result[specs[2]['slug']]['eligible'])
+        self.assertEqual(['default', 'different'], [c.args[0] for c in credentials.call_args_list])
 
     def test_defaults_reconciliation_cannot_hide_wiring_or_instruction_edits(self):
         desired = {'nodes': [{'id': 'a', 'data': {'type': 'agentStep', 'template': {'llmToUse': {'value': 'required'}, 'custom_instruction': {'value': 'Keep scope'}}}}], 'edges': []}

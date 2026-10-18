@@ -10,11 +10,13 @@ For example, **Capacity planning** brings together workforce, learning and campu
 
 ## Fusion review pack — 2026-10-18
 
-The catalog now has **49 samples**, including [twenty new Fusion review agents](integrations/fusion-apps/): six ERP, six HCM, six SCM and two CX workflows. Each exposes one GET collection, follows a numbered left-to-right layout, and includes detailed Agent Description and sample questions. The setup guide includes private authentication, scoped inventory queries, deployment, export and destination validation.
+The catalog now has **49 samples**, including [twenty new Fusion review agents](integrations/fusion-apps/): six ERP, six HCM, six SCM and two CX workflows. Each uses bounded GET tools, follows a numbered left-to-right layout, and includes detailed Agent Description and sample questions. Inventory discovers one accessible organization when scope is missing. The setup guide includes private authentication, scoped inventory queries, deployment, export and destination validation.
 
 All **49 samples** are saved under **editor@oracleagentfactory.com** on [Build](https://build.oracleagentfactory.com), and all **52 Agent nodes** select **AIW26-PAF-HOL6004-BOO6096**. All 49 rendered layouts passed the overlap, card-width and sticky-note checks. Seventy-two read-only conversation requests returned responses without provider exceptions, including primary and limitations questions for every new Fusion review. These are smoke checks; they do not establish complete business accuracy or action coverage. See the [current verification record](integrations/workflow-layout/build-validation-2026-10-18.json).
 
-All twenty Fusion REST resource probes returned HTTP 200. Four collections were empty, so their attributes were checked through `/describe` and populated results remain untested. The twenty new drafts remain unpublished with memory off. Official exports were captured, and local REST bindings were cleared in portable sources. Existing samples retain their publication and memory settings. Final instance deployment has not started.
+Resource-specific Fusion credentials now give HTTP 200 for all twenty REST probes: nineteen return projected data, while opportunities remain empty. Twenty fresh primary conversation smoke checks passed after reauthentication. The separate [invoice action agent](agents/fusion-erp/invoice-review-actions/) passed creation, line cancellation and whole-invoice cancellation with independent Fusion readback; the new USD 0.02 fixture is canceled at zero amount. Build also received the required [POST cancellation runtime fix](integrations/fusion-apps/runtime/). See the [Fusion verification record](integrations/fusion-apps/validation-2026-10-18.json) for evidence and limits.
+
+The twenty new review drafts remain unpublished with memory off. Official exports were captured, and local REST bindings were cleared in portable sources. Existing samples retain their publication and memory settings. Final instance deployment has not started.
 
 ## Linux OS Monitoring — 2026-10-18
 

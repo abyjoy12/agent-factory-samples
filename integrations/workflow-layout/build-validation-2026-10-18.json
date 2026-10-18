@@ -5,7 +5,7 @@
   "model": "AIW26-PAF-HOL6004-BOO6096",
   "sampleCount": 49,
   "agentNodeCount": 52,
-  "conversationRequests": 72,
+  "conversationRequests": 99,
   "checks": [
     {
       "slug": "executive-operations-brief",
@@ -19,7 +19,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "business-policy-desk",
@@ -33,7 +34,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "fusion-opportunity-pipeline-review",
@@ -48,7 +50,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-service-workload-review",
@@ -63,7 +67,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-cash-receipt-review",
@@ -78,7 +84,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-expense-processing-review",
@@ -93,7 +101,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-invoice-review-actions",
@@ -107,7 +117,10 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "confirmedActionOutcomesVerified": 3,
+      "layoutRecheckedAfterUpdate": true
     },
     {
       "slug": "fusion-journal-close-review",
@@ -122,7 +135,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-payables-invoice-review",
@@ -137,7 +152,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-project-milestone-review",
@@ -152,7 +169,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-receivables-invoice-review",
@@ -167,7 +186,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-department-structure-review",
@@ -182,7 +203,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-grade-catalog-review",
@@ -197,7 +220,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-job-catalog-review",
@@ -212,7 +237,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-location-readiness-review",
@@ -227,7 +254,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-position-structure-review",
@@ -242,7 +271,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-recruiting-requisition-review",
@@ -257,7 +288,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-inventory-position-review",
@@ -272,7 +305,10 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true,
+      "layoutRecheckedAfterUpdate": true
     },
     {
       "slug": "fusion-order-fulfillment-review",
@@ -287,7 +323,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-purchase-order-follow-up",
@@ -302,7 +340,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-staged-order-review",
@@ -317,7 +357,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-supplier-profile-review",
@@ -332,7 +374,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "fusion-supply-request-review",
@@ -347,7 +391,9 @@
         "primary",
         "limitations"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true,
+      "credentialFollowUpPrimarySmokePassed": true
     },
     {
       "slug": "jd-edwards-adaptive-fulfillment-advisor",
@@ -361,7 +407,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "jde-field-material-readiness",
@@ -375,7 +422,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "jd-edwards-fulfillment-exception-agent",
@@ -389,7 +437,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "jd-edwards-fulfillment-memory-agent",
@@ -403,7 +452,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "jde-jps920-fulfillment-coach",
@@ -417,7 +467,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "jde-replica-backorder-triage",
@@ -431,7 +482,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "jde-replica-finance-activity-review",
@@ -445,7 +497,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "jde-replica-supplier-follow-up",
@@ -459,7 +512,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "jde-replica-work-order-material-risk",
@@ -473,7 +527,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "jde-supplier-follow-up",
@@ -487,7 +542,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "linux-os-monitoring",
@@ -501,7 +557,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "ebs-concurrent-history-review",
@@ -515,7 +572,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "ebs-functional-check-evidence-review",
@@ -529,7 +587,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "ebs-it-operations-triage",
@@ -543,7 +602,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "ebs-purchase-receipt-review",
@@ -557,7 +617,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "ebs-receivables-portfolio-review",
@@ -571,7 +632,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "ebs-sales-commitment-review",
@@ -585,7 +647,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "psft-campus-capacity-review",
@@ -599,7 +662,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "psft-database-service-pulse",
@@ -613,7 +677,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "psft-invoice-duplicate-review",
@@ -627,7 +692,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "psft-learning-capacity-review",
@@ -641,7 +707,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "psft-learning-evidence-review",
@@ -655,7 +722,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "psft-position-coverage-review",
@@ -669,7 +737,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "psft-purchase-order-review",
@@ -683,7 +752,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "psft-service-case-workload",
@@ -697,7 +767,8 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     },
     {
       "slug": "psft-workforce-planning",
@@ -711,14 +782,23 @@
       "conversationCases": [
         "primary"
       ],
-      "conversationResponsesWithoutProviderException": true
+      "conversationResponsesWithoutProviderException": true,
+      "descriptionsHaveQuestions": true
     }
   ],
   "limitations": [
     "Conversation smoke checks detect empty responses and provider exceptions; they do not prove every tool ran or every business conclusion is correct.",
     "Initial JDE memory questions request missing connection context. Additional read-only prompts supplied context; cross-session memory learning was not retested.",
-    "The Fusion invoice action sample was exercised with read-only prompts only. Creation and cancellation remain untested.",
-    "Four Fusion collections were empty during probes; populated-result behavior remains untested.",
-    "Final destination imports, bindings, credentials and memory settings still require instance-specific validation."
-  ]
+    "Final destination imports, bindings, credentials and memory settings still require instance-specific validation.",
+    "Opportunities were empty under the verified credential profile; populated-result behavior remains untested.",
+    "Fusion creation, line cancellation and whole-invoice cancellation were verified on a new fixture, which is canceled at zero amount. Exact tool-call counts were not captured independently."
+  ],
+  "initialReadOnlyConversationRequests": 72,
+  "fusionFollowUp": {
+    "record": "../fusion-apps/validation-2026-10-18.json",
+    "primaryReadRequests": 20,
+    "invoiceActionConversationTurns": 7,
+    "verifiedActionOutcomes": 3,
+    "note": "Includes one line-cancellation confirmation blocked before Fusion, followed by renewed confirmation after the runtime fix."
+  }
 }

@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Inventory Position Review — Fusion SCM",
+    "title": "Inventory Position Review \u2014 Fusion SCM",
     "version": "1.0.0",
     "description": "What does the sampled stock position show by organization and unit?"
   },
@@ -37,7 +37,7 @@
         ],
         "operationId": "fusion_inventory_position_review",
         "summary": "What does the sampled stock position show by organization and unit?",
-        "description": "On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the approved scope from the REST tool description, or ask the user for the organization ID. Never guess or broaden it. Return only the listed fields; do not expand children. Results are a sample, not a complete population.",
+        "description": "On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the configured scope or the user-supplied organization ID. If neither is provided, look up at most three accessible inventory organizations, select the first and disclose that scope. Never guess IDs, scan other organizations or broaden a configured scope. Return only the listed fields; do not expand children. Results are a sample, not a complete population.",
         "parameters": [
           {
             "name": "limit",
@@ -81,9 +81,95 @@
             "name": "q",
             "in": "query",
             "required": true,
-            "description": "Use one owner-approved OrganizationId=<integer> filter. Ask the user for the organization ID; do not guess.",
+            "description": "Required filter OrganizationId=<integer>. Use a user-supplied organization ID when provided. Otherwise first call inventoryOrganizations with limit=3, onlyData=true, fields=OrganizationId,OrganizationCode, q=InventoryFlag=true. Choose the first returned organization, state its code and ID and read only that organization. If none are returned, report missing scope and ask the user. Never invent an ID or loop through organizations.",
             "schema": {
               "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A bounded Fusion collection; inspect count and hasMore. Empty data is not an access or completeness guarantee.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "hasMore": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventoryOrganizations": {
+      "get": {
+        "tags": [
+          "fusion"
+        ],
+        "operationId": "list_inventory_organizations",
+        "summary": "Find up to three accessible inventory organizations",
+        "description": "Read organization IDs and codes to scope one on-hand query. Never guess an organization or scan every organization.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                3
+              ],
+              "default": 3
+            }
+          },
+          {
+            "name": "onlyData",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "enum": [
+                true
+              ],
+              "default": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "OrganizationId,OrganizationCode"
+              ],
+              "default": "OrganizationId,OrganizationCode"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "InventoryFlag=true"
+              ],
+              "default": "InventoryFlag=true"
             }
           }
         ],

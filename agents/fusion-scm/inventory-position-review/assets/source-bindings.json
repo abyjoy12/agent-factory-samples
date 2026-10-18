@@ -14,5 +14,5 @@
     "shareBetweenChatThreads": false
   },
   "publication": "Unpublished until destination validation completes.",
-  "inventoryScope": "Configure one approved OrganizationId locally."
+  "inventoryScope": "Use one approved organization ID when supplied. Otherwise look up at most three accessible organizations, choose the first, disclose its code and ID, and query only that organization. An explicit deployment query override disables discovery."
 }

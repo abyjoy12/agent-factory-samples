@@ -259,37 +259,92 @@
         },
         "parameters": [
           {
-            "name": "effectiveDate",
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            },
+            "description": "Maximum ten invoices."
+          },
+          {
+            "name": "onlyData",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "q",
             "in": "query",
             "required": false,
-            "description": "Return invoices effective on this date (`yyyy-MM-dd`).",
             "schema": {
-              "type": "string",
-              "format": "date"
-            }
+              "type": "string"
+            },
+            "description": "Exact target filter, for example InvoiceNumber='<confirmed number>';BusinessUnit='<confirmed business unit>';Supplier='<confirmed supplier>'. Escape quotes, never broaden a write target. Empty string for an initial bounded review."
           },
           {
             "name": "orderBy",
             "in": "query",
             "required": false,
-            "description": "Sort expression, for example `InvoiceDate:desc`.",
             "schema": {
-              "type": "string",
-              "format": ""
-            }
+              "type": "string"
+            },
+            "description": "Use AccountingDate:desc for recent context or an empty string."
+          }
+        ]
+      }
+    },
+    "/invoices/{invoicesUniqID}/child/invoiceLines": {
+      "get": {
+        "operationId": "getInvoiceLines",
+        "summary": "Read bounded invoice lines to verify an exact invoice action",
+        "parameters": [
+          {
+            "name": "invoicesUniqID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "InvoiceId returned by an exact invoice lookup."
           },
           {
             "name": "limit",
             "in": "query",
-            "required": false,
-            "description": "Maximum number of invoices to return.",
+            "required": true,
             "schema": {
               "type": "integer",
-              "format": "",
-              "minimum": 1
+              "default": 10
+            },
+            "description": "Maximum ten lines."
+          },
+          {
+            "name": "onlyData",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "default": true
             }
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Invoice lines, including line numbers and amounts; inspect hasMore.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

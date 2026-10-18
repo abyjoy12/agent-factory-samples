@@ -20,5 +20,6 @@
     "enabled": false,
     "shareBetweenChatThreads": false
   },
-  "publication": "Keep unpublished until destination validation completes."
+  "publication": "Keep unpublished until destination validation completes.",
+  "runtime": "Verify the POST cancellation guard described in integrations/fusion-apps/runtime/README.md before enabling actions."
 }

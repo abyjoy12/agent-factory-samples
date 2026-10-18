@@ -10,7 +10,9 @@ The native `.paf` format was valid. It is an encrypted Agent Factory workflow ar
 
 The current pass covers all **49 catalog samples** and **52 Agent nodes** under **editor@oracleagentfactory.com**. All use `AIW26-PAF-HOL6004-BOO6096`. Chromium measured every workflow without overlaps, card-width mismatches or clipped sticky notes, and every Agent Description has at least two sample questions. Publication and memory settings were preserved; the twenty new Fusion review drafts have both memory switches off and remain unpublished.
 
-The [current sanitized record](build-validation-2026-10-18.json) records the ownership, model, settings, layout and conversation smoke checks per sample. All 49 primary requests and 20 Fusion limitations requests returned responses without provider exceptions. Three additional read-only requests covered the two JDE memory flows with explicit connection context and the existing invoice/action flow. This checks response availability; it does not prove every tool invocation, cross-session learning or business conclusion. No Fusion write operation was tested. Final instance imports and bindings remain to be validated.
+The [current sanitized record](build-validation-2026-10-18.json) records the ownership, model, settings, layout and conversation smoke checks per sample. The initial pass included 49 primary requests, 20 Fusion limitations requests and three additional read-only requests covering the two JDE memory flows and the invoice/action flow. These checked response availability, without proving every tool invocation, cross-session learning or business conclusion.
+
+The [Fusion follow-up](../fusion-apps/validation-2026-10-18.json) reran twenty primary questions after credential changes and verified all three invoice action outcomes through independent reads. Both changed workflows passed browser layout checks again, and the 49-sample ownership/model/settings audit passed. The new invoice fixture is canceled at zero amount. Final instance imports and bindings remain to be validated.
 
 The original 28-workflow repair and its narrower checks below remain a historical record.
 

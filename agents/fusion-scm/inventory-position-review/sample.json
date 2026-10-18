@@ -12,7 +12,7 @@
   "title": "Inventory Position Review — Fusion SCM",
   "summary": "Review sampled stock quantities by item, organization, subinventory and unit. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
   "category": "Supply chain",
-  "version": "2",
+  "version": "3",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -25,16 +25,22 @@
   },
   "capabilities": [
     "Review sampled stock quantities by item, organization, subinventory and unit. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
-    "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+    "Use two GET collections: discover at most three accessible organizations when scope is missing, then read at most ten stock rows in one organization and show at most five.",
     "Separate observed evidence, missing information and proposed human follow-up."
   ],
   "prerequisites": [
     "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
     "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
-    "Read access to /fscmRestApi/resources/11.13.18.05/inventoryOnhandBalances and support for the listed field projection.",
-    "One owner-approved inventory OrganizationId; configure its filter locally."
+    "Read access to inventoryOnhandBalances with the documented projection and to inventoryOrganizations when discovery is enabled.",
+    "Use a supplied organization ID or allow bounded discovery of one accessible organization; pin approved scope locally when required."
   ],
   "tools": [
+    {
+      "name": "Find inventory organization",
+      "method": "GET",
+      "path": "/fscmRestApi/resources/11.13.18.05/inventoryOrganizations",
+      "purpose": "Read up to three organization IDs/codes and scope one on-hand query when no organization was supplied."
+    },
     {
       "name": "Fusion Pack - inventory-position-review",
       "method": "GET",
@@ -43,9 +49,9 @@
     }
   ],
   "safetyControls": [
-    "One GET operation; no application action or message-sending tool.",
+    "Two GET operations; no application action or message-sending tool.",
     "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
-    "On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the approved scope from the REST tool description, or ask the user for the organization ID. Never guess or broaden it.",
+    "On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the configured scope or the user-supplied organization ID. If neither is provided, look up at most three accessible inventory organizations, select the first and disclose that scope. Never guess IDs, scan other organizations or broaden a configured scope. Stop if discovery yields no usable ID; never iterate over organizations or broaden a configured scope.",
     "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
   ],
   "setup": [
@@ -80,14 +86,15 @@
   "validation": {
     "date": "2026-10-18",
     "environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
-    "status": "Build draft, model, layout and conversation smoke checks passed",
+    "status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
     "notes": [
-      "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-      "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
-      "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
-      "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
-      "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
-      "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
+      "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
+      "An organization lookup returned up to three IDs/codes before a single scoped on-hand query. The agent disclosed its chosen organization and preserved item, subinventory and unit context. An explicitly configured organization disables discovery.",
+      "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+      "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions. This inventory graph was checked again after the scope-discovery update.",
+      "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
+      "Official native export and live graph comparison completed. This workflow was exported again after its instructions and scope discovery changed. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
+      "The resource-version prefix remains in the OpenAPI server URL for valid Factory function names. Row, field and scope restrictions are model guidance in this converter; constrain the destination identity or gateway for hard enforcement."
     ]
   },
   "artifacts": {

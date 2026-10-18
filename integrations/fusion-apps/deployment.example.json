@@ -2,12 +2,26 @@
   "pafUrl": "https://PAF_HOST/agentFactory",
   "pafCredentialsFile": "/secure/path/paf-login.csv",
   "fusionUrl": "https://FUSION_HOST",
-  "fusionCredentialsFile": "/secure/path/fusion-login.csv",
+  "fusionCredentialsFile": "/secure/path/fusion-erp-login.csv",
   "model": "AIW26-PAF-HOL6004-BOO6096",
   "namePrefix": "",
   "selectedAgents": [],
-  "queryOverrides": {
-    "fusion-inventory-position-review": "OrganizationId=REPLACE_WITH_APPROVED_INTEGER"
-  },
-  "stateFile": "/secure/path/fusion-deployment-state.json"
+  "queryOverrides": {},
+  "stateFile": "/secure/path/fusion-deployment-state.json",
+  "credentialOverrides": {
+    "fusion-position-structure-review": "/secure/path/fusion-hcm-login.csv",
+    "fusion-department-structure-review": "/secure/path/fusion-hcm-login.csv",
+    "fusion-job-catalog-review": "/secure/path/fusion-hcm-login.csv",
+    "fusion-location-readiness-review": "/secure/path/fusion-hcm-login.csv",
+    "fusion-grade-catalog-review": "/secure/path/fusion-hcm-login.csv",
+    "fusion-recruiting-requisition-review": "/secure/path/fusion-hcm-login.csv",
+    "fusion-purchase-order-follow-up": "/secure/path/fusion-scm-login.csv",
+    "fusion-inventory-position-review": "/secure/path/fusion-scm-login.csv",
+    "fusion-order-fulfillment-review": "/secure/path/fusion-scm-login.csv",
+    "fusion-staged-order-review": "/secure/path/fusion-scm-login.csv",
+    "fusion-supply-request-review": "/secure/path/fusion-scm-login.csv",
+    "fusion-supplier-profile-review": "/secure/path/fusion-scm-login.csv",
+    "fusion-service-workload-review": "/secure/path/fusion-cx-login.csv",
+    "fusion-opportunity-pipeline-review": "/secure/path/fusion-cx-login.csv"
+  }
 }

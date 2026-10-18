@@ -22,9 +22,9 @@ Resource: `/fscmRestApi/resources/11.13.18.05/inventoryOnhandBalances`
 
 Projection: `InventoryItemId,ItemNumber,OrganizationId,OrganizationCode,SubinventoryCode,PrimaryUOMCode,PrimaryQuantity`
 
-On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the approved scope from the REST tool description, or ask the user for the organization ID. Never guess or broaden it.
+On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the configured scope or the user-supplied organization ID. If neither is provided, look up at most three accessible inventory organizations, select the first and disclose that scope. Never guess IDs, scan other organizations or broaden a configured scope.
 
-Request `limit=10` and `onlyData=true`, do not expand child resources, and display at most five records. Query limits and projections are instructions; use credential scope or a gateway for hard enforcement. A sample is not the full population. No application changes are made.
+The organization lookup reads at most three IDs/codes with `InventoryFlag=true`. Request `limit=10` and `onlyData=true` for the scoped stock query, do not expand child resources, and display at most five records. Query limits and projections are instructions; use credential scope or a gateway for hard enforcement. A sample is not the full population. No application changes are made.
 
 ## Sample questions
 
