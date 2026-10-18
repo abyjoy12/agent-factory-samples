@@ -114,6 +114,9 @@ class PAF:
         result = self.request('/v1/loginValidation', headers={'Authorization': 'Basic ' + base64.b64encode((user + ':' + password).encode()).decode()})
         if not result.get('data', {}).get('VALID_USER'):
             raise DeploymentError('PAF login failed.')
+        self.user_id = result['data'].get('USER_ID')
+        if not self.user_id or self.user_id.lower() != user.lower():
+            raise DeploymentError('PAF session identity differs from the configured user.')
 
     def request(self, path, method='GET', payload=None, headers=None, raw=False, body=None, timeout=120):
         h = {'Origin': self.origin, 'Referer': self.url + '/', **(headers or {})}
@@ -140,6 +143,10 @@ class PAF:
     def sources(self):
         return self.request('/v1/tools/getDataSourcesSummary')['data']['items']
 
+    def agents(self):
+        # The unscoped /v1/agents endpoint also lists other users' private flows.
+        return self.request('/v1/users/' + urllib.parse.quote(self.user_id, safe='') + '/agents')['data']['items']
+
     def upload(self, spec, name):
         boundary = 'paf-' + secrets.token_hex(16)
         parts = []
@@ -159,6 +166,10 @@ class PAF:
 
 
 def openapi(spec, url):
+    # Factory derives function names from paths, ignoring operationId. Keeping
+    # the dotted resource version in the server URL yields valid tool names
+    # while preserving the exact Fusion request URL.
+    base_path, resource_path = spec['resource'].rsplit('/', 1)
     projection = ','.join(spec['fields'])
     parameters = [
         {'name': 'limit', 'in': 'query', 'required': True,
@@ -195,11 +206,11 @@ def openapi(spec, url):
     return {
         'openapi': '3.0.3',
         'info': {'title': spec['title'], 'version': '1.0.0', 'description': spec['question']},
-        'servers': [{'url': url}],
+        'servers': [{'url': url.rstrip('/') + base_path}],
         'tags': [{'name': 'fusion', 'description': 'Bounded Fusion business evidence'}],
         'components': {'securitySchemes': {'FusionBasic': {'type': 'http', 'scheme': 'basic'}}},
         'security': [{'FusionBasic': []}],
-        'paths': {spec['resource']: {'get': operation}},
+        'paths': {'/' + resource_path: {'get': operation}},
     }
 
 
@@ -298,9 +309,12 @@ def state_for(config):
     path = Path(config['stateFile']).expanduser().resolve()
     if path.is_relative_to(ROOT):
         raise DeploymentError('State file must be outside the repository.')
-    state = read_json(path) if path.exists() else {'schemaVersion': '1.0', 'pafUrl': config['pafUrl'].rstrip('/'), 'fusionUrl': config['fusionUrl'].rstrip('/'), 'agents': {}}
+    user, _ = credentials(config['pafCredentialsFile'])
+    state = read_json(path) if path.exists() else {'schemaVersion': '1.0', 'pafUrl': config['pafUrl'].rstrip('/'), 'fusionUrl': config['fusionUrl'].rstrip('/'), 'userId': user, 'agents': {}}
     if any(state.get(k) != config[k].rstrip('/') for k in ('pafUrl', 'fusionUrl')):
         raise DeploymentError('State belongs to another target. Use a separate state file per deployment.')
+    if state.get('userId', '').lower() != user.lower():
+        raise DeploymentError('State belongs to another user or has no identity binding. Use a separate state file per account.')
     return path, state
 
 
@@ -317,7 +331,7 @@ def apply(config, specs, paf, state_path, state):
     for kind in ('chatInputComponent', 'restAPITools', 'agentStep', 'chatOutputComponent'):
         if kind not in catalog:
             raise DeploymentError('Missing PAF component: ' + kind)
-    flows = paf.request('/v1/agents')['data']['items']
+    flows = paf.agents()
     source_rows = paf.sources()
     for spec in specs:
         title = config.get('namePrefix', '') + spec['title']

@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://fusion.example.invalid"
+      "url": "https://fusion.example.invalid/fscmRestApi/resources/11.13.18.05"
     }
   ],
   "tags": [
@@ -30,7 +30,7 @@
     }
   ],
   "paths": {
-    "/fscmRestApi/resources/11.13.18.05/journalBatches": {
+    "/journalBatches": {
       "get": {
         "tags": [
           "fusion"

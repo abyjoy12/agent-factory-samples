@@ -10,7 +10,7 @@ Read left to right: **1. Ask a question → 2. Provide API tools → 3. Review a
 
 ## Status
 
-REST probe passed; portable draft prepared; Build model binding pending. See [validation](assets/validation.md) for the exact scope and outstanding checks.
+Build draft, model, layout and conversation smoke checks passed. See [validation](assets/validation.md) for the exact scope and outstanding checks.
 
 ## Setup
 

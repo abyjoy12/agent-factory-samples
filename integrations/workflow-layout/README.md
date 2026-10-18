@@ -6,6 +6,14 @@ The defect came from saved layout data: 119 generic cards in 22 catalog workflow
 
 The native `.paf` format was valid. It is an encrypted Agent Factory workflow archive, with a ZIP containing metadata and workflow JSON after decryption. It is separate from Open Agent Spec. The initial audit found no forced card widths in the other 30 accessible workflows, so the evidence does not establish a problem across all agents.
 
+## Expanded Build verification — 2026-10-18
+
+The current pass covers all **49 catalog samples** and **52 Agent nodes** under **editor@oracleagentfactory.com**. All use `AIW26-PAF-HOL6004-BOO6096`. Chromium measured every workflow without overlaps, card-width mismatches or clipped sticky notes, and every Agent Description has at least two sample questions. Publication and memory settings were preserved; the twenty new Fusion review drafts have both memory switches off and remain unpublished.
+
+The [current sanitized record](build-validation-2026-10-18.json) records the ownership, model, settings, layout and conversation smoke checks per sample. All 49 primary requests and 20 Fusion limitations requests returned responses without provider exceptions. Three additional read-only requests covered the two JDE memory flows with explicit connection context and the existing invoice/action flow. This checks response availability; it does not prove every tool invocation, cross-session learning or business conclusion. No Fusion write operation was tested. Final instance imports and bindings remain to be validated.
+
+The original 28-workflow repair and its narrower checks below remain a historical record.
+
 ## Checks
 
 The sanitized [verification record](verification.json) contains per-workflow counts and results:

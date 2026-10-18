@@ -6,7 +6,7 @@ Review supplier invoices and prepare or execute explicitly requested invoice cre
 
 ## Status
 
-Editor-owned draft; runtime not exercised. Source sharing, new-flow ownership, metadata and memory settings were read back; an official export was captured. No Fusion action or EBS diagnostic run was executed during migration. The destination must validate source authentication, backend compatibility and expected behavior before use.
+Editor-owned draft using AIW26-PAF-HOL6004-BOO6096. Model, ownership, rendered layout and preserved settings were read back; a fresh read-only conversation returned a response without a provider exception. Both REST sources are authenticated editor-owned copies with compatible tool names. The official export was captured again. No creation or cancellation was tested; validate read evidence, permissions and action behavior before use.
 
 ## Capabilities
 

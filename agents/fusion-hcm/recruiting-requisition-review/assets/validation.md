@@ -1,13 +1,15 @@
 # Validation — 2026-10-18
 
-REST probe passed; portable draft prepared; Build model binding pending.
+Build draft, model, layout and conversation smoke checks passed.
 
-GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.
+GET with limit=1 returned HTTP 200 and no rows. Root attributes were checked through /describe; populated-result behavior remains untested.
 
-Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.
+Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.
 
-Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.
+Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.
 
-The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed.
+The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.
 
-The HTTP probe read one row at most; an Agent run requests ten rows at most and shows five. This does not establish complete population coverage, correctness across versions or production readiness. Raw records and private deployment state are excluded. Repeat connectivity, model, tool execution, empty/error handling and rendered layout checks at each destination.
+Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.
+
+The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary.

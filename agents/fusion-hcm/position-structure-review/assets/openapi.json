@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://fusion.example.invalid"
+      "url": "https://fusion.example.invalid/hcmRestApi/resources/11.13.18.05"
     }
   ],
   "tags": [
@@ -30,7 +30,7 @@
     }
   ],
   "paths": {
-    "/hcmRestApi/resources/11.13.18.05/positions": {
+    "/positions": {
       "get": {
         "tags": [
           "fusion"

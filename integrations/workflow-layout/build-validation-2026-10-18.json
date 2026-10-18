@@ -1,0 +1,724 @@
+{
+  "date": "2026-10-18",
+  "factory": "build.oracleagentfactory.com",
+  "account": "editor@oracleagentfactory.com",
+  "model": "AIW26-PAF-HOL6004-BOO6096",
+  "sampleCount": 49,
+  "agentNodeCount": 52,
+  "conversationRequests": 72,
+  "checks": [
+    {
+      "slug": "executive-operations-brief",
+      "ownedByEditor": true,
+      "agentNodes": 3,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "business-policy-desk",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-opportunity-pipeline-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-service-workload-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-cash-receipt-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-expense-processing-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-invoice-review-actions",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-journal-close-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-payables-invoice-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-project-milestone-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-receivables-invoice-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-department-structure-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-grade-catalog-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-job-catalog-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-location-readiness-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-position-structure-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-recruiting-requisition-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-inventory-position-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-order-fulfillment-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-purchase-order-follow-up",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-staged-order-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-supplier-profile-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "fusion-supply-request-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary",
+        "limitations"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jd-edwards-adaptive-fulfillment-advisor",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jde-field-material-readiness",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jd-edwards-fulfillment-exception-agent",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jd-edwards-fulfillment-memory-agent",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jde-jps920-fulfillment-coach",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jde-replica-backorder-triage",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jde-replica-finance-activity-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jde-replica-supplier-follow-up",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jde-replica-work-order-material-risk",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "jde-supplier-follow-up",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "linux-os-monitoring",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "ebs-concurrent-history-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "ebs-functional-check-evidence-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "ebs-it-operations-triage",
+      "ownedByEditor": true,
+      "agentNodes": 2,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "ebs-purchase-receipt-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "ebs-receivables-portfolio-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "ebs-sales-commitment-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "psft-campus-capacity-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "psft-database-service-pulse",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "psft-invoice-duplicate-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "psft-learning-capacity-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "psft-learning-evidence-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "psft-position-coverage-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "psft-purchase-order-review",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "psft-service-case-workload",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    },
+    {
+      "slug": "psft-workforce-planning",
+      "ownedByEditor": true,
+      "agentNodes": 1,
+      "modelVerified": true,
+      "publicationPreserved": true,
+      "memoryPreserved": true,
+      "ok": true,
+      "layoutPassed": true,
+      "conversationCases": [
+        "primary"
+      ],
+      "conversationResponsesWithoutProviderException": true
+    }
+  ],
+  "limitations": [
+    "Conversation smoke checks detect empty responses and provider exceptions; they do not prove every tool ran or every business conclusion is correct.",
+    "Initial JDE memory questions request missing connection context. Additional read-only prompts supplied context; cross-session memory learning was not retested.",
+    "The Fusion invoice action sample was exercised with read-only prompts only. Creation and cancellation remain untested.",
+    "Four Fusion collections were empty during probes; populated-result behavior remains untested.",
+    "Final destination imports, bindings, credentials and memory settings still require instance-specific validation."
+  ]
+}

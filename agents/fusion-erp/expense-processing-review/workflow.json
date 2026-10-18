@@ -1,8 +1,5 @@
 {
-  "originWorkflowId": "218dd373-ffd7-46f6-a0f2-0e91d8409330",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-18T00:00:00Z",
-  "workflowId": "218dd373-ffd7-46f6-a0f2-0e91d8409330",
+  "workflowId": "5E1655C77CBC2BC8E0638001000A9373",
   "name": "Expense Processing Review — Fusion ERP",
   "description": "Review expense report processing statuses without employee or attachment data. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
   "category": 1,
@@ -10,6 +7,49 @@
   "published": false,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "c252d982-242b-42d0-aefd-29f98971a4b2",
+      "version": 2,
+      "lastUpdatedOn": "2026-10-18T20:06:45.887328Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "fusion-expense-processing-review-input-user_provided_input-fusion-expense-processing-review-agent-prompt",
+        "source": "fusion-expense-processing-review-input",
+        "sourceHandle": "user_provided_input-fusion-expense-processing-review-input",
+        "target": "fusion-expense-processing-review-agent",
+        "targetHandle": "prompt-fusion-expense-processing-review-agent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "fusion-expense-processing-review-rest-tools-fusion-expense-processing-review-agent-tools",
+        "source": "fusion-expense-processing-review-rest",
+        "sourceHandle": "tools-fusion-expense-processing-review-rest",
+        "target": "fusion-expense-processing-review-agent",
+        "targetHandle": "tools-fusion-expense-processing-review-agent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "fusion-expense-processing-review-agent-tool_output-fusion-expense-processing-review-output-message",
+        "source": "fusion-expense-processing-review-agent",
+        "sourceHandle": "tool_output-fusion-expense-processing-review-agent",
+        "target": "fusion-expense-processing-review-output",
+        "targetHandle": "message-fusion-expense-processing-review-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -30,12 +70,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "fusion-expense-processing-review-input",
         "position": {
           "x": 0,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -79,12 +119,12 @@
           "title": "REST API tools",
           "type": "restAPITools"
         },
-        "type": "flowGenericNode",
         "id": "fusion-expense-processing-review-rest",
         "position": {
           "x": 480,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -257,12 +297,12 @@
           "title": "Agent",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "fusion-expense-processing-review-agent",
         "position": {
           "x": 960,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -308,143 +348,103 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "fusion-expense-processing-review-output",
         "position": {
           "x": 1440,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
+        "data": {
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "backgroundColor": "rgb(255, 243, 163)",
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "textColor": "rgb(0,0,0)"
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-1",
-        "type": "noteNode",
         "position": {
           "x": 0,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-2",
-        "type": "noteNode",
         "position": {
           "x": 480,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "3. Review and explain\n\nUse the configured model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-3",
-        "type": "noteNode",
         "position": {
           "x": 960,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "3. Review and explain\n\nUse the configured model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-4",
-        "type": "noteNode",
         "position": {
           "x": 1440,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
-        "data": {
-          "title": "Sticky Note",
-          "description": "Workflow reading guide",
-          "icon": "sticky-note",
-          "noteDetails": {
-            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
-            "backgroundColor": "rgb(255, 243, 163)",
-            "textColor": "rgb(0,0,0)"
-          }
-        }
+        "type": "noteNode",
+        "width": 360
       }
-    ],
-    "edges": [
-      {
-        "source": "fusion-expense-processing-review-input",
-        "sourceHandle": "user_provided_input-fusion-expense-processing-review-input",
-        "target": "fusion-expense-processing-review-agent",
-        "targetHandle": "prompt-fusion-expense-processing-review-agent",
-        "id": "fusion-expense-processing-review-input-user_provided_input-fusion-expense-processing-review-agent-prompt",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "source": "fusion-expense-processing-review-rest",
-        "sourceHandle": "tools-fusion-expense-processing-review-rest",
-        "target": "fusion-expense-processing-review-agent",
-        "targetHandle": "tools-fusion-expense-processing-review-agent",
-        "id": "fusion-expense-processing-review-rest-tools-fusion-expense-processing-review-agent-tools",
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
-      },
-      {
-        "source": "fusion-expense-processing-review-agent",
-        "sourceHandle": "tool_output-fusion-expense-processing-review-agent",
-        "target": "fusion-expense-processing-review-output",
-        "targetHandle": "message-fusion-expense-processing-review-output",
-        "id": "fusion-expense-processing-review-agent-tool_output-fusion-expense-processing-review-output-message",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "218dd373-ffd7-46f6-a0f2-0e91d8409330",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-18T00:00:00Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
+  "originWorkflowId": "c252d982-242b-42d0-aefd-29f98971a4b2",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-18T20:06:45.887328Z",
   "_workflowMetadata": {
-    "originWorkflowId": "218dd373-ffd7-46f6-a0f2-0e91d8409330",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-18T00:00:00Z"
+    "originWorkflowId": "c252d982-242b-42d0-aefd-29f98971a4b2",
+    "version": 2,
+    "lastUpdatedOn": "2026-10-18T20:06:45.887328Z"
   }
 }

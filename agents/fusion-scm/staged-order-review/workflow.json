@@ -1,8 +1,5 @@
 {
-  "originWorkflowId": "94d9a0b5-94d4-4b32-9bcc-1100e54dd257",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-18T00:00:00Z",
-  "workflowId": "94d9a0b5-94d4-4b32-9bcc-1100e54dd257",
+  "workflowId": "5E1655C77CD22BC8E0638001000A9373",
   "name": "Staged Order Intake Review — Fusion SCM",
   "description": "Review staged sales order intake statuses and source-system references. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
   "category": 1,
@@ -10,6 +7,49 @@
   "published": false,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "adfae26e-29f5-4caa-86d8-2638a632b4e8",
+      "version": 2,
+      "lastUpdatedOn": "2026-10-18T20:06:46.488175Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "fusion-staged-order-review-input-user_provided_input-fusion-staged-order-review-agent-prompt",
+        "source": "fusion-staged-order-review-input",
+        "sourceHandle": "user_provided_input-fusion-staged-order-review-input",
+        "target": "fusion-staged-order-review-agent",
+        "targetHandle": "prompt-fusion-staged-order-review-agent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "fusion-staged-order-review-rest-tools-fusion-staged-order-review-agent-tools",
+        "source": "fusion-staged-order-review-rest",
+        "sourceHandle": "tools-fusion-staged-order-review-rest",
+        "target": "fusion-staged-order-review-agent",
+        "targetHandle": "tools-fusion-staged-order-review-agent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "fusion-staged-order-review-agent-tool_output-fusion-staged-order-review-output-message",
+        "source": "fusion-staged-order-review-agent",
+        "sourceHandle": "tool_output-fusion-staged-order-review-agent",
+        "target": "fusion-staged-order-review-output",
+        "targetHandle": "message-fusion-staged-order-review-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -30,12 +70,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "fusion-staged-order-review-input",
         "position": {
           "x": 0,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -79,12 +119,12 @@
           "title": "REST API tools",
           "type": "restAPITools"
         },
-        "type": "flowGenericNode",
         "id": "fusion-staged-order-review-rest",
         "position": {
           "x": 480,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -257,12 +297,12 @@
           "title": "Agent",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "fusion-staged-order-review-agent",
         "position": {
           "x": 960,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -308,143 +348,103 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "fusion-staged-order-review-output",
         "position": {
           "x": 1440,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
+        "data": {
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "backgroundColor": "rgb(255, 243, 163)",
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "textColor": "rgb(0,0,0)"
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-1",
-        "type": "noteNode",
         "position": {
           "x": 0,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-2",
-        "type": "noteNode",
         "position": {
           "x": 480,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "3. Review and explain\n\nUse the configured model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-3",
-        "type": "noteNode",
         "position": {
           "x": 960,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "3. Review and explain\n\nUse the configured model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-4",
-        "type": "noteNode",
         "position": {
           "x": 1440,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
-        "data": {
-          "title": "Sticky Note",
-          "description": "Workflow reading guide",
-          "icon": "sticky-note",
-          "noteDetails": {
-            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
-            "backgroundColor": "rgb(255, 243, 163)",
-            "textColor": "rgb(0,0,0)"
-          }
-        }
+        "type": "noteNode",
+        "width": 360
       }
-    ],
-    "edges": [
-      {
-        "source": "fusion-staged-order-review-input",
-        "sourceHandle": "user_provided_input-fusion-staged-order-review-input",
-        "target": "fusion-staged-order-review-agent",
-        "targetHandle": "prompt-fusion-staged-order-review-agent",
-        "id": "fusion-staged-order-review-input-user_provided_input-fusion-staged-order-review-agent-prompt",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "source": "fusion-staged-order-review-rest",
-        "sourceHandle": "tools-fusion-staged-order-review-rest",
-        "target": "fusion-staged-order-review-agent",
-        "targetHandle": "tools-fusion-staged-order-review-agent",
-        "id": "fusion-staged-order-review-rest-tools-fusion-staged-order-review-agent-tools",
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
-      },
-      {
-        "source": "fusion-staged-order-review-agent",
-        "sourceHandle": "tool_output-fusion-staged-order-review-agent",
-        "target": "fusion-staged-order-review-output",
-        "targetHandle": "message-fusion-staged-order-review-output",
-        "id": "fusion-staged-order-review-agent-tool_output-fusion-staged-order-review-output-message",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "94d9a0b5-94d4-4b32-9bcc-1100e54dd257",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-18T00:00:00Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
+  "originWorkflowId": "adfae26e-29f5-4caa-86d8-2638a632b4e8",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-18T20:06:46.488175Z",
   "_workflowMetadata": {
-    "originWorkflowId": "94d9a0b5-94d4-4b32-9bcc-1100e54dd257",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-18T00:00:00Z"
+    "originWorkflowId": "adfae26e-29f5-4caa-86d8-2638a632b4e8",
+    "version": 2,
+    "lastUpdatedOn": "2026-10-18T20:06:46.488175Z"
   }
 }

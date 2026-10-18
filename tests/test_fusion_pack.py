@@ -18,6 +18,24 @@ PACK = deploy.read_json(ROOT / 'integrations/fusion-apps/pack.json')['agents']
 
 
 class FusionPackTests(unittest.TestCase):
+    def test_flow_listing_is_scoped_to_authenticated_user(self):
+        paf = deploy.PAF.__new__(deploy.PAF)
+        paf.user_id = 'editor@example.org'
+        paf.request = Mock(return_value={'data': {'items': [{'agentId': 'owned'}]}})
+        self.assertEqual([{'agentId': 'owned'}], paf.agents())
+        paf.request.assert_called_once_with('/v1/users/editor%40example.org/agents')
+
+    def test_state_cannot_be_reused_by_another_account(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'state.json'
+            config = {'stateFile': str(path), 'pafUrl': 'https://paf.example.org',
+                      'fusionUrl': 'https://fusion.example.org', 'pafCredentialsFile': 'unused'}
+            deploy.secure_json(path, {'pafUrl': config['pafUrl'], 'fusionUrl': config['fusionUrl'],
+                                      'userId': 'another@example.org', 'agents': {}})
+            with patch.object(deploy, 'credentials', return_value=('editor@example.org', 'secret')):
+                with self.assertRaisesRegex(deploy.DeploymentError, 'another user'):
+                    deploy.state_for(config)
+
     def test_twenty_distinct_get_only_contracts_and_portable_bindings(self):
         self.assertEqual(20, len(PACK))
         self.assertEqual(20, len({s['slug'] for s in PACK}))
@@ -26,9 +44,12 @@ class FusionPackTests(unittest.TestCase):
                 folder = ROOT / 'agents' / ('fusion-' + spec['group']) / spec['slug'].removeprefix('fusion-')
                 api = deploy.read_json(folder / 'assets/openapi.json')
                 self.assertEqual(deploy.openapi(spec, 'https://fusion.example.invalid'), api)
-                self.assertEqual([spec['resource']], list(api['paths']))
-                self.assertEqual(['get'], list(api['paths'][spec['resource']]))
-                params = {p['name']: p for p in api['paths'][spec['resource']]['get']['parameters']}
+                path = '/' + spec['resource'].rsplit('/', 1)[1]
+                self.assertEqual([path], list(api['paths']))
+                self.assertEqual('https://fusion.example.invalid' + spec['resource'], api['servers'][0]['url'] + path)
+                self.assertRegex('GET_' + path[1:], r'^[a-zA-Z0-9_-]{1,64}$')
+                self.assertEqual(['get'], list(api['paths'][path]))
+                params = {p['name']: p for p in api['paths'][path]['get']['parameters']}
                 self.assertEqual([10], params['limit']['schema']['enum'])
                 self.assertEqual([True], params['onlyData']['schema']['enum'])
                 self.assertEqual([','.join(spec['fields'])], params['fields']['schema']['enum'])
@@ -40,6 +61,22 @@ class FusionPackTests(unittest.TestCase):
                 self.assertFalse(flow['published'])
                 bindings = [n['data']['template']['src_select']['value'] for n in flow['data']['nodes'] if n['data'].get('type') == 'restAPITools']
                 self.assertEqual([''], bindings)
+
+    def test_invoice_action_paths_keep_valid_tool_names_and_original_urls(self):
+        folder = ROOT / 'agents/fusion-erp/invoice-review-actions/assets'
+        prefix = '/fscmRestApi/resources/11.13.18.05'
+        for path in folder.glob('*openapi.json'):
+            api = deploy.read_json(path)
+            self.assertEqual('https://your-fusion-environment.example.com' + prefix,
+                             api['servers'][0]['url'])
+            for endpoint in api['paths']:
+                with self.subTest(contract=path.name, endpoint=endpoint):
+                    resource_name = endpoint[1:].replace('/', '_').replace('{', '').replace('}', '')
+                    for method in api['paths'][endpoint]:
+                        self.assertRegex(method.upper() + '_' + resource_name,
+                                         r'^[a-zA-Z0-9_-]{1,64}$')
+                    self.assertTrue(endpoint.startswith('/invoices'))
+                    self.assertNotIn(prefix, endpoint)
 
     def test_missing_model_prevents_probes_and_writes(self):
         paf = Mock()

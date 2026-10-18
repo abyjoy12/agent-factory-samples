@@ -9,8 +9,8 @@
   "data": {
     "_workflowMetadata": {
       "originWorkflowId": "bf38cb7e-fa61-4c57-93a0-f33d841c1e1e",
-      "version": 11,
-      "lastUpdatedOn": "2026-10-18T00:45:55.900726Z"
+      "version": 12,
+      "lastUpdatedOn": "2026-10-18T20:06:38.190409Z"
     },
     "edges": [
       {
@@ -287,7 +287,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": 21,
+              "value": "",
               "valueType": "str"
             }
           },
@@ -418,7 +418,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": 22,
+              "value": "",
               "valueType": "str"
             }
           },
@@ -433,95 +433,95 @@
         "type": "flowGenericNode"
       },
       {
+        "data": {
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "backgroundColor": "rgb(255, 243, 163)",
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "textColor": "rgb(0,0,0)"
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-1",
-        "type": "noteNode",
         "position": {
           "x": 0,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-2",
-        "type": "noteNode",
         "position": {
           "x": 480,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "3. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-3",
-        "type": "noteNode",
         "position": {
           "x": 960,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "3. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-4",
-        "type": "noteNode",
         "position": {
           "x": 1440,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
-        "data": {
-          "title": "Sticky Note",
-          "description": "Workflow reading guide",
-          "icon": "sticky-note",
-          "noteDetails": {
-            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
-            "backgroundColor": "rgb(255, 243, 163)",
-            "textColor": "rgb(0,0,0)"
-          }
-        }
+        "type": "noteNode",
+        "width": 360
       }
     ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "bf38cb7e-fa61-4c57-93a0-f33d841c1e1e",
-  "version": 11,
-  "lastUpdatedOn": "2026-10-18T00:45:55.900726Z",
+  "version": 12,
+  "lastUpdatedOn": "2026-10-18T20:06:38.190409Z",
   "_workflowMetadata": {
     "originWorkflowId": "bf38cb7e-fa61-4c57-93a0-f33d841c1e1e",
-    "version": 11,
-    "lastUpdatedOn": "2026-10-18T00:45:55.900726Z"
+    "version": 12,
+    "lastUpdatedOn": "2026-10-18T20:06:38.190409Z"
   }
 }

@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://your-fusion-environment.example.com"
+      "url": "https://your-fusion-environment.example.com/fscmRestApi/resources/11.13.18.05"
     }
   ],
   "security": [
@@ -30,7 +30,7 @@
     }
   },
   "paths": {
-    "/fscmRestApi/resources/11.13.18.05/invoices/{invoicesUniqID}": {
+    "/invoices/{invoicesUniqID}": {
       "get": {
         "operationId": "readInvoice22",
         "summary": "Get invoice",
@@ -133,7 +133,7 @@
         ]
       }
     },
-    "/fscmRestApi/resources/11.13.18.05/invoices": {
+    "/invoices": {
       "get": {
         "operationId": "readInvoice21",
         "summary": "List invoices",

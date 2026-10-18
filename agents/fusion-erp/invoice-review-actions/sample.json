@@ -12,7 +12,7 @@
   "title": "Invoice Review and Actions — Fusion ERP",
   "summary": "Review supplier invoices and prepare or execute explicitly requested invoice creation, cancellation, or line cancellation through the configured Fusion REST sources. Shows the exact target and proposed values before requesting confirmation. Draft: source authentication and action behavior require target-environment validation.",
   "category": "Finance",
-  "version": "11",
+  "version": "12",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -98,13 +98,14 @@
     ]
   },
   "validation": {
-    "date": "2026-10-17",
+    "date": "2026-10-18",
     "environment": "build PAF; authorized account consolidation",
-    "status": "Editor-owned draft; runtime not exercised",
+    "status": "Editor-owned draft; model and layout verified; read-only conversation smoke check completed",
     "notes": [
-      "Source sharing, new-flow ownership, metadata and memory settings were read back; an official export was captured.",
-      "No Fusion action or EBS diagnostic run was executed during migration.",
-      "The destination must validate source authentication, backend compatibility and expected behavior before use."
+      "Build ownership and AIW26-PAF-HOL6004-BOO6096 binding verified as editor@oracleagentfactory.com. Existing publication and memory settings preserved.",
+      "Rebound both REST nodes to authenticated editor-owned sources whose version prefix is in the server URL. Shared original sources were not edited. Official export captured; local REST bindings cleared for portability.",
+      "Rendered layout passed overlap, card-width and sticky-note clipping checks. A read-only prompt returned a response without a provider exception; no creation or cancellation tool was exercised.",
+      "This flow includes write-capable tools. Read-tool evidence, required fields, permissions, confirmation behavior and every action require destination validation before use. No Fusion mutation was tested."
     ]
   },
   "artifacts": {

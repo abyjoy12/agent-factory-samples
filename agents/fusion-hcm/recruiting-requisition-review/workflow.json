@@ -1,8 +1,5 @@
 {
-  "originWorkflowId": "64efcf33-6d22-4078-a6cc-1e047ed5ed30",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-18T00:00:00Z",
-  "workflowId": "64efcf33-6d22-4078-a6cc-1e047ed5ed30",
+  "workflowId": "5E1655C77CCA2BC8E0638001000A9373",
   "name": "Recruiting Requisition Review — Fusion HCM",
   "description": "Review recruiting requisition phases and states before hiring-team follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
   "category": 1,
@@ -10,6 +7,49 @@
   "published": false,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "eb40fe35-7842-4ef0-8dcd-f651e0e8662f",
+      "version": 2,
+      "lastUpdatedOn": "2026-10-18T20:06:46.268241Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "fusion-recruiting-requisition-review-input-user_provided_input-fusion-recruiting-requisition-review-agent-prompt",
+        "source": "fusion-recruiting-requisition-review-input",
+        "sourceHandle": "user_provided_input-fusion-recruiting-requisition-review-input",
+        "target": "fusion-recruiting-requisition-review-agent",
+        "targetHandle": "prompt-fusion-recruiting-requisition-review-agent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "fusion-recruiting-requisition-review-rest-tools-fusion-recruiting-requisition-review-agent-tools",
+        "source": "fusion-recruiting-requisition-review-rest",
+        "sourceHandle": "tools-fusion-recruiting-requisition-review-rest",
+        "target": "fusion-recruiting-requisition-review-agent",
+        "targetHandle": "tools-fusion-recruiting-requisition-review-agent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "fusion-recruiting-requisition-review-agent-tool_output-fusion-recruiting-requisition-review-output-message",
+        "source": "fusion-recruiting-requisition-review-agent",
+        "sourceHandle": "tool_output-fusion-recruiting-requisition-review-agent",
+        "target": "fusion-recruiting-requisition-review-output",
+        "targetHandle": "message-fusion-recruiting-requisition-review-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -30,12 +70,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "fusion-recruiting-requisition-review-input",
         "position": {
           "x": 0,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -79,12 +119,12 @@
           "title": "REST API tools",
           "type": "restAPITools"
         },
-        "type": "flowGenericNode",
         "id": "fusion-recruiting-requisition-review-rest",
         "position": {
           "x": 480,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -257,12 +297,12 @@
           "title": "Agent",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "fusion-recruiting-requisition-review-agent",
         "position": {
           "x": 960,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -308,143 +348,103 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "fusion-recruiting-requisition-review-output",
         "position": {
           "x": 1440,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
+        "data": {
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "backgroundColor": "rgb(255, 243, 163)",
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "textColor": "rgb(0,0,0)"
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-1",
-        "type": "noteNode",
         "position": {
           "x": 0,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-2",
-        "type": "noteNode",
         "position": {
           "x": 480,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "3. Review and explain\n\nUse the configured model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-3",
-        "type": "noteNode",
         "position": {
           "x": 960,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "3. Review and explain\n\nUse the configured model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-4",
-        "type": "noteNode",
         "position": {
           "x": 1440,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
-        "data": {
-          "title": "Sticky Note",
-          "description": "Workflow reading guide",
-          "icon": "sticky-note",
-          "noteDetails": {
-            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
-            "backgroundColor": "rgb(255, 243, 163)",
-            "textColor": "rgb(0,0,0)"
-          }
-        }
+        "type": "noteNode",
+        "width": 360
       }
-    ],
-    "edges": [
-      {
-        "source": "fusion-recruiting-requisition-review-input",
-        "sourceHandle": "user_provided_input-fusion-recruiting-requisition-review-input",
-        "target": "fusion-recruiting-requisition-review-agent",
-        "targetHandle": "prompt-fusion-recruiting-requisition-review-agent",
-        "id": "fusion-recruiting-requisition-review-input-user_provided_input-fusion-recruiting-requisition-review-agent-prompt",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "source": "fusion-recruiting-requisition-review-rest",
-        "sourceHandle": "tools-fusion-recruiting-requisition-review-rest",
-        "target": "fusion-recruiting-requisition-review-agent",
-        "targetHandle": "tools-fusion-recruiting-requisition-review-agent",
-        "id": "fusion-recruiting-requisition-review-rest-tools-fusion-recruiting-requisition-review-agent-tools",
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
-      },
-      {
-        "source": "fusion-recruiting-requisition-review-agent",
-        "sourceHandle": "tool_output-fusion-recruiting-requisition-review-agent",
-        "target": "fusion-recruiting-requisition-review-output",
-        "targetHandle": "message-fusion-recruiting-requisition-review-output",
-        "id": "fusion-recruiting-requisition-review-agent-tool_output-fusion-recruiting-requisition-review-output-message",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "64efcf33-6d22-4078-a6cc-1e047ed5ed30",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-18T00:00:00Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
+  "originWorkflowId": "eb40fe35-7842-4ef0-8dcd-f651e0e8662f",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-18T20:06:46.268241Z",
   "_workflowMetadata": {
-    "originWorkflowId": "64efcf33-6d22-4078-a6cc-1e047ed5ed30",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-18T00:00:00Z"
+    "originWorkflowId": "eb40fe35-7842-4ef0-8dcd-f651e0e8662f",
+    "version": 2,
+    "lastUpdatedOn": "2026-10-18T20:06:46.268241Z"
   }
 }

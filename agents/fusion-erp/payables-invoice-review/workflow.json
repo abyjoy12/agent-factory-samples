@@ -1,8 +1,5 @@
 {
-  "originWorkflowId": "948dc0b3-d158-431a-9f20-a88ed80cf7ac",
-  "version": 1,
-  "lastUpdatedOn": "2026-10-18T00:00:00Z",
-  "workflowId": "948dc0b3-d158-431a-9f20-a88ed80cf7ac",
+  "workflowId": "5E1655C77CB42BC8E0638001000A9373",
   "name": "Payables Invoice Review — Fusion ERP",
   "description": "Review supplier invoice validation, approval and paid statuses before AP follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
   "category": 1,
@@ -10,6 +7,49 @@
   "published": false,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "7b7398a0-f9bc-471b-9aac-203117a4c1af",
+      "version": 2,
+      "lastUpdatedOn": "2026-10-18T20:06:45.673482Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "fusion-payables-invoice-review-input-user_provided_input-fusion-payables-invoice-review-agent-prompt",
+        "source": "fusion-payables-invoice-review-input",
+        "sourceHandle": "user_provided_input-fusion-payables-invoice-review-input",
+        "target": "fusion-payables-invoice-review-agent",
+        "targetHandle": "prompt-fusion-payables-invoice-review-agent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "fusion-payables-invoice-review-rest-tools-fusion-payables-invoice-review-agent-tools",
+        "source": "fusion-payables-invoice-review-rest",
+        "sourceHandle": "tools-fusion-payables-invoice-review-rest",
+        "target": "fusion-payables-invoice-review-agent",
+        "targetHandle": "tools-fusion-payables-invoice-review-agent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "fusion-payables-invoice-review-agent-tool_output-fusion-payables-invoice-review-output-message",
+        "source": "fusion-payables-invoice-review-agent",
+        "sourceHandle": "tool_output-fusion-payables-invoice-review-agent",
+        "target": "fusion-payables-invoice-review-output",
+        "targetHandle": "message-fusion-payables-invoice-review-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -30,12 +70,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "fusion-payables-invoice-review-input",
         "position": {
           "x": 0,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -79,12 +119,12 @@
           "title": "REST API tools",
           "type": "restAPITools"
         },
-        "type": "flowGenericNode",
         "id": "fusion-payables-invoice-review-rest",
         "position": {
           "x": 480,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -257,12 +297,12 @@
           "title": "Agent",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "fusion-payables-invoice-review-agent",
         "position": {
           "x": 960,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -308,143 +348,103 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "fusion-payables-invoice-review-output",
         "position": {
           "x": 1440,
           "y": 260
-        }
+        },
+        "type": "flowGenericNode"
       },
       {
+        "data": {
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "backgroundColor": "rgb(255, 243, 163)",
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "textColor": "rgb(0,0,0)"
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-1",
-        "type": "noteNode",
         "position": {
           "x": 0,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-2",
-        "type": "noteNode",
         "position": {
           "x": 480,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "3. Review and explain\n\nUse the configured model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-3",
-        "type": "noteNode",
         "position": {
           "x": 960,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
+        "type": "noteNode",
+        "width": 360
+      },
+      {
         "data": {
-          "title": "Sticky Note",
           "description": "Workflow reading guide",
           "icon": "sticky-note",
           "noteDetails": {
-            "text": "3. Review and explain\n\nUse the configured model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
             "backgroundColor": "rgb(255, 243, 163)",
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
             "textColor": "rgb(0,0,0)"
-          }
-        }
-      },
-      {
+          },
+          "title": "Sticky Note"
+        },
+        "height": 200,
         "id": "lab-stage-4",
-        "type": "noteNode",
         "position": {
           "x": 1440,
           "y": 0
         },
-        "width": 360,
-        "height": 200,
-        "data": {
-          "title": "Sticky Note",
-          "description": "Workflow reading guide",
-          "icon": "sticky-note",
-          "noteDetails": {
-            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
-            "backgroundColor": "rgb(255, 243, 163)",
-            "textColor": "rgb(0,0,0)"
-          }
-        }
+        "type": "noteNode",
+        "width": 360
       }
-    ],
-    "edges": [
-      {
-        "source": "fusion-payables-invoice-review-input",
-        "sourceHandle": "user_provided_input-fusion-payables-invoice-review-input",
-        "target": "fusion-payables-invoice-review-agent",
-        "targetHandle": "prompt-fusion-payables-invoice-review-agent",
-        "id": "fusion-payables-invoice-review-input-user_provided_input-fusion-payables-invoice-review-agent-prompt",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "source": "fusion-payables-invoice-review-rest",
-        "sourceHandle": "tools-fusion-payables-invoice-review-rest",
-        "target": "fusion-payables-invoice-review-agent",
-        "targetHandle": "tools-fusion-payables-invoice-review-agent",
-        "id": "fusion-payables-invoice-review-rest-tools-fusion-payables-invoice-review-agent-tools",
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
-      },
-      {
-        "source": "fusion-payables-invoice-review-agent",
-        "sourceHandle": "tool_output-fusion-payables-invoice-review-agent",
-        "target": "fusion-payables-invoice-review-output",
-        "targetHandle": "message-fusion-payables-invoice-review-output",
-        "id": "fusion-payables-invoice-review-agent-tool_output-fusion-payables-invoice-review-output-message",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "948dc0b3-d158-431a-9f20-a88ed80cf7ac",
-      "version": 1,
-      "lastUpdatedOn": "2026-10-18T00:00:00Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
+  "originWorkflowId": "7b7398a0-f9bc-471b-9aac-203117a4c1af",
+  "version": 2,
+  "lastUpdatedOn": "2026-10-18T20:06:45.673482Z",
   "_workflowMetadata": {
-    "originWorkflowId": "948dc0b3-d158-431a-9f20-a88ed80cf7ac",
-    "version": 1,
-    "lastUpdatedOn": "2026-10-18T00:00:00Z"
+    "originWorkflowId": "7b7398a0-f9bc-471b-9aac-203117a4c1af",
+    "version": 2,
+    "lastUpdatedOn": "2026-10-18T20:06:45.673482Z"
   }
 }

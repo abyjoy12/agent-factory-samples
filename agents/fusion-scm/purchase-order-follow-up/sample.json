@@ -12,7 +12,7 @@
   "title": "Purchase Order Follow-up — Fusion SCM",
   "summary": "Review purchase order headers, amounts and statuses before a buyer follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
   "category": "Supply chain",
-  "version": "1",
+  "version": "2",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -78,13 +78,15 @@
   },
   "validation": {
     "date": "2026-10-18",
-    "environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-    "status": "REST probe passed; portable draft prepared; Build model binding pending",
+    "environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+    "status": "Build draft, model, layout and conversation smoke checks passed",
     "notes": [
       "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-      "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-      "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-      "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+      "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+      "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+      "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+      "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
     ]
   },
   "artifacts": {

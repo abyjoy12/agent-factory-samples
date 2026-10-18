@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://your-fusion-environment.example.com"
+      "url": "https://your-fusion-environment.example.com/fscmRestApi/resources/11.13.18.05"
     }
   ],
   "security": [
@@ -30,7 +30,7 @@
     }
   },
   "paths": {
-    "/fscmRestApi/resources/11.13.18.05/invoices/action/cancelInvoice": {
+    "/invoices/action/cancelInvoice": {
       "post": {
         "operationId": "invoiceAction24",
         "summary": "Cancel invoice",
@@ -91,7 +91,7 @@
         }
       }
     },
-    "/fscmRestApi/resources/11.13.18.05/invoices/action/cancelLine": {
+    "/invoices/action/cancelLine": {
       "post": {
         "operationId": "invoiceAction25",
         "summary": "Cancel invoice line",
@@ -157,7 +157,7 @@
         }
       }
     },
-    "/fscmRestApi/resources/11.13.18.05/invoices": {
+    "/invoices": {
       "post": {
         "operationId": "invoiceAction23",
         "summary": "Create invoice",

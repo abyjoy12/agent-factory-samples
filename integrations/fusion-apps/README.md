@@ -6,9 +6,11 @@ These are separate from the existing **Invoice Review and Actions — Fusion ERP
 
 ## Current status — 2026-10-18
 
-All twenty portable sample folders are prepared. All twenty REST resource checks returned HTTP 200; the four empty collections and their remaining checks are listed below. Workflow graphs use native Factory component templates, with blank REST source bindings for import. They have not been captured from successful official Build deployments. Archive metadata records preparation time, and each sample's validation record distinguishes HTTP checks from Agent execution.
+All twenty review agents are saved under **editor@oracleagentfactory.com** on [Build](https://build.oracleagentfactory.com), using **AIW26-PAF-HOL6004-BOO6096**. Each remains unpublished with Agent Memory and cross-thread sharing off. Settings were read back after saving. Chromium measured all twenty graphs without overlaps, card-width mismatches or clipped notes; their Agent Descriptions include both sample questions.
 
-Build deployment is incomplete: the requested `AIW26-PAF-HOL6004-BOO6096` model connection is not visible to the Kumar account. One initial payables source and unpublished draft were created before model substitution was detected. Its memory switches are off, but its model binding remains unverified. No other pack flow is claimed as deployed. Continue only after the requested connection is accessible or a replacement is explicitly chosen; then verify fresh conversations and capture official exports.
+All twenty REST probes returned HTTP 200. The primary and limitations questions each returned a response in a fresh conversation without a provider exception (40 requests). These are conversation smoke checks, not complete business or authorization tests. Four collections were empty, as listed below. The workflows and metadata were captured through Factory's official encrypted export and compared with the live graph; only local REST source selections were cleared for portability. See the [49-sample verification record](../workflow-layout/build-validation-2026-10-18.json) for the wider account and model audit.
+
+Factory generates tool names from endpoint paths rather than `operationId`. The API-version prefix contains dots, which the model provider rejects in function names. These contracts place the versioned prefix in `servers[].url` and use relative resource paths. The resulting Fusion URLs are identical and function names are valid. The existing invoice/action sample has the same correction; its write operations remain untested.
 
 ## Scope and evidence
 
@@ -47,7 +49,7 @@ python integrations/fusion-apps/deploy.py export --config /secure/fusion/config.
 
 `plan` performs no network calls. `probe` issues one bounded GET per selected resource and prints only status, row count and returned field names. It stops further credential attempts after HTTP 401. A populated probe checks both missing and unexpected fields; an empty result cannot verify its projection.
 
-`apply` checks model visibility and all selected probes before creating REST sources. It then configures local Basic authentication, creates unpublished drafts and disables Agent Memory and sharing between chat threads. It reads the graph, publication and memory settings back. Existing source or flow names are never automatically adopted or overwritten. The private state file supports resuming these newly created objects and detects later graph changes. Preserve it after a partial failure; inspect the last operation before retrying, especially if a network timeout left creation uncertain.
+`apply` checks model visibility and all selected probes before creating REST sources. It then configures local Basic authentication, creates unpublished drafts and disables Agent Memory and sharing between chat threads. It reads the graph, publication and memory settings back. Existing source or flow names are never automatically adopted or overwritten. The private state file is bound to the target URLs and authenticated account, supports resuming these newly created objects and detects later graph changes. Flow discovery is scoped to that account; another user's flows are not adopted. Preserve it after a partial failure; inspect the last operation before retrying, especially if a network timeout left creation uncertain.
 
 `export` uses Factory's official encrypted native export API, decrypts in memory and compares the exported graph against the deployment baseline. Private exports and state are rejected if their destination is inside this repository. Archives exclude REST definitions, credentials, model configurations and memory settings; restore those separately on each instance.
 
@@ -55,7 +57,7 @@ In Playground, run the primary question from `pack.json` in a fresh conversation
 
 ## Manual import
 
-Download the sample's generated `.paf`, import it as a draft and upload its `assets/openapi.json` as a new REST source after replacing `https://fusion.example.invalid` with your tenant origin. For inventory, set the approved organization filter in the tool description/default and Agent instructions. Configure authentication locally. Select that source in the REST API Tools node, select the model, disable both memory switches and save. Repeat the Playground and layout checks.
+Download the sample's generated `.paf`, import it as a draft and upload its `assets/openapi.json` as a new REST source after replacing only `https://fusion.example.invalid` with your tenant origin. Keep the versioned resource prefix in the server URL and retain the relative paths. For inventory, set the approved organization filter in the tool description/default and Agent instructions. Configure authentication locally. Select that source in the REST API Tools node, select the model, disable both memory switches and save. Repeat the Playground and layout checks.
 
 Portable workflow sources clear `src_select.value`; instance-local source IDs cannot be reused. The OpenAPI `limit`, `fields`, `onlyData` and inventory `q` fields guide the model. This Factory REST conversion does not enforce their enums/defaults, so inspect the actual call. Use a gateway or a constrained service identity when hard row, field or scope enforcement is required.
 

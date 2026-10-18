@@ -12,7 +12,9 @@ For example, **Capacity planning** brings together workforce, learning and campu
 
 The catalog now has **49 samples**, including [twenty new Fusion review agents](integrations/fusion-apps/): six ERP, six HCM, six SCM and two CX workflows. Each exposes one GET collection, follows a numbered left-to-right layout, and includes detailed Agent Description and sample questions. The setup guide includes private authentication, scoped inventory queries, deployment, export and destination validation.
 
-All twenty REST resource probes passed. Four collections were empty, so their attributes were checked through `/describe` and populated results remain untested. The portable workflows are prepared from native Factory components; **Build deployment and Agent conversations remain pending** because the requested `AIW26-PAF-HOL6004-BOO6096` connection is not visible to the deployment account. One initial unpublished draft exists, but its model binding is unverified. These twenty samples are not claimed as successful Build deployments or official server exports. Their validation records preserve this distinction.
+All **49 samples** are saved under **editor@oracleagentfactory.com** on [Build](https://build.oracleagentfactory.com), and all **52 Agent nodes** select **AIW26-PAF-HOL6004-BOO6096**. All 49 rendered layouts passed the overlap, card-width and sticky-note checks. Seventy-two read-only conversation requests returned responses without provider exceptions, including primary and limitations questions for every new Fusion review. These are smoke checks; they do not establish complete business accuracy or action coverage. See the [current verification record](integrations/workflow-layout/build-validation-2026-10-18.json).
+
+All twenty Fusion REST resource probes returned HTTP 200. Four collections were empty, so their attributes were checked through `/describe` and populated results remain untested. The twenty new drafts remain unpublished with memory off. Official exports were captured, and local REST bindings were cleared in portable sources. Existing samples retain their publication and memory settings. Final instance deployment has not started.
 
 ## Linux OS Monitoring — 2026-10-18
 
@@ -145,9 +147,9 @@ Each use-case folder under `agents/<application>/<use-case>/` contains:
 
 `workflow.json` is not presented as Open Agent Spec. It is the product's serialized visual custom-flow payload. The original REST-based JDE flows currently cannot be exported as portable Open Agent Spec because their REST API Tools nodes are implemented by the Agent Builder runtime.
 
-The twenty Fusion review workflows are prepared drafts assembled from native component templates. Their metadata records `preparedAt` instead of claiming an official export time. Generated archives pass encryption/decryption round-trip checks; destination import, rendered layout and Agent execution still require validation.
+The twenty Fusion review workflows now come from official Build exports with server lineage and export metadata. Their portable sources clear the local REST selection. Create authenticated sources, bind the model and repeat the documented checks after importing into a destination.
 
-The 2026-10-18 presentation update arranges all 28 catalog workflows from left to right, adds numbered native sticky notes above each stage, and expands all 31 Agent Description fields with workflow guidance and sample questions. Generic cards use the builder's natural dimensions. Workflow wiring, tools, publication state and memory settings are preserved. Sources were obtained again through the official native `.paf` export after updating the build instance. See [layout verification](integrations/workflow-layout/README.md) for the checks and their scope.
+The 2026-10-18 presentation update now covers all 49 catalog workflows and 52 Agent Description fields, with left-to-right processing stages, numbered native sticky notes, workflow guidance and sample questions. Generic cards use the builder's natural dimensions. Workflow wiring, tools, publication state and memory settings are preserved. Sources were obtained again through the official native `.paf` export after updating the build instance. See [layout verification](integrations/workflow-layout/README.md) for the checks and their scope.
 
 `python scripts/prepare_lab_workflows.py` reapplies the layout and lab-model conventions to local source files. Follow any live update with an official export to capture the server's new lineage version before rebuilding release archives.
 

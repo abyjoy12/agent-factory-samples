@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-18T06:56:07Z",
+  "generatedAt": "2026-10-18T20:15:27Z",
   "agents": [
     {
       "slug": "business-policy-desk",
@@ -261,7 +261,7 @@
       "action_mode": "Read-only",
       "business_question": "Which opportunity stages and close dates need a sales review?",
       "display_name": "Opportunity Pipeline Review — Fusion CX",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - opportunity-pipeline-review REST source; bind after import.",
       "memory_mode": "none",
@@ -319,13 +319,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
-        "GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "GET with limit=1 returned HTTP 200 and no rows. Root attributes were checked through /describe; populated-result behavior remains untested.",
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -372,7 +374,7 @@
       "action_mode": "Read-only",
       "business_question": "Which service-request priorities need a support-manager review?",
       "display_name": "Service Workload Review — Fusion CX",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - service-workload-review REST source; bind after import.",
       "memory_mode": "none",
@@ -430,13 +432,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -482,7 +486,7 @@
       "action_mode": "Read-only",
       "business_question": "Which receipt records need a cash-application follow-up?",
       "display_name": "Cash Receipt Review — Fusion ERP",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - cash-receipt-review REST source; bind after import.",
       "memory_mode": "none",
@@ -540,13 +544,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -592,7 +598,7 @@
       "action_mode": "Read-only",
       "business_question": "Which expense reports need a processing-status follow-up?",
       "display_name": "Expense Processing Review — Fusion ERP",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - expense-processing-review REST source; bind after import.",
       "memory_mode": "none",
@@ -650,13 +656,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
-        "GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "GET with limit=1 returned HTTP 200 and no rows. Root attributes were checked through /describe; populated-result behavior remains untested.",
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -702,7 +710,7 @@
       "action_mode": "Read-only",
       "business_question": "Which sampled journal batches need a period-close check?",
       "display_name": "Journal Close Review — Fusion ERP",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - journal-close-review REST source; bind after import.",
       "memory_mode": "none",
@@ -760,13 +768,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -812,7 +822,7 @@
       "action_mode": "Read-only",
       "business_question": "Which supplier invoices need an AP review before payment?",
       "display_name": "Payables Invoice Review — Fusion ERP",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - payables-invoice-review REST source; bind after import.",
       "memory_mode": "none",
@@ -870,13 +880,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -922,7 +934,7 @@
       "action_mode": "Read-only",
       "business_question": "Which project dates and statuses should a project manager verify?",
       "display_name": "Project Milestone Review — Fusion ERP",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - project-milestone-review REST source; bind after import.",
       "memory_mode": "none",
@@ -980,13 +992,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -1032,7 +1046,7 @@
       "action_mode": "Read-only",
       "business_question": "Which customer invoices should the collections team review?",
       "display_name": "Receivables Invoice Review — Fusion ERP",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - receivables-invoice-review REST source; bind after import.",
       "memory_mode": "none",
@@ -1090,13 +1104,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -1142,7 +1158,7 @@
       "action_mode": "Read-only",
       "business_question": "Which departments and effective dates need an organization-data review?",
       "display_name": "Department Structure Review — Fusion HCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - department-structure-review REST source; bind after import.",
       "memory_mode": "none",
@@ -1200,13 +1216,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -1252,7 +1270,7 @@
       "action_mode": "Read-only",
       "business_question": "Which grade definitions need an HR configuration review?",
       "display_name": "Grade Catalog Review — Fusion HCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - grade-catalog-review REST source; bind after import.",
       "memory_mode": "none",
@@ -1310,13 +1328,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -1362,7 +1382,7 @@
       "action_mode": "Read-only",
       "business_question": "Which job definitions should HR review for consistency?",
       "display_name": "Job Catalog Review — Fusion HCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - job-catalog-review REST source; bind after import.",
       "memory_mode": "none",
@@ -1420,13 +1440,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -1472,7 +1494,7 @@
       "action_mode": "Read-only",
       "business_question": "Which position records need a workforce-planning check?",
       "display_name": "Position Structure Review — Fusion HCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - position-structure-review REST source; bind after import.",
       "memory_mode": "none",
@@ -1530,13 +1552,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -1582,7 +1606,7 @@
       "action_mode": "Read-only",
       "business_question": "Which recruiting requisition statuses need a hiring-team follow-up?",
       "display_name": "Recruiting Requisition Review — Fusion HCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - recruiting-requisition-review REST source; bind after import.",
       "memory_mode": "none",
@@ -1640,13 +1664,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
-        "GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "GET with limit=1 returned HTTP 200 and no rows. Root attributes were checked through /describe; populated-result behavior remains untested.",
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -1692,7 +1718,7 @@
       "action_mode": "Read-only",
       "business_question": "Which work locations need a setup or effective-date check?",
       "display_name": "Work Location Review — Fusion HCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - location-readiness-review REST source; bind after import.",
       "memory_mode": "none",
@@ -1750,13 +1776,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -1803,7 +1831,7 @@
       "action_mode": "Read-only",
       "business_question": "What does the sampled stock position show by organization and unit?",
       "display_name": "Inventory Position Review — Fusion SCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - inventory-position-review REST source; bind after import.",
       "memory_mode": "none",
@@ -1862,13 +1890,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -1915,7 +1945,7 @@
       "action_mode": "Read-only",
       "business_question": "Which sales-order headers need an order-manager follow-up?",
       "display_name": "Order Fulfillment Review — Fusion SCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - order-fulfillment-review REST source; bind after import.",
       "memory_mode": "none",
@@ -1973,13 +2003,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
-        "GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "GET with limit=1 returned HTTP 200 and no rows. Root attributes were checked through /describe; populated-result behavior remains untested.",
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -2026,7 +2058,7 @@
       "action_mode": "Read-only",
       "business_question": "Which purchase orders need a buyer or supplier follow-up?",
       "display_name": "Purchase Order Follow-up — Fusion SCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - purchase-order-follow-up REST source; bind after import.",
       "memory_mode": "none",
@@ -2084,13 +2116,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -2137,7 +2171,7 @@
       "action_mode": "Read-only",
       "business_question": "Which staged sales orders need an integration intake review?",
       "display_name": "Staged Order Intake Review — Fusion SCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - staged-order-review REST source; bind after import.",
       "memory_mode": "none",
@@ -2195,13 +2229,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -2248,7 +2284,7 @@
       "action_mode": "Read-only",
       "business_question": "Which supplier profile statuses should procurement verify?",
       "display_name": "Supplier Profile Review — Fusion SCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - supplier-profile-review REST source; bind after import.",
       "memory_mode": "none",
@@ -2306,13 +2342,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -2359,7 +2397,7 @@
       "action_mode": "Read-only",
       "business_question": "Which supply requests need an orchestration follow-up?",
       "display_name": "Supply Request Review — Fusion SCM",
-      "version": "1",
+      "version": "2",
       "platform_version": "26.7.0.0.0",
       "connection_context": "One tenant-local Fusion Pack - supply-request-review REST source; bind after import.",
       "memory_mode": "none",
@@ -2417,13 +2455,15 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
-      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_status": "Build draft, model, layout and conversation smoke checks passed",
       "validation_notes": [
         "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
-        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
-        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
-        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com. The Agent selects AIW26-PAF-HOL6004-BOO6096; publication is off and both Agent Memory switches are off. Settings were read back after saving.",
+        "Chromium measured the rendered workflow: no component overlaps, card-width mismatches or clipped sticky notes. Four numbered stages advance from left to right; Agent Description includes two sample questions.",
+        "The primary and limitations questions each returned a nonempty assistant response in a fresh conversation without a provider exception. This is a conversation smoke check, not a complete assessment of business accuracy, permissions or tool-argument enforcement.",
+        "Captured through the official encrypted native export API and compared with the live graph. Portable sources clear only the local REST source selection; create and authenticate the destination source before importing.",
+        "The OpenAPI server URL carries the resource-version prefix so Factory generates valid function names. Query limits, fields and organization scope are model guidance in this converter; verify actual execution or enforce hard restrictions at the service boundary."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",
@@ -4705,7 +4745,7 @@
       "action_mode": "Confirmed actions (draft)",
       "business_question": "Which supplier invoice needs attention, and what exact change should I approve?",
       "display_name": "Invoice Review and Actions — Fusion ERP",
-      "version": "11",
+      "version": "12",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Existing Fusion invoice read and action sources; endpoint and credentials remain environment-local.",
       "memory_mode": "none",
@@ -4783,13 +4823,14 @@
         "Evidence is distinguished from assumptions and unavailable data.",
         "Writes require a specific user-confirmed proposal; drafts are not reported as executed."
       ],
-      "validation_date": "2026-10-17",
+      "validation_date": "2026-10-18",
       "validation_environment": "build PAF; authorized account consolidation",
-      "validation_status": "Editor-owned draft; runtime not exercised",
+      "validation_status": "Editor-owned draft; model and layout verified; read-only conversation smoke check completed",
       "validation_notes": [
-        "Source sharing, new-flow ownership, metadata and memory settings were read back; an official export was captured.",
-        "No Fusion action or EBS diagnostic run was executed during migration.",
-        "The destination must validate source authentication, backend compatibility and expected behavior before use."
+        "Build ownership and AIW26-PAF-HOL6004-BOO6096 binding verified as editor@oracleagentfactory.com. Existing publication and memory settings preserved.",
+        "Rebound both REST nodes to authenticated editor-owned sources whose version prefix is in the server URL. Shared original sources were not edited. Official export captured; local REST bindings cleared for portability.",
+        "Rendered layout passed overlap, card-width and sticky-note clipping checks. A read-only prompt returned a response without a provider exception; no creation or cancellation tool was exercised.",
+        "This flow includes write-capable tools. Read-tool evidence, required fields, permissions, confirmation behavior and every action require destination validation before use. No Fusion mutation was tested."
       ],
       "workflow_path": "workflow.json",
       "metadata_path": "archive-metadata.json",

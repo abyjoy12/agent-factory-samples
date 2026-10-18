@@ -1,5 +1,6 @@
 {
   "applicationVersion": "26.7.0.0.0",
+  "exportedAt": "20261018_200729",
   "encrypted": true,
   "contains": {
     "customFlows": true,
@@ -10,6 +11,5 @@
     "restApiTools": false
   },
   "count": 1,
-  "flowScope": "selected",
-  "preparedAt": "2026-10-18"
+  "flowScope": "selected"
 }
