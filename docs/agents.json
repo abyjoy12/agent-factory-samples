@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-18T00:51:32Z",
+  "generatedAt": "2026-10-18T05:28:03Z",
   "agents": [
     {
       "slug": "business-policy-desk",
@@ -1594,6 +1594,173 @@
       "instructions_url": "",
       "release_url": "",
       "page_url": "agents/jd-edwards/supplier-follow-up/"
+    },
+    {
+      "slug": "linux-os-monitoring",
+      "application_slug": "linux",
+      "application_name": "Linux",
+      "use_case_slug": "os-monitoring",
+      "use_case_name": "OS monitoring",
+      "name": "Linux OS Monitoring",
+      "description": "Inspect a Linux machine and its applications through osquery and six read-only MCP tools; investigate CPU, memory, filesystem usage, service health and recent history.",
+      "category": "IT operations",
+      "domains": [
+        "IT operations"
+      ],
+      "modules": [
+        "Linux operations"
+      ],
+      "functional_use_cases": [
+        "Operations monitoring",
+        "Exception triage",
+        "Capacity planning"
+      ],
+      "technical_features": [
+        "MCP tools"
+      ],
+      "keywords": [
+        "Linux",
+        "osquery",
+        "MCP",
+        "CPU",
+        "memory",
+        "applications",
+        "background jobs",
+        "SQL"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "What is putting this Linux machine under pressure, and which applications explain it?",
+      "display_name": "Linux OS Monitoring",
+      "version": "4",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "Linux OS Monitoring (private MCP)",
+      "memory_mode": "none",
+      "memory_description": "Fresh tool evidence per question; recent measurements are retained by the monitoring service independently of Agent Memory.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "CPU and memory with measured assigned limits and explicit units.",
+        "osquery process and listener evidence, plus two application APIs and three background jobs.",
+        "Timestamped findings and actual coverage of up to 30 minutes of measurements.",
+        "Application roles, process IDs, health checks, work counters and human follow-up."
+      ],
+      "prerequisites": [
+        "An x86_64 Linux host with Podman, enforceable cgroup CPU/memory/pids controls, slirp4netns and a private route from Factory.",
+        "The monitoring service deployed with documented resource caps and private source firewall allowlist.",
+        "Factory 26.7 and configured OpenAI Compatible model AIW26-PAF-HOL6004-BOO6096.",
+        "Administrator-approved HTTP outbound access and private destinations permitted in Factory, or a trusted private HTTPS endpoint."
+      ],
+      "tools": [
+        {
+          "name": "get_system_overview",
+          "method": "MCP",
+          "path": "/mcp",
+          "purpose": "Linux OS identity, assigned resources, operations filesystem and history coverage."
+        },
+        {
+          "name": "get_resource_usage",
+          "method": "MCP",
+          "path": "/mcp",
+          "purpose": "One-second CPU, charged memory, assigned limits and process count."
+        },
+        {
+          "name": "get_top_processes",
+          "method": "MCP",
+          "path": "/mcp",
+          "purpose": "Bounded osquery process CPU and RSS samples, without command arguments."
+        },
+        {
+          "name": "get_filesystem_usage",
+          "method": "MCP",
+          "path": "/mcp",
+          "purpose": "Operations filesystem bytes, inodes and configured capacity."
+        },
+        {
+          "name": "get_service_network_status",
+          "method": "MCP",
+          "path": "/mcp",
+          "purpose": "Orders and inventory HTTP health, background job activity and osquery listeners."
+        },
+        {
+          "name": "get_recent_history",
+          "method": "MCP",
+          "path": "/mcp",
+          "purpose": "Actual ten-second samples, at most 30 minutes and 181 rows."
+        }
+      ],
+      "safety_controls": [
+        "Six read-only tools; no SQL, shell, scenario-control or remediation tool.",
+        "Private source allowlist and firewall deny rule; no authentication or public listener is provisioned.",
+        "One CPU, 1536 MiB memory including swap, 128 pids, read-only root filesystem, no capabilities and bounded tmpfs.",
+        "Operator faults expire after 10–300 seconds; switching/resetting removes the previous fault.",
+        "Machine, filesystem and history coverage remain explicit; tool failures cannot establish health."
+      ],
+      "setup": [
+        "Follow integrations/linux-os-monitoring/README.md to deploy the monitoring service. Infrastructure automation belongs in ~/work/infra/ansible.",
+        "Check the instance outbound URL policy: the private HTTP endpoint needs administrator-approved ALLOW_INSECURE_HTTP_URLS=true and BLOCK_PRIVATE_OUTBOUND_URLS=false. Add Linux OS Monitoring as a Direct connection MCP source at http://HOST:8085/mcp and discover the six documented tools.",
+        "Import linux-os-monitoring.paf and select the new local source on the MCP server node; review the six allowed tools. Environment-local source IDs are not portable.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent node. Configure that same OpenAI Compatible model name in every target instance; credentials/model definitions are not bundled.",
+        "Disable Agent Memory and sharing between chat threads; exported archives do not carry these switches. Read the sticky notes left to right, then expand Agent description for the walkthrough and sample questions.",
+        "Run the baseline prompt, then trigger one scenario with labctl as an operator, ask its matching question and reset. Review the draft before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Machine health, resource investigations and application activity",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Give me a health summary of this Linux machine: CPU, memory, disk and applications. State the observation time."
+            },
+            {
+              "speaker": "User",
+              "text": "CPU looks busy. Which processes explain it, and does recent history show sustained pressure?"
+            },
+            {
+              "speaker": "User",
+              "text": "Is memory increasing? Compare actual available samples and identify the largest resident processes without claiming a leak."
+            },
+            {
+              "speaker": "User",
+              "text": "Is the operations filesystem nearly full? How much space remains, and which filesystem did you measure?"
+            },
+            {
+              "speaker": "User",
+              "text": "The orders application is unavailable. Is its service listening, and are inventory and monitoring still reachable?"
+            },
+            {
+              "speaker": "User",
+              "text": "Which applications and background jobs are running? Explain their roles, process IDs and recent activity."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A severity, timestamped evidence for linux-ops-01, measured limits and human next step.",
+        "Faults are diagnosed from measured CPU, memory, disk and service evidence; the Agent changes nothing.",
+        "History reports actual time coverage, not an assumed 30-minute observation."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Private monitoring endpoint and Agent Factory",
+      "validation_status": "Verified private connection and six conversations; unpublished draft",
+      "validation_notes": [
+        "14 monitoring/lifecycle tests and 14 repository tests passed; all 29 archives passed decrypt-and-compare validation.",
+        "Private MCP discovery, five-application activity, four fault scenarios, automatic recovery and source restrictions passed. Unchanged deployment reapply reported zero changes. The eight-node Builder layout has no overlaps or clipping.",
+        "The approved HTTP setting is enabled on the configured instance and its private MCP source is connected. AIW26-PAF-HOL6004-BOO6096 answered all six questions in fresh rooms: baseline, application activity, CPU, memory, disk and service outage. Independent readings corroborated the answers; all retained explicit scope, limits, machine presentation and read-only follow-up.",
+        "The draft is unpublished, Agent Memory is disabled, and the portable native export has no environment-local source binding. Repeat import, binding, model and conversation checks on each final instance; see assets/validation.md."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "linux-os-monitoring.paf",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
+      "openapi_url": "",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
+      "page_url": "agents/linux/os-monitoring/"
     },
     {
       "slug": "ebs-concurrent-history-review",

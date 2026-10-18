@@ -236,7 +236,7 @@ def load_agent(folder: Path, repository_url: str = "", release_base_url: str = "
         "oraclePLSQLExecutor": "PL/SQL tools", "restAPITools": "REST API tools",
         "fileUpload": "Document upload", "readCsv": "CSV input", "parser": "Structured parsing",
         "conditionComponent": "Conditional routing", "currentDateTime": "Current date/time",
-        "textCombiner": "Text composition",
+        "textCombiner": "Text composition", "mcpServer": "MCP tools",
     }
     for node in workflow.get("data", {}).get("nodes", []):
         feature = node_features.get(node.get("data", {}).get("type"))

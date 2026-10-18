@@ -1,0 +1,20 @@
+FROM docker.io/library/python:3.12.12-slim-bookworm
+ARG OSQUERY_VERSION=5.23.1
+ARG OSQUERY_SHA256=1431a9a6394657eba3cdd3476a462a6fe9721fc3664a70f23efcf7e37816787a
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl tini \
+    && curl -fsSL --retry 3 "https://github.com/osquery/osquery/releases/download/${OSQUERY_VERSION}/osquery_${OSQUERY_VERSION}-1.linux_amd64.deb" -o /tmp/osquery.deb \
+    && echo "${OSQUERY_SHA256}  /tmp/osquery.deb" | sha256sum -c - \
+    && dpkg -i /tmp/osquery.deb && rm /tmp/osquery.deb \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY monitoring.py applications.py lab.py server.py ./
+RUN printf '#!/bin/sh\nexec python /app/lab.py "$@"\n' > /usr/local/bin/labctl \
+    && chmod 755 /usr/local/bin/labctl && mkdir -p /var/lib/operations /run/lab \
+    && chown 10001:10001 /var/lib/operations /run/lab
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 HOME=/tmp
+USER 10001:10001
+EXPOSE 8000
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["python", "/app/server.py"]

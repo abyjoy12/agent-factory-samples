@@ -41,6 +41,7 @@ STAGES = {
     "SelectSqlQueryNode": ("Collect evidence", "Run the saved SELECT against the configured source. Preserve its row limits, dates and business scope."),
     "oraclePLSQLExecutor": ("Provide a tool", "Expose only the configured routine allowlist to the Agent on the right. A connection supplies a tool; the Agent decides when to call it."),
     "oracleDatabaseTools": ("Provide database tools", "The connected Agent uses this source to inspect permitted database evidence. Follow the source access and query limits."),
+    "mcpServer": ("Inspect the Linux machine", "The connected Agent can call six read-only monitoring tools through the private MCP source. Inspect CPU, memory, filesystem usage, application health and recent activity."),
     "restAPITools": ("Provide API tools", "These environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use."),
     "fileUpload": ("Read the handbook", "Upload the supplied document in this instance. Its text joins the user's question before the Agent answers."),
     "readCsv": ("Read the plan", "Load the supplied CSV. Keep illustrative planning data separate from the application evidence."),
@@ -48,7 +49,7 @@ STAGES = {
     "textCombiner": ("Join the context", "Combine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent."),
     "parser": ("Format the evidence", "Convert the upstream result into the bounded text used by the next stage. The saved parser does not expand the source scope."),
     "conditionComponent": ("Route the question", "The saved condition selects the appropriate branch. Read each branch from left to right; only the selected path answers."),
-    "agentStep": ("Review and explain", "Use the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions."),
+    "agentStep": ("Review and explain", "Use the configured model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions."),
 }
 
 
@@ -120,7 +121,9 @@ def sample_questions(sample):
         "fulfillment-memory": ["Which JDE environment is saved in my North America Fulfillment Standard? Answer from memory only; do not query JDE.", "Review active backorders using my saved recovery standard. Show the donor balance after the proposed allocation; do not change JDE."],
         "jps920-fulfillment-coach": ["Can you review today's backorders and tell me what we should tackle first?", "Explain which prior business corrections you applied and show the donor reserve arithmetic. Do not make JDE changes."],
     }
-    return special.get(sample["useCase"]["slug"], [step["text"] for session in sample["demo"]["sessions"] for step in session["steps"] if step["speaker"].lower() == "user"][:2])
+    questions = [step["text"] for session in sample["demo"]["sessions"] for step in session["steps"] if step["speaker"].lower() == "user"]
+    limit = 6 if sample["slug"] == "linux-os-monitoring" else 2
+    return special.get(sample["useCase"]["slug"], questions[:limit])
 
 
 def describe_workflow(sample, graph):
@@ -129,6 +132,8 @@ def describe_workflow(sample, graph):
         how = "Your question is routed by the saved condition to an outage or batch specialist, which uses its connected read-only source and returns a focused operations brief."
     elif sum(node_kind(n) == "agentStep" for n in graph["nodes"]) > 1:
         how = "The briefing Agent delegates to receivables and payables specialists. Each uses the shared read-only finance source, then the editor combines their findings into one response."
+    elif "mcpServer" in kinds:
+        how = "Your question and six curated MCP tools reach the Agent. It measures the Linux machine resources, checks application health, background jobs and osquery process evidence, reads bounded recent history when useful, and returns observations with timestamps, units and a human follow-up. The Agent recommends a human follow-up and changes nothing."
     elif "fileUpload" in kinds:
         how = "The uploaded handbook is combined with your question. The Agent answers from that text with section citations and identifies rules the handbook does not contain."
     elif "SelectSqlQueryNode" in kinds:

@@ -56,7 +56,7 @@ class LabLayoutTests(unittest.TestCase):
     def test_catalog_uses_native_notes_lab_model_and_detailed_descriptions(self):
         root = Path(__file__).resolve().parents[1]
         paths = sorted((root / "agents").glob("*/*/workflow.json"))
-        self.assertEqual(28, len(paths))
+        self.assertEqual(29, len(paths))
         agent_count = 0
         for path in paths:
             graph = graph_data(json.loads(path.read_text()))
@@ -74,6 +74,7 @@ class LabLayoutTests(unittest.TestCase):
                     description = fields["agent_description"]
                     self.assertEqual("textArea", description["componentType"], path)
                     self.assertIn("Sample questions:", description["value"], path)
-                    self.assertGreaterEqual(description["value"].count("\n- "), 2, path)
+                    question_count = 5 if path.parent.parent.name == "linux" else 2
+                    self.assertGreaterEqual(description["value"].count("\n- "), question_count, path)
                     self.assertGreater(len(description["value"]), 350, path)
-        self.assertEqual(31, agent_count)
+        self.assertEqual(32, agent_count)

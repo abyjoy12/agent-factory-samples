@@ -1,0 +1,25 @@
+{
+  "model": "AIW26-PAF-HOL6004-BOO6096",
+  "bindings": [
+    {
+      "nodeId": "linux-os-monitoring-mcp",
+      "field": "serverSource",
+      "sourceName": "Linux OS Monitoring",
+      "endpoint": "http://PRIVATE_MONITOR_IP:8085/mcp",
+      "authMode": "direct",
+      "requiredTools": [
+        "get_system_overview",
+        "get_resource_usage",
+        "get_top_processes",
+        "get_filesystem_usage",
+        "get_service_network_status",
+        "get_recent_history"
+      ]
+    }
+  ],
+  "memory": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "portability": "Import the workflow, create a local MCP source and reselect it. The archive includes no source connection or model credentials."
+}

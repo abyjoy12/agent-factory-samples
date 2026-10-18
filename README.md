@@ -8,9 +8,13 @@ The [agent catalog](https://kgvarun.github.io/agent-factory-samples/) has search
 
 For example, **Capacity planning** brings together workforce, learning and campus scenarios; **Supplier follow-up** spans JDE, EBS and PeopleSoft. Technical filters describe features implemented in the saved graphs. See the [catalog authoring guide](scripts/catalog_assets/README.md) for metadata, vocabulary and presentation changes.
 
+## Linux OS Monitoring — 2026-10-18
+
+The catalog has **29 samples**, including [Linux OS Monitoring](agents/linux/os-monitoring/). It inspects a Linux machine through osquery and six read-only MCP tools, with two application APIs, three background jobs and varied activity. The [end-to-end setup](integrations/linux-os-monitoring/) includes private connectivity and bounded operator scenarios for CPU, memory, disk and service pressure. The native workflow uses **AIW26-PAF-HOL6004-BOO6096**, numbered stage notes and a detailed Agent description with sample questions. See its [validation record](agents/linux/os-monitoring/assets/validation.md) for live results and remaining setup.
+
 ## Selective account consolidation — 2026-10-17
 
-The catalog now has **28 samples** with purpose-first names. Six relevant source-account flows were consolidated as editor-owned drafts: four existing JDE fulfillment/memory samples, [Invoice Review and Actions — Fusion ERP](agents/fusion-erp/invoice-review-actions/), and [Functional Check Evidence Review — Oracle EBS](agents/oracle-ebs/functional-check-evidence-review/). The originals are retained. The existing 22 editor flows were renamed consistently.
+This consolidation brought the catalog to **28 samples** with purpose-first names. Six relevant source-account flows were consolidated as editor-owned drafts: four existing JDE fulfillment/memory samples, [Invoice Review and Actions — Fusion ERP](agents/fusion-erp/invoice-review-actions/), and [Functional Check Evidence Review — Oracle EBS](agents/oracle-ebs/functional-check-evidence-review/). The originals are retained. The existing 22 editor flows were renamed consistently.
 
 See the [selection decisions, migration status and replication guide](integrations/account-consolidation/). Source access, ownership and settings were checked; these new copies were not run end to end. The Fusion draft has write tools and requires target-environment validation before use. The EBS copy reviews existing evidence only.
 
