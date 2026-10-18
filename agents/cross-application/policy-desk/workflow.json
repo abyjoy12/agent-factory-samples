@@ -7,6 +7,61 @@
   "published": true,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "dbdf4746-7d79-4814-9cea-457a83091aac",
+      "version": 4,
+      "lastUpdatedOn": "2026-10-18T00:37:58.633641Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
+        "id": "node-business-policy-desk-input-user_provided_input-node-business-policy-desk-question-and-evidence-text_input_1",
+        "source": "node-business-policy-desk-input",
+        "sourceHandle": "user_provided_input-node-business-policy-desk-input",
+        "target": "node-business-policy-desk-question-and-evidence",
+        "targetHandle": "text_input_1-node-business-policy-desk-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
+        "id": "node-business-policy-desk-policy-tool_output-node-business-policy-desk-question-and-evidence-text_input_2",
+        "source": "node-business-policy-desk-policy",
+        "sourceHandle": "tool_output-node-business-policy-desk-policy",
+        "target": "node-business-policy-desk-question-and-evidence",
+        "targetHandle": "text_input_2-node-business-policy-desk-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-business-policy-desk-question-and-evidence-message-node-business-policy-desk-advisor-prompt",
+        "source": "node-business-policy-desk-question-and-evidence",
+        "sourceHandle": "message-node-business-policy-desk-question-and-evidence",
+        "target": "node-business-policy-desk-advisor",
+        "targetHandle": "prompt-node-business-policy-desk-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-business-policy-desk-advisor-tool_output-node-business-policy-desk-output-message",
+        "source": "node-business-policy-desk-advisor",
+        "sourceHandle": "tool_output-node-business-policy-desk-advisor",
+        "target": "node-business-policy-desk-output",
+        "targetHandle": "message-node-business-policy-desk-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +82,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-business-policy-desk-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -72,13 +126,12 @@
           "title": "File upload",
           "type": "fileUpload"
         },
-        "type": "flowGenericNode",
         "id": "node-business-policy-desk-policy",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -159,13 +212,12 @@
           "title": "Text combiner",
           "type": "textCombiner"
         },
-        "type": "flowGenericNode",
         "id": "node-business-policy-desk-question-and-evidence",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -206,7 +258,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -214,7 +266,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Business Policy Desk",
+              "value": "Answer operational policy questions from a small supplied handbook with section citations and explicit gaps.\n\nHow it works: The uploaded handbook is combined with your question. The Agent answers from that text with section citations and identifies rules the handbook does not contain.\n\nWhat you receive: A cited answer from a small handbook and a clear response when the rule is absent. The first prompt returns source-backed findings with source dates and units.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- For a USD 750 freight expedite, whose approval do we need? Cite the handbook.\n- What is the tax retention period for invoices under this handbook?",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -253,7 +305,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -336,13 +388,12 @@
           "title": "Business Policy Desk",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-business-policy-desk-advisor",
         "position": {
-          "x": 0,
-          "y": 400
+          "x": 1440,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -388,79 +439,123 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-business-policy-desk-output",
         "position": {
-          "x": 430,
-          "y": 400
+          "x": 1920,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Read the handbook\n\nUpload the supplied document in this instance. Its text joins the user's question before the Agent answers.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-5",
+        "type": "noteNode",
+        "position": {
+          "x": 1920,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "5. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "edges": [
-      {
-        "id": "node-business-policy-desk-input-user_provided_input-node-business-policy-desk-question-and-evidence-text_input_1",
-        "source": "node-business-policy-desk-input",
-        "target": "node-business-policy-desk-question-and-evidence",
-        "sourceHandle": "user_provided_input-node-business-policy-desk-input",
-        "targetHandle": "text_input_1-node-business-policy-desk-question-and-evidence",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "text_input_1"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-business-policy-desk-policy-tool_output-node-business-policy-desk-question-and-evidence-text_input_2",
-        "source": "node-business-policy-desk-policy",
-        "target": "node-business-policy-desk-question-and-evidence",
-        "sourceHandle": "tool_output-node-business-policy-desk-policy",
-        "targetHandle": "text_input_2-node-business-policy-desk-question-and-evidence",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "text_input_2"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-business-policy-desk-question-and-evidence-message-node-business-policy-desk-advisor-prompt",
-        "source": "node-business-policy-desk-question-and-evidence",
-        "target": "node-business-policy-desk-advisor",
-        "sourceHandle": "message-node-business-policy-desk-question-and-evidence",
-        "targetHandle": "prompt-node-business-policy-desk-advisor",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-business-policy-desk-advisor-tool_output-node-business-policy-desk-output-message",
-        "source": "node-business-policy-desk-advisor",
-        "target": "node-business-policy-desk-output",
-        "sourceHandle": "tool_output-node-business-policy-desk-advisor",
-        "targetHandle": "message-node-business-policy-desk-output",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "dbdf4746-7d79-4814-9cea-457a83091aac",
-      "version": 3,
-      "lastUpdatedOn": "2026-10-17T07:53:42.039736Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "dbdf4746-7d79-4814-9cea-457a83091aac",
-  "version": 3,
-  "lastUpdatedOn": "2026-10-17T07:53:42.039736Z",
+  "version": 4,
+  "lastUpdatedOn": "2026-10-18T00:37:58.633641Z",
   "_workflowMetadata": {
     "originWorkflowId": "dbdf4746-7d79-4814-9cea-457a83091aac",
-    "version": 3,
-    "lastUpdatedOn": "2026-10-17T07:53:42.039736Z"
+    "version": 4,
+    "lastUpdatedOn": "2026-10-18T00:37:58.633641Z"
   }
 }

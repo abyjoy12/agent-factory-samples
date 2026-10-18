@@ -7,6 +7,85 @@
   "published": true,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "7d1d348a-011c-4310-967f-d5c9bbfaab55",
+      "version": 5,
+      "lastUpdatedOn": "2026-10-18T00:45:57.055674Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
+        "id": "node-psft-learning-evidence-review-input-user_provided_input-node-psft-learning-evidence-review-question-and-evidence-text_input_1",
+        "source": "node-psft-learning-evidence-review-input",
+        "sourceHandle": "user_provided_input-node-psft-learning-evidence-review-input",
+        "target": "node-psft-learning-evidence-review-question-and-evidence",
+        "targetHandle": "text_input_1-node-psft-learning-evidence-review-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
+        "id": "node-psft-learning-evidence-review-evidence-message-node-psft-learning-evidence-review-question-and-evidence-text_input_2",
+        "source": "node-psft-learning-evidence-review-evidence",
+        "sourceHandle": "message-node-psft-learning-evidence-review-evidence",
+        "target": "node-psft-learning-evidence-review-question-and-evidence",
+        "targetHandle": "text_input_2-node-psft-learning-evidence-review-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
+        "id": "node-psft-learning-evidence-review-question-and-evidence-message-node-psft-learning-evidence-review-as-of-text_input_1",
+        "source": "node-psft-learning-evidence-review-question-and-evidence",
+        "sourceHandle": "message-node-psft-learning-evidence-review-question-and-evidence",
+        "target": "node-psft-learning-evidence-review-as-of",
+        "targetHandle": "text_input_1-node-psft-learning-evidence-review-as-of"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
+        "id": "node-psft-learning-evidence-review-date-message-node-psft-learning-evidence-review-as-of-text_input_2",
+        "source": "node-psft-learning-evidence-review-date",
+        "sourceHandle": "message-node-psft-learning-evidence-review-date",
+        "target": "node-psft-learning-evidence-review-as-of",
+        "targetHandle": "text_input_2-node-psft-learning-evidence-review-as-of"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-psft-learning-evidence-review-as-of-message-node-psft-learning-evidence-review-advisor-prompt",
+        "source": "node-psft-learning-evidence-review-as-of",
+        "sourceHandle": "message-node-psft-learning-evidence-review-as-of",
+        "target": "node-psft-learning-evidence-review-advisor",
+        "targetHandle": "prompt-node-psft-learning-evidence-review-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-psft-learning-evidence-review-advisor-tool_output-node-psft-learning-evidence-review-output-message",
+        "source": "node-psft-learning-evidence-review-advisor",
+        "sourceHandle": "tool_output-node-psft-learning-evidence-review-advisor",
+        "target": "node-psft-learning-evidence-review-output",
+        "targetHandle": "message-node-psft-learning-evidence-review-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +106,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-learning-evidence-review-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -117,13 +195,12 @@
           "title": "SQL query",
           "type": "SelectSqlQueryNode"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-learning-evidence-review-evidence",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -204,13 +281,12 @@
           "title": "Text combiner",
           "type": "textCombiner"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-learning-evidence-review-question-and-evidence",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -2647,13 +2723,12 @@
           "title": "Current Date",
           "type": "currentDateTime"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-learning-evidence-review-date",
         "position": {
-          "x": 0,
-          "y": 400
+          "x": 480,
+          "y": 865.0
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -2734,13 +2809,12 @@
           "title": "Text combiner",
           "type": "textCombiner"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-learning-evidence-review-as-of",
         "position": {
-          "x": 430,
-          "y": 400
+          "x": 1440,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -2781,7 +2855,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -2789,7 +2863,7 @@
                 "message"
               ],
               "required": false,
-              "value": "PeopleSoft Learning Evidence Review",
+              "value": "Prepare a training-evidence review queue using completion dates, raw enrollment status, and target dates.\n\nHow it works: The saved bounded SELECT collects evidence. The workflow formats and combines it with your question and the review timestamp; the Agent interprets that context and returns the answer.\n\nWhat you receive: Grouped completion and target-date signals with explicit policy and evidence gaps. The first prompt returns source-backed findings with source dates and units.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Prepare a training-evidence review queue. Which groups have past target dates without a recorded completion?\n- What additional evidence would be needed before calling these employees noncompliant?",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -2828,7 +2902,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -2911,13 +2985,12 @@
           "title": "PeopleSoft Learning Evidence Review",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-learning-evidence-review-advisor",
         "position": {
-          "x": 860,
-          "y": 400
+          "x": 1920,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -2963,103 +3036,143 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-learning-evidence-review-output",
         "position": {
+          "x": 2400,
+          "y": 260
+        },
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
           "x": 0,
-          "y": 800
+          "y": 0
         },
-        "width": 340
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Prepare the inputs\n\nThese parallel sources provide evidence, tools or review time. Follow each connection to its consumer on the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-5",
+        "type": "noteNode",
+        "position": {
+          "x": 1920,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "5. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-6",
+        "type": "noteNode",
+        "position": {
+          "x": 2400,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "6. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "edges": [
-      {
-        "id": "node-psft-learning-evidence-review-input-user_provided_input-node-psft-learning-evidence-review-question-and-evidence-text_input_1",
-        "source": "node-psft-learning-evidence-review-input",
-        "target": "node-psft-learning-evidence-review-question-and-evidence",
-        "sourceHandle": "user_provided_input-node-psft-learning-evidence-review-input",
-        "targetHandle": "text_input_1-node-psft-learning-evidence-review-question-and-evidence",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "text_input_1"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-learning-evidence-review-evidence-message-node-psft-learning-evidence-review-question-and-evidence-text_input_2",
-        "source": "node-psft-learning-evidence-review-evidence",
-        "target": "node-psft-learning-evidence-review-question-and-evidence",
-        "sourceHandle": "message-node-psft-learning-evidence-review-evidence",
-        "targetHandle": "text_input_2-node-psft-learning-evidence-review-question-and-evidence",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_2"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-learning-evidence-review-question-and-evidence-message-node-psft-learning-evidence-review-as-of-text_input_1",
-        "source": "node-psft-learning-evidence-review-question-and-evidence",
-        "target": "node-psft-learning-evidence-review-as-of",
-        "sourceHandle": "message-node-psft-learning-evidence-review-question-and-evidence",
-        "targetHandle": "text_input_1-node-psft-learning-evidence-review-as-of",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_1"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-learning-evidence-review-date-message-node-psft-learning-evidence-review-as-of-text_input_2",
-        "source": "node-psft-learning-evidence-review-date",
-        "target": "node-psft-learning-evidence-review-as-of",
-        "sourceHandle": "message-node-psft-learning-evidence-review-date",
-        "targetHandle": "text_input_2-node-psft-learning-evidence-review-as-of",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_2"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-learning-evidence-review-as-of-message-node-psft-learning-evidence-review-advisor-prompt",
-        "source": "node-psft-learning-evidence-review-as-of",
-        "target": "node-psft-learning-evidence-review-advisor",
-        "sourceHandle": "message-node-psft-learning-evidence-review-as-of",
-        "targetHandle": "prompt-node-psft-learning-evidence-review-advisor",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-learning-evidence-review-advisor-tool_output-node-psft-learning-evidence-review-output-message",
-        "source": "node-psft-learning-evidence-review-advisor",
-        "target": "node-psft-learning-evidence-review-output",
-        "sourceHandle": "tool_output-node-psft-learning-evidence-review-advisor",
-        "targetHandle": "message-node-psft-learning-evidence-review-output",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "7d1d348a-011c-4310-967f-d5c9bbfaab55",
-      "version": 3,
-      "lastUpdatedOn": "2026-10-17T07:53:43.535311Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "7d1d348a-011c-4310-967f-d5c9bbfaab55",
-  "version": 3,
-  "lastUpdatedOn": "2026-10-17T07:53:43.535311Z",
+  "version": 5,
+  "lastUpdatedOn": "2026-10-18T00:45:57.055674Z",
   "_workflowMetadata": {
     "originWorkflowId": "7d1d348a-011c-4310-967f-d5c9bbfaab55",
-    "version": 3,
-    "lastUpdatedOn": "2026-10-17T07:53:43.535311Z"
+    "version": 5,
+    "lastUpdatedOn": "2026-10-18T00:45:57.055674Z"
   }
 }

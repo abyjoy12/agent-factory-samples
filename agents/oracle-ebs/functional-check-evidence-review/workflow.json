@@ -9,8 +9,8 @@
   "data": {
     "_workflowMetadata": {
       "originWorkflowId": "51fb81e2-4466-4db8-b4af-99a52c8a10a9",
-      "version": 15,
-      "lastUpdatedOn": "2026-09-16T08:58:19.175357Z"
+      "version": 16,
+      "lastUpdatedOn": "2026-10-18T00:38:03.341105Z"
     },
     "edges": [
       {
@@ -90,7 +90,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -98,7 +98,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Find cataloged EBS functional checks, inspect their impact and guidance, and review progress, reports, and evidence from existing runs through six allowlisted control-package routines. Does not start or cancel runs or execute remediation.",
+              "value": "Find cataloged EBS functional checks, inspect their impact and guidance, and review progress, reports, and evidence from existing runs through six allowlisted control-package routines. Does not start or cancel runs or execute remediation.\n\nHow it works: Your question reaches the Agent, which calls the connected allowlisted database tools as needed, checks the returned evidence and produces the chat response.\n\nWhat you receive: Evidence is distinguished from assumptions and unavailable data. Only persisted diagnostics are reported, with pagination and scope caveats.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Show the available check families and explain what evidence I need to review an existing run.\n- For run <run_id>, summarize recorded failures, warnings, execution time and incomplete evidence. Do not start a run.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -142,7 +142,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -227,17 +227,11 @@
           "title": "Agent",
           "type": "agentStep"
         },
-        "dragging": false,
         "id": "node-1784918470156-3d4e8987-651a-4a1a-b7a0-d2f92dbbf61c",
-        "measured": {
-          "height": 799,
-          "width": 284
-        },
         "position": {
-          "x": 839.0685975140664,
-          "y": 420.98324784265014
+          "x": 960,
+          "y": 260
         },
-        "selected": true,
         "type": "flowGenericNode"
       },
       {
@@ -259,17 +253,11 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "dragging": false,
         "id": "node-1784918471765-99ad97de-3d01-4fb8-a237-d4bb3ac0e2a4",
-        "measured": {
-          "height": 141,
-          "width": 214
-        },
         "position": {
-          "x": 597.583535108959,
-          "y": 1083.588377723971
+          "x": 0,
+          "y": 260
         },
-        "selected": false,
         "type": "flowGenericNode"
       },
       {
@@ -316,17 +304,11 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "dragging": false,
         "id": "node-1784918475276-8e9d18b1-ce1f-47c5-a1be-4bd044e4e16d",
-        "measured": {
-          "height": 184,
-          "width": 214
-        },
         "position": {
-          "x": 1154.1490549077382,
-          "y": 1039.2352939727527
+          "x": 1440,
+          "y": 260
         },
-        "selected": false,
         "type": "flowGenericNode"
       },
       {
@@ -467,29 +449,103 @@
           "title": "Oracle PL/SQL executor",
           "type": "oraclePLSQLExecutor"
         },
-        "dragging": false,
         "id": "node-1784918496675-95aacc71-0c53-4b4c-bdc8-6a6917687207",
-        "measured": {
-          "height": 447,
-          "width": 268
-        },
         "position": {
-          "x": 55.05965838698319,
-          "y": 463.74275720143356
+          "x": 480,
+          "y": 260
         },
-        "selected": false,
         "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Provide a tool\n\nExpose only the configured routine allowlist to the Agent on the right. A connection supplies a tool; the Agent decides when to call it.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
     ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "51fb81e2-4466-4db8-b4af-99a52c8a10a9",
-  "version": 15,
-  "lastUpdatedOn": "2026-09-16T08:58:19.175357Z",
+  "version": 16,
+  "lastUpdatedOn": "2026-10-18T00:38:03.341105Z",
   "_workflowMetadata": {
     "originWorkflowId": "51fb81e2-4466-4db8-b4af-99a52c8a10a9",
-    "version": 15,
-    "lastUpdatedOn": "2026-09-16T08:58:19.175357Z"
+    "version": 16,
+    "lastUpdatedOn": "2026-10-18T00:38:03.341105Z"
   }
 }

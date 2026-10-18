@@ -9,8 +9,8 @@
   "data": {
     "_workflowMetadata": {
       "originWorkflowId": "bf38cb7e-fa61-4c57-93a0-f33d841c1e1e",
-      "version": 9,
-      "lastUpdatedOn": "2026-09-17T10:13:54.580475Z"
+      "version": 11,
+      "lastUpdatedOn": "2026-10-18T00:45:55.900726Z"
     },
     "edges": [
       {
@@ -102,7 +102,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -110,7 +110,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Review supplier invoices and prepare or execute explicitly requested invoice creation, cancellation, or line cancellation through the configured Fusion REST sources. Shows the exact target and proposed values before requesting confirmation. Draft: source authentication and action behavior require target-environment validation.",
+              "value": "Review supplier invoices and prepare or execute explicitly requested invoice creation, cancellation, or line cancellation through the configured Fusion REST sources. Shows the exact target and proposed values before requesting confirmation. Draft: source authentication and action behavior require target-environment validation.\n\nHow it works: Your question reaches the Agent, which calls the connected REST APIs as needed, checks the returned evidence and produces the chat response.\n\nWhat you receive: Evidence is distinguished from assumptions and unavailable data. Writes require a specific user-confirmed proposal; drafts are not reported as executed.\n\nChanges: this draft includes write-capable tools. It shows the exact invoice target and proposed values and requires explicit confirmation before a write. Authentication and action behavior need target-instance validation.\n\nSample questions:\n- List up to five supplier invoices and explain which fields need review. Do not change anything.\n- Prepare the exact proposal for an invoice change I specify. Show the target and required fields; do not execute it.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -154,7 +154,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -240,17 +240,11 @@
           "title": "Agent",
           "type": "agentStep"
         },
-        "dragging": false,
         "id": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "measured": {
-          "height": 765,
-          "width": 284
-        },
         "position": {
-          "x": 526.6428571428571,
-          "y": 459.5569007263922
+          "x": 960,
+          "y": 260
         },
-        "selected": false,
         "type": "flowGenericNode"
       },
       {
@@ -300,17 +294,11 @@
           "title": "REST API tools",
           "type": "restAPITools"
         },
-        "dragging": false,
         "id": "node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
-        "measured": {
-          "height": 247,
-          "width": 284
-        },
         "position": {
-          "x": 106.31055160411623,
-          "y": 502.02233088680384
+          "x": 480,
+          "y": 260
         },
-        "selected": false,
         "type": "flowGenericNode"
       },
       {
@@ -332,17 +320,11 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "dragging": false,
         "id": "node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
-        "measured": {
-          "height": 141,
-          "width": 214
-        },
         "position": {
-          "x": 120.20280342009681,
-          "y": 1066.973904736683
+          "x": 0,
+          "y": 260
         },
-        "selected": false,
         "type": "flowGenericNode"
       },
       {
@@ -390,13 +372,9 @@
           "type": "chatOutputComponent"
         },
         "id": "node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
-        "measured": {
-          "height": 185,
-          "width": 214
-        },
         "position": {
-          "x": 979.6701157687652,
-          "y": 966.0235415405568
+          "x": 1440,
+          "y": 260
         },
         "type": "flowGenericNode"
       },
@@ -447,29 +425,103 @@
           "title": "REST API tools",
           "type": "restAPITools"
         },
-        "dragging": false,
         "id": "node-1789340088638-d9d7dbd4-97be-4e21-bfbf-d7b047007b07",
-        "measured": {
-          "height": 247,
-          "width": 284
-        },
         "position": {
-          "x": 105.71795550847474,
-          "y": 761.3443647851088
+          "x": 480,
+          "y": 607.0
         },
-        "selected": false,
         "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
     ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "bf38cb7e-fa61-4c57-93a0-f33d841c1e1e",
-  "version": 9,
-  "lastUpdatedOn": "2026-09-17T10:13:54.580475Z",
+  "version": 11,
+  "lastUpdatedOn": "2026-10-18T00:45:55.900726Z",
   "_workflowMetadata": {
     "originWorkflowId": "bf38cb7e-fa61-4c57-93a0-f33d841c1e1e",
-    "version": 9,
-    "lastUpdatedOn": "2026-09-17T10:13:54.580475Z"
+    "version": 11,
+    "lastUpdatedOn": "2026-10-18T00:45:55.900726Z"
   }
 }

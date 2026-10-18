@@ -7,6 +7,73 @@
   "published": true,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "1326c3b5-b73c-44cb-a394-c9b17f72a815",
+      "version": 5,
+      "lastUpdatedOn": "2026-10-18T00:45:57.390401Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
+        "id": "node-psft-workforce-planning-input-user_provided_input-node-psft-workforce-planning-as-of-text_input_1",
+        "source": "node-psft-workforce-planning-input",
+        "sourceHandle": "user_provided_input-node-psft-workforce-planning-input",
+        "target": "node-psft-workforce-planning-as-of",
+        "targetHandle": "text_input_1-node-psft-workforce-planning-as-of"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
+        "id": "node-psft-workforce-planning-date-message-node-psft-workforce-planning-as-of-text_input_2",
+        "source": "node-psft-workforce-planning-date",
+        "sourceHandle": "message-node-psft-workforce-planning-date",
+        "target": "node-psft-workforce-planning-as-of",
+        "targetHandle": "text_input_2-node-psft-workforce-planning-as-of"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "node-psft-workforce-planning-database-tools-node-psft-workforce-planning-advisor-tools",
+        "source": "node-psft-workforce-planning-database",
+        "sourceHandle": "tools-node-psft-workforce-planning-database",
+        "target": "node-psft-workforce-planning-advisor",
+        "targetHandle": "tools-node-psft-workforce-planning-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-psft-workforce-planning-as-of-message-node-psft-workforce-planning-advisor-prompt",
+        "source": "node-psft-workforce-planning-as-of",
+        "sourceHandle": "message-node-psft-workforce-planning-as-of",
+        "target": "node-psft-workforce-planning-advisor",
+        "targetHandle": "prompt-node-psft-workforce-planning-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-psft-workforce-planning-advisor-tool_output-node-psft-workforce-planning-output-message",
+        "source": "node-psft-workforce-planning-advisor",
+        "sourceHandle": "tool_output-node-psft-workforce-planning-advisor",
+        "target": "node-psft-workforce-planning-output",
+        "targetHandle": "message-node-psft-workforce-planning-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +94,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-workforce-planning-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -108,13 +174,12 @@
           "title": "Oracle database tools",
           "type": "oracleDatabaseTools"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-workforce-planning-database",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -2551,13 +2616,12 @@
           "title": "Current Date",
           "type": "currentDateTime"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-workforce-planning-date",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 480,
+          "y": 733.0
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -2638,13 +2702,12 @@
           "title": "Text combiner",
           "type": "textCombiner"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-workforce-planning-as-of",
         "position": {
-          "x": 0,
-          "y": 400
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -2685,7 +2748,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -2693,7 +2756,7 @@
                 "message"
               ],
               "required": false,
-              "value": "PeopleSoft Workforce Planning Brief",
+              "value": "Explain department staffing and FTE using effective-dated assignments and nonconfidential catalogs.\n\nHow it works: Your question reaches the Agent, which calls the connected allowlisted database tools as needed, checks the returned evidence and produces the chat response.\n\nWhat you receive: A staffing discussion grounded in effective-dated assignments and clear measures. The first prompt returns source-backed findings with source dates and units.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Which departments have the most assignments and FTE? Explain what the numbers count.\n- Why can we not add the employee counts across those groups to obtain global headcount?",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -2732,7 +2795,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -2817,13 +2880,12 @@
           "title": "PeopleSoft Workforce Planning Brief",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-workforce-planning-advisor",
         "position": {
-          "x": 430,
-          "y": 400
+          "x": 1440,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -2869,91 +2931,123 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-workforce-planning-output",
         "position": {
-          "x": 860,
-          "y": 400
+          "x": 1920,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Prepare the inputs\n\nThese parallel sources provide evidence, tools or review time. Follow each connection to its consumer on the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-5",
+        "type": "noteNode",
+        "position": {
+          "x": 1920,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "5. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "edges": [
-      {
-        "id": "node-psft-workforce-planning-input-user_provided_input-node-psft-workforce-planning-as-of-text_input_1",
-        "source": "node-psft-workforce-planning-input",
-        "target": "node-psft-workforce-planning-as-of",
-        "sourceHandle": "user_provided_input-node-psft-workforce-planning-input",
-        "targetHandle": "text_input_1-node-psft-workforce-planning-as-of",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "text_input_1"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-workforce-planning-date-message-node-psft-workforce-planning-as-of-text_input_2",
-        "source": "node-psft-workforce-planning-date",
-        "target": "node-psft-workforce-planning-as-of",
-        "sourceHandle": "message-node-psft-workforce-planning-date",
-        "targetHandle": "text_input_2-node-psft-workforce-planning-as-of",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_2"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-workforce-planning-database-tools-node-psft-workforce-planning-advisor-tools",
-        "source": "node-psft-workforce-planning-database",
-        "target": "node-psft-workforce-planning-advisor",
-        "sourceHandle": "tools-node-psft-workforce-planning-database",
-        "targetHandle": "tools-node-psft-workforce-planning-advisor",
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-workforce-planning-as-of-message-node-psft-workforce-planning-advisor-prompt",
-        "source": "node-psft-workforce-planning-as-of",
-        "target": "node-psft-workforce-planning-advisor",
-        "sourceHandle": "message-node-psft-workforce-planning-as-of",
-        "targetHandle": "prompt-node-psft-workforce-planning-advisor",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-workforce-planning-advisor-tool_output-node-psft-workforce-planning-output-message",
-        "source": "node-psft-workforce-planning-advisor",
-        "target": "node-psft-workforce-planning-output",
-        "sourceHandle": "tool_output-node-psft-workforce-planning-advisor",
-        "targetHandle": "message-node-psft-workforce-planning-output",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "1326c3b5-b73c-44cb-a394-c9b17f72a815",
-      "version": 3,
-      "lastUpdatedOn": "2026-10-17T07:53:43.918625Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "1326c3b5-b73c-44cb-a394-c9b17f72a815",
-  "version": 3,
-  "lastUpdatedOn": "2026-10-17T07:53:43.918625Z",
+  "version": 5,
+  "lastUpdatedOn": "2026-10-18T00:45:57.390401Z",
   "_workflowMetadata": {
     "originWorkflowId": "1326c3b5-b73c-44cb-a394-c9b17f72a815",
-    "version": 3,
-    "lastUpdatedOn": "2026-10-17T07:53:43.918625Z"
+    "version": 5,
+    "lastUpdatedOn": "2026-10-18T00:45:57.390401Z"
   }
 }

@@ -7,6 +7,11 @@
   "published": false,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "a35a1fff-5235-4405-a737-961689af072c",
+      "version": 4,
+      "lastUpdatedOn": "2026-10-18T00:45:56.434157Z"
+    },
     "edges": [
       {
         "data": {
@@ -33,40 +38,40 @@
         "targetHandle": "message-replica-manufacturing-3"
       },
       {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
         "id": "replica-manufacturing-0-user_provided_input-replica-manufacturing-evidence-text_input_1",
         "source": "replica-manufacturing-0",
         "sourceHandle": "user_provided_input-replica-manufacturing-0",
         "target": "replica-manufacturing-evidence",
-        "targetHandle": "text_input_1-replica-manufacturing-evidence",
-        "hidden": false,
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "text_input_1"
-        }
+        "targetHandle": "text_input_1-replica-manufacturing-evidence"
       },
       {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
         "id": "replica-manufacturing-candidate-orders-message-replica-manufacturing-evidence-text_input_2",
         "source": "replica-manufacturing-candidate-orders",
         "sourceHandle": "message-replica-manufacturing-candidate-orders",
         "target": "replica-manufacturing-evidence",
-        "targetHandle": "text_input_2-replica-manufacturing-evidence",
-        "hidden": false,
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_2"
-        }
+        "targetHandle": "text_input_2-replica-manufacturing-evidence"
       },
       {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
         "id": "replica-manufacturing-evidence-message-replica-manufacturing-2-prompt",
         "source": "replica-manufacturing-evidence",
         "sourceHandle": "message-replica-manufacturing-evidence",
         "target": "replica-manufacturing-2",
-        "targetHandle": "prompt-replica-manufacturing-2",
-        "hidden": false,
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "prompt"
-        }
+        "targetHandle": "prompt-replica-manufacturing-2"
       }
     ],
     "nodes": [
@@ -92,10 +97,9 @@
         "id": "replica-manufacturing-0",
         "position": {
           "x": 0,
-          "y": 100
+          "y": 260
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -202,11 +206,10 @@
         },
         "id": "replica-manufacturing-1",
         "position": {
-          "x": 430,
-          "y": 100
+          "x": 480,
+          "y": 260
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -247,7 +250,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -255,7 +258,7 @@
                 "message"
               ],
               "required": false,
-              "value": "JDE Replica - Work Order Material Risk",
+              "value": "Pre-cutover read-only work order material risk against the GoldenGate JDEDEMO replica.\n\nHow it works: The saved bounded SELECT collects evidence. The workflow formats and combines it with your question; the Agent interprets that context and returns the answer. The Agent can then call the allowlisted routine for the selected candidate.\n\nWhat you receive: A bounded evidence-backed explanation and a concrete next step for a human owner. A clear distinction between the observed sample and claims it cannot establish.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Choose the first candidate work order with component rows in the replica and review up to five component risks. Identify the order and explain the inventory, unit and requirement-grain checks a planner must make before confirming readiness.\n- Explain what this bounded replica evidence cannot prove and what a human owner should verify before acting.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -294,7 +297,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -381,11 +384,10 @@
         },
         "id": "replica-manufacturing-2",
         "position": {
-          "x": 860,
-          "y": 100
+          "x": 1440,
+          "y": 260
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -433,11 +435,10 @@
         },
         "id": "replica-manufacturing-3",
         "position": {
-          "x": 1290,
-          "y": 100
+          "x": 1920,
+          "y": 260
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -523,11 +524,10 @@
         },
         "id": "replica-manufacturing-candidate-orders",
         "position": {
-          "x": 0,
-          "y": 550
+          "x": 480,
+          "y": 807.0
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -610,27 +610,121 @@
         },
         "id": "replica-manufacturing-evidence",
         "position": {
-          "x": 430,
-          "y": 550
+          "x": 960,
+          "y": 260
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Prepare the inputs\n\nThese parallel sources provide evidence, tools or review time. Follow each connection to its consumer on the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-5",
+        "type": "noteNode",
+        "position": {
+          "x": 1920,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "5. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "a35a1fff-5235-4405-a737-961689af072c",
-      "version": 2,
-      "lastUpdatedOn": "2026-10-17T07:53:42.503303Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "a35a1fff-5235-4405-a737-961689af072c",
-  "version": 2,
-  "lastUpdatedOn": "2026-10-17T07:53:42.503303Z",
+  "version": 4,
+  "lastUpdatedOn": "2026-10-18T00:45:56.434157Z",
   "_workflowMetadata": {
     "originWorkflowId": "a35a1fff-5235-4405-a737-961689af072c",
-    "version": 2,
-    "lastUpdatedOn": "2026-10-17T07:53:42.503303Z"
+    "version": 4,
+    "lastUpdatedOn": "2026-10-18T00:45:56.434157Z"
   }
 }

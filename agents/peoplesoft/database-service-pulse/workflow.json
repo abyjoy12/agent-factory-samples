@@ -7,6 +7,73 @@
   "published": true,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "d0139b78-3e02-46f3-bfe5-da5d67b130d8",
+      "version": 4,
+      "lastUpdatedOn": "2026-10-18T00:38:05.095009Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "json",
+          "targetHandleId": "input_data"
+        },
+        "hidden": false,
+        "id": "node-psft-database-service-pulse-evidence-json-node-psft-database-service-pulse-parse-input_data",
+        "source": "node-psft-database-service-pulse-evidence",
+        "sourceHandle": "json-node-psft-database-service-pulse-evidence",
+        "target": "node-psft-database-service-pulse-parse",
+        "targetHandle": "input_data-node-psft-database-service-pulse-parse"
+      },
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
+        "id": "node-psft-database-service-pulse-input-user_provided_input-node-psft-database-service-pulse-question-and-evidence-text_input_1",
+        "source": "node-psft-database-service-pulse-input",
+        "sourceHandle": "user_provided_input-node-psft-database-service-pulse-input",
+        "target": "node-psft-database-service-pulse-question-and-evidence",
+        "targetHandle": "text_input_1-node-psft-database-service-pulse-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
+        "id": "node-psft-database-service-pulse-parse-message-node-psft-database-service-pulse-question-and-evidence-text_input_2",
+        "source": "node-psft-database-service-pulse-parse",
+        "sourceHandle": "message-node-psft-database-service-pulse-parse",
+        "target": "node-psft-database-service-pulse-question-and-evidence",
+        "targetHandle": "text_input_2-node-psft-database-service-pulse-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-psft-database-service-pulse-question-and-evidence-message-node-psft-database-service-pulse-advisor-prompt",
+        "source": "node-psft-database-service-pulse-question-and-evidence",
+        "sourceHandle": "message-node-psft-database-service-pulse-question-and-evidence",
+        "target": "node-psft-database-service-pulse-advisor",
+        "targetHandle": "prompt-node-psft-database-service-pulse-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-psft-database-service-pulse-advisor-tool_output-node-psft-database-service-pulse-output-message",
+        "source": "node-psft-database-service-pulse-advisor",
+        "sourceHandle": "tool_output-node-psft-database-service-pulse-advisor",
+        "target": "node-psft-database-service-pulse-output",
+        "targetHandle": "message-node-psft-database-service-pulse-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +94,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-database-service-pulse-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -117,13 +183,12 @@
           "title": "SQL query",
           "type": "SelectSqlQueryNode"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-database-service-pulse-evidence",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -255,13 +320,12 @@
           "title": "Parser",
           "type": "parser"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-database-service-pulse-parse",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -342,13 +406,12 @@
           "title": "Text combiner",
           "type": "textCombiner"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-database-service-pulse-question-and-evidence",
         "position": {
-          "x": 0,
-          "y": 400
+          "x": 1440,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -389,7 +452,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -397,7 +460,7 @@
                 "message"
               ],
               "required": false,
-              "value": "PeopleSoft Database Service Pulse",
+              "value": "Translate live PDB tablespace capacity, session counts and interval metrics into a business-service monitoring brief.\n\nHow it works: The saved bounded SELECT collects evidence. The workflow formats and combines it with your question; the Agent interprets that context and returns the answer.\n\nWhat you receive: A timestamped PDB pulse with clear units, scope, and a DBA follow-up. The first prompt returns source-backed findings with source dates and units.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Give the service owner a database pulse: current resource pressure, session states and interval metrics. State the scope and time.\n- Does this snapshot prove PeopleSoft is healthy, and what would a DBA need to diagnose a reported slowdown?",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -436,7 +499,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -519,13 +582,12 @@
           "title": "PeopleSoft Database Service Pulse",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-database-service-pulse-advisor",
         "position": {
-          "x": 430,
-          "y": 400
+          "x": 1920,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -571,91 +633,143 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-psft-database-service-pulse-output",
         "position": {
-          "x": 860,
-          "y": 400
+          "x": 2400,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Collect evidence\n\nRun the saved SELECT against the configured source. Preserve its row limits, dates and business scope.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Format the evidence\n\nConvert the upstream result into the bounded text used by the next stage. The saved parser does not expand the source scope.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-5",
+        "type": "noteNode",
+        "position": {
+          "x": 1920,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "5. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-6",
+        "type": "noteNode",
+        "position": {
+          "x": 2400,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "6. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "edges": [
-      {
-        "id": "node-psft-database-service-pulse-evidence-json-node-psft-database-service-pulse-parse-input_data",
-        "source": "node-psft-database-service-pulse-evidence",
-        "target": "node-psft-database-service-pulse-parse",
-        "sourceHandle": "json-node-psft-database-service-pulse-evidence",
-        "targetHandle": "input_data-node-psft-database-service-pulse-parse",
-        "data": {
-          "sourceHandleId": "json",
-          "targetHandleId": "input_data"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-database-service-pulse-input-user_provided_input-node-psft-database-service-pulse-question-and-evidence-text_input_1",
-        "source": "node-psft-database-service-pulse-input",
-        "target": "node-psft-database-service-pulse-question-and-evidence",
-        "sourceHandle": "user_provided_input-node-psft-database-service-pulse-input",
-        "targetHandle": "text_input_1-node-psft-database-service-pulse-question-and-evidence",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "text_input_1"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-database-service-pulse-parse-message-node-psft-database-service-pulse-question-and-evidence-text_input_2",
-        "source": "node-psft-database-service-pulse-parse",
-        "target": "node-psft-database-service-pulse-question-and-evidence",
-        "sourceHandle": "message-node-psft-database-service-pulse-parse",
-        "targetHandle": "text_input_2-node-psft-database-service-pulse-question-and-evidence",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_2"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-database-service-pulse-question-and-evidence-message-node-psft-database-service-pulse-advisor-prompt",
-        "source": "node-psft-database-service-pulse-question-and-evidence",
-        "target": "node-psft-database-service-pulse-advisor",
-        "sourceHandle": "message-node-psft-database-service-pulse-question-and-evidence",
-        "targetHandle": "prompt-node-psft-database-service-pulse-advisor",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-psft-database-service-pulse-advisor-tool_output-node-psft-database-service-pulse-output-message",
-        "source": "node-psft-database-service-pulse-advisor",
-        "target": "node-psft-database-service-pulse-output",
-        "sourceHandle": "tool_output-node-psft-database-service-pulse-advisor",
-        "targetHandle": "message-node-psft-database-service-pulse-output",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "d0139b78-3e02-46f3-bfe5-da5d67b130d8",
-      "version": 3,
-      "lastUpdatedOn": "2026-10-17T07:53:43.248825Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "d0139b78-3e02-46f3-bfe5-da5d67b130d8",
-  "version": 3,
-  "lastUpdatedOn": "2026-10-17T07:53:43.248825Z",
+  "version": 4,
+  "lastUpdatedOn": "2026-10-18T00:38:05.095009Z",
   "_workflowMetadata": {
     "originWorkflowId": "d0139b78-3e02-46f3-bfe5-da5d67b130d8",
-    "version": 3,
-    "lastUpdatedOn": "2026-10-17T07:53:43.248825Z"
+    "version": 4,
+    "lastUpdatedOn": "2026-10-18T00:38:05.095009Z"
   }
 }

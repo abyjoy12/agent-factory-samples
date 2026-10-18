@@ -20,6 +20,6 @@
     "shareBetweenChatThreads": false
   },
   "sourceNote": "Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-  "modelBinding": "Select an available model on every Agent node. Validated with the existing xai.grok-4.3 connection.",
+  "modelBinding": "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
   "portableExportNote": "Official workflow-only export retains local source IDs as hints; no credentials or connection definitions are bundled. Rebind sources after import."
 }

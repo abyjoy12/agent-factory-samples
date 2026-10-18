@@ -28,7 +28,7 @@ The supplied OpenAPI definition is configured for environment `JPS920`, role `*A
 2. Configure the new source with JDE Basic Auth and test one bounded endpoint call.
 3. In **My Custom Flows**, import `jd-edwards-fulfillment-exception-agent.paf` and enter the archive password supplied through the approved secret-sharing channel.
 4. Open the imported flow. Rebind its REST API Tools node to the source created in step 1; source IDs are environment-local and the export intentionally does not include REST source configuration.
-5. Select an available model if the imported agent step is not already mapped to one in the target environment.
+5. Select `AIW26-PAF-HOL6004-BOO6096` on every Agent node in the target environment.
 6. Test the prompts below, inspect every tool call, and publish only after the target results are correct.
 
 Imported workflows are created unpublished. The `.paf` is a workflow-only export: it contains no JDE credentials, model configuration, REST API source, or learned user memory.
@@ -55,3 +55,5 @@ Expected behavior:
 - [`assets/agent-instructions.md`](assets/agent-instructions.md) — readable copy of the custom instructions
 - [`assets/jde-fulfillment-openapi.json`](assets/jde-fulfillment-openapi.json) — sanitized read-only REST data-source definition
 - `slides/` — reserved for presentation material; no deck is included
+
+The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on `build.oracleagentfactory.com`. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.

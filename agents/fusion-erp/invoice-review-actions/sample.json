@@ -12,7 +12,7 @@
   "title": "Invoice Review and Actions — Fusion ERP",
   "summary": "Review supplier invoices and prepare or execute explicitly requested invoice creation, cancellation, or line cancellation through the configured Fusion REST sources. Shows the exact target and proposed values before requesting confirmation. Draft: source authentication and action behavior require target-environment validation.",
   "category": "Finance",
-  "version": "9",
+  "version": "11",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -71,9 +71,10 @@
   "setup": [
     "Import the release .paf into an unpublished destination flow.",
     "Import assets/invoice-read-openapi.json and assets/invoice-actions-openapi.json as separate REST sources. Replace the example server URL with your confirmed Fusion endpoint and configure authentication in PAF. These reconstructed contracts require target-release validation.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
     "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
-    "Select a registered model on every Agent node. Disable Agent Memory and cross-thread sharing.",
-    "Check permissions and connectivity against the intended demo environment before publishing."
+    "Check permissions and connectivity against the intended demo environment before publishing.",
+    "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
   ],
   "demo": {
     "sessions": [

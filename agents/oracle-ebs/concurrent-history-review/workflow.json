@@ -7,6 +7,61 @@
   "published": false,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "5c501d20-6439-43fe-8423-d670548ce836",
+      "version": 3,
+      "lastUpdatedOn": "2026-10-18T00:38:03.072880Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
+        "id": "ebs-concurrent-history-review-input-user_provided_input-ebs-concurrent-history-review-evidence-text_input_1",
+        "source": "ebs-concurrent-history-review-input",
+        "sourceHandle": "user_provided_input-ebs-concurrent-history-review-input",
+        "target": "ebs-concurrent-history-review-evidence",
+        "targetHandle": "text_input_1-ebs-concurrent-history-review-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
+        "id": "ebs-concurrent-history-review-sql-message-ebs-concurrent-history-review-evidence-text_input_2",
+        "source": "ebs-concurrent-history-review-sql",
+        "sourceHandle": "message-ebs-concurrent-history-review-sql",
+        "target": "ebs-concurrent-history-review-evidence",
+        "targetHandle": "text_input_2-ebs-concurrent-history-review-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "ebs-concurrent-history-review-evidence-message-ebs-concurrent-history-review-advisor-prompt",
+        "source": "ebs-concurrent-history-review-evidence",
+        "sourceHandle": "message-ebs-concurrent-history-review-evidence",
+        "target": "ebs-concurrent-history-review-advisor",
+        "targetHandle": "prompt-ebs-concurrent-history-review-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "ebs-concurrent-history-review-advisor-tool_output-ebs-concurrent-history-review-output-message",
+        "source": "ebs-concurrent-history-review-advisor",
+        "sourceHandle": "tool_output-ebs-concurrent-history-review-advisor",
+        "target": "ebs-concurrent-history-review-output",
+        "targetHandle": "message-ebs-concurrent-history-review-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +82,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "ebs-concurrent-history-review-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -117,13 +171,12 @@
           "title": "SQL query",
           "type": "SelectSqlQueryNode"
         },
-        "type": "flowGenericNode",
         "id": "ebs-concurrent-history-review-sql",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -204,13 +257,12 @@
           "title": "Text combiner",
           "type": "textCombiner"
         },
-        "type": "flowGenericNode",
         "id": "ebs-concurrent-history-review-evidence",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -251,7 +303,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -259,7 +311,7 @@
                 "message"
               ],
               "required": false,
-              "value": "EBS Concurrent Processing History",
+              "value": "Review recent stored concurrent-request history and completed elapsed times without restarting or cancelling jobs.\n\nHow it works: The saved bounded SELECT collects evidence. The workflow formats and combines it with your question; the Agent interprets that context and returns the answer.\n\nWhat you receive: A bounded evidence-backed explanation and a concrete next step for a human owner. A clear distinction between the observed sample and claims it cannot establish.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Review the ten latest stored concurrent requests and distinguish the query time from historical run times.\n- Do the raw codes and elapsed minutes prove an outage or SLA breach? Explain what the operator should check next.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -298,7 +350,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -381,13 +433,12 @@
           "title": "EBS Concurrent Processing History",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "ebs-concurrent-history-review-advisor",
         "position": {
-          "x": 0,
-          "y": 500
+          "x": 1440,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -433,79 +484,123 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "ebs-concurrent-history-review-output",
         "position": {
-          "x": 430,
-          "y": 500
+          "x": 1920,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Collect evidence\n\nRun the saved SELECT against the configured source. Preserve its row limits, dates and business scope.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-5",
+        "type": "noteNode",
+        "position": {
+          "x": 1920,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "5. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "edges": [
-      {
-        "source": "ebs-concurrent-history-review-input",
-        "sourceHandle": "user_provided_input-ebs-concurrent-history-review-input",
-        "target": "ebs-concurrent-history-review-evidence",
-        "targetHandle": "text_input_1-ebs-concurrent-history-review-evidence",
-        "id": "ebs-concurrent-history-review-input-user_provided_input-ebs-concurrent-history-review-evidence-text_input_1",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "text_input_1"
-        },
-        "hidden": false
-      },
-      {
-        "source": "ebs-concurrent-history-review-sql",
-        "sourceHandle": "message-ebs-concurrent-history-review-sql",
-        "target": "ebs-concurrent-history-review-evidence",
-        "targetHandle": "text_input_2-ebs-concurrent-history-review-evidence",
-        "id": "ebs-concurrent-history-review-sql-message-ebs-concurrent-history-review-evidence-text_input_2",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_2"
-        },
-        "hidden": false
-      },
-      {
-        "source": "ebs-concurrent-history-review-evidence",
-        "sourceHandle": "message-ebs-concurrent-history-review-evidence",
-        "target": "ebs-concurrent-history-review-advisor",
-        "targetHandle": "prompt-ebs-concurrent-history-review-advisor",
-        "id": "ebs-concurrent-history-review-evidence-message-ebs-concurrent-history-review-advisor-prompt",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "source": "ebs-concurrent-history-review-advisor",
-        "sourceHandle": "tool_output-ebs-concurrent-history-review-advisor",
-        "target": "ebs-concurrent-history-review-output",
-        "targetHandle": "message-ebs-concurrent-history-review-output",
-        "id": "ebs-concurrent-history-review-advisor-tool_output-ebs-concurrent-history-review-output-message",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "5c501d20-6439-43fe-8423-d670548ce836",
-      "version": 2,
-      "lastUpdatedOn": "2026-10-17T07:53:42.688995Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "5c501d20-6439-43fe-8423-d670548ce836",
-  "version": 2,
-  "lastUpdatedOn": "2026-10-17T07:53:42.688995Z",
+  "version": 3,
+  "lastUpdatedOn": "2026-10-18T00:38:03.072880Z",
   "_workflowMetadata": {
     "originWorkflowId": "5c501d20-6439-43fe-8423-d670548ce836",
-    "version": 2,
-    "lastUpdatedOn": "2026-10-17T07:53:42.688995Z"
+    "version": 3,
+    "lastUpdatedOn": "2026-10-18T00:38:03.072880Z"
   }
 }

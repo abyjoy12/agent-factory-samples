@@ -12,7 +12,7 @@
   "title": "Functional Check Evidence Review — Oracle EBS",
   "summary": "Find cataloged EBS functional checks, inspect their impact and guidance, and review progress, reports, and evidence from existing runs through six allowlisted control-package routines. Does not start or cancel runs or execute remediation.",
   "category": "IT Operations",
-  "version": "15",
+  "version": "16",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -77,9 +77,10 @@
   "setup": [
     "Import the release .paf into an unpublished destination flow.",
     "Provide the pre-existing PAF_DEMO.EBS_CHECK_API package and its control catalog. This sample does not install that custom backend. Use a control reader able to call the six documented routines; preserve the node routine allowlist and auto_commit=false.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
     "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
-    "Select a registered model on every Agent node. Disable Agent Memory and cross-thread sharing.",
-    "Check permissions and connectivity against the intended demo environment before publishing."
+    "Check permissions and connectivity against the intended demo environment before publishing.",
+    "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
   ],
   "demo": {
     "sessions": [

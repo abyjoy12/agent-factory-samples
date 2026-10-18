@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-17T07:57:55Z",
+  "generatedAt": "2026-10-18T00:51:32Z",
   "agents": [
     {
       "slug": "business-policy-desk",
@@ -34,7 +34,7 @@
       "action_mode": "Read-only",
       "business_question": "Who needs to approve a $750 freight expedite—and which policy says so?",
       "display_name": "Business Policy Desk — Cross-application",
-      "version": "3",
+      "version": "4",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Builder-uploaded fictional policy handbook; no application database is required.",
       "memory_mode": "none",
@@ -64,9 +64,10 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Upload the supplied paf-demo-policy-handbook.txt using the corresponding Builder component and select the uploaded filename.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -103,13 +104,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "business-policy-desk.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/business-policy-desk.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/cross-application/policy-desk/"
     },
     {
@@ -145,7 +146,7 @@
       "action_mode": "Read-only",
       "business_question": "What should leadership review in receivables and unpaid supplier invoices?",
       "display_name": "Executive Working Capital Brief — Cross-application",
-      "version": "3",
+      "version": "5",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Finance Read Only",
       "memory_mode": "none",
@@ -181,9 +182,10 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Create or reuse Oracle EBS Finance Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -220,13 +222,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "executive-operations-brief.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/executive-operations-brief.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/cross-application/executive-operations-brief/"
     },
     {
@@ -262,7 +264,7 @@
       "action_mode": "Read-only",
       "business_question": "Which sampled backorder has the earliest requested date, and what should we check?",
       "display_name": "Backorder Triage — JD Edwards replica",
-      "version": "2",
+      "version": "3",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JDE Replica Fulfillment Read Only",
       "memory_mode": "none",
@@ -292,9 +294,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to JDE Replica Fulfillment Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -331,13 +334,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-replica-backorder-triage.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-backorder-triage.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/replica-backorder-triage/"
     },
     {
@@ -369,7 +372,7 @@
       "action_mode": "Read-only",
       "business_question": "What do the latest stored GL entries show by company, currency and ledger?",
       "display_name": "Finance Activity Review — JD Edwards replica",
-      "version": "2",
+      "version": "3",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JDE Replica Finance Read Only",
       "memory_mode": "none",
@@ -399,9 +402,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to JDE Replica Finance Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -438,13 +442,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-replica-finance-activity-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-finance-activity-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/replica-finance-activity-review/"
     },
     {
@@ -478,7 +482,7 @@
       "action_mode": "Read-only",
       "business_question": "Which open purchase line needs a supplier follow-up, and what should we ask?",
       "display_name": "Supplier Follow-up — JD Edwards replica",
-      "version": "2",
+      "version": "3",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JDE Replica Procurement Read Only",
       "memory_mode": "none",
@@ -508,9 +512,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to JDE Replica Procurement Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -547,13 +552,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-replica-supplier-follow-up.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-supplier-follow-up.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/replica-supplier-follow-up/"
     },
     {
@@ -590,7 +595,7 @@
       "action_mode": "Read-only",
       "business_question": "Which components need checking before we confirm this work order is ready?",
       "display_name": "Work Order Material Risk — JD Edwards replica",
-      "version": "2",
+      "version": "4",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JDE Replica Manufacturing Read Only",
       "memory_mode": "none",
@@ -632,9 +637,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to JDE Replica Manufacturing Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -671,13 +677,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-replica-work-order-material-risk.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-work-order-material-risk.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/replica-work-order-material-risk/"
     },
     {
@@ -714,7 +720,7 @@
       "action_mode": "Read-only",
       "business_question": "Which backorders should we tackle first, using the priorities I taught you?",
       "display_name": "Adaptive Fulfillment Advisor — JD Edwards EnterpriseOne",
-      "version": "6",
+      "version": "7",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Environment, role, and device headers come from the current conversation or relevant prior context. Basic Auth remains environment-local.",
       "memory_mode": "implicit",
@@ -778,9 +784,11 @@
       "setup": [
         "Create a REST source from assets/jde-fulfillment-openapi.json, verify its AIS URL, and configure Basic Auth.",
         "Download and import the release PAF, then rebind the REST API Tools node and select a model.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Enable Agent Memory and cross-thread sharing for the same user.",
         "Delete any prior playground memories for the test user, then run both sessions.",
-        "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories."
+        "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -843,13 +851,13 @@
       "openapi_path": "assets/jde-fulfillment-openapi.json",
       "dependency_path": "",
       "release_asset": "jd-edwards-adaptive-fulfillment-advisor.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/workflow.json",
-      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/assets/jde-fulfillment-openapi.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
+      "openapi_url": "",
       "dependency_url": "",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jd-edwards-adaptive-fulfillment-advisor.paf",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/adaptive-fulfillment-advisor/"
     },
     {
@@ -886,7 +894,7 @@
       "action_mode": "Read-only",
       "business_question": "Do we have the parts for this field visit, and what needs a planner check?",
       "display_name": "Field Material Readiness — JD Edwards EnterpriseOne",
-      "version": "7",
+      "version": "9",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JD Edwards Manufacturing Read Only",
       "memory_mode": "none",
@@ -934,10 +942,11 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Create or reuse JD Edwards Manufacturing Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Upload the supplied paf-demo-dispatch-plan.csv using the corresponding Builder component and select the uploaded filename.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -975,13 +984,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-field-material-readiness.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-field-material-readiness.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/field-material-readiness/"
     },
     {
@@ -1018,7 +1027,7 @@
       "action_mode": "Read-only",
       "business_question": "How do my latest priority and stock-reserve rules change the backorder review?",
       "display_name": "Fulfillment Coach (JPS920) — JD Edwards EnterpriseOne",
-      "version": "8",
+      "version": "9",
       "platform_version": "26.7.0.0.0",
       "connection_context": "The builder fixes environment JPS920, role *ALL, and device paf-jde-agent in the REST source. End users are never asked for technical connection headers.",
       "memory_mode": "implicit",
@@ -1082,9 +1091,11 @@
       "setup": [
         "Create a REST source from assets/jde-fulfillment-openapi.json, verify its JPS920 AIS URL, and configure Basic Auth.",
         "Download and import the release PAF, then rebind its REST API Tools node and select a model.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Enable Agent Memory and cross-thread sharing for the same user.",
         "Delete prior playground memories for the test user and run the two-session demo.",
-        "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories."
+        "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -1148,13 +1159,13 @@
       "openapi_path": "assets/jde-fulfillment-openapi.json",
       "dependency_path": "",
       "release_asset": "jde-jps920-fulfillment-coach.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/workflow.json",
-      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/assets/jde-fulfillment-openapi.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
+      "openapi_url": "",
       "dependency_url": "",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-jps920-fulfillment-coach.paf",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/jps920-fulfillment-coach/"
     },
     {
@@ -1190,7 +1201,7 @@
       "action_mode": "Read-only",
       "business_question": "Which backordered sales line is the best candidate for recovery?",
       "display_name": "Fulfillment Exception Agent — JD Edwards EnterpriseOne",
-      "version": "4",
+      "version": "5",
       "platform_version": "26.7.0.0.0",
       "connection_context": "The REST source statically supplies JPS920, role *ALL, and device paf-jde-agent. Basic Auth remains environment-local.",
       "memory_mode": "none",
@@ -1253,9 +1264,10 @@
       "setup": [
         "Create a REST API data source from assets/jde-fulfillment-openapi.json; verify the AIS URL and configure JDE Basic Auth.",
         "Download and import the release PAF using the repository archive passphrase.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Rebind the REST API Tools node to the new environment-local source.",
-        "Select an available model, inspect tool calls, test the demo, and publish only after validating target-environment results.",
-        "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories."
+        "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -1296,13 +1308,13 @@
       "openapi_path": "assets/jde-fulfillment-openapi.json",
       "dependency_path": "",
       "release_asset": "jd-edwards-fulfillment-exception-agent.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/workflow.json",
-      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/assets/jde-fulfillment-openapi.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
+      "openapi_url": "",
       "dependency_url": "",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jd-edwards-fulfillment-exception-agent.paf",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/fulfillment-exception/"
     },
     {
@@ -1339,7 +1351,7 @@
       "action_mode": "Read-only",
       "business_question": "Can you review backorders using our saved fulfillment policy?",
       "display_name": "Fulfillment Memory Agent — JD Edwards EnterpriseOne",
-      "version": "6",
+      "version": "7",
       "platform_version": "26.7.0.0.0",
       "connection_context": "The end user supplies environment, role, and device values; the agent recalls them from a named operating profile. Basic Auth remains environment-local.",
       "memory_mode": "explicit",
@@ -1403,9 +1415,11 @@
       "setup": [
         "Create a REST API source from assets/jde-fulfillment-openapi.json, verify the AIS URL, and configure Basic Auth.",
         "Download and import the release PAF, then rebind its REST API Tools node and select a model.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Enable Agent Memory and cross-thread sharing for the same user.",
         "Run both demo sessions as the same user, starting from clean memories.",
-        "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories."
+        "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -1463,13 +1477,13 @@
       "openapi_path": "assets/jde-fulfillment-openapi.json",
       "dependency_path": "",
       "release_asset": "jd-edwards-fulfillment-memory-agent.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/workflow.json",
-      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/assets/jde-fulfillment-openapi.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
+      "openapi_url": "",
       "dependency_url": "",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jd-edwards-fulfillment-memory-agent.paf",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/fulfillment-memory/"
     },
     {
@@ -1503,7 +1517,7 @@
       "action_mode": "Read-only",
       "business_question": "Which supplier commitments should the buyer check first?",
       "display_name": "Supplier Follow-up Desk — JD Edwards EnterpriseOne",
-      "version": "3",
+      "version": "4",
       "platform_version": "26.7.0.0.0",
       "connection_context": "JD Edwards Procurement Read Only",
       "memory_mode": "none",
@@ -1533,9 +1547,10 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Create or reuse JD Edwards Procurement Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -1571,13 +1586,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-supplier-follow-up.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-supplier-follow-up.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/jd-edwards/supplier-follow-up/"
     },
     {
@@ -1611,7 +1626,7 @@
       "action_mode": "Read-only",
       "business_question": "What do the latest stored batch requests tell us to investigate?",
       "display_name": "Concurrent Processing History — Oracle E-Business Suite",
-      "version": "2",
+      "version": "3",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Operations Read Only",
       "memory_mode": "none",
@@ -1641,9 +1656,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to Oracle EBS Operations Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -1681,13 +1697,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-concurrent-history-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-concurrent-history-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/oracle-ebs/concurrent-history-review/"
     },
     {
@@ -1721,7 +1737,7 @@
       "action_mode": "Read-only",
       "business_question": "Which EBS checks explain this run’s warnings, and what should the operator investigate?",
       "display_name": "Functional Check Evidence Review — Oracle EBS",
-      "version": "15",
+      "version": "16",
       "platform_version": "26.7.0.0.0",
       "connection_context": "EBS Sensor Control; custom PAF_DEMO.EBS_CHECK_API package.",
       "memory_mode": "none",
@@ -1781,9 +1797,10 @@
       "setup": [
         "Import the release .paf into an unpublished destination flow.",
         "Provide the pre-existing PAF_DEMO.EBS_CHECK_API package and its control catalog. This sample does not install that custom backend. Use a control reader able to call the six documented routines; preserve the node routine allowlist and auto_commit=false.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
-        "Select a registered model on every Agent node. Disable Agent Memory and cross-thread sharing.",
-        "Check permissions and connectivity against the intended demo environment before publishing."
+        "Check permissions and connectivity against the intended demo environment before publishing.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -1819,13 +1836,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-functional-check-evidence-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-functional-check-evidence-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/oracle-ebs/functional-check-evidence-review/"
     },
     {
@@ -1860,7 +1877,7 @@
       "action_mode": "Read-only",
       "business_question": "Where should IT start investigating this batch or service concern?",
       "display_name": "IT Operations Triage — Oracle E-Business Suite",
-      "version": "3",
+      "version": "5",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Operations Read Only",
       "memory_mode": "none",
@@ -1896,9 +1913,10 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Create or reuse Oracle EBS Operations Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -1935,13 +1953,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-it-operations-triage.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-it-operations-triage.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/oracle-ebs/it-operations-triage/"
     },
     {
@@ -1977,7 +1995,7 @@
       "action_mode": "Read-only",
       "business_question": "Which sampled purchase shipments still have unreceived quantities?",
       "display_name": "Purchase Receipt Review — Oracle E-Business Suite",
-      "version": "2",
+      "version": "3",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Supply Chain Read Only",
       "memory_mode": "none",
@@ -2007,9 +2025,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to Oracle EBS Supply Chain Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -2047,13 +2066,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-purchase-receipt-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-purchase-receipt-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/oracle-ebs/purchase-receipt-review/"
     },
     {
@@ -2087,7 +2106,7 @@
       "action_mode": "Read-only",
       "business_question": "Where are positive receivable balances concentrated by organization and currency?",
       "display_name": "Receivables Portfolio Review — Oracle E-Business Suite",
-      "version": "2",
+      "version": "3",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Finance Read Only",
       "memory_mode": "none",
@@ -2117,9 +2136,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to Oracle EBS Finance Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -2157,13 +2177,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-receivables-portfolio-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-receivables-portfolio-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/oracle-ebs/receivables-portfolio-review/"
     },
     {
@@ -2199,7 +2219,7 @@
       "action_mode": "Read-only",
       "business_question": "Which sales commitments need follow-up on requested versus scheduled dates?",
       "display_name": "Sales Commitment Review — Oracle E-Business Suite",
-      "version": "5",
+      "version": "6",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Oracle EBS Supply Chain Read Only",
       "memory_mode": "none",
@@ -2229,9 +2249,10 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Create or reuse Oracle EBS Supply Chain Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -2268,13 +2289,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-sales-commitment-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-sales-commitment-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/oracle-ebs/sales-commitment-review/"
     },
     {
@@ -2308,7 +2329,7 @@
       "action_mode": "Confirmed actions (draft)",
       "business_question": "Which supplier invoice needs attention, and what exact change should I approve?",
       "display_name": "Invoice Review and Actions — Fusion ERP",
-      "version": "9",
+      "version": "11",
       "platform_version": "26.7.0.0.0",
       "connection_context": "Existing Fusion invoice read and action sources; endpoint and credentials remain environment-local.",
       "memory_mode": "none",
@@ -2362,9 +2383,10 @@
       "setup": [
         "Import the release .paf into an unpublished destination flow.",
         "Import assets/invoice-read-openapi.json and assets/invoice-actions-openapi.json as separate REST sources. Replace the example server URL with your confirmed Fusion endpoint and configure authentication in PAF. These reconstructed contracts require target-release validation.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
-        "Select a registered model on every Agent node. Disable Agent Memory and cross-thread sharing.",
-        "Check permissions and connectivity against the intended demo environment before publishing."
+        "Check permissions and connectivity against the intended demo environment before publishing.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -2399,13 +2421,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "fusion-invoice-review-actions.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-invoice-review-actions.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/fusion-erp/invoice-review-actions/"
     },
     {
@@ -2438,7 +2460,7 @@
       "action_mode": "Read-only",
       "business_question": "Which sampled classes show enrollment pressure or waitlists?",
       "display_name": "Campus Capacity Review — PeopleSoft",
-      "version": "2",
+      "version": "4",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Campus Solutions Read Only",
       "memory_mode": "none",
@@ -2468,9 +2490,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Campus Solutions Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -2508,13 +2531,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-campus-capacity-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-campus-capacity-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/peoplesoft/campus-capacity-review/"
     },
     {
@@ -2550,7 +2573,7 @@
       "action_mode": "Read-only",
       "business_question": "Is the database showing resource pressure, and what should the DBA check?",
       "display_name": "Database Service Pulse — PeopleSoft",
-      "version": "3",
+      "version": "4",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Human Capital Management Read Only",
       "memory_mode": "none",
@@ -2592,10 +2615,11 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Create or reuse PeopleSoft Human Capital Management Read Only and rebind the nodes listed in assets/source-bindings.json.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "A DBA runs assets/monitoring-setup.sql in the chosen HCM demo PDB after reviewing the existing PAF_DATA owner and PAF_AGENT_RO reader. This is the only new database setup required by this collection.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -2633,13 +2657,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-database-service-pulse.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-database-service-pulse.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/peoplesoft/database-service-pulse/"
     },
     {
@@ -2674,7 +2698,7 @@
       "action_mode": "Read-only",
       "business_question": "Which supplier invoice references may be duplicates that AP should investigate?",
       "display_name": "Invoice Duplicate Review — PeopleSoft",
-      "version": "6",
+      "version": "7",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Financials and Supply Chain Read Only",
       "memory_mode": "none",
@@ -2704,9 +2728,10 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Create or reuse PeopleSoft Financials and Supply Chain Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -2743,13 +2768,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-invoice-duplicate-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-invoice-duplicate-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/peoplesoft/invoice-duplicate-review/"
     },
     {
@@ -2783,7 +2808,7 @@
       "action_mode": "Read-only",
       "business_question": "Which training offerings show capacity pressure or a waitlist?",
       "display_name": "Learning Capacity Review — PeopleSoft",
-      "version": "2",
+      "version": "3",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Enterprise Learning Read Only",
       "memory_mode": "none",
@@ -2813,9 +2838,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Enterprise Learning Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -2853,13 +2879,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-learning-capacity-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-learning-capacity-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/peoplesoft/learning-capacity-review/"
     },
     {
@@ -2894,7 +2920,7 @@
       "action_mode": "Read-only",
       "business_question": "Which training groups passed their target date without recorded completion?",
       "display_name": "Learning Evidence Review — PeopleSoft",
-      "version": "3",
+      "version": "5",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Enterprise Learning Read Only",
       "memory_mode": "none",
@@ -2930,9 +2956,10 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Create or reuse PeopleSoft Enterprise Learning Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -2969,13 +2996,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-learning-evidence-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-learning-evidence-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/peoplesoft/learning-evidence-review/"
     },
     {
@@ -3010,7 +3037,7 @@
       "action_mode": "Read-only",
       "business_question": "How do assignment counts compare with capacity for the sampled positions?",
       "display_name": "Position Coverage Review — PeopleSoft",
-      "version": "2",
+      "version": "3",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Human Capital Management Read Only",
       "memory_mode": "none",
@@ -3046,9 +3073,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Human Capital Management Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -3086,13 +3114,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-position-coverage-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-position-coverage-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/peoplesoft/position-coverage-review/"
     },
     {
@@ -3126,7 +3154,7 @@
       "action_mode": "Read-only",
       "business_question": "What should a buyer verify on the most recently dated purchase orders?",
       "display_name": "Purchase Order Review — PeopleSoft",
-      "version": "2",
+      "version": "3",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Financials and Supply Chain Read Only",
       "memory_mode": "none",
@@ -3162,9 +3190,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Financials and Supply Chain Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -3202,13 +3231,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-purchase-order-review.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-purchase-order-review.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/peoplesoft/purchase-order-review/"
     },
     {
@@ -3242,7 +3271,7 @@
       "action_mode": "Read-only",
       "business_question": "Which case-status and priority groups carry the largest support workload?",
       "display_name": "Service Case Workload — PeopleSoft",
-      "version": "2",
+      "version": "5",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Customer Relationship Management Read Only",
       "memory_mode": "none",
@@ -3272,9 +3301,10 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Customer Relationship Management Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select the model on every Agent node; model connections are excluded from the archive.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+        "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -3312,13 +3342,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-service-case-workload.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-service-case-workload.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/peoplesoft/service-case-workload/"
     },
     {
@@ -3353,7 +3383,7 @@
       "action_mode": "Read-only",
       "business_question": "Which departments have the most assignments and FTE—and what do those counts mean?",
       "display_name": "Workforce Planning Brief — PeopleSoft",
-      "version": "3",
+      "version": "5",
       "platform_version": "26.7.0.0.0",
       "connection_context": "PeopleSoft Human Capital Management Read Only",
       "memory_mode": "none",
@@ -3395,9 +3425,10 @@
       ],
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-        "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
         "Create or reuse PeopleSoft Human Capital Management Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+        "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
       "demo_sessions": [
         {
@@ -3433,13 +3464,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-workforce-planning.paf",
-      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning",
-      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/README.md",
-      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/workflow.json",
+      "folder_url": "",
+      "readme_url": "",
+      "workflow_url": "",
       "openapi_url": "",
-      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/assets/source-bindings.json",
-      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/assets/agent-instructions.md",
-      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-workforce-planning.paf",
+      "dependency_url": "",
+      "instructions_url": "",
+      "release_url": "",
       "page_url": "agents/peoplesoft/workforce-planning/"
     }
   ]

@@ -7,6 +7,109 @@
   "published": true,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "f24e8a4f-397c-45eb-990c-0bd9ca1552c1",
+      "version": 5,
+      "lastUpdatedOn": "2026-10-18T00:45:56.734378Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "text_input"
+        },
+        "hidden": false,
+        "id": "node-ebs-it-operations-triage-input-user_provided_input-node-ebs-it-operations-triage-intent-text_input",
+        "source": "node-ebs-it-operations-triage-input",
+        "sourceHandle": "user_provided_input-node-ebs-it-operations-triage-input",
+        "target": "node-ebs-it-operations-triage-intent",
+        "targetHandle": "text_input-node-ebs-it-operations-triage-intent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "false_message"
+        },
+        "hidden": false,
+        "id": "node-ebs-it-operations-triage-input-user_provided_input-node-ebs-it-operations-triage-intent-false_message",
+        "source": "node-ebs-it-operations-triage-input",
+        "sourceHandle": "user_provided_input-node-ebs-it-operations-triage-input",
+        "target": "node-ebs-it-operations-triage-intent",
+        "targetHandle": "false_message-node-ebs-it-operations-triage-intent"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "node-ebs-it-operations-triage-outage-db-tools-node-ebs-it-operations-triage-outage-tools",
+        "source": "node-ebs-it-operations-triage-outage-db",
+        "sourceHandle": "tools-node-ebs-it-operations-triage-outage-db",
+        "target": "node-ebs-it-operations-triage-outage",
+        "targetHandle": "tools-node-ebs-it-operations-triage-outage"
+      },
+      {
+        "data": {
+          "sourceHandleId": "true_output",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-ebs-it-operations-triage-intent-true_output-node-ebs-it-operations-triage-outage-prompt",
+        "source": "node-ebs-it-operations-triage-intent",
+        "sourceHandle": "true_output-node-ebs-it-operations-triage-intent",
+        "target": "node-ebs-it-operations-triage-outage",
+        "targetHandle": "prompt-node-ebs-it-operations-triage-outage"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-ebs-it-operations-triage-outage-tool_output-node-ebs-it-operations-triage-outage-answer-message",
+        "source": "node-ebs-it-operations-triage-outage",
+        "sourceHandle": "tool_output-node-ebs-it-operations-triage-outage",
+        "target": "node-ebs-it-operations-triage-outage-answer",
+        "targetHandle": "message-node-ebs-it-operations-triage-outage-answer"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "node-ebs-it-operations-triage-batch-db-tools-node-ebs-it-operations-triage-batch-tools",
+        "source": "node-ebs-it-operations-triage-batch-db",
+        "sourceHandle": "tools-node-ebs-it-operations-triage-batch-db",
+        "target": "node-ebs-it-operations-triage-batch",
+        "targetHandle": "tools-node-ebs-it-operations-triage-batch"
+      },
+      {
+        "data": {
+          "sourceHandleId": "false_output",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-ebs-it-operations-triage-intent-false_output-node-ebs-it-operations-triage-batch-prompt",
+        "source": "node-ebs-it-operations-triage-intent",
+        "sourceHandle": "false_output-node-ebs-it-operations-triage-intent",
+        "target": "node-ebs-it-operations-triage-batch",
+        "targetHandle": "prompt-node-ebs-it-operations-triage-batch"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-ebs-it-operations-triage-batch-tool_output-node-ebs-it-operations-triage-batch-answer-message",
+        "source": "node-ebs-it-operations-triage-batch",
+        "sourceHandle": "tool_output-node-ebs-it-operations-triage-batch",
+        "target": "node-ebs-it-operations-triage-batch-answer",
+        "targetHandle": "message-node-ebs-it-operations-triage-batch-answer"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +130,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-it-operations-triage-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -191,13 +293,12 @@
           "title": "Condition",
           "type": "conditionComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-it-operations-triage-intent",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -272,13 +373,12 @@
           "title": "Oracle database tools",
           "type": "oracleDatabaseTools"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-it-operations-triage-outage-db",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 480,
+          "y": 1015.0
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -319,7 +419,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -327,7 +427,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Outage operations specialist",
+              "value": "Outage operations specialist. This is the outage branch selected by the upstream condition. Use only its connected read-only source; return dated observations, gaps and a concrete operator escalation step. The sample does not prove end-to-end availability or authorize restarting, cancelling or administering anything.\n\nSample questions:\n- Users cannot log in. What does the application-node evidence show?\n- Which additional checks must an operator make before declaring an outage?",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -366,7 +466,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -451,13 +551,12 @@
           "title": "Outage operations specialist",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-it-operations-triage-outage",
         "position": {
-          "x": 0,
-          "y": 400
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -503,13 +602,12 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-it-operations-triage-outage-answer",
         "position": {
-          "x": 430,
-          "y": 400
+          "x": 1440,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -584,13 +682,12 @@
           "title": "Oracle database tools",
           "type": "oracleDatabaseTools"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-it-operations-triage-batch-db",
         "position": {
-          "x": 860,
-          "y": 400
+          "x": 480,
+          "y": 1488.0
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -631,7 +728,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -639,7 +736,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Batch operations specialist",
+              "value": "Batch operations specialist. This is the batch branch selected by the upstream condition. Use only its connected read-only source; return dated observations, gaps and a concrete operator escalation step. The sample does not prove end-to-end availability or authorize restarting, cancelling or administering anything.\n\nSample questions:\n- Review the latest concurrent requests and summarize batch follow-up.\n- Do the stored request times prove an SLA breach?",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -678,7 +775,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -763,13 +860,12 @@
           "title": "Batch operations specialist",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-it-operations-triage-batch",
         "position": {
-          "x": 0,
-          "y": 800
+          "x": 960,
+          "y": 1161.0
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -815,127 +911,103 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-it-operations-triage-batch-answer",
         "position": {
-          "x": 430,
-          "y": 800
+          "x": 1440,
+          "y": 545.0
         },
-        "width": 340
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Prepare the inputs\n\nThese parallel sources provide evidence, tools or review time. Follow each connection to its consumer on the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "edges": [
-      {
-        "id": "node-ebs-it-operations-triage-input-user_provided_input-node-ebs-it-operations-triage-intent-text_input",
-        "source": "node-ebs-it-operations-triage-input",
-        "target": "node-ebs-it-operations-triage-intent",
-        "sourceHandle": "user_provided_input-node-ebs-it-operations-triage-input",
-        "targetHandle": "text_input-node-ebs-it-operations-triage-intent",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "text_input"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-it-operations-triage-input-user_provided_input-node-ebs-it-operations-triage-intent-false_message",
-        "source": "node-ebs-it-operations-triage-input",
-        "target": "node-ebs-it-operations-triage-intent",
-        "sourceHandle": "user_provided_input-node-ebs-it-operations-triage-input",
-        "targetHandle": "false_message-node-ebs-it-operations-triage-intent",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "false_message"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-it-operations-triage-outage-db-tools-node-ebs-it-operations-triage-outage-tools",
-        "source": "node-ebs-it-operations-triage-outage-db",
-        "target": "node-ebs-it-operations-triage-outage",
-        "sourceHandle": "tools-node-ebs-it-operations-triage-outage-db",
-        "targetHandle": "tools-node-ebs-it-operations-triage-outage",
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-it-operations-triage-intent-true_output-node-ebs-it-operations-triage-outage-prompt",
-        "source": "node-ebs-it-operations-triage-intent",
-        "target": "node-ebs-it-operations-triage-outage",
-        "sourceHandle": "true_output-node-ebs-it-operations-triage-intent",
-        "targetHandle": "prompt-node-ebs-it-operations-triage-outage",
-        "data": {
-          "sourceHandleId": "true_output",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-it-operations-triage-outage-tool_output-node-ebs-it-operations-triage-outage-answer-message",
-        "source": "node-ebs-it-operations-triage-outage",
-        "target": "node-ebs-it-operations-triage-outage-answer",
-        "sourceHandle": "tool_output-node-ebs-it-operations-triage-outage",
-        "targetHandle": "message-node-ebs-it-operations-triage-outage-answer",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-it-operations-triage-batch-db-tools-node-ebs-it-operations-triage-batch-tools",
-        "source": "node-ebs-it-operations-triage-batch-db",
-        "target": "node-ebs-it-operations-triage-batch",
-        "sourceHandle": "tools-node-ebs-it-operations-triage-batch-db",
-        "targetHandle": "tools-node-ebs-it-operations-triage-batch",
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-it-operations-triage-intent-false_output-node-ebs-it-operations-triage-batch-prompt",
-        "source": "node-ebs-it-operations-triage-intent",
-        "target": "node-ebs-it-operations-triage-batch",
-        "sourceHandle": "false_output-node-ebs-it-operations-triage-intent",
-        "targetHandle": "prompt-node-ebs-it-operations-triage-batch",
-        "data": {
-          "sourceHandleId": "false_output",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-it-operations-triage-batch-tool_output-node-ebs-it-operations-triage-batch-answer-message",
-        "source": "node-ebs-it-operations-triage-batch",
-        "target": "node-ebs-it-operations-triage-batch-answer",
-        "sourceHandle": "tool_output-node-ebs-it-operations-triage-batch",
-        "targetHandle": "message-node-ebs-it-operations-triage-batch-answer",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "f24e8a4f-397c-45eb-990c-0bd9ca1552c1",
-      "version": 3,
-      "lastUpdatedOn": "2026-10-17T07:53:42.782220Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "f24e8a4f-397c-45eb-990c-0bd9ca1552c1",
-  "version": 3,
-  "lastUpdatedOn": "2026-10-17T07:53:42.782220Z",
+  "version": 5,
+  "lastUpdatedOn": "2026-10-18T00:45:56.734378Z",
   "_workflowMetadata": {
     "originWorkflowId": "f24e8a4f-397c-45eb-990c-0bd9ca1552c1",
-    "version": 3,
-    "lastUpdatedOn": "2026-10-17T07:53:42.782220Z"
+    "version": 5,
+    "lastUpdatedOn": "2026-10-18T00:45:56.734378Z"
   }
 }

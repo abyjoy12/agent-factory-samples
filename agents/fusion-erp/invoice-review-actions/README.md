@@ -23,7 +23,7 @@ Editor-owned draft; runtime not exercised. Source sharing, new-flow ownership, m
 1. Import the release .paf into an unpublished destination flow.
 2. Import assets/invoice-read-openapi.json and assets/invoice-actions-openapi.json as separate REST sources. Replace the example server URL with your confirmed Fusion endpoint and configure authentication in PAF. These reconstructed contracts require target-release validation.
 3. Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.
-4. Select a registered model on every Agent node. Disable Agent Memory and cross-thread sharing.
+4. Select `AIW26-PAF-HOL6004-BOO6096` on every Agent node. Disable Agent Memory and cross-thread sharing.
 5. Check permissions and connectivity against the intended demo environment before publishing.
 
 ## Controls and limits
@@ -45,3 +45,5 @@ Editor-owned draft; runtime not exercised. Source sharing, new-flow ownership, m
 - [Consolidation and replication notes](../../../integrations/account-consolidation/)
 - [Invoice read contract](assets/invoice-read-openapi.json)
 - [Invoice action contract](assets/invoice-actions-openapi.json)
+
+The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on `build.oracleagentfactory.com`. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.

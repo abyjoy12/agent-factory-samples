@@ -12,7 +12,7 @@
   "title": "Business Policy Desk — Cross-application",
   "summary": "Answer operational policy questions from a small supplied handbook with section citations and explicit gaps.",
   "category": "Knowledge Management",
-  "version": "3",
+  "version": "4",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -47,9 +47,10 @@
   ],
   "setup": [
     "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
-    "Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.",
     "Upload the supplied paf-demo-policy-handbook.txt using the corresponding Builder component and select the uploaded filename.",
-    "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience."
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+    "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
+    "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
   ],
   "demo": {
     "sessions": [

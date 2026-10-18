@@ -25,7 +25,7 @@ The supplied OpenAPI definition fixes the environment, role, and device header v
 
 1. Create a REST API source from [`assets/jde-fulfillment-openapi.json`](assets/jde-fulfillment-openapi.json), verify its AIS server URL, and configure JDE Basic Auth.
 2. Import `jde-jps920-fulfillment-coach.paf` using the archive password supplied through the approved secret-sharing channel.
-3. Rebind the REST API Tools node to the source created in step 1 and select an available model if necessary.
+3. Rebind the REST API Tools node to the source created in step 1 and select `AIW26-PAF-HOL6004-BOO6096` on every Agent node.
 4. Enable Agent Memory and cross-thread sharing for the same user.
 5. Confirm the agent name and description make the fixed JPS920/read-only scope clear, then run the demo from a clean memory state.
 
@@ -66,3 +66,5 @@ Agent Memory retrieval is relevance-based. The audit section reports the prior f
 - [`assets/agent-instructions.md`](assets/agent-instructions.md) — readable copy of the custom instructions
 - [`assets/jde-fulfillment-openapi.json`](assets/jde-fulfillment-openapi.json) — static JPS920 REST source definition
 - `slides/` — reserved for presentation material; no deck is included
+
+The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on `build.oracleagentfactory.com`. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.

@@ -27,7 +27,7 @@ The supplied OpenAPI definition requires the agent to supply environment, role, 
 1. Create a REST API source from [`assets/jde-fulfillment-openapi.json`](assets/jde-fulfillment-openapi.json), update its AIS server URL if needed, and configure JDE Basic Auth.
 2. Import `jd-edwards-fulfillment-memory-agent.paf` using the archive password supplied through the approved secret-sharing channel.
 3. Rebind the REST API Tools node to the newly created source. Source IDs are local to each Agent Factory environment.
-4. Select an available model if necessary.
+4. Select `AIW26-PAF-HOL6004-BOO6096` on every Agent node.
 5. Enable Agent Memory for the imported agent and enable sharing across chat threads for the same user.
 6. Run the two-session demo below before publishing.
 
@@ -59,3 +59,5 @@ During the original validation, the fresh session recalled all connection values
 - [`assets/agent-instructions.md`](assets/agent-instructions.md) — readable copy of the custom instructions
 - [`assets/jde-fulfillment-openapi.json`](assets/jde-fulfillment-openapi.json) — user-context REST source definition
 - `slides/` — reserved for presentation material; no deck is included
+
+The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on `build.oracleagentfactory.com`. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.

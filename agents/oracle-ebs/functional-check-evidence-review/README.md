@@ -23,7 +23,7 @@ Editor-owned draft; runtime not exercised. Source sharing, new-flow ownership, m
 1. Import the release .paf into an unpublished destination flow.
 2. Provide the pre-existing PAF_DEMO.EBS_CHECK_API package and its control catalog. This sample does not install that custom backend. Use a control reader able to call the six documented routines; preserve the node routine allowlist and auto_commit=false.
 3. Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.
-4. Select a registered model on every Agent node. Disable Agent Memory and cross-thread sharing.
+4. Select `AIW26-PAF-HOL6004-BOO6096` on every Agent node. Disable Agent Memory and cross-thread sharing.
 5. Check permissions and connectivity against the intended demo environment before publishing.
 
 ## Controls and limits
@@ -43,3 +43,5 @@ Editor-owned draft; runtime not exercised. Source sharing, new-flow ownership, m
 - [Source bindings](assets/source-bindings.json)
 - [Agent instructions](assets/agent-instructions.md)
 - [Consolidation and replication notes](../../../integrations/account-consolidation/)
+
+The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on `build.oracleagentfactory.com`. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.

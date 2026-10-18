@@ -7,6 +7,85 @@
   "published": true,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "cf0a76c2-5e5e-4c68-b63a-320bde45579f",
+      "version": 9,
+      "lastUpdatedOn": "2026-10-18T00:45:56.178265Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
+        "id": "node-jde-field-material-readiness-dispatch-plan-message-node-jde-field-material-readiness-plan-and-materials-text_input_1",
+        "source": "node-jde-field-material-readiness-dispatch-plan",
+        "sourceHandle": "message-node-jde-field-material-readiness-dispatch-plan",
+        "target": "node-jde-field-material-readiness-plan-and-materials",
+        "targetHandle": "text_input_1-node-jde-field-material-readiness-plan-and-materials"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
+        "id": "node-jde-field-material-readiness-material-evidence-message-node-jde-field-material-readiness-plan-and-materials-text_input_2",
+        "source": "node-jde-field-material-readiness-material-evidence",
+        "sourceHandle": "message-node-jde-field-material-readiness-material-evidence",
+        "target": "node-jde-field-material-readiness-plan-and-materials",
+        "targetHandle": "text_input_2-node-jde-field-material-readiness-plan-and-materials"
+      },
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
+        "id": "node-jde-field-material-readiness-input-user_provided_input-node-jde-field-material-readiness-question-and-evidence-text_input_1",
+        "source": "node-jde-field-material-readiness-input",
+        "sourceHandle": "user_provided_input-node-jde-field-material-readiness-input",
+        "target": "node-jde-field-material-readiness-question-and-evidence",
+        "targetHandle": "text_input_1-node-jde-field-material-readiness-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
+        "id": "node-jde-field-material-readiness-plan-and-materials-message-node-jde-field-material-readiness-question-and-evidence-text_input_2",
+        "source": "node-jde-field-material-readiness-plan-and-materials",
+        "sourceHandle": "message-node-jde-field-material-readiness-plan-and-materials",
+        "target": "node-jde-field-material-readiness-question-and-evidence",
+        "targetHandle": "text_input_2-node-jde-field-material-readiness-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-jde-field-material-readiness-question-and-evidence-message-node-jde-field-material-readiness-advisor-prompt",
+        "source": "node-jde-field-material-readiness-question-and-evidence",
+        "sourceHandle": "message-node-jde-field-material-readiness-question-and-evidence",
+        "target": "node-jde-field-material-readiness-advisor",
+        "targetHandle": "prompt-node-jde-field-material-readiness-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-jde-field-material-readiness-advisor-tool_output-node-jde-field-material-readiness-output-message",
+        "source": "node-jde-field-material-readiness-advisor",
+        "sourceHandle": "tool_output-node-jde-field-material-readiness-advisor",
+        "target": "node-jde-field-material-readiness-output",
+        "targetHandle": "message-node-jde-field-material-readiness-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +106,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-field-material-readiness-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -77,13 +155,12 @@
           "title": "Read CSV file",
           "type": "readCsv"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-field-material-readiness-dispatch-plan",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -167,13 +244,12 @@
           "title": "SQL query",
           "type": "SelectSqlQueryNode"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-field-material-readiness-material-evidence",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 480,
+          "y": 740.0
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -254,13 +330,12 @@
           "title": "Text combiner",
           "type": "textCombiner"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-field-material-readiness-plan-and-materials",
         "position": {
-          "x": 0,
-          "y": 400
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -341,13 +416,12 @@
           "title": "Text combiner",
           "type": "textCombiner"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-field-material-readiness-question-and-evidence",
         "position": {
-          "x": 430,
-          "y": 400
+          "x": 1440,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -388,7 +462,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -396,7 +470,7 @@
                 "message"
               ],
               "required": false,
-              "value": "JDE Field Material Readiness",
+              "value": "Compare a fictional dispatch plan with live work-order components before a planner commits a field visit.\n\nHow it works: The saved bounded SELECT collects evidence. The workflow formats and combines it with your question; the Agent interprets that context and returns the answer. The supplied fictional dispatch CSV is also included and remains distinct from the application records.\n\nWhat you receive: A fictional dispatch plan paired with real work-order components and indicative stock. The first prompt returns source-backed findings with source dates and units.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Use the sample dispatch plan to check material readiness for one work order. Explain which parts need a planner check.\n- Turn that into a pre-dispatch checklist and keep the fictional visit separate from the JDE evidence.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -435,7 +509,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -518,13 +592,12 @@
           "title": "JDE Field Material Readiness",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-field-material-readiness-advisor",
         "position": {
-          "x": 860,
-          "y": 400
+          "x": 1920,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -570,103 +643,143 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-field-material-readiness-output",
         "position": {
+          "x": 2400,
+          "y": 260
+        },
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
           "x": 0,
-          "y": 800
+          "y": 0
         },
-        "width": 340
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Prepare the inputs\n\nThese parallel sources provide evidence, tools or review time. Follow each connection to its consumer on the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-5",
+        "type": "noteNode",
+        "position": {
+          "x": 1920,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "5. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-6",
+        "type": "noteNode",
+        "position": {
+          "x": 2400,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "6. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "edges": [
-      {
-        "id": "node-jde-field-material-readiness-dispatch-plan-message-node-jde-field-material-readiness-plan-and-materials-text_input_1",
-        "source": "node-jde-field-material-readiness-dispatch-plan",
-        "target": "node-jde-field-material-readiness-plan-and-materials",
-        "sourceHandle": "message-node-jde-field-material-readiness-dispatch-plan",
-        "targetHandle": "text_input_1-node-jde-field-material-readiness-plan-and-materials",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_1"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-jde-field-material-readiness-material-evidence-message-node-jde-field-material-readiness-plan-and-materials-text_input_2",
-        "source": "node-jde-field-material-readiness-material-evidence",
-        "target": "node-jde-field-material-readiness-plan-and-materials",
-        "sourceHandle": "message-node-jde-field-material-readiness-material-evidence",
-        "targetHandle": "text_input_2-node-jde-field-material-readiness-plan-and-materials",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_2"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-jde-field-material-readiness-input-user_provided_input-node-jde-field-material-readiness-question-and-evidence-text_input_1",
-        "source": "node-jde-field-material-readiness-input",
-        "target": "node-jde-field-material-readiness-question-and-evidence",
-        "sourceHandle": "user_provided_input-node-jde-field-material-readiness-input",
-        "targetHandle": "text_input_1-node-jde-field-material-readiness-question-and-evidence",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "text_input_1"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-jde-field-material-readiness-plan-and-materials-message-node-jde-field-material-readiness-question-and-evidence-text_input_2",
-        "source": "node-jde-field-material-readiness-plan-and-materials",
-        "target": "node-jde-field-material-readiness-question-and-evidence",
-        "sourceHandle": "message-node-jde-field-material-readiness-plan-and-materials",
-        "targetHandle": "text_input_2-node-jde-field-material-readiness-question-and-evidence",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_2"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-jde-field-material-readiness-question-and-evidence-message-node-jde-field-material-readiness-advisor-prompt",
-        "source": "node-jde-field-material-readiness-question-and-evidence",
-        "target": "node-jde-field-material-readiness-advisor",
-        "sourceHandle": "message-node-jde-field-material-readiness-question-and-evidence",
-        "targetHandle": "prompt-node-jde-field-material-readiness-advisor",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-jde-field-material-readiness-advisor-tool_output-node-jde-field-material-readiness-output-message",
-        "source": "node-jde-field-material-readiness-advisor",
-        "target": "node-jde-field-material-readiness-output",
-        "sourceHandle": "tool_output-node-jde-field-material-readiness-advisor",
-        "targetHandle": "message-node-jde-field-material-readiness-output",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "cf0a76c2-5e5e-4c68-b63a-320bde45579f",
-      "version": 7,
-      "lastUpdatedOn": "2026-10-17T07:53:42.132923Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "cf0a76c2-5e5e-4c68-b63a-320bde45579f",
-  "version": 7,
-  "lastUpdatedOn": "2026-10-17T07:53:42.132923Z",
+  "version": 9,
+  "lastUpdatedOn": "2026-10-18T00:45:56.178265Z",
   "_workflowMetadata": {
     "originWorkflowId": "cf0a76c2-5e5e-4c68-b63a-320bde45579f",
-    "version": 7,
-    "lastUpdatedOn": "2026-10-17T07:53:42.132923Z"
+    "version": 9,
+    "lastUpdatedOn": "2026-10-18T00:45:56.178265Z"
   }
 }

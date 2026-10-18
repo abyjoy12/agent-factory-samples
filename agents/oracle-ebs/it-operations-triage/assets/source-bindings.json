@@ -25,6 +25,6 @@
     "enabled": false,
     "shareBetweenChatThreads": false
   },
-  "modelBinding": "Select an available tool-capable model on every Agent node after import.",
+  "modelBinding": "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
   "portableExportNote": "Exact official export retains environment-local source IDs, model names and upload filenames as hints. It does not include the connections, credentials, model definitions or uploaded file contents. Rebind each dependency."
 }

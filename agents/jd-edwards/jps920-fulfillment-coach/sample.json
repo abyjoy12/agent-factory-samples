@@ -12,7 +12,7 @@
   "title": "Fulfillment Coach (JPS920) — JD Edwards EnterpriseOne",
   "summary": "End-user-oriented read-only fulfillment coach with builder-managed JPS920 context and implicit learning from incremental corrections.",
   "category": "Supply Chain",
-  "version": "8",
+  "version": "9",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -81,9 +81,11 @@
   "setup": [
     "Create a REST source from assets/jde-fulfillment-openapi.json, verify its JPS920 AIS URL, and configure Basic Auth.",
     "Download and import the release PAF, then rebind its REST API Tools node and select a model.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
     "Enable Agent Memory and cross-thread sharing for the same user.",
     "Delete prior playground memories for the test user and run the two-session demo.",
-    "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories."
+    "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",
+    "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
   ],
   "demo": {
     "sessions": [

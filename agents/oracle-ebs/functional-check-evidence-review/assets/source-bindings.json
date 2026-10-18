@@ -17,7 +17,7 @@
       "backendIncluded": false
     }
   ],
-  "model": "Select an available target model",
+  "model": "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
   "memory": {
     "enabled": false,
     "shareBetweenChatThreads": false

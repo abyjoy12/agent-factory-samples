@@ -7,6 +7,85 @@
   "published": true,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "73453904-f7b3-4436-a337-8100bf6b6d04",
+      "version": 5,
+      "lastUpdatedOn": "2026-10-18T00:45:55.577968Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "node-executive-operations-brief-finance-database-tools-node-executive-operations-brief-receivables-specialist-tools",
+        "source": "node-executive-operations-brief-finance-database",
+        "sourceHandle": "tools-node-executive-operations-brief-finance-database",
+        "target": "node-executive-operations-brief-receivables-specialist",
+        "targetHandle": "tools-node-executive-operations-brief-receivables-specialist"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tools",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "node-executive-operations-brief-finance-database-tools-node-executive-operations-brief-payables-specialist-tools",
+        "source": "node-executive-operations-brief-finance-database",
+        "sourceHandle": "tools-node-executive-operations-brief-finance-database",
+        "target": "node-executive-operations-brief-payables-specialist",
+        "targetHandle": "tools-node-executive-operations-brief-payables-specialist"
+      },
+      {
+        "data": {
+          "sourceHandleId": "agent",
+          "targetHandleId": "subAgents"
+        },
+        "hidden": false,
+        "id": "node-executive-operations-brief-receivables-specialist-agent-node-executive-operations-brief-final-brief-subAgents",
+        "source": "node-executive-operations-brief-receivables-specialist",
+        "sourceHandle": "agent-node-executive-operations-brief-receivables-specialist",
+        "target": "node-executive-operations-brief-final-brief",
+        "targetHandle": "subAgents-node-executive-operations-brief-final-brief"
+      },
+      {
+        "data": {
+          "sourceHandleId": "agent",
+          "targetHandleId": "subAgents"
+        },
+        "hidden": false,
+        "id": "node-executive-operations-brief-payables-specialist-agent-node-executive-operations-brief-final-brief-subAgents",
+        "source": "node-executive-operations-brief-payables-specialist",
+        "sourceHandle": "agent-node-executive-operations-brief-payables-specialist",
+        "target": "node-executive-operations-brief-final-brief",
+        "targetHandle": "subAgents-node-executive-operations-brief-final-brief"
+      },
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-executive-operations-brief-input-user_provided_input-node-executive-operations-brief-final-brief-prompt",
+        "source": "node-executive-operations-brief-input",
+        "sourceHandle": "user_provided_input-node-executive-operations-brief-input",
+        "target": "node-executive-operations-brief-final-brief",
+        "targetHandle": "prompt-node-executive-operations-brief-final-brief"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-executive-operations-brief-final-brief-tool_output-node-executive-operations-brief-output-message",
+        "source": "node-executive-operations-brief-final-brief",
+        "sourceHandle": "tool_output-node-executive-operations-brief-final-brief",
+        "target": "node-executive-operations-brief-output",
+        "targetHandle": "message-node-executive-operations-brief-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +106,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-executive-operations-brief-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -108,13 +186,12 @@
           "title": "Oracle database tools",
           "type": "oracleDatabaseTools"
         },
-        "type": "flowGenericNode",
         "id": "node-executive-operations-brief-finance-database",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -155,7 +232,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -163,7 +240,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Receivables evidence specialist",
+              "value": "Receivables evidence specialist. Called by the executive briefing Agent to inspect bounded receivables evidence through the connected read-only finance tools. Keep organization, currency, actual source dates and sample limits explicit. Return observed facts, evidence gaps and a proposed human review step; do not infer a cash forecast or change records.\n\nSample questions:\n- What receivables evidence is available by organization and currency?\n- What should the finance owner verify before acting on this sample?",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -202,7 +279,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -287,13 +364,12 @@
           "title": "Receivables evidence specialist",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-executive-operations-brief-receivables-specialist",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -334,7 +410,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -342,7 +418,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Payables evidence specialist",
+              "value": "Payables evidence specialist. Called by the executive briefing Agent to inspect bounded payables evidence through the connected read-only finance tools. Keep organization, currency, actual source dates and sample limits explicit. Return observed facts, evidence gaps and a proposed human review step; do not infer a cash forecast or change records.\n\nSample questions:\n- What payables evidence is available by organization and currency?\n- What should the finance owner verify before acting on this sample?",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -381,7 +457,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -466,13 +542,12 @@
           "title": "Payables evidence specialist",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-executive-operations-brief-payables-specialist",
         "position": {
-          "x": 0,
-          "y": 400
+          "x": 960,
+          "y": 1161.0
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -513,7 +588,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -521,7 +596,7 @@
                 "message"
               ],
               "required": false,
-              "value": "Executive briefing editor",
+              "value": "Combine receivables and payables specialists into a leadership brief with separate currency, organization and date scopes.\n\nHow it works: The briefing Agent delegates to receivables and payables specialists. Each uses the shared read-only finance source, then the editor combines their findings into one response.\n\nWhat you receive: Two specialists produce bounded finance evidence without mixing currencies or claiming a cash forecast. The first prompt returns source-backed findings with source dates and units.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Give me an executive brief on receivables and unpaid supplier invoices. Call both specialists and separate facts from decisions.\n- Why can we not use these samples as a cash forecast or net the balances across organizations and currencies?",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -560,7 +635,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -646,13 +721,12 @@
           "title": "Executive briefing editor",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-executive-operations-brief-final-brief",
         "position": {
-          "x": 430,
-          "y": 400
+          "x": 1440,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -698,103 +772,123 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-executive-operations-brief-output",
         "position": {
-          "x": 860,
-          "y": 400
+          "x": 1920,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Provide database tools\n\nThe connected Agent uses this source to inspect permitted database evidence. Follow the source access and query limits.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-5",
+        "type": "noteNode",
+        "position": {
+          "x": 1920,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "5. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "edges": [
-      {
-        "id": "node-executive-operations-brief-finance-database-tools-node-executive-operations-brief-receivables-specialist-tools",
-        "source": "node-executive-operations-brief-finance-database",
-        "target": "node-executive-operations-brief-receivables-specialist",
-        "sourceHandle": "tools-node-executive-operations-brief-finance-database",
-        "targetHandle": "tools-node-executive-operations-brief-receivables-specialist",
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-executive-operations-brief-finance-database-tools-node-executive-operations-brief-payables-specialist-tools",
-        "source": "node-executive-operations-brief-finance-database",
-        "target": "node-executive-operations-brief-payables-specialist",
-        "sourceHandle": "tools-node-executive-operations-brief-finance-database",
-        "targetHandle": "tools-node-executive-operations-brief-payables-specialist",
-        "data": {
-          "sourceHandleId": "tools",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-executive-operations-brief-receivables-specialist-agent-node-executive-operations-brief-final-brief-subAgents",
-        "source": "node-executive-operations-brief-receivables-specialist",
-        "target": "node-executive-operations-brief-final-brief",
-        "sourceHandle": "agent-node-executive-operations-brief-receivables-specialist",
-        "targetHandle": "subAgents-node-executive-operations-brief-final-brief",
-        "data": {
-          "sourceHandleId": "agent",
-          "targetHandleId": "subAgents"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-executive-operations-brief-payables-specialist-agent-node-executive-operations-brief-final-brief-subAgents",
-        "source": "node-executive-operations-brief-payables-specialist",
-        "target": "node-executive-operations-brief-final-brief",
-        "sourceHandle": "agent-node-executive-operations-brief-payables-specialist",
-        "targetHandle": "subAgents-node-executive-operations-brief-final-brief",
-        "data": {
-          "sourceHandleId": "agent",
-          "targetHandleId": "subAgents"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-executive-operations-brief-input-user_provided_input-node-executive-operations-brief-final-brief-prompt",
-        "source": "node-executive-operations-brief-input",
-        "target": "node-executive-operations-brief-final-brief",
-        "sourceHandle": "user_provided_input-node-executive-operations-brief-input",
-        "targetHandle": "prompt-node-executive-operations-brief-final-brief",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-executive-operations-brief-final-brief-tool_output-node-executive-operations-brief-output-message",
-        "source": "node-executive-operations-brief-final-brief",
-        "target": "node-executive-operations-brief-output",
-        "sourceHandle": "tool_output-node-executive-operations-brief-final-brief",
-        "targetHandle": "message-node-executive-operations-brief-output",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "73453904-f7b3-4436-a337-8100bf6b6d04",
-      "version": 3,
-      "lastUpdatedOn": "2026-10-17T07:53:41.939270Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "73453904-f7b3-4436-a337-8100bf6b6d04",
-  "version": 3,
-  "lastUpdatedOn": "2026-10-17T07:53:41.939270Z",
+  "version": 5,
+  "lastUpdatedOn": "2026-10-18T00:45:55.577968Z",
   "_workflowMetadata": {
     "originWorkflowId": "73453904-f7b3-4436-a337-8100bf6b6d04",
-    "version": 3,
-    "lastUpdatedOn": "2026-10-17T07:53:41.939270Z"
+    "version": 5,
+    "lastUpdatedOn": "2026-10-18T00:45:55.577968Z"
   }
 }

@@ -7,6 +7,73 @@
   "published": true,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "12f97b93-1661-415a-882c-d482ea0a0765",
+      "version": 6,
+      "lastUpdatedOn": "2026-10-18T00:38:04.611664Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "json",
+          "targetHandleId": "input_data"
+        },
+        "hidden": false,
+        "id": "node-ebs-sales-commitment-review-evidence-json-node-ebs-sales-commitment-review-parse-input_data",
+        "source": "node-ebs-sales-commitment-review-evidence",
+        "sourceHandle": "json-node-ebs-sales-commitment-review-evidence",
+        "target": "node-ebs-sales-commitment-review-parse",
+        "targetHandle": "input_data-node-ebs-sales-commitment-review-parse"
+      },
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "text_input_1"
+        },
+        "hidden": false,
+        "id": "node-ebs-sales-commitment-review-input-user_provided_input-node-ebs-sales-commitment-review-question-and-evidence-text_input_1",
+        "source": "node-ebs-sales-commitment-review-input",
+        "sourceHandle": "user_provided_input-node-ebs-sales-commitment-review-input",
+        "target": "node-ebs-sales-commitment-review-question-and-evidence",
+        "targetHandle": "text_input_1-node-ebs-sales-commitment-review-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "text_input_2"
+        },
+        "hidden": false,
+        "id": "node-ebs-sales-commitment-review-parse-message-node-ebs-sales-commitment-review-question-and-evidence-text_input_2",
+        "source": "node-ebs-sales-commitment-review-parse",
+        "sourceHandle": "message-node-ebs-sales-commitment-review-parse",
+        "target": "node-ebs-sales-commitment-review-question-and-evidence",
+        "targetHandle": "text_input_2-node-ebs-sales-commitment-review-question-and-evidence"
+      },
+      {
+        "data": {
+          "sourceHandleId": "message",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-ebs-sales-commitment-review-question-and-evidence-message-node-ebs-sales-commitment-review-advisor-prompt",
+        "source": "node-ebs-sales-commitment-review-question-and-evidence",
+        "sourceHandle": "message-node-ebs-sales-commitment-review-question-and-evidence",
+        "target": "node-ebs-sales-commitment-review-advisor",
+        "targetHandle": "prompt-node-ebs-sales-commitment-review-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-ebs-sales-commitment-review-advisor-tool_output-node-ebs-sales-commitment-review-output-message",
+        "source": "node-ebs-sales-commitment-review-advisor",
+        "sourceHandle": "tool_output-node-ebs-sales-commitment-review-advisor",
+        "target": "node-ebs-sales-commitment-review-output",
+        "targetHandle": "message-node-ebs-sales-commitment-review-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +94,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-sales-commitment-review-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -117,13 +183,12 @@
           "title": "SQL query",
           "type": "SelectSqlQueryNode"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-sales-commitment-review-evidence",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -255,13 +320,12 @@
           "title": "Parser",
           "type": "parser"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-sales-commitment-review-parse",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -342,13 +406,12 @@
           "title": "Text combiner",
           "type": "textCombiner"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-sales-commitment-review-question-and-evidence",
         "position": {
-          "x": 0,
-          "y": 400
+          "x": 1440,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -389,7 +452,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -397,7 +460,7 @@
                 "message"
               ],
               "required": false,
-              "value": "EBS Sales Commitment Review",
+              "value": "Help an account team explain unshipped sales-order lines and prepare a grounded customer update.\n\nHow it works: The saved bounded SELECT collects evidence. The workflow formats and combines it with your question; the Agent interprets that context and returns the answer.\n\nWhat you receive: Order-level follow-up with requested versus scheduled dates and no invented promise. The first prompt returns source-backed findings with source dates and units.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Which sales commitments need follow-up? Show the requested and scheduled dates from the sample orders.\n- Draft a customer update for the first order without promising an unconfirmed ship date.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -436,7 +499,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -519,13 +582,12 @@
           "title": "EBS Sales Commitment Review",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-sales-commitment-review-advisor",
         "position": {
-          "x": 430,
-          "y": 400
+          "x": 1920,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -571,91 +633,143 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-ebs-sales-commitment-review-output",
         "position": {
-          "x": 860,
-          "y": 400
+          "x": 2400,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Collect evidence\n\nRun the saved SELECT against the configured source. Preserve its row limits, dates and business scope.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Format the evidence\n\nConvert the upstream result into the bounded text used by the next stage. The saved parser does not expand the source scope.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Join the context\n\nCombine the connected question, evidence or review time. Follow the wires to see which inputs reach the Agent.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-5",
+        "type": "noteNode",
+        "position": {
+          "x": 1920,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "5. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-6",
+        "type": "noteNode",
+        "position": {
+          "x": 2400,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "6. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "edges": [
-      {
-        "id": "node-ebs-sales-commitment-review-evidence-json-node-ebs-sales-commitment-review-parse-input_data",
-        "source": "node-ebs-sales-commitment-review-evidence",
-        "target": "node-ebs-sales-commitment-review-parse",
-        "sourceHandle": "json-node-ebs-sales-commitment-review-evidence",
-        "targetHandle": "input_data-node-ebs-sales-commitment-review-parse",
-        "data": {
-          "sourceHandleId": "json",
-          "targetHandleId": "input_data"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-sales-commitment-review-input-user_provided_input-node-ebs-sales-commitment-review-question-and-evidence-text_input_1",
-        "source": "node-ebs-sales-commitment-review-input",
-        "target": "node-ebs-sales-commitment-review-question-and-evidence",
-        "sourceHandle": "user_provided_input-node-ebs-sales-commitment-review-input",
-        "targetHandle": "text_input_1-node-ebs-sales-commitment-review-question-and-evidence",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "text_input_1"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-sales-commitment-review-parse-message-node-ebs-sales-commitment-review-question-and-evidence-text_input_2",
-        "source": "node-ebs-sales-commitment-review-parse",
-        "target": "node-ebs-sales-commitment-review-question-and-evidence",
-        "sourceHandle": "message-node-ebs-sales-commitment-review-parse",
-        "targetHandle": "text_input_2-node-ebs-sales-commitment-review-question-and-evidence",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "text_input_2"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-sales-commitment-review-question-and-evidence-message-node-ebs-sales-commitment-review-advisor-prompt",
-        "source": "node-ebs-sales-commitment-review-question-and-evidence",
-        "target": "node-ebs-sales-commitment-review-advisor",
-        "sourceHandle": "message-node-ebs-sales-commitment-review-question-and-evidence",
-        "targetHandle": "prompt-node-ebs-sales-commitment-review-advisor",
-        "data": {
-          "sourceHandleId": "message",
-          "targetHandleId": "prompt"
-        },
-        "hidden": false
-      },
-      {
-        "id": "node-ebs-sales-commitment-review-advisor-tool_output-node-ebs-sales-commitment-review-output-message",
-        "source": "node-ebs-sales-commitment-review-advisor",
-        "target": "node-ebs-sales-commitment-review-output",
-        "sourceHandle": "tool_output-node-ebs-sales-commitment-review-advisor",
-        "targetHandle": "message-node-ebs-sales-commitment-review-output",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
-        },
-        "hidden": false
-      }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "12f97b93-1661-415a-882c-d482ea0a0765",
-      "version": 5,
-      "lastUpdatedOn": "2026-10-17T07:53:43.062354Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "12f97b93-1661-415a-882c-d482ea0a0765",
-  "version": 5,
-  "lastUpdatedOn": "2026-10-17T07:53:43.062354Z",
+  "version": 6,
+  "lastUpdatedOn": "2026-10-18T00:38:04.611664Z",
   "_workflowMetadata": {
     "originWorkflowId": "12f97b93-1661-415a-882c-d482ea0a0765",
-    "version": 5,
-    "lastUpdatedOn": "2026-10-17T07:53:43.062354Z"
+    "version": 6,
+    "lastUpdatedOn": "2026-10-18T00:38:04.611664Z"
   }
 }

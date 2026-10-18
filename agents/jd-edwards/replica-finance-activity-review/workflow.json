@@ -7,6 +7,11 @@
   "published": false,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "49a704f2-4634-4dbf-b456-f16c2d9c779a",
+      "version": 3,
+      "lastUpdatedOn": "2026-10-18T00:38:01.910641Z"
+    },
     "edges": [
       {
         "data": {
@@ -68,10 +73,9 @@
         "id": "replica-finance-0",
         "position": {
           "x": 0,
-          "y": 100
+          "y": 260
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -178,11 +182,10 @@
         },
         "id": "replica-finance-1",
         "position": {
-          "x": 430,
-          "y": 100
+          "x": 480,
+          "y": 260
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -223,7 +226,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -231,7 +234,7 @@
                 "message"
               ],
               "required": false,
-              "value": "JDE Replica - Finance Activity Review",
+              "value": "Pre-cutover read-only finance activity review against the GoldenGate JDEDEMO replica.\n\nHow it works: Your question reaches the Agent, which calls the connected allowlisted database tools as needed, checks the returned evidence and produces the chat response.\n\nWhat you receive: A bounded evidence-backed explanation and a concrete next step for a human owner. A clear distinction between the observed sample and claims it cannot establish.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Review the five most recent GL activity rows available in the replica. Show their actual dates, company, currency and ledger context, then suggest a finance review step. Treat this as a bounded sample, not a ledger balance.\n- Explain what this bounded replica evidence cannot prove and what a human owner should verify before acting.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -270,7 +273,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -357,11 +360,10 @@
         },
         "id": "replica-finance-2",
         "position": {
-          "x": 860,
-          "y": 100
+          "x": 960,
+          "y": 260
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -409,27 +411,101 @@
         },
         "id": "replica-finance-3",
         "position": {
-          "x": 1290,
-          "y": 100
+          "x": 1440,
+          "y": 260
         },
-        "type": "flowGenericNode",
-        "width": 340
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Provide a tool\n\nExpose only the configured routine allowlist to the Agent on the right. A connection supplies a tool; the Agent decides when to call it.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "49a704f2-4634-4dbf-b456-f16c2d9c779a",
-      "version": 2,
-      "lastUpdatedOn": "2026-10-17T07:53:42.320065Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "49a704f2-4634-4dbf-b456-f16c2d9c779a",
-  "version": 2,
-  "lastUpdatedOn": "2026-10-17T07:53:42.320065Z",
+  "version": 3,
+  "lastUpdatedOn": "2026-10-18T00:38:01.910641Z",
   "_workflowMetadata": {
     "originWorkflowId": "49a704f2-4634-4dbf-b456-f16c2d9c779a",
-    "version": 2,
-    "lastUpdatedOn": "2026-10-17T07:53:42.320065Z"
+    "version": 3,
+    "lastUpdatedOn": "2026-10-18T00:38:01.910641Z"
   }
 }

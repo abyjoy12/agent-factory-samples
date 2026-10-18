@@ -31,7 +31,7 @@ The exact official workflow export is in `workflow.json`. [source-bindings.json]
 ## Setup
 
 1. Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.
-2. Select an available tool-capable LLM on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.
+2. Select `AIW26-PAF-HOL6004-BOO6096` on every Agent node. The demo used xai.grok-4.3; model connections are not bundled.
 3. Create or reuse PeopleSoft Human Capital Management Read Only and rebind the nodes listed in assets/source-bindings.json.
 4. Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.
 
@@ -59,3 +59,5 @@ All suggested follow-ups are for human review. The workflow does not execute app
 6. **Boundary:** Show one limitation from the instructions and the human decision that remains.
 
 See [slides/README.md](slides/README.md) for a presenter sequence. The root README compares all demos and explains which features are implemented.
+
+The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on `build.oracleagentfactory.com`. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.

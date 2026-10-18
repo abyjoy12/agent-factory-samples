@@ -9,8 +9,8 @@
   "data": {
     "_workflowMetadata": {
       "originWorkflowId": "4ecfdffc-47b2-4912-88db-e94840b76c84",
-      "version": 8,
-      "lastUpdatedOn": "2026-10-11T05:42:39.895329Z"
+      "version": 9,
+      "lastUpdatedOn": "2026-10-18T00:38:00.349954Z"
     },
     "edges": [
       {
@@ -90,7 +90,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -98,7 +98,7 @@
                 "message"
               ],
               "required": false,
-              "value": "End-user-oriented read-only fulfillment coach with builder-managed JPS920 context and implicit learning from incremental corrections.",
+              "value": "End-user-oriented read-only fulfillment coach with builder-managed JPS920 context and implicit learning from incremental corrections.\n\nHow it works: Your question reaches the Agent, which calls the connected REST APIs as needed, checks the returned evidence and produces the chat response. Agent Memory recalls relevant user context and corrections across chats when enabled for this workflow.\n\nWhat you receive: The agent connects without asking for environment, role, device, or credentials. The earliest requested active line wins; status-900 lines stay out.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Can you review today's backorders and tell me what we should tackle first?\n- Explain which prior business corrections you applied and show the donor reserve arithmetic. Do not make JDE changes.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -142,7 +142,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -227,17 +227,11 @@
           "title": "Agent",
           "type": "agentStep"
         },
-        "dragging": false,
         "id": "node-1789339734498-34b8ca59-1179-4522-8bb5-fac29a34b943",
-        "measured": {
-          "height": 800,
-          "width": 284
-        },
         "position": {
-          "x": 533.1849132176235,
-          "y": 468.90269511891563
+          "x": 960,
+          "y": 260
         },
-        "selected": false,
         "type": "flowGenericNode"
       },
       {
@@ -287,17 +281,11 @@
           "title": "REST API tools",
           "type": "restAPITools"
         },
-        "dragging": false,
         "id": "node-1789339741326-8a9c76fc-ab6c-4553-9206-8c667b3ae3f1",
-        "measured": {
-          "height": 247,
-          "width": 284
-        },
         "position": {
-          "x": 110.04886936112555,
-          "y": 548.7513028494207
+          "x": 480,
+          "y": 260
         },
-        "selected": false,
         "type": "flowGenericNode"
       },
       {
@@ -319,17 +307,11 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "dragging": false,
         "id": "node-1789339747507-4c848550-2a3b-4662-897d-8b7baba14aa4",
-        "measured": {
-          "height": 141,
-          "width": 214
-        },
         "position": {
-          "x": 116.46448566308746,
-          "y": 1066.0393252974307
+          "x": 0,
+          "y": 260
         },
-        "selected": false,
         "type": "flowGenericNode"
       },
       {
@@ -377,26 +359,102 @@
           "type": "chatOutputComponent"
         },
         "id": "node-1789339749198-84d6cf13-4258-4757-b42a-9894ba7b6e1a",
-        "measured": {
-          "height": 185,
-          "width": 214
-        },
         "position": {
-          "x": 979.6701157687652,
-          "y": 966.0235415405568
+          "x": 1440,
+          "y": 260
         },
         "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Provide API tools\n\nThese environment-local REST sources supply tools to the Agent. Inspect each source's allowed operations and authentication before use.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
     ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "4ecfdffc-47b2-4912-88db-e94840b76c84",
-  "version": 8,
-  "lastUpdatedOn": "2026-10-11T05:42:39.895329Z",
+  "version": 9,
+  "lastUpdatedOn": "2026-10-18T00:38:00.349954Z",
   "_workflowMetadata": {
     "originWorkflowId": "4ecfdffc-47b2-4912-88db-e94840b76c84",
-    "version": 8,
-    "lastUpdatedOn": "2026-10-11T05:42:39.895329Z"
+    "version": 9,
+    "lastUpdatedOn": "2026-10-18T00:38:00.349954Z"
   }
 }

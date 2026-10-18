@@ -12,7 +12,7 @@
   "title": "Service Case Workload — PeopleSoft",
   "summary": "Review non-secure CRM case workload by business unit, raw status and priority without exposing case text.",
   "category": "Customer Service",
-  "version": "2",
+  "version": "5",
   "platform": {
     "product": "Oracle AI Database Private Agent Factory",
     "applicationVersion": "26.7.0.0.0"
@@ -47,9 +47,10 @@
   "setup": [
     "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
     "Rebind each database node to PeopleSoft Customer Relationship Management Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-    "Select the model on every Agent node; model connections are excluded from the archive.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
     "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
-    "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up."
+    "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
+    "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
   ],
   "demo": {
     "sessions": [

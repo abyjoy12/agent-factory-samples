@@ -7,6 +7,49 @@
   "published": true,
   "flowGraph": true,
   "data": {
+    "_workflowMetadata": {
+      "originWorkflowId": "e18ca185-c08f-4990-afd5-442d3769224b",
+      "version": 4,
+      "lastUpdatedOn": "2026-10-18T00:38:02.773433Z"
+    },
+    "edges": [
+      {
+        "data": {
+          "sourceHandleId": "tool",
+          "targetHandleId": "tools"
+        },
+        "hidden": false,
+        "id": "node-jde-supplier-follow-up-purchase-lines-tool-node-jde-supplier-follow-up-advisor-tools",
+        "source": "node-jde-supplier-follow-up-purchase-lines",
+        "sourceHandle": "tool-node-jde-supplier-follow-up-purchase-lines",
+        "target": "node-jde-supplier-follow-up-advisor",
+        "targetHandle": "tools-node-jde-supplier-follow-up-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "user_provided_input",
+          "targetHandleId": "prompt"
+        },
+        "hidden": false,
+        "id": "node-jde-supplier-follow-up-input-user_provided_input-node-jde-supplier-follow-up-advisor-prompt",
+        "source": "node-jde-supplier-follow-up-input",
+        "sourceHandle": "user_provided_input-node-jde-supplier-follow-up-input",
+        "target": "node-jde-supplier-follow-up-advisor",
+        "targetHandle": "prompt-node-jde-supplier-follow-up-advisor"
+      },
+      {
+        "data": {
+          "sourceHandleId": "tool_output",
+          "targetHandleId": "message"
+        },
+        "hidden": false,
+        "id": "node-jde-supplier-follow-up-advisor-tool_output-node-jde-supplier-follow-up-output-message",
+        "source": "node-jde-supplier-follow-up-advisor",
+        "sourceHandle": "tool_output-node-jde-supplier-follow-up-advisor",
+        "target": "node-jde-supplier-follow-up-output",
+        "targetHandle": "message-node-jde-supplier-follow-up-output"
+      }
+    ],
     "nodes": [
       {
         "data": {
@@ -27,13 +70,12 @@
           "title": "Chat input",
           "type": "chatInputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-supplier-follow-up-input",
         "position": {
           "x": 0,
-          "y": 0
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -138,13 +180,12 @@
           "title": "Oracle PL/SQL executor",
           "type": "oraclePLSQLExecutor"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-supplier-follow-up-purchase-lines",
         "position": {
-          "x": 430,
-          "y": 0
+          "x": 480,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -185,7 +226,7 @@
                 "label": "Agent description",
                 "placeholder": null
               },
-              "componentType": "inputText",
+              "componentType": "textArea",
               "display": true,
               "displayCondition": null,
               "dynamic": false,
@@ -193,7 +234,7 @@
                 "message"
               ],
               "required": false,
-              "value": "JDE Supplier Follow-up Desk",
+              "value": "Prepare a focused supplier follow-up list from open purchase lines without changing purchase orders.\n\nHow it works: Your question reaches the Agent, which calls the connected allowlisted database tools as needed, checks the returned evidence and produces the chat response.\n\nWhat you receive: A short evidence-backed follow-up queue and a draft inquiry. The first prompt returns source-backed findings with source dates and units.\n\nChanges: read-only analysis; any drafts or recommendations require a human follow-up.\n\nSample questions:\n- Show ten open purchase lines and tell the buyer which supplier commitments to check first. Keep historical dates visible.\n- Draft a short follow-up for the first supplier, referencing the PO and item. Do not send it.",
               "valueType": "str"
             },
             "custom_instruction": {
@@ -232,7 +273,7 @@
               "displayCondition": null,
               "inputTypes": null,
               "required": false,
-              "value": "xai.grok-4.3",
+              "value": "AIW26-PAF-HOL6004-BOO6096",
               "valueType": "str"
             },
             "prompt": {
@@ -317,13 +358,12 @@
           "title": "JDE Supplier Follow-up Desk",
           "type": "agentStep"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-supplier-follow-up-advisor",
         "position": {
-          "x": 860,
-          "y": 0
+          "x": 960,
+          "y": 260
         },
-        "width": 340
+        "type": "flowGenericNode"
       },
       {
         "data": {
@@ -369,67 +409,103 @@
           "title": "Chat output",
           "type": "chatOutputComponent"
         },
-        "type": "flowGenericNode",
         "id": "node-jde-supplier-follow-up-output",
         "position": {
+          "x": 1440,
+          "y": 260
+        },
+        "type": "flowGenericNode"
+      },
+      {
+        "id": "lab-stage-1",
+        "type": "noteNode",
+        "position": {
           "x": 0,
-          "y": 400
+          "y": 0
         },
-        "width": 340
-      }
-    ],
-    "edges": [
-      {
-        "id": "node-jde-supplier-follow-up-purchase-lines-tool-node-jde-supplier-follow-up-advisor-tools",
-        "source": "node-jde-supplier-follow-up-purchase-lines",
-        "target": "node-jde-supplier-follow-up-advisor",
-        "sourceHandle": "tool-node-jde-supplier-follow-up-purchase-lines",
-        "targetHandle": "tools-node-jde-supplier-follow-up-advisor",
+        "width": 360,
+        "height": 200,
         "data": {
-          "sourceHandleId": "tool",
-          "targetHandleId": "tools"
-        },
-        "hidden": false
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "1. Ask a question\n\nStart in Playground with one of the sample questions in the Agent description. The question travels to the right.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       },
       {
-        "id": "node-jde-supplier-follow-up-input-user_provided_input-node-jde-supplier-follow-up-advisor-prompt",
-        "source": "node-jde-supplier-follow-up-input",
-        "target": "node-jde-supplier-follow-up-advisor",
-        "sourceHandle": "user_provided_input-node-jde-supplier-follow-up-input",
-        "targetHandle": "prompt-node-jde-supplier-follow-up-advisor",
-        "data": {
-          "sourceHandleId": "user_provided_input",
-          "targetHandleId": "prompt"
+        "id": "lab-stage-2",
+        "type": "noteNode",
+        "position": {
+          "x": 480,
+          "y": 0
         },
-        "hidden": false
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "2. Provide a tool\n\nExpose only the configured routine allowlist to the Agent on the right. A connection supplies a tool; the Agent decides when to call it.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       },
       {
-        "id": "node-jde-supplier-follow-up-advisor-tool_output-node-jde-supplier-follow-up-output-message",
-        "source": "node-jde-supplier-follow-up-advisor",
-        "target": "node-jde-supplier-follow-up-output",
-        "sourceHandle": "tool_output-node-jde-supplier-follow-up-advisor",
-        "targetHandle": "message-node-jde-supplier-follow-up-output",
-        "data": {
-          "sourceHandleId": "tool_output",
-          "targetHandleId": "message"
+        "id": "lab-stage-3",
+        "type": "noteNode",
+        "position": {
+          "x": 960,
+          "y": 0
         },
-        "hidden": false
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "3. Review and explain\n\nUse the lab model to interpret the connected context and tools. Agent description contains the purpose, boundaries and sample questions.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
+      },
+      {
+        "id": "lab-stage-4",
+        "type": "noteNode",
+        "position": {
+          "x": 1440,
+          "y": 0
+        },
+        "width": 360,
+        "height": 200,
+        "data": {
+          "title": "Sticky Note",
+          "description": "Workflow reading guide",
+          "icon": "sticky-note",
+          "noteDetails": {
+            "text": "4. Read the answer\n\nThe workflow returns its response here. Check the evidence, limitations and proposed human next step.",
+            "backgroundColor": "rgb(255, 243, 163)",
+            "textColor": "rgb(0,0,0)"
+          }
+        }
       }
-    ],
-    "_workflowMetadata": {
-      "originWorkflowId": "e18ca185-c08f-4990-afd5-442d3769224b",
-      "version": 3,
-      "lastUpdatedOn": "2026-10-17T07:53:42.597193Z"
-    }
+    ]
   },
   "toolsPythonScript": null,
   "importFileType": null,
   "originWorkflowId": "e18ca185-c08f-4990-afd5-442d3769224b",
-  "version": 3,
-  "lastUpdatedOn": "2026-10-17T07:53:42.597193Z",
+  "version": 4,
+  "lastUpdatedOn": "2026-10-18T00:38:02.773433Z",
   "_workflowMetadata": {
     "originWorkflowId": "e18ca185-c08f-4990-afd5-442d3769224b",
-    "version": 3,
-    "lastUpdatedOn": "2026-10-17T07:53:42.597193Z"
+    "version": 4,
+    "lastUpdatedOn": "2026-10-18T00:38:02.773433Z"
   }
 }

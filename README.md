@@ -90,7 +90,7 @@ Policy Desk uses direct file grounding; it is not a vector Knowledge Agent. The 
 
 - Reuse the existing curated JDE, PeopleSoft and EBS sources. Each `assets/source-bindings.json` names the exact source and affected nodes; schema references and deterministic SQL are included where applicable. Credentials and actual database rows are excluded.
 - **Disable Agent Memory and sharing between chat threads for all ten new demos.** This instance enables them by default. Old prototype responses were recalled during development until these per-flow switches were disabled. The official export does not bundle these switches. Do not alter the original memory demos.
-- After import, rebind source IDs and the model, and upload supplied file assets again. The validated model was `xai.grok-4.3`; output wording and model quality can vary.
+- After import, rebind source IDs, select `AIW26-PAF-HOL6004-BOO6096` on every Agent node, and upload supplied file assets again. This OpenAI Compatible model is configured on `build.oracleagentfactory.com` and is the model for the final AI World labs. Configure the same name in each destination; model definitions and credentials are excluded from workflow archives. The earlier demo validation used `xai.grok-4.3`; output wording and model quality can vary.
 - Historical JDE/EBS/PeopleSoft dates remain historical. Only database-monitoring observations and actual query clocks describe the observation time. The fictional policy and visit are labeled in their assets.
 - To adapt a demo to another application/version, copy it into a new use-case folder with a distinct slug/title, inspect that version's view columns and grain, revise SQL and instructions, and repeat the business prompt. Do not assume EBS, PeopleSoft and JDE status codes, effective dates or units are interchangeable. These samples do not claim validation on every application version.
 
@@ -134,6 +134,10 @@ Each use-case folder under `agents/<application>/<use-case>/` contains:
 | `slides/` | Optional presentation material |
 
 `workflow.json` is not presented as Open Agent Spec. It is the product's serialized visual custom-flow payload. The original REST-based JDE flows currently cannot be exported as portable Open Agent Spec because their REST API Tools nodes are implemented by the Agent Builder runtime.
+
+The 2026-10-18 presentation update arranges all 28 catalog workflows from left to right, adds numbered native sticky notes above each stage, and expands all 31 Agent Description fields with workflow guidance and sample questions. Generic cards use the builder's natural dimensions. Workflow wiring, tools, publication state and memory settings are preserved. Sources were obtained again through the official native `.paf` export after updating the build instance. See [layout verification](integrations/workflow-layout/README.md) for the checks and their scope.
+
+`python scripts/prepare_lab_workflows.py` reapplies the layout and lab-model conventions to local source files. Follow any live update with an official export to capture the server's new lineage version before rebuilding release archives.
 
 Generated `.paf` files are ignored by Git and must never be committed. The release workflow packages every `workflow.json`, decrypts the new archive in memory, compares the recovered JSON and metadata with the source, and only then publishes it.
 
