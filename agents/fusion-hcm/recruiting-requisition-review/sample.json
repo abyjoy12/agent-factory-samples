@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "fusion-recruiting-requisition-review",
+  "application": {
+    "slug": "fusion-hcm",
+    "name": "Fusion HCM"
+  },
+  "useCase": {
+    "slug": "recruiting-requisition-review",
+    "name": "Workload review"
+  },
+  "title": "Recruiting Requisition Review — Fusion HCM",
+  "summary": "Review recruiting requisition phases and states before hiring-team follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+  "category": "Human resources",
+  "version": "1",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "One tenant-local Fusion Pack - recruiting-requisition-review REST source; bind after import.",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import."
+  },
+  "capabilities": [
+    "Review recruiting requisition phases and states before hiring-team follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+    "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+    "Separate observed evidence, missing information and proposed human follow-up."
+  ],
+  "prerequisites": [
+    "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+    "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+    "Read access to /hcmRestApi/resources/11.13.18.05/recruitingJobRequisitions and support for the listed field projection."
+  ],
+  "tools": [
+    {
+      "name": "Fusion Pack - recruiting-requisition-review",
+      "method": "GET",
+      "path": "/hcmRestApi/resources/11.13.18.05/recruitingJobRequisitions",
+      "purpose": "Which recruiting requisition statuses need a hiring-team follow-up?"
+    }
+  ],
+  "safetyControls": [
+    "One GET operation; no application action or message-sending tool.",
+    "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+    "Review requisition configuration and workflow status only. Do not retrieve candidates, rank people or infer time-to-fill and hiring success from this bounded header sample.",
+    "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+  ],
+  "setup": [
+    "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+    "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+    "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+    "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Evidence review and limitations",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Which recruiting requisition statuses need a hiring-team follow-up?"
+          },
+          {
+            "speaker": "User",
+            "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+      "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+      "A concrete human follow-up checklist with application changes made: none."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-18",
+    "environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+    "status": "REST probe passed; portable draft prepared; Build model binding pending",
+    "notes": [
+      "GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.",
+      "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+      "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+      "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "openapi": "assets/openapi.json",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "fusion-recruiting-requisition-review.paf"
+  },
+  "catalog": {
+    "displayName": "Recruiting Requisition Review — Fusion HCM",
+    "question": "Which recruiting requisition statuses need a hiring-team follow-up?",
+    "domains": [
+      "Human resources"
+    ],
+    "modules": [
+      "Recruiting"
+    ],
+    "useCases": [
+      "Workload review"
+    ],
+    "keywords": [
+      "Fusion",
+      "recruitingJobRequisitions",
+      "Recruiting"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Job Catalog Review — Fusion HCM",
+    "version": "1.0.0",
+    "description": "Which job definitions should HR review for consistency?"
+  },
+  "servers": [
+    {
+      "url": "https://fusion.example.invalid"
+    }
+  ],
+  "tags": [
+    {
+      "name": "fusion",
+      "description": "Bounded Fusion business evidence"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "FusionBasic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FusionBasic": []
+    }
+  ],
+  "paths": {
+    "/hcmRestApi/resources/11.13.18.05/jobs": {
+      "get": {
+        "tags": [
+          "fusion"
+        ],
+        "operationId": "fusion_job_catalog_review",
+        "summary": "Which job definitions should HR review for consistency?",
+        "description": "Compare only displayed job-definition attributes. Do not infer pay, performance, required qualifications or employee suitability from a job name. Return only the listed fields; do not expand children. Results are a sample, not a complete population.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "description": "Read a maximum of ten rows.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                10
+              ],
+              "default": 10
+            }
+          },
+          {
+            "name": "onlyData",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "enum": [
+                true
+              ],
+              "default": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": true,
+            "description": "Use this exact projection: JobId,JobCode,Name,ActiveStatus,EffectiveStartDate,EffectiveEndDate",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "JobId,JobCode,Name,ActiveStatus,EffectiveStartDate,EffectiveEndDate"
+              ],
+              "default": "JobId,JobCode,Name,ActiveStatus,EffectiveStartDate,EffectiveEndDate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A bounded Fusion collection; inspect count and hasMore. Empty data is not an access or completeness guarantee.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "hasMore": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

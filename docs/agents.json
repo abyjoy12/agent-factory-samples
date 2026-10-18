@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-18T05:28:03Z",
+  "generatedAt": "2026-10-18T06:56:07Z",
   "agents": [
     {
       "slug": "business-policy-desk",
@@ -104,13 +104,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "business-policy-desk.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/policy-desk/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/business-policy-desk.paf",
       "page_url": "agents/cross-application/policy-desk/"
     },
     {
@@ -222,14 +222,2223 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "executive-operations-brief.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/cross-application/executive-operations-brief/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/executive-operations-brief.paf",
       "page_url": "agents/cross-application/executive-operations-brief/"
+    },
+    {
+      "slug": "fusion-opportunity-pipeline-review",
+      "application_slug": "fusion-cx",
+      "application_name": "Fusion CX",
+      "use_case_slug": "opportunity-pipeline-review",
+      "use_case_name": "Management briefing",
+      "name": "Opportunity Pipeline Review — Fusion CX",
+      "description": "Review opportunity stages, stored dates and amounts by currency. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Customer service",
+      "domains": [
+        "Customer service",
+        "Sales"
+      ],
+      "modules": [
+        "Sales pipeline"
+      ],
+      "functional_use_cases": [
+        "Management briefing"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "opportunities",
+        "Sales pipeline"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which opportunity stages and close dates need a sales review?",
+      "display_name": "Opportunity Pipeline Review — Fusion CX",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - opportunity-pipeline-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review opportunity stages, stored dates and amounts by currency. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /crmRestApi/resources/11.13.18.05/opportunities and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - opportunity-pipeline-review",
+          "method": "GET",
+          "path": "/crmRestApi/resources/11.13.18.05/opportunities",
+          "purpose": "Which opportunity stages and close dates need a sales review?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "A bounded opportunity sample is not a forecast. Keep currencies separate; probabilities, stage meanings and close-date commitments need owner confirmation. Do not score individuals or send messages.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which opportunity stages and close dates need a sales review?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-opportunity-pipeline-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/opportunity-pipeline-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/opportunity-pipeline-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/opportunity-pipeline-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/opportunity-pipeline-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/opportunity-pipeline-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/opportunity-pipeline-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-opportunity-pipeline-review.paf",
+      "page_url": "agents/fusion-cx/opportunity-pipeline-review/"
+    },
+    {
+      "slug": "fusion-service-workload-review",
+      "application_slug": "fusion-cx",
+      "application_name": "Fusion CX",
+      "use_case_slug": "service-workload-review",
+      "use_case_name": "Workload review",
+      "name": "Service Workload Review — Fusion CX",
+      "description": "Review service-request severity, status codes and recorded dates. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Customer service",
+      "domains": [
+        "Customer service",
+        "Sales"
+      ],
+      "modules": [
+        "Service operations"
+      ],
+      "functional_use_cases": [
+        "Workload review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "serviceRequests",
+        "Service operations"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which service-request priorities need a support-manager review?",
+      "display_name": "Service Workload Review — Fusion CX",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - service-workload-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review service-request severity, status codes and recorded dates. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /crmRestApi/resources/11.13.18.05/serviceRequests and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - service-workload-review",
+          "method": "GET",
+          "path": "/crmRestApi/resources/11.13.18.05/serviceRequests",
+          "purpose": "Which service-request priorities need a support-manager review?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Do not retrieve customer messages or personal data. Raw severity/status codes need a business-owned mapping. Do not infer SLA breaches without entitlements, calendars and milestones.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which service-request priorities need a support-manager review?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-service-workload-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/service-workload-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/service-workload-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/service-workload-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/service-workload-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/service-workload-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-cx/service-workload-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-service-workload-review.paf",
+      "page_url": "agents/fusion-cx/service-workload-review/"
+    },
+    {
+      "slug": "fusion-cash-receipt-review",
+      "application_slug": "fusion-erp",
+      "application_name": "Fusion ERP",
+      "use_case_slug": "cash-receipt-review",
+      "use_case_name": "Financial review",
+      "name": "Cash Receipt Review — Fusion ERP",
+      "description": "Review receipt amounts and statuses before a cash-application follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Finance",
+      "domains": [
+        "Finance"
+      ],
+      "modules": [
+        "Cash management"
+      ],
+      "functional_use_cases": [
+        "Financial review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "standardReceipts",
+        "Cash management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which receipt records need a cash-application follow-up?",
+      "display_name": "Cash Receipt Review — Fusion ERP",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - cash-receipt-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review receipt amounts and statuses before a cash-application follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/standardReceipts and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - cash-receipt-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/standardReceipts",
+          "purpose": "Which receipt records need a cash-application follow-up?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "A receipt amount or status alone does not prove it is unapplied or reconciled. Do not expose bank or payer details, apply receipts, reverse entries or infer customer creditworthiness. Status is excluded because this deployment returns HTTP 500 for that attribute; State is shown as returned without an invented status mapping.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which receipt records need a cash-application follow-up?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-cash-receipt-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/cash-receipt-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/cash-receipt-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/cash-receipt-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/cash-receipt-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/cash-receipt-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/cash-receipt-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-cash-receipt-review.paf",
+      "page_url": "agents/fusion-erp/cash-receipt-review/"
+    },
+    {
+      "slug": "fusion-expense-processing-review",
+      "application_slug": "fusion-erp",
+      "application_name": "Fusion ERP",
+      "use_case_slug": "expense-processing-review",
+      "use_case_name": "Exception triage",
+      "name": "Expense Processing Review — Fusion ERP",
+      "description": "Review expense report processing statuses without employee or attachment data. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Finance",
+      "domains": [
+        "Finance"
+      ],
+      "modules": [
+        "Expenses"
+      ],
+      "functional_use_cases": [
+        "Exception triage"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "expenseReports",
+        "Expenses"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which expense reports need a processing-status follow-up?",
+      "display_name": "Expense Processing Review — Fusion ERP",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - expense-processing-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review expense report processing statuses without employee or attachment data. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/expenseReports and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - expense-processing-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/expenseReports",
+          "purpose": "Which expense reports need a processing-status follow-up?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Omit employee names, personal expenses and attachments. Preserve returned status codes; do not label reports fraudulent, approve reimbursements or make employee judgments.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which expense reports need a processing-status follow-up?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-expense-processing-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/expense-processing-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/expense-processing-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/expense-processing-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/expense-processing-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/expense-processing-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/expense-processing-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-expense-processing-review.paf",
+      "page_url": "agents/fusion-erp/expense-processing-review/"
+    },
+    {
+      "slug": "fusion-journal-close-review",
+      "application_slug": "fusion-erp",
+      "application_name": "Fusion ERP",
+      "use_case_slug": "journal-close-review",
+      "use_case_name": "Financial review",
+      "name": "Journal Close Review — Fusion ERP",
+      "description": "Review journal batch periods and statuses before a period-close check. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Finance",
+      "domains": [
+        "Finance"
+      ],
+      "modules": [
+        "General ledger"
+      ],
+      "functional_use_cases": [
+        "Financial review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "journalBatches",
+        "General ledger"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which sampled journal batches need a period-close check?",
+      "display_name": "Journal Close Review — Fusion ERP",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - journal-close-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review journal batch periods and statuses before a period-close check. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/journalBatches and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - journal-close-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/journalBatches",
+          "purpose": "Which sampled journal batches need a period-close check?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Report batch status as returned. A sampled batch is not evidence that a ledger or period is closed. Do not post, reverse, delete or change completion status.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which sampled journal batches need a period-close check?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-journal-close-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/journal-close-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/journal-close-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/journal-close-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/journal-close-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/journal-close-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/journal-close-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-journal-close-review.paf",
+      "page_url": "agents/fusion-erp/journal-close-review/"
+    },
+    {
+      "slug": "fusion-payables-invoice-review",
+      "application_slug": "fusion-erp",
+      "application_name": "Fusion ERP",
+      "use_case_slug": "payables-invoice-review",
+      "use_case_name": "Exception triage",
+      "name": "Payables Invoice Review — Fusion ERP",
+      "description": "Review supplier invoice validation, approval and paid statuses before AP follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Finance",
+      "domains": [
+        "Finance"
+      ],
+      "modules": [
+        "Payables"
+      ],
+      "functional_use_cases": [
+        "Exception triage"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "invoices",
+        "Payables"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which supplier invoices need an AP review before payment?",
+      "display_name": "Payables Invoice Review — Fusion ERP",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - payables-invoice-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review supplier invoice validation, approval and paid statuses before AP follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/invoices and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - payables-invoice-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/invoices",
+          "purpose": "Which supplier invoices need an AP review before payment?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Separate validation, approval and paid statuses. Preserve business unit and currency. InvoiceAmount is not an unpaid balance; do not calculate outstanding amounts without installments and applications. Never approve, pay, hold or cancel invoices.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which supplier invoices need an AP review before payment?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-payables-invoice-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/payables-invoice-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/payables-invoice-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/payables-invoice-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/payables-invoice-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/payables-invoice-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/payables-invoice-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-payables-invoice-review.paf",
+      "page_url": "agents/fusion-erp/payables-invoice-review/"
+    },
+    {
+      "slug": "fusion-project-milestone-review",
+      "application_slug": "fusion-erp",
+      "application_name": "Fusion ERP",
+      "use_case_slug": "project-milestone-review",
+      "use_case_name": "Management briefing",
+      "name": "Project Milestone Review — Fusion ERP",
+      "description": "Review project header dates and statuses before a project-manager follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Finance",
+      "domains": [
+        "Finance"
+      ],
+      "modules": [
+        "Project management"
+      ],
+      "functional_use_cases": [
+        "Management briefing"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "projects",
+        "Project management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which project dates and statuses should a project manager verify?",
+      "display_name": "Project Milestone Review — Fusion ERP",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - project-milestone-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review project header dates and statuses before a project-manager follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/projects and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - project-milestone-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/projects",
+          "purpose": "Which project dates and statuses should a project manager verify?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Project header dates are not detailed milestones or earned-value evidence. Distinguish stored finish dates from forecasts. Do not infer budget variance, completion or delivery promises.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which project dates and statuses should a project manager verify?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-project-milestone-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/project-milestone-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/project-milestone-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/project-milestone-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/project-milestone-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/project-milestone-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/project-milestone-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-project-milestone-review.paf",
+      "page_url": "agents/fusion-erp/project-milestone-review/"
+    },
+    {
+      "slug": "fusion-receivables-invoice-review",
+      "application_slug": "fusion-erp",
+      "application_name": "Fusion ERP",
+      "use_case_slug": "receivables-invoice-review",
+      "use_case_name": "Financial review",
+      "name": "Receivables Invoice Review — Fusion ERP",
+      "description": "Review customer invoice headers and identify the evidence collections still needs. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Finance",
+      "domains": [
+        "Finance"
+      ],
+      "modules": [
+        "Receivables"
+      ],
+      "functional_use_cases": [
+        "Financial review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "receivablesInvoices",
+        "Receivables"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which customer invoices should the collections team review?",
+      "display_name": "Receivables Invoice Review — Fusion ERP",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - receivables-invoice-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review customer invoice headers and identify the evidence collections still needs. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/receivablesInvoices and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - receivables-invoice-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/receivablesInvoices",
+          "purpose": "Which customer invoices should the collections team review?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "A header is not an aged open balance. Do not claim delinquency without due dates and payment applications. Preserve currency, business unit and document status; produce a review checklist.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which customer invoices should the collections team review?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-receivables-invoice-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/receivables-invoice-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/receivables-invoice-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/receivables-invoice-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/receivables-invoice-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/receivables-invoice-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/receivables-invoice-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-receivables-invoice-review.paf",
+      "page_url": "agents/fusion-erp/receivables-invoice-review/"
+    },
+    {
+      "slug": "fusion-department-structure-review",
+      "application_slug": "fusion-hcm",
+      "application_name": "Fusion HCM",
+      "use_case_slug": "department-structure-review",
+      "use_case_name": "Master data review",
+      "name": "Department Structure Review — Fusion HCM",
+      "description": "Review department definitions, statuses and effective dates. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Human resources",
+      "domains": [
+        "Human resources"
+      ],
+      "modules": [
+        "Workforce management"
+      ],
+      "functional_use_cases": [
+        "Master data review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "organizations",
+        "Workforce management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which departments and effective dates need an organization-data review?",
+      "display_name": "Department Structure Review — Fusion HCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - department-structure-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review department definitions, statuses and effective dates. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /hcmRestApi/resources/11.13.18.05/organizations and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - department-structure-review",
+          "method": "GET",
+          "path": "/hcmRestApi/resources/11.13.18.05/organizations",
+          "purpose": "Which departments and effective dates need an organization-data review?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Treat the resource as department definitions, not employee membership or an organizational hierarchy. Do not infer manager relationships or staffing counts.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which departments and effective dates need an organization-data review?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-department-structure-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/department-structure-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/department-structure-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/department-structure-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/department-structure-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/department-structure-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/department-structure-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-department-structure-review.paf",
+      "page_url": "agents/fusion-hcm/department-structure-review/"
+    },
+    {
+      "slug": "fusion-grade-catalog-review",
+      "application_slug": "fusion-hcm",
+      "application_name": "Fusion HCM",
+      "use_case_slug": "grade-catalog-review",
+      "use_case_name": "Master data review",
+      "name": "Grade Catalog Review — Fusion HCM",
+      "description": "Review grade master data and effective dates without worker or salary data. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Human resources",
+      "domains": [
+        "Human resources"
+      ],
+      "modules": [
+        "Workforce management"
+      ],
+      "functional_use_cases": [
+        "Master data review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "grades",
+        "Workforce management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which grade definitions need an HR configuration review?",
+      "display_name": "Grade Catalog Review — Fusion HCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - grade-catalog-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review grade master data and effective dates without worker or salary data. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /hcmRestApi/resources/11.13.18.05/grades and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - grade-catalog-review",
+          "method": "GET",
+          "path": "/hcmRestApi/resources/11.13.18.05/grades",
+          "purpose": "Which grade definitions need an HR configuration review?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Review grade master data only. Do not infer salaries, compensation fairness or individual promotion decisions. No worker or salary data is exposed by this tool projection.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which grade definitions need an HR configuration review?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-grade-catalog-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/grade-catalog-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/grade-catalog-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/grade-catalog-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/grade-catalog-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/grade-catalog-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/grade-catalog-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-grade-catalog-review.paf",
+      "page_url": "agents/fusion-hcm/grade-catalog-review/"
+    },
+    {
+      "slug": "fusion-job-catalog-review",
+      "application_slug": "fusion-hcm",
+      "application_name": "Fusion HCM",
+      "use_case_slug": "job-catalog-review",
+      "use_case_name": "Master data review",
+      "name": "Job Catalog Review — Fusion HCM",
+      "description": "Review job definitions and effective dates for HR data consistency. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Human resources",
+      "domains": [
+        "Human resources"
+      ],
+      "modules": [
+        "Workforce management"
+      ],
+      "functional_use_cases": [
+        "Master data review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "jobs",
+        "Workforce management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which job definitions should HR review for consistency?",
+      "display_name": "Job Catalog Review — Fusion HCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - job-catalog-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review job definitions and effective dates for HR data consistency. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /hcmRestApi/resources/11.13.18.05/jobs and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - job-catalog-review",
+          "method": "GET",
+          "path": "/hcmRestApi/resources/11.13.18.05/jobs",
+          "purpose": "Which job definitions should HR review for consistency?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Compare only displayed job-definition attributes. Do not infer pay, performance, required qualifications or employee suitability from a job name.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which job definitions should HR review for consistency?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-job-catalog-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/job-catalog-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/job-catalog-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/job-catalog-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/job-catalog-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/job-catalog-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/job-catalog-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-job-catalog-review.paf",
+      "page_url": "agents/fusion-hcm/job-catalog-review/"
+    },
+    {
+      "slug": "fusion-position-structure-review",
+      "application_slug": "fusion-hcm",
+      "application_name": "Fusion HCM",
+      "use_case_slug": "position-structure-review",
+      "use_case_name": "Capacity planning",
+      "name": "Position Structure Review — Fusion HCM",
+      "description": "Review position definitions, effective dates and configured FTE or headcount. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Human resources",
+      "domains": [
+        "Human resources"
+      ],
+      "modules": [
+        "Workforce management"
+      ],
+      "functional_use_cases": [
+        "Capacity planning"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "positions",
+        "Workforce management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which position records need a workforce-planning check?",
+      "display_name": "Position Structure Review — Fusion HCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - position-structure-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review position definitions, effective dates and configured FTE or headcount. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /hcmRestApi/resources/11.13.18.05/positions and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - position-structure-review",
+          "method": "GET",
+          "path": "/hcmRestApi/resources/11.13.18.05/positions",
+          "purpose": "Which position records need a workforce-planning check?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Position headcount or FTE is configured capacity, not filled positions or actual employee counts. Respect effective dates. Do not rank people, recommend individual employment decisions or infer vacancies without assignment evidence.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which position records need a workforce-planning check?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-position-structure-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/position-structure-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/position-structure-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/position-structure-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/position-structure-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/position-structure-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/position-structure-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-position-structure-review.paf",
+      "page_url": "agents/fusion-hcm/position-structure-review/"
+    },
+    {
+      "slug": "fusion-recruiting-requisition-review",
+      "application_slug": "fusion-hcm",
+      "application_name": "Fusion HCM",
+      "use_case_slug": "recruiting-requisition-review",
+      "use_case_name": "Workload review",
+      "name": "Recruiting Requisition Review — Fusion HCM",
+      "description": "Review recruiting requisition phases and states before hiring-team follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Human resources",
+      "domains": [
+        "Human resources"
+      ],
+      "modules": [
+        "Recruiting"
+      ],
+      "functional_use_cases": [
+        "Workload review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "recruitingJobRequisitions",
+        "Recruiting"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which recruiting requisition statuses need a hiring-team follow-up?",
+      "display_name": "Recruiting Requisition Review — Fusion HCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - recruiting-requisition-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review recruiting requisition phases and states before hiring-team follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /hcmRestApi/resources/11.13.18.05/recruitingJobRequisitions and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - recruiting-requisition-review",
+          "method": "GET",
+          "path": "/hcmRestApi/resources/11.13.18.05/recruitingJobRequisitions",
+          "purpose": "Which recruiting requisition statuses need a hiring-team follow-up?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Review requisition configuration and workflow status only. Do not retrieve candidates, rank people or infer time-to-fill and hiring success from this bounded header sample.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which recruiting requisition statuses need a hiring-team follow-up?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-recruiting-requisition-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/recruiting-requisition-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/recruiting-requisition-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/recruiting-requisition-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/recruiting-requisition-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/recruiting-requisition-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/recruiting-requisition-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-recruiting-requisition-review.paf",
+      "page_url": "agents/fusion-hcm/recruiting-requisition-review/"
+    },
+    {
+      "slug": "fusion-location-readiness-review",
+      "application_slug": "fusion-hcm",
+      "application_name": "Fusion HCM",
+      "use_case_slug": "location-readiness-review",
+      "use_case_name": "Master data review",
+      "name": "Work Location Review — Fusion HCM",
+      "description": "Review work location activation and effective dates. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Human resources",
+      "domains": [
+        "Human resources"
+      ],
+      "modules": [
+        "Workforce management"
+      ],
+      "functional_use_cases": [
+        "Master data review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "locations",
+        "Workforce management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which work locations need a setup or effective-date check?",
+      "display_name": "Work Location Review — Fusion HCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - location-readiness-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review work location activation and effective dates. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /hcmRestApi/resources/11.13.18.05/locations and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - location-readiness-review",
+          "method": "GET",
+          "path": "/hcmRestApi/resources/11.13.18.05/locations",
+          "purpose": "Which work locations need a setup or effective-date check?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Location activation is configuration evidence, not confirmation of physical accessibility, office capacity or employee presence. Do not retrieve personal addresses.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which work locations need a setup or effective-date check?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-location-readiness-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/location-readiness-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/location-readiness-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/location-readiness-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/location-readiness-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/location-readiness-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-hcm/location-readiness-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-location-readiness-review.paf",
+      "page_url": "agents/fusion-hcm/location-readiness-review/"
+    },
+    {
+      "slug": "fusion-inventory-position-review",
+      "application_slug": "fusion-scm",
+      "application_name": "Fusion SCM",
+      "use_case_slug": "inventory-position-review",
+      "use_case_name": "Material readiness",
+      "name": "Inventory Position Review — Fusion SCM",
+      "description": "Review sampled stock quantities by item, organization, subinventory and unit. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Supply chain",
+      "domains": [
+        "Supply chain",
+        "Procurement"
+      ],
+      "modules": [
+        "Inventory"
+      ],
+      "functional_use_cases": [
+        "Material readiness"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "inventoryOnhandBalances",
+        "Inventory"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "What does the sampled stock position show by organization and unit?",
+      "display_name": "Inventory Position Review — Fusion SCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - inventory-position-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review sampled stock quantities by item, organization, subinventory and unit. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/inventoryOnhandBalances and support for the listed field projection.",
+        "One owner-approved inventory OrganizationId; configure its filter locally."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - inventory-position-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/inventoryOnhandBalances",
+          "purpose": "What does the sampled stock position show by organization and unit?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the approved scope from the REST tool description, or ask the user for the organization ID. Never guess or broaden it.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "What does the sampled stock position show by organization and unit?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-inventory-position-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/inventory-position-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/inventory-position-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/inventory-position-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/inventory-position-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/inventory-position-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/inventory-position-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-inventory-position-review.paf",
+      "page_url": "agents/fusion-scm/inventory-position-review/"
+    },
+    {
+      "slug": "fusion-order-fulfillment-review",
+      "application_slug": "fusion-scm",
+      "application_name": "Fusion SCM",
+      "use_case_slug": "order-fulfillment-review",
+      "use_case_name": "Order fulfillment",
+      "name": "Order Fulfillment Review — Fusion SCM",
+      "description": "Review sales-order header statuses and the evidence needed for fulfillment follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Supply chain",
+      "domains": [
+        "Supply chain",
+        "Procurement"
+      ],
+      "modules": [
+        "Order management"
+      ],
+      "functional_use_cases": [
+        "Order fulfillment"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "salesOrdersForOrderHub",
+        "Order management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which sales-order headers need an order-manager follow-up?",
+      "display_name": "Order Fulfillment Review — Fusion SCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - order-fulfillment-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review sales-order header statuses and the evidence needed for fulfillment follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/salesOrdersForOrderHub and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - order-fulfillment-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/salesOrdersForOrderHub",
+          "purpose": "Which sales-order headers need an order-manager follow-up?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "A header status is not proof of line shipment, promised delivery or revenue recognition. Explain missing line and fulfillment evidence. Never release holds, submit or reschedule orders.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which sales-order headers need an order-manager follow-up?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. No rows were returned; root attributes were checked through /describe. A populated projection is not yet verified.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-order-fulfillment-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/order-fulfillment-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/order-fulfillment-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/order-fulfillment-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/order-fulfillment-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/order-fulfillment-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/order-fulfillment-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-order-fulfillment-review.paf",
+      "page_url": "agents/fusion-scm/order-fulfillment-review/"
+    },
+    {
+      "slug": "fusion-purchase-order-follow-up",
+      "application_slug": "fusion-scm",
+      "application_name": "Fusion SCM",
+      "use_case_slug": "purchase-order-follow-up",
+      "use_case_name": "Supplier follow-up",
+      "name": "Purchase Order Follow-up — Fusion SCM",
+      "description": "Review purchase order headers, amounts and statuses before a buyer follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Supply chain",
+      "domains": [
+        "Supply chain",
+        "Procurement"
+      ],
+      "modules": [
+        "Purchasing"
+      ],
+      "functional_use_cases": [
+        "Supplier follow-up"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "purchaseOrders",
+        "Purchasing"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which purchase orders need a buyer or supplier follow-up?",
+      "display_name": "Purchase Order Follow-up — Fusion SCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - purchase-order-follow-up REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review purchase order headers, amounts and statuses before a buyer follow-up. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/purchaseOrders and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - purchase-order-follow-up",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/purchaseOrders",
+          "purpose": "Which purchase orders need a buyer or supplier follow-up?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Header status does not establish delivery lateness, unreceived quantities or supplier performance. Preserve currency and procurement business unit; draft a buyer verification checklist, never communicate a PO.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which purchase orders need a buyer or supplier follow-up?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-purchase-order-follow-up.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/purchase-order-follow-up",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/purchase-order-follow-up/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/purchase-order-follow-up/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/purchase-order-follow-up/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/purchase-order-follow-up/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/purchase-order-follow-up/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-purchase-order-follow-up.paf",
+      "page_url": "agents/fusion-scm/purchase-order-follow-up/"
+    },
+    {
+      "slug": "fusion-staged-order-review",
+      "application_slug": "fusion-scm",
+      "application_name": "Fusion SCM",
+      "use_case_slug": "staged-order-review",
+      "use_case_name": "Exception triage",
+      "name": "Staged Order Intake Review — Fusion SCM",
+      "description": "Review staged sales order intake statuses and source-system references. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Supply chain",
+      "domains": [
+        "Supply chain",
+        "Procurement"
+      ],
+      "modules": [
+        "Order management"
+      ],
+      "functional_use_cases": [
+        "Exception triage"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "salesOrdersForOrderHubRequests",
+        "Order management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which staged sales orders need an integration intake review?",
+      "display_name": "Staged Order Intake Review — Fusion SCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - staged-order-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review staged sales order intake statuses and source-system references. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/salesOrdersForOrderHubRequests and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - staged-order-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/salesOrdersForOrderHubRequests",
+          "purpose": "Which staged sales orders need an integration intake review?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Staged requests are not accepted orders. Preserve source-system context. Do not claim an order was created or resubmit requests.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which staged sales orders need an integration intake review?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-staged-order-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/staged-order-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/staged-order-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/staged-order-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/staged-order-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/staged-order-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/staged-order-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-staged-order-review.paf",
+      "page_url": "agents/fusion-scm/staged-order-review/"
+    },
+    {
+      "slug": "fusion-supplier-profile-review",
+      "application_slug": "fusion-scm",
+      "application_name": "Fusion SCM",
+      "use_case_slug": "supplier-profile-review",
+      "use_case_name": "Master data review",
+      "name": "Supplier Profile Review — Fusion SCM",
+      "description": "Review supplier profile statuses and business relationships. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Supply chain",
+      "domains": [
+        "Supply chain",
+        "Procurement"
+      ],
+      "modules": [
+        "Supplier management"
+      ],
+      "functional_use_cases": [
+        "Master data review"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "suppliers",
+        "Supplier management"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which supplier profile statuses should procurement verify?",
+      "display_name": "Supplier Profile Review — Fusion SCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - supplier-profile-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review supplier profile statuses and business relationships. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/suppliers and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - supplier-profile-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/suppliers",
+          "purpose": "Which supplier profile statuses should procurement verify?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "Do not retrieve tax IDs, bank accounts, contacts or addresses. A status or business relationship does not establish risk rating, spend authorization, onboarding completion or compliance.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which supplier profile statuses should procurement verify?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-supplier-profile-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supplier-profile-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supplier-profile-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supplier-profile-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supplier-profile-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supplier-profile-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supplier-profile-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-supplier-profile-review.paf",
+      "page_url": "agents/fusion-scm/supplier-profile-review/"
+    },
+    {
+      "slug": "fusion-supply-request-review",
+      "application_slug": "fusion-scm",
+      "application_name": "Fusion SCM",
+      "use_case_slug": "supply-request-review",
+      "use_case_name": "Exception triage",
+      "name": "Supply Request Review — Fusion SCM",
+      "description": "Review supply request references and orchestration statuses. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+      "category": "Supply chain",
+      "domains": [
+        "Supply chain",
+        "Procurement"
+      ],
+      "modules": [
+        "Supply orchestration"
+      ],
+      "functional_use_cases": [
+        "Exception triage"
+      ],
+      "technical_features": [
+        "REST API tools"
+      ],
+      "keywords": [
+        "Fusion",
+        "supplyRequests",
+        "Supply orchestration"
+      ],
+      "action_mode": "Read-only",
+      "business_question": "Which supply requests need an orchestration follow-up?",
+      "display_name": "Supply Request Review — Fusion SCM",
+      "version": "1",
+      "platform_version": "26.7.0.0.0",
+      "connection_context": "One tenant-local Fusion Pack - supply-request-review REST source; bind after import.",
+      "memory_mode": "none",
+      "memory_description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import.",
+      "cross_thread_memory": false,
+      "capabilities": [
+        "Review supply request references and orchestration statuses. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+        "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+        "Separate observed evidence, missing information and proposed human follow-up."
+      ],
+      "prerequisites": [
+        "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+        "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+        "Read access to /fscmRestApi/resources/11.13.18.05/supplyRequests and support for the listed field projection."
+      ],
+      "tools": [
+        {
+          "name": "Fusion Pack - supply-request-review",
+          "method": "GET",
+          "path": "/fscmRestApi/resources/11.13.18.05/supplyRequests",
+          "purpose": "Which supply requests need an orchestration follow-up?"
+        }
+      ],
+      "safety_controls": [
+        "One GET operation; no application action or message-sending tool.",
+        "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+        "A supply request header does not prove execution, available stock, fulfillment or a firm supply date. Refer to returned status without inventing a lifecycle mapping.",
+        "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+      ],
+      "setup": [
+        "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+        "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+        "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+        "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+      ],
+      "demo_sessions": [
+        {
+          "title": "Evidence review and limitations",
+          "steps": [
+            {
+              "speaker": "User",
+              "text": "Which supply requests need an orchestration follow-up?"
+            },
+            {
+              "speaker": "User",
+              "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+            }
+          ]
+        }
+      ],
+      "expected_outcomes": [
+        "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+        "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+        "A concrete human follow-up checklist with application changes made: none."
+      ],
+      "validation_date": "2026-10-18",
+      "validation_environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+      "validation_status": "REST probe passed; portable draft prepared; Build model binding pending",
+      "validation_notes": [
+        "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+        "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+        "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+        "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+      ],
+      "workflow_path": "workflow.json",
+      "metadata_path": "archive-metadata.json",
+      "instructions_path": "assets/agent-instructions.md",
+      "openapi_path": "assets/openapi.json",
+      "dependency_path": "assets/source-bindings.json",
+      "release_asset": "fusion-supply-request-review.paf",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supply-request-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supply-request-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supply-request-review/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supply-request-review/assets/openapi.json",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supply-request-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-scm/supply-request-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-supply-request-review.paf",
+      "page_url": "agents/fusion-scm/supply-request-review/"
     },
     {
       "slug": "jde-replica-backorder-triage",
@@ -334,13 +2543,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-replica-backorder-triage.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-backorder-triage/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-backorder-triage.paf",
       "page_url": "agents/jd-edwards/replica-backorder-triage/"
     },
     {
@@ -442,13 +2651,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-replica-finance-activity-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-finance-activity-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-finance-activity-review.paf",
       "page_url": "agents/jd-edwards/replica-finance-activity-review/"
     },
     {
@@ -552,13 +2761,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-replica-supplier-follow-up.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-supplier-follow-up/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-supplier-follow-up.paf",
       "page_url": "agents/jd-edwards/replica-supplier-follow-up/"
     },
     {
@@ -677,13 +2886,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-replica-work-order-material-risk.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/replica-work-order-material-risk/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-replica-work-order-material-risk.paf",
       "page_url": "agents/jd-edwards/replica-work-order-material-risk/"
     },
     {
@@ -851,13 +3060,13 @@
       "openapi_path": "assets/jde-fulfillment-openapi.json",
       "dependency_path": "",
       "release_asset": "jd-edwards-adaptive-fulfillment-advisor.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
-      "openapi_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/assets/jde-fulfillment-openapi.json",
       "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/adaptive-fulfillment-advisor/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jd-edwards-adaptive-fulfillment-advisor.paf",
       "page_url": "agents/jd-edwards/adaptive-fulfillment-advisor/"
     },
     {
@@ -984,13 +3193,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-field-material-readiness.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/field-material-readiness/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-field-material-readiness.paf",
       "page_url": "agents/jd-edwards/field-material-readiness/"
     },
     {
@@ -1159,13 +3368,13 @@
       "openapi_path": "assets/jde-fulfillment-openapi.json",
       "dependency_path": "",
       "release_asset": "jde-jps920-fulfillment-coach.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
-      "openapi_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/assets/jde-fulfillment-openapi.json",
       "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/jps920-fulfillment-coach/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-jps920-fulfillment-coach.paf",
       "page_url": "agents/jd-edwards/jps920-fulfillment-coach/"
     },
     {
@@ -1308,13 +3517,13 @@
       "openapi_path": "assets/jde-fulfillment-openapi.json",
       "dependency_path": "",
       "release_asset": "jd-edwards-fulfillment-exception-agent.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
-      "openapi_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/assets/jde-fulfillment-openapi.json",
       "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-exception/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jd-edwards-fulfillment-exception-agent.paf",
       "page_url": "agents/jd-edwards/fulfillment-exception/"
     },
     {
@@ -1477,13 +3686,13 @@
       "openapi_path": "assets/jde-fulfillment-openapi.json",
       "dependency_path": "",
       "release_asset": "jd-edwards-fulfillment-memory-agent.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
-      "openapi_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/workflow.json",
+      "openapi_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/assets/jde-fulfillment-openapi.json",
       "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/fulfillment-memory/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jd-edwards-fulfillment-memory-agent.paf",
       "page_url": "agents/jd-edwards/fulfillment-memory/"
     },
     {
@@ -1586,13 +3795,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "jde-supplier-follow-up.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/jd-edwards/supplier-follow-up/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/jde-supplier-follow-up.paf",
       "page_url": "agents/jd-edwards/supplier-follow-up/"
     },
     {
@@ -1753,13 +3962,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "linux-os-monitoring.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/linux/os-monitoring",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/linux/os-monitoring/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/linux/os-monitoring/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/linux/os-monitoring/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/linux/os-monitoring/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/linux-os-monitoring.paf",
       "page_url": "agents/linux/os-monitoring/"
     },
     {
@@ -1864,13 +4073,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-concurrent-history-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/concurrent-history-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-concurrent-history-review.paf",
       "page_url": "agents/oracle-ebs/concurrent-history-review/"
     },
     {
@@ -2003,13 +4212,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-functional-check-evidence-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/functional-check-evidence-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-functional-check-evidence-review.paf",
       "page_url": "agents/oracle-ebs/functional-check-evidence-review/"
     },
     {
@@ -2120,13 +4329,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-it-operations-triage.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/it-operations-triage/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-it-operations-triage.paf",
       "page_url": "agents/oracle-ebs/it-operations-triage/"
     },
     {
@@ -2233,13 +4442,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-purchase-receipt-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/purchase-receipt-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-purchase-receipt-review.paf",
       "page_url": "agents/oracle-ebs/purchase-receipt-review/"
     },
     {
@@ -2344,13 +4553,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-receivables-portfolio-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/receivables-portfolio-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-receivables-portfolio-review.paf",
       "page_url": "agents/oracle-ebs/receivables-portfolio-review/"
     },
     {
@@ -2456,13 +4665,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "ebs-sales-commitment-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/oracle-ebs/sales-commitment-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/ebs-sales-commitment-review.paf",
       "page_url": "agents/oracle-ebs/sales-commitment-review/"
     },
     {
@@ -2588,13 +4797,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "fusion-invoice-review-actions.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/fusion-erp/invoice-review-actions/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/fusion-invoice-review-actions.paf",
       "page_url": "agents/fusion-erp/invoice-review-actions/"
     },
     {
@@ -2698,13 +4907,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-campus-capacity-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/campus-capacity-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-campus-capacity-review.paf",
       "page_url": "agents/peoplesoft/campus-capacity-review/"
     },
     {
@@ -2824,13 +5033,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-database-service-pulse.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/database-service-pulse/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-database-service-pulse.paf",
       "page_url": "agents/peoplesoft/database-service-pulse/"
     },
     {
@@ -2935,13 +5144,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-invoice-duplicate-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/invoice-duplicate-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-invoice-duplicate-review.paf",
       "page_url": "agents/peoplesoft/invoice-duplicate-review/"
     },
     {
@@ -3046,13 +5255,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-learning-capacity-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-capacity-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-learning-capacity-review.paf",
       "page_url": "agents/peoplesoft/learning-capacity-review/"
     },
     {
@@ -3163,13 +5372,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-learning-evidence-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/learning-evidence-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-learning-evidence-review.paf",
       "page_url": "agents/peoplesoft/learning-evidence-review/"
     },
     {
@@ -3281,13 +5490,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-position-coverage-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/position-coverage-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-position-coverage-review.paf",
       "page_url": "agents/peoplesoft/position-coverage-review/"
     },
     {
@@ -3398,13 +5607,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-purchase-order-review.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/purchase-order-review/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-purchase-order-review.paf",
       "page_url": "agents/peoplesoft/purchase-order-review/"
     },
     {
@@ -3509,13 +5718,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-service-case-workload.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/service-case-workload/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-service-case-workload.paf",
       "page_url": "agents/peoplesoft/service-case-workload/"
     },
     {
@@ -3631,13 +5840,13 @@
       "openapi_path": "",
       "dependency_path": "assets/source-bindings.json",
       "release_asset": "psft-workforce-planning.paf",
-      "folder_url": "",
-      "readme_url": "",
-      "workflow_url": "",
+      "folder_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning",
+      "readme_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/README.md",
+      "workflow_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/workflow.json",
       "openapi_url": "",
-      "dependency_url": "",
-      "instructions_url": "",
-      "release_url": "",
+      "dependency_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/assets/source-bindings.json",
+      "instructions_url": "https://github.com/kgvarun/agent-factory-samples/tree/main/agents/peoplesoft/workforce-planning/assets/agent-instructions.md",
+      "release_url": "https://github.com/kgvarun/agent-factory-samples/releases/download/latest/psft-workforce-planning.paf",
       "page_url": "agents/peoplesoft/workforce-planning/"
     }
   ]

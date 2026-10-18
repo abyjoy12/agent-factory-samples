@@ -1,0 +1,110 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Cash Receipt Review — Fusion ERP",
+    "version": "1.0.0",
+    "description": "Which receipt records need a cash-application follow-up?"
+  },
+  "servers": [
+    {
+      "url": "https://fusion.example.invalid"
+    }
+  ],
+  "tags": [
+    {
+      "name": "fusion",
+      "description": "Bounded Fusion business evidence"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "FusionBasic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FusionBasic": []
+    }
+  ],
+  "paths": {
+    "/fscmRestApi/resources/11.13.18.05/standardReceipts": {
+      "get": {
+        "tags": [
+          "fusion"
+        ],
+        "operationId": "fusion_cash_receipt_review",
+        "summary": "Which receipt records need a cash-application follow-up?",
+        "description": "A receipt amount or status alone does not prove it is unapplied or reconciled. Do not expose bank or payer details, apply receipts, reverse entries or infer customer creditworthiness. Status is excluded because this deployment returns HTTP 500 for that attribute; State is shown as returned without an invented status mapping. Return only the listed fields; do not expand children. Results are a sample, not a complete population.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "description": "Read a maximum of ten rows.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                10
+              ],
+              "default": 10
+            }
+          },
+          {
+            "name": "onlyData",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "enum": [
+                true
+              ],
+              "default": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": true,
+            "description": "Use this exact projection: StandardReceiptId,ReceiptNumber,ReceiptDate,Amount,Currency,State,BusinessUnit",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "StandardReceiptId,ReceiptNumber,ReceiptDate,Amount,Currency,State,BusinessUnit"
+              ],
+              "default": "StandardReceiptId,ReceiptNumber,ReceiptDate,Amount,Currency,State,BusinessUnit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A bounded Fusion collection; inspect count and hasMore. Empty data is not an access or completeness guarantee.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "hasMore": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

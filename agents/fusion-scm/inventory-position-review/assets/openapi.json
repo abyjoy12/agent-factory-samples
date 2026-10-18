@@ -1,0 +1,119 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Inventory Position Review — Fusion SCM",
+    "version": "1.0.0",
+    "description": "What does the sampled stock position show by organization and unit?"
+  },
+  "servers": [
+    {
+      "url": "https://fusion.example.invalid"
+    }
+  ],
+  "tags": [
+    {
+      "name": "fusion",
+      "description": "Bounded Fusion business evidence"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "FusionBasic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FusionBasic": []
+    }
+  ],
+  "paths": {
+    "/fscmRestApi/resources/11.13.18.05/inventoryOnhandBalances": {
+      "get": {
+        "tags": [
+          "fusion"
+        ],
+        "operationId": "fusion_inventory_position_review",
+        "summary": "What does the sampled stock position show by organization and unit?",
+        "description": "On-hand quantities are not available-to-promise. Preserve organization, subinventory, item and unit; never sum across units or count the same stock twice. Do not reserve, transfer or promise stock. A single OrganizationId filter is required. Use the approved scope from the REST tool description, or ask the user for the organization ID. Never guess or broaden it. Return only the listed fields; do not expand children. Results are a sample, not a complete population.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "description": "Read a maximum of ten rows.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                10
+              ],
+              "default": 10
+            }
+          },
+          {
+            "name": "onlyData",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "enum": [
+                true
+              ],
+              "default": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": true,
+            "description": "Use this exact projection: InventoryItemId,ItemNumber,OrganizationId,OrganizationCode,SubinventoryCode,PrimaryUOMCode,PrimaryQuantity",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "InventoryItemId,ItemNumber,OrganizationId,OrganizationCode,SubinventoryCode,PrimaryUOMCode,PrimaryQuantity"
+              ],
+              "default": "InventoryItemId,ItemNumber,OrganizationId,OrganizationCode,SubinventoryCode,PrimaryUOMCode,PrimaryQuantity"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "Use one owner-approved OrganizationId=<integer> filter. Ask the user for the organization ID; do not guess.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A bounded Fusion collection; inspect count and hasMore. Empty data is not an access or completeness guarantee.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "hasMore": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

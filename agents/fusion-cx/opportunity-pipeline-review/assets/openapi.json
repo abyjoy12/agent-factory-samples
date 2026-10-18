@@ -1,0 +1,110 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Opportunity Pipeline Review — Fusion CX",
+    "version": "1.0.0",
+    "description": "Which opportunity stages and close dates need a sales review?"
+  },
+  "servers": [
+    {
+      "url": "https://fusion.example.invalid"
+    }
+  ],
+  "tags": [
+    {
+      "name": "fusion",
+      "description": "Bounded Fusion business evidence"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "FusionBasic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FusionBasic": []
+    }
+  ],
+  "paths": {
+    "/crmRestApi/resources/11.13.18.05/opportunities": {
+      "get": {
+        "tags": [
+          "fusion"
+        ],
+        "operationId": "fusion_opportunity_pipeline_review",
+        "summary": "Which opportunity stages and close dates need a sales review?",
+        "description": "A bounded opportunity sample is not a forecast. Keep currencies separate; probabilities, stage meanings and close-date commitments need owner confirmation. Do not score individuals or send messages. Return only the listed fields; do not expand children. Results are a sample, not a complete population.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "description": "Read a maximum of ten rows.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                10
+              ],
+              "default": 10
+            }
+          },
+          {
+            "name": "onlyData",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "enum": [
+                true
+              ],
+              "default": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": true,
+            "description": "Use this exact projection: OptyId,OptyNumber,Name,StatusCode,SalesStage,EffectiveDate,CurrencyCode,Revenue",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "OptyId,OptyNumber,Name,StatusCode,SalesStage,EffectiveDate,CurrencyCode,Revenue"
+              ],
+              "default": "OptyId,OptyNumber,Name,StatusCode,SalesStage,EffectiveDate,CurrencyCode,Revenue"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A bounded Fusion collection; inspect count and hasMore. Empty data is not an access or completeness guarantee.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "hasMore": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

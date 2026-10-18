@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "fusion-staged-order-review",
+  "application": {
+    "slug": "fusion-scm",
+    "name": "Fusion SCM"
+  },
+  "useCase": {
+    "slug": "staged-order-review",
+    "name": "Exception triage"
+  },
+  "title": "Staged Order Intake Review — Fusion SCM",
+  "summary": "Review staged sales order intake statuses and source-system references. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+  "category": "Supply chain",
+  "version": "1",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "One tenant-local Fusion Pack - staged-order-review REST source; bind after import.",
+  "memory": {
+    "mode": "none",
+    "crossThread": false,
+    "description": "Use fresh REST evidence for each question. Disable memory and sharing explicitly after import."
+  },
+  "capabilities": [
+    "Review staged sales order intake statuses and source-system references. Produce a bounded evidence brief, limitations and a human follow-up checklist.",
+    "Use one GET collection and the documented field projection; request at most ten rows and show at most five.",
+    "Separate observed evidence, missing information and proposed human follow-up."
+  ],
+  "prerequisites": [
+    "Factory 26.7 visual Agent Builder and the AIW26-PAF-HOL6004-BOO6096 OpenAI Compatible connection accessible to the importing user.",
+    "A trusted HTTPS Fusion origin reachable from Factory and a suitably scoped integration identity.",
+    "Read access to /fscmRestApi/resources/11.13.18.05/salesOrdersForOrderHubRequests and support for the listed field projection."
+  ],
+  "tools": [
+    {
+      "name": "Fusion Pack - staged-order-review",
+      "method": "GET",
+      "path": "/fscmRestApi/resources/11.13.18.05/salesOrdersForOrderHubRequests",
+      "purpose": "Which staged sales orders need an integration intake review?"
+    }
+  ],
+  "safetyControls": [
+    "One GET operation; no application action or message-sending tool.",
+    "Bounded query and projection instructions. Factory does not enforce OpenAPI enums/defaults; verify actual calls and restrict credentials or use a gateway for hard limits.",
+    "Staged requests are not accepted orders. Preserve source-system context. Do not claim an order was created or resubmit requests.",
+    "Agent Memory and sharing between chat threads disabled; destination switches are configured separately."
+  ],
+  "setup": [
+    "Follow integrations/fusion-apps/README.md; probe the destination resource and approved fields before creating a source.",
+    "Import assets/openapi.json as a new REST source after replacing the example origin. Configure local authentication and organization scope where required.",
+    "Import the encrypted sample as an unpublished draft and bind the REST API Tools node to the new source.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on the Agent. Disable both Agent Memory switches and save.",
+    "Read the numbered notes and expanded Agent Description. Run the primary and limitations questions in Playground; inspect actual tool calls and response evidence before publishing."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Evidence review and limitations",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Which staged sales orders need an integration intake review?"
+          },
+          {
+            "speaker": "User",
+            "text": "What can this sample establish, what evidence is missing, and what should the business owner verify next? Do not change anything."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A short brief based on executed REST evidence, showing no more than five rows and explicit sample coverage.",
+      "Dates, currencies, units and status codes are preserved; empty data and API errors remain explicit.",
+      "A concrete human follow-up checklist with application changes made: none."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-18",
+    "environment": "Authorized Fusion HTTPS endpoint; Factory native components",
+    "status": "REST probe passed; portable draft prepared; Build model binding pending",
+    "notes": [
+      "GET with limit=1 and the listed fields returned HTTP 200. The returned row contained the expected fields with no unexpected fields.",
+      "Four left-to-right stages use native sticky notes and naturally sized cards. Source bindings and model definitions must be configured separately at the destination.",
+      "Workflow assembled from the live Factory native component templates. It has not been officially exported after a successful Build deployment; runtime and rendered-layout checks remain pending.",
+      "The requested AIW26-PAF-HOL6004-BOO6096 connection was not visible to the Kumar deployment account during preparation. No replacement model is claimed."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "openapi": "assets/openapi.json",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "fusion-staged-order-review.paf"
+  },
+  "catalog": {
+    "displayName": "Staged Order Intake Review — Fusion SCM",
+    "question": "Which staged sales orders need an integration intake review?",
+    "domains": [
+      "Supply chain",
+      "Procurement"
+    ],
+    "modules": [
+      "Order management"
+    ],
+    "useCases": [
+      "Exception triage"
+    ],
+    "keywords": [
+      "Fusion",
+      "salesOrdersForOrderHubRequests",
+      "Order management"
+    ],
+    "technicalFeatures": [],
+    "actionMode": "Read-only"
+  }
+}

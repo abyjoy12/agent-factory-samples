@@ -8,9 +8,15 @@ The [agent catalog](https://kgvarun.github.io/agent-factory-samples/) has search
 
 For example, **Capacity planning** brings together workforce, learning and campus scenarios; **Supplier follow-up** spans JDE, EBS and PeopleSoft. Technical filters describe features implemented in the saved graphs. See the [catalog authoring guide](scripts/catalog_assets/README.md) for metadata, vocabulary and presentation changes.
 
+## Fusion review pack — 2026-10-18
+
+The catalog now has **49 samples**, including [twenty new Fusion review agents](integrations/fusion-apps/): six ERP, six HCM, six SCM and two CX workflows. Each exposes one GET collection, follows a numbered left-to-right layout, and includes detailed Agent Description and sample questions. The setup guide includes private authentication, scoped inventory queries, deployment, export and destination validation.
+
+All twenty REST resource probes passed. Four collections were empty, so their attributes were checked through `/describe` and populated results remain untested. The portable workflows are prepared from native Factory components; **Build deployment and Agent conversations remain pending** because the requested `AIW26-PAF-HOL6004-BOO6096` connection is not visible to the deployment account. One initial unpublished draft exists, but its model binding is unverified. These twenty samples are not claimed as successful Build deployments or official server exports. Their validation records preserve this distinction.
+
 ## Linux OS Monitoring — 2026-10-18
 
-The catalog has **29 samples**, including [Linux OS Monitoring](agents/linux/os-monitoring/). It inspects a Linux machine through osquery and six read-only MCP tools, with two application APIs, three background jobs and varied activity. The [end-to-end setup](integrations/linux-os-monitoring/) includes private connectivity and bounded operator scenarios for CPU, memory, disk and service pressure. The native workflow uses **AIW26-PAF-HOL6004-BOO6096**, numbered stage notes and a detailed Agent description with sample questions. See its [validation record](agents/linux/os-monitoring/assets/validation.md) for live results and remaining setup.
+This addition brought the catalog to **29 samples**, including [Linux OS Monitoring](agents/linux/os-monitoring/). It inspects a Linux machine through osquery and six read-only MCP tools, with two application APIs, three background jobs and varied activity. The [end-to-end setup](integrations/linux-os-monitoring/) includes private connectivity and bounded operator scenarios for CPU, memory, disk and service pressure. The native workflow uses **AIW26-PAF-HOL6004-BOO6096**, numbered stage notes and a detailed Agent description with sample questions. See its [validation record](agents/linux/os-monitoring/assets/validation.md) for live results and remaining setup.
 
 ## Selective account consolidation — 2026-10-17
 
@@ -129,8 +135,8 @@ Each use-case folder under `agents/<application>/<use-case>/` contains:
 
 | File | Purpose |
 | --- | --- |
-| `workflow.json` | Exact plaintext Agent Builder custom-flow payload extracted from the official export |
-| `archive-metadata.json` | Server export metadata retained for compatible rebuilds |
+| `workflow.json` | Native Agent Builder custom-flow payload; individual validation records identify official exports and prepared drafts |
+| `archive-metadata.json` | Compatible native archive metadata; official export metadata is preserved when available |
 | `sample.json` | Validated documentation and release manifest source |
 | `README.md` | Contributor-oriented explanation and setup notes |
 | `assets/agent-instructions.md` | Readable copy of the custom instructions |
@@ -138,6 +144,8 @@ Each use-case folder under `agents/<application>/<use-case>/` contains:
 | `slides/` | Optional presentation material |
 
 `workflow.json` is not presented as Open Agent Spec. It is the product's serialized visual custom-flow payload. The original REST-based JDE flows currently cannot be exported as portable Open Agent Spec because their REST API Tools nodes are implemented by the Agent Builder runtime.
+
+The twenty Fusion review workflows are prepared drafts assembled from native component templates. Their metadata records `preparedAt` instead of claiming an official export time. Generated archives pass encryption/decryption round-trip checks; destination import, rendered layout and Agent execution still require validation.
 
 The 2026-10-18 presentation update arranges all 28 catalog workflows from left to right, adds numbered native sticky notes above each stage, and expands all 31 Agent Description fields with workflow guidance and sample questions. Generic cards use the builder's natural dimensions. Workflow wiring, tools, publication state and memory settings are preserved. Sources were obtained again through the official native `.paf` export after updating the build instance. See [layout verification](integrations/workflow-layout/README.md) for the checks and their scope.
 

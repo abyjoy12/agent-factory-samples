@@ -1,0 +1,13 @@
+{
+  "pafUrl": "https://PAF_HOST/agentFactory",
+  "pafCredentialsFile": "/secure/path/paf-login.csv",
+  "fusionUrl": "https://FUSION_HOST",
+  "fusionCredentialsFile": "/secure/path/fusion-login.csv",
+  "model": "AIW26-PAF-HOL6004-BOO6096",
+  "namePrefix": "",
+  "selectedAgents": [],
+  "queryOverrides": {
+    "fusion-inventory-position-review": "OrganizationId=REPLACE_WITH_APPROVED_INTEGER"
+  },
+  "stateFile": "/secure/path/fusion-deployment-state.json"
+}

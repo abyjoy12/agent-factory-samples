@@ -1,0 +1,110 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Grade Catalog Review — Fusion HCM",
+    "version": "1.0.0",
+    "description": "Which grade definitions need an HR configuration review?"
+  },
+  "servers": [
+    {
+      "url": "https://fusion.example.invalid"
+    }
+  ],
+  "tags": [
+    {
+      "name": "fusion",
+      "description": "Bounded Fusion business evidence"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "FusionBasic": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FusionBasic": []
+    }
+  ],
+  "paths": {
+    "/hcmRestApi/resources/11.13.18.05/grades": {
+      "get": {
+        "tags": [
+          "fusion"
+        ],
+        "operationId": "fusion_grade_catalog_review",
+        "summary": "Which grade definitions need an HR configuration review?",
+        "description": "Review grade master data only. Do not infer salaries, compensation fairness or individual promotion decisions. No worker or salary data is exposed by this tool projection. Return only the listed fields; do not expand children. Results are a sample, not a complete population.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "description": "Read a maximum of ten rows.",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                10
+              ],
+              "default": 10
+            }
+          },
+          {
+            "name": "onlyData",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "enum": [
+                true
+              ],
+              "default": true
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": true,
+            "description": "Use this exact projection: GradeId,GradeCode,GradeName,ActiveStatus,EffectiveStartDate,EffectiveEndDate",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "GradeId,GradeCode,GradeName,ActiveStatus,EffectiveStartDate,EffectiveEndDate"
+              ],
+              "default": "GradeId,GradeCode,GradeName,ActiveStatus,EffectiveStartDate,EffectiveEndDate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A bounded Fusion collection; inspect count and hasMore. Empty data is not an access or completeness guarantee.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "hasMore": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

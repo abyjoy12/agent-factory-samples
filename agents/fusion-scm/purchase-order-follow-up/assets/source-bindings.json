@@ -1,0 +1,18 @@
+{
+  "bindings": [
+    {
+      "nodeId": "fusion-purchase-order-follow-up-rest",
+      "field": "src_select",
+      "sourceName": "Fusion Pack - purchase-order-follow-up",
+      "openapi": "openapi.json",
+      "authentication": "Configure locally in Factory; credentials excluded."
+    }
+  ],
+  "model": "AIW26-PAF-HOL6004-BOO6096",
+  "memory": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "publication": "Unpublished until destination validation completes.",
+  "inventoryScope": null
+}
