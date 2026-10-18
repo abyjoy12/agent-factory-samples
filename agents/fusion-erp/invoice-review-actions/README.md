@@ -6,7 +6,7 @@ Review supplier invoices and prepare or execute explicitly requested invoice cre
 
 ## Status
 
-Editor-owned draft using AIW26-PAF-HOL6004-BOO6096. Model, ownership, rendered layout and preserved settings were read back; a fresh read-only conversation returned a response without a provider exception. Both REST sources are authenticated editor-owned copies with compatible tool names. The official export was captured again. No creation or cancellation was tested; validate read evidence, permissions and action behavior before use.
+Editor-owned draft using AIW26-PAF-HOL6004-BOO6096. The agent requested confirmation of a unique USD 0.02 invoice proposal. After confirmation, creation reported **HTTP 403 Forbidden**; independent Fusion lookups found no matching invoice before or after the attempt. Invoice and line cancellation remain untested because the isolated fixture could not be created. Review invoice-write permissions and business-unit access before continuing. See the [validation record](assets/validation.md) for evidence and limits. The workflow, sources, publication and memory settings were unchanged.
 
 ## Capabilities
 
