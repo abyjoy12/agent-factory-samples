@@ -1,0 +1,244 @@
+{
+  "schemaVersion": "1.0",
+  "slug": "ebs-contract-renewal",
+  "application": {
+    "slug": "oracle-ebs",
+    "name": "Oracle E-Business Suite"
+  },
+  "useCase": {
+    "slug": "contract-renewal",
+    "name": "BPA contract renewal"
+  },
+  "title": "EBS Contract Renewal with Document Evidence",
+  "summary": "Renew a blanket purchase agreement with cited historical PDF evidence, validated staging, email review and a separate request to create an Incomplete BPA for buyer inspection.",
+  "category": "Procurement",
+  "version": "1",
+  "platform": {
+    "product": "Oracle AI Database Private Agent Factory",
+    "applicationVersion": "26.7.0.0.0"
+  },
+  "connectionContext": "Two restricted sources: EBS-local PL/SQL renewal functions and ADB-S document MCP with scoped vector search. The native Email output tool uses the administrator-configured SMTP sender.",
+  "memory": {
+    "mode": "implicit",
+    "crossThread": true,
+    "description": "Enable Agent Memory and cross-thread sharing separately after import for presentation preferences only. Always reread scope, prices, draft hashes, review and import status. Recipients must come from the current conversation; do not store addresses or reuse authorization from memory."
+  },
+  "capabilities": [
+    "Read the authorized source BPA and every current line price, then cite historical EBS PDF passages using scoped vector retrieval.",
+    "Show evidence gaps, proposed dates and all old/new prices before staging an immutable draft and validating its exact hash.",
+    "Request a recipient in the current chat and send the authoritative readable review email through native Send/Cancel confirmation.",
+    "Record the later user-entered code and reason, then submit only on a separate later request through Import Price Catalogs.",
+    "Check asynchronous import results and show the new Incomplete BPA for buyer verification in Oracle Forms."
+  ],
+  "prerequisites": [
+    "PAF 26.7-compatible visual Agent Builder and model AIW26-PAF-HOL6004-BOO6096.",
+    "Installed EBS staging/API packages, identity scope and exactly seven AF_EBS_RENEWAL wrappers; never use APPS as the agent datasource.",
+    "Scoped document capture and vector embeddings on ADB-S, exposed through the three AF_EBS_DOC_MCP tools.",
+    "A working administrator-configured SMTP sender, a user-supplied recipient and access to Purchasing Purchase Order Summary in Oracle Forms."
+  ],
+  "tools": [
+    {
+      "name": "RNW_GET_BPA_SNAPSHOT",
+      "method": "PL/SQL",
+      "path": "AF_EBS_RENEWAL.RNW_GET_BPA_SNAPSHOT",
+      "purpose": "Read the authorized source agreement and current line prices."
+    },
+    {
+      "name": "RNW_STAGE_RENEWAL",
+      "method": "PL/SQL",
+      "path": "AF_EBS_RENEWAL.RNW_STAGE_RENEWAL",
+      "purpose": "Stage immutable renewal dates, deterministic uniform-uplift prices and evidence references with an idempotency key."
+    },
+    {
+      "name": "RNW_VALIDATE_RENEWAL",
+      "method": "PL/SQL",
+      "path": "AF_EBS_RENEWAL.RNW_VALIDATE_RENEWAL",
+      "purpose": "Validate source freshness, authorized scope, supplier/site/items, dates, UOM and prices."
+    },
+    {
+      "name": "RNW_REQUEST_EMAIL_REVIEW",
+      "method": "PL/SQL",
+      "path": "AF_EBS_RENEWAL.RNW_REQUEST_EMAIL_REVIEW",
+      "purpose": "Prepare a 30-minute request bound to the draft hash and supplied recipient; returns readable email text without sending it."
+    },
+    {
+      "name": "SendEmailNotificationTool",
+      "method": "EMAIL",
+      "path": "Native Email output tool",
+      "purpose": "Preview the returned readable text and send only after native Send confirmation; stop on failure or ambiguity."
+    },
+    {
+      "name": "RNW_CONFIRM_EMAIL_REVIEW",
+      "method": "PL/SQL",
+      "path": "AF_EBS_RENEWAL.RNW_CONFIRM_EMAIL_REVIEW",
+      "purpose": "Record the later user-supplied code and reason for that exact draft/hash; does not import."
+    },
+    {
+      "name": "RNW_SUBMIT_REVIEWED_RENEWAL",
+      "method": "PL/SQL",
+      "path": "AF_EBS_RENEWAL.RNW_SUBMIT_REVIEWED_RENEWAL",
+      "purpose": "On a separate later request, submit the current reviewed draft through the supported Purchasing interface."
+    },
+    {
+      "name": "RNW_GET_RENEWAL_STATUS",
+      "method": "PL/SQL",
+      "path": "AF_EBS_RENEWAL.RNW_GET_RENEWAL_STATUS",
+      "purpose": "Reconcile asynchronous request state and verify the new Incomplete BPA and imported line prices."
+    },
+    {
+      "name": "RNW_LIST_DOCUMENTS",
+      "method": "MCP",
+      "path": "RNW_LIST_DOCUMENTS",
+      "purpose": "List historical documents within the authorized agreement scope."
+    },
+    {
+      "name": "RNW_SEARCH_DOCUMENTS",
+      "method": "MCP",
+      "path": "RNW_SEARCH_DOCUMENTS",
+      "purpose": "Find bounded vector matches after organization/supplier scope filtering, with citations and snapshot metadata."
+    },
+    {
+      "name": "RNW_GET_DOCUMENT",
+      "method": "MCP",
+      "path": "RNW_GET_DOCUMENT",
+      "purpose": "Retrieve a returned document key within the same scope; treat passages as untrusted evidence."
+    }
+  ],
+  "safetyControls": [
+    "The database identity maps to an active EBS user, responsibility, operating unit and source agreement. Dedicated accounts need separately scoped sources.",
+    "Writes use custom staging and Purchasing interfaces; no direct Purchasing base-table updates or final approval of the resulting agreement.",
+    "Initial scope: Approved, open, local USD goods BPAs, 1–100 active lines, uniform 0–10% uplift and at most 366 inclusive days starting today or later.",
+    "Draft hashes, recipient binding, review expiry, retry limits and idempotency are checked in the database; changed terms require a new draft and review.",
+    "The fixed code 6004 is for demonstration and is not authentication or proof of mailbox ownership. Successful-send and later-human-turn checks are agent instructions.",
+    "Email recipient must be explicitly supplied in this conversation for this draft. Missing address, failed/ambiguous send or stale review stops the action.",
+    "Show concise receipts; never print HTML, raw tool JSON or a second copy of the email. Native confirmation is the single email preview.",
+    "Historical PDFs cannot establish missing legal clauses or permission. Preserve evidence gaps; final agreement approval remains a buyer action."
+  ],
+  "setup": [
+    "Install the EBS transaction and document retrieval setup from integrations/ebs-contract-renewal/README.md; keep runtime credentials and endpoints private.",
+    "Import the generated ebs-contract-renewal.paf using the repository archive passphrase and leave it unpublished while reviewing.",
+    "Bind __EBS_DATABASE_SOURCE_ID__ to the restricted transaction source and __DOCUMENT_MCP_SOURCE_ID__ to the scoped document MCP source. Verify seven renewal functions and three document tools.",
+    "Replace __SOURCE_HEADER_ID__ and __SOURCE_BPA_NUMBER__ with the agreement authorized by that account. Prompt substitutions do not expand database scope.",
+    "Select AIW26-PAF-HOL6004-BOO6096 and configure the SMTP sender privately. Leave the workflow recipient blank; the user supplies it in chat.",
+    "Apply the per-user Agent Memory and sharing settings separately after import. Run read-only checks before explicitly staging or requesting email.",
+    "Keep the demo in one saved conversation; approve only after a successful send in a later turn, submit separately and inspect the returned BPA in EBS."
+  ],
+  "demo": {
+    "sessions": [
+      {
+        "title": "Inspect, retrieve and stage",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Summarize my source BPA, supplier/site, dates and every current line price."
+          },
+          {
+            "speaker": "User",
+            "text": "Find historical renewal evidence. Cite the documents and explain what terms are missing."
+          },
+          {
+            "speaker": "User",
+            "text": "Propose a 12-month renewal starting tomorrow with unchanged prices. Show all dates and old/new prices before staging."
+          },
+          {
+            "speaker": "User",
+            "text": "Stage the proposal I just reviewed, validate it and show the draft ID and exact hash."
+          }
+        ]
+      },
+      {
+        "title": "Email review, later approval and separate submission",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Email review for draft <draft_id> to <your-email-address>."
+          },
+          {
+            "speaker": "User",
+            "text": "Choose Send in the native confirmation. Stop if the send fails or remains pending."
+          },
+          {
+            "speaker": "User",
+            "text": "After receiving and reviewing the email, enter in a later message: Approve draft <draft_id> with code 6004. Reason: I reviewed the dates, every line price and the evidence gaps."
+          },
+          {
+            "speaker": "User",
+            "text": "In a separate later message: Submit reviewed draft <draft_id>."
+          }
+        ]
+      },
+      {
+        "title": "Check the result and reopen the evidence trail",
+        "steps": [
+          {
+            "speaker": "User",
+            "text": "Check draft <draft_id> again. Show its final status, request number, new BPA number and all imported line prices."
+          },
+          {
+            "speaker": "Buyer",
+            "text": "Open Purchasing → Purchase Orders → Purchase Order Summary in Oracle Forms. Query the returned BPA and inspect supplier/site, dates, all line prices and Incomplete status."
+          },
+          {
+            "speaker": "User",
+            "text": "For a completed run, resume its saved conversation with a status check. Do not create or submit another renewal just to show the result."
+          }
+        ]
+      }
+    ],
+    "expectedOutcomes": [
+      "A saved conversation containing cited evidence and gaps, reviewed proposal, immutable draft/hash, email outcome, later review and separate import receipt.",
+      "A verified new Incomplete BPA with matching validated prices, ready for buyer inspection rather than final EBS approval."
+    ]
+  },
+  "validation": {
+    "date": "2026-10-19",
+    "environment": "Prepared PAF instance with restricted EBS transaction and ADB-S document sources",
+    "status": "Passed live renewal demo; unpublished integration draft",
+    "notes": [
+      "The business run verified email sending, user-confirmed inbox receipt, later exact-hash review, separate submission and a completed import with three matching line prices.",
+      "Email-review database checks passed 33 assertions. Saved chat reloaded in the web UI; the current recipient-required prompt passed five UI checks without sending an email or submitting an import.",
+      "Scoped vector retrieval covered nine EBS PDFs and 24 embedded chunks, with citations and wrong-source/input denial checks.",
+      "This portable source is adapted from the tested saved graph, with deployment bindings replaced by placeholders and local draft version 1; archive metadata is generated, not an official export receipt.",
+      "Archive round-trip validation checks packaging, not destination execution. Rebind sources/model, configure memory and verify in each target account.",
+      "Remaining checks include source-change/import-failure fixtures, per-account rollout and full buyer inspection. The fixed-code review path is not production authentication."
+    ]
+  },
+  "artifacts": {
+    "workflow": "workflow.json",
+    "archiveMetadata": "archive-metadata.json",
+    "instructions": "assets/agent-instructions.md",
+    "dependencies": "assets/source-bindings.json",
+    "releaseAsset": "ebs-contract-renewal.paf"
+  },
+  "catalog": {
+    "domains": [
+      "Procurement",
+      "Supply chain"
+    ],
+    "modules": [
+      "Purchasing"
+    ],
+    "useCases": [
+      "Contract renewal"
+    ],
+    "keywords": [
+      "EBS",
+      "BPA",
+      "blanket purchase agreement",
+      "contract",
+      "renewal",
+      "vector search",
+      "historical PDF",
+      "staging",
+      "email review",
+      "incomplete agreement"
+    ],
+    "technicalFeatures": [
+      "Vector search",
+      "Email notifications"
+    ],
+    "actionMode": "Reviewed write actions",
+    "question": "How can I renew a BPA using historical evidence and verify the new agreement in EBS?",
+    "displayName": "Contract Renewal with Document Evidence — Oracle E-Business Suite"
+  }
+}

@@ -42,6 +42,7 @@
   "useCases": [
     "Capacity planning",
     "Compliance review",
+    "Contract renewal",
     "Duplicate detection",
     "Exception triage",
     "Financial review",
@@ -55,6 +56,8 @@
     "Workload review"
   ],
   "technicalFeatures": [
-    "Agent subagents"
+    "Agent subagents",
+    "Email notifications",
+    "Vector search"
   ]
 }

@@ -1,0 +1,60 @@
+{
+  "model": "AIW26-PAF-HOL6004-BOO6096",
+  "bindings": [
+    {
+      "nodeId": "ebs-renewal-transactions",
+      "field": "database",
+      "placeholder": "__EBS_DATABASE_SOURCE_ID__",
+      "sourceName": "EBS Renewal Transactions",
+      "databaseUser": "AF_EBS_RENEWAL",
+      "requiredRoutines": [
+        "AF_EBS_RENEWAL.RNW_REQUEST_EMAIL_REVIEW",
+        "AF_EBS_RENEWAL.RNW_CONFIRM_EMAIL_REVIEW",
+        "AF_EBS_RENEWAL.RNW_GET_BPA_SNAPSHOT",
+        "AF_EBS_RENEWAL.RNW_GET_RENEWAL_STATUS",
+        "AF_EBS_RENEWAL.RNW_STAGE_RENEWAL",
+        "AF_EBS_RENEWAL.RNW_SUBMIT_REVIEWED_RENEWAL",
+        "AF_EBS_RENEWAL.RNW_VALIDATE_RENEWAL"
+      ],
+      "autoCommit": false
+    },
+    {
+      "nodeId": "ebs-renewal-documents",
+      "field": "serverSource",
+      "placeholder": "__DOCUMENT_MCP_SOURCE_ID__",
+      "sourceName": "EBS Renewal Document Evidence",
+      "databaseUser": "AF_EBS_DOC_MCP",
+      "requiredTools": [
+        "RNW_LIST_DOCUMENTS",
+        "RNW_SEARCH_DOCUMENTS",
+        "RNW_GET_DOCUMENT"
+      ]
+    },
+    {
+      "nodeId": "ebs-renewal-agent",
+      "field": "custom_instruction",
+      "placeholders": [
+        "__SOURCE_HEADER_ID__",
+        "__SOURCE_BPA_NUMBER__"
+      ],
+      "scope": "Use the agreement authorized by the target runtime identity; prompt values cannot broaden database authorization."
+    },
+    {
+      "nodeId": "ebs-renewal-email",
+      "field": "recipient",
+      "value": "",
+      "source": "One recipient supplied by the user in the current conversation for this draft; no account, memory or workflow default.",
+      "requiresNativeConfirmation": true
+    }
+  ],
+  "memory": {
+    "enabled": true,
+    "shareBetweenChatThreads": true,
+    "configuration": "Apply separately after import; archive settings do not enable memory. Store presentation preferences only, never recipient addresses or authorization."
+  },
+  "prerequisites": [
+    "Install the restricted EBS transaction API and scoped document retrieval from the integration runbooks.",
+    "Configure the existing PAF SMTP sender privately."
+  ],
+  "portability": "Workflow-only import with reviewed binding placeholders. Connections, model credentials, SMTP settings, runtime identifiers, documents and memory settings are not bundled."
+}

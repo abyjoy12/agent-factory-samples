@@ -52,7 +52,7 @@ The retrieval corpus contains **nine real EBS PDF attachments and 24 embedded ch
 
 ## PAF setup
 
-The [portable workflow](workflow.json) includes model `AIW26-PAF-HOL6004-BOO6096`, a detailed Agent description, eight sample questions and four explanatory sticky notes on a left-to-right canvas. Source-binding placeholders need target configuration.
+The [portable workflow](../../agents/oracle-ebs/contract-renewal/workflow.json) includes model `AIW26-PAF-HOL6004-BOO6096`, a detailed Agent description, eight sample questions and four explanatory sticky notes on a left-to-right canvas. Source-binding placeholders need target configuration.
 
 1. Install staging/API/wrappers, the three-phase email-review SQL and scoped retrieval from the linked runbooks. Configure a working SMTP sender in PAF administrator settings.
 2. In each intended account, register an encrypted EBS datasource using restricted `AF_EBS_RENEWAL`. Verify exactly seven `RNW_*` wrappers, including both email-review functions. Never use APPS as its datasource.

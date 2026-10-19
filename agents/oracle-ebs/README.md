@@ -1,5 +1,7 @@
 # Oracle E-Business Suite demos
 
+- [EBS Contract Renewal with Document Evidence](contract-renewal/) — Cite historical PDFs, stage validated changes, request email review and create a new Incomplete BPA for buyer inspection.
+
 - [EBS Concurrent Processing History](concurrent-history-review/) — Review recent stored concurrent-request history and completed elapsed times without restarting or cancelling jobs.
 - [EBS IT Operations Triage](it-operations-triage/) — Route outage questions and batch-performance questions to focused read-only operations assistants.
 - [EBS Purchase Receipt Review](purchase-receipt-review/) — Review noncancelled PO shipment rows with positive shipment-minus-received arithmetic for buyer follow-up.

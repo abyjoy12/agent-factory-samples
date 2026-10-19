@@ -71,7 +71,7 @@ button{border:1px solid var(--line);border-radius:7px;background:#fff;padding:.5
 .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .agent-card{padding:21px 20px 18px;border-radius:10px;box-shadow:0 2px 5px #21311803;display:flex;flex-direction:column;min-width:0;transition:border-color .15s,box-shadow .15s}
 .agent-card:hover{border-color:#a6af9b;box-shadow:0 5px 18px #21311809}
-.card-eyebrow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:21px}
+.card-eyebrow{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:21px}
 .app-badge{font-size:.62rem;padding:3px 7px;border-radius:4px;background:#edf1e7;color:#46573c;font-weight:650}
 .agent-card[data-application="oracle-ebs"] .app-badge{background:#f8eae5;color:#974c35}
 .agent-card[data-application="peoplesoft"] .app-badge{background:#e9eef6;color:#4c607e}
@@ -100,7 +100,8 @@ button{border:1px solid var(--line);border-radius:7px;background:#fff;padding:.5
 .guide-nav a{font-size:.8rem;text-decoration:none;padding:3px 0}
 .facts{max-height:calc(100dvh - 2rem);overflow:auto;scrollbar-width:thin}
 .facts dd{font-size:.85rem}
-.sections section{scroll-margin-top:25px}
+.sections section{min-width:0;scroll-margin-top:25px}
+.sections li{overflow-wrap:anywhere}
 .detail-hero nav{flex-wrap:wrap}
 #mobile-filters{display:none}
 @media(min-width:1650px){.catalog-main{padding-top:55px}
