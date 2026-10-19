@@ -6,7 +6,7 @@ The resource-specific private credential profile returned HTTP 200 for a limit=1
 
 An organization lookup returned up to three IDs/codes before a single scoped on-hand query. The agent disclosed its chosen organization and preserved item, subinventory and unit context. An explicitly configured organization disables discovery.
 
-Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.
+Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.
 
 Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions. This inventory graph was checked again after the scope-discovery update.
 

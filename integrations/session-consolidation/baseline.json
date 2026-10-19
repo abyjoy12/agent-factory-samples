@@ -1,7 +1,7 @@
 {
   "observed_at": "2026-10-17T06:07:07.655811+00:00",
-  "paf_instance": "https://build.oracleagentfactory.com/agentFactory/",
-  "paf_account": "editor@oracleagentfactory.com",
+  "paf_instance": "prepared PAF instance",
+  "paf_account": "editor account",
   "git_head": "db70a4e9090a88373029567257118adce45bbca2",
   "remote_main": "db70a4e9090a88373029567257118adce45bbca2",
   "workflow_count": 26,

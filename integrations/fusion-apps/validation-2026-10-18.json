@@ -1,7 +1,7 @@
 {
   "date": "2026-10-18",
-  "factory": "build.oracleagentfactory.com",
-  "account": "editor@oracleagentfactory.com",
+  "factory": "prepared PAF instance",
+  "account": "editor account",
   "model": "AIW26-PAF-HOL6004-BOO6096",
   "reviewSampleCount": 20,
   "http200Count": 20,

@@ -8,6 +8,8 @@ The [agent catalog](https://kgvarun.github.io/agent-factory-samples/) has search
 
 For example, **Capacity planning** brings together workforce, learning and campus scenarios; **Supplier follow-up** spans JDE, EBS and PeopleSoft. Technical filters describe features implemented in the saved graphs. See the [catalog authoring guide](scripts/catalog_assets/README.md) for metadata, vocabulary and presentation changes.
 
+The [EBS contract renewal integration](integrations/ebs-contract-renewal/) adds scoped document vector search, immutable renewal staging, email/chat review and creation of an Incomplete BPA through the supported Purchasing import. Its [demo flow](integrations/ebs-contract-renewal/DEMO.md) uses a recipient supplied by the user in chat. The integration includes portable workflow source and installation SQL; it is separate from the catalog samples below.
+
 ## Fusion review pack — 2026-10-18
 
 The catalog now has **49 samples**, including [twenty new Fusion review agents](integrations/fusion-apps/): six ERP, six HCM, six SCM and two CX workflows. Each uses bounded GET tools, follows a numbered left-to-right layout, and includes detailed Agent Description and sample questions. Inventory discovers one accessible organization when scope is missing. The setup guide includes private authentication, scoped inventory queries, deployment, export and destination validation.
@@ -175,6 +177,8 @@ They intentionally exclude:
 - application rows and uploaded file contents.
 
 Exact product exports can retain environment-local database IDs, model names, and uploaded filenames as binding hints. Those identifiers are not portable connection definitions. After import, create or reuse each documented source, configure authentication privately, rebind its nodes, select a model, and upload the supplied assets. Set Agent Memory according to the sample: off for the ten new business demos, enabled only for the memory examples that require it. Imported workflows remain unpublished until reviewed.
+
+For the planned rollout to dedicated user accounts, see the [per-user deployment decision](integrations/per-user-deployment/README.md): import each user's agents, bind the required model and sources, then enable and verify Agent Memory with cross-thread sharing through the settings API. This is the target rollout policy; current manifests and Build settings have not yet been changed to match it.
 
 ## Repository layout
 
