@@ -8,6 +8,8 @@ The [agent catalog](https://kgvarun.github.io/agent-factory-samples/) has search
 
 For example, **Capacity planning** brings together workforce, learning and campus scenarios; **Supplier follow-up** spans JDE, EBS and PeopleSoft. Technical filters describe features implemented in the saved graphs. See the [catalog authoring guide](scripts/catalog_assets/README.md) for metadata, vocabulary and presentation changes.
 
+Participants can also search through conversation using **Agent Catalog Knowledge Guide** and **Agent Catalog Deep Research**. The [repeatable setup and example questions](integrations/catalog-discovery/) create these native agents in each account: the guide uses the catalog as a web source, while research compares samples through a versioned vector-indexed catalog snapshot.
+
 The catalog has **50 samples**, including [EBS Contract Renewal with Document Evidence](agents/oracle-ebs/contract-renewal/). It adds scoped document vector search, immutable renewal staging, email/chat review and creation of an Incomplete BPA through the supported Purchasing import. Its [demo flow](integrations/ebs-contract-renewal/DEMO.md) uses a recipient supplied by the user in chat. The [integration runbooks and installation SQL](integrations/ebs-contract-renewal/) cover backend setup; the catalog entry includes the portable workflow and generated PAF download.
 
 ## Fusion review pack — 2026-10-18

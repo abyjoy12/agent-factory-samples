@@ -1,0 +1,11 @@
+{
+  "catalog_url": "https://kgvarun.github.io/agent-factory-samples/",
+  "model": "AIW26-PAF-HOL6004-BOO6096",
+  "embedding_model": "cohere.embed-v4.0",
+  "web_source_name": "Agent Factory Sample Catalog",
+  "snapshot_source_prefix": "Agent Catalog Research Snapshot",
+  "knowledge_name": "Agent Catalog Knowledge Guide",
+  "research_name": "Agent Catalog Deep Research",
+  "crawl_depth": 2,
+  "crawl_frequency_hours": 24
+}
