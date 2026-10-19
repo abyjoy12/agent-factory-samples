@@ -6,11 +6,12 @@ This document records the implementation deployed and verified on **2026-10-19**
 
 ## User flow
 
-1. Open the landing page and enter the PAF instance URL, or use the configured default.
-2. Continue and sign in with the existing PAF email and password. No separate APEX end-user account is required.
-3. Choose from agents that PAF identifies as both owned by this user and published.
-4. Chat with the selected agent through PAF REST APIs.
-5. Reopen conversations for that agent from the collapsible left sidebar, or start a new conversation.
+1. Pass the browser's temporary proxy username/password prompt.
+2. On the APEX landing page, enter the PAF instance URL or use the configured default.
+3. Continue and sign in with the existing PAF email and password. No separate APEX end-user account is required.
+4. Choose from agents that PAF identifies as both owned by this user and published.
+5. Chat with the selected agent through PAF REST APIs.
+6. Reopen conversations for that agent from the collapsible left sidebar, or start a new conversation.
 
 **History currently covers conversations started through this APEX app.** Importing earlier PAF conversations is pending a decision about adding authenticated REST history endpoints to PAF; the inspected installation exposes existing history through Socket.IO. The current app does not modify the PAF runtime.
 
@@ -24,10 +25,10 @@ flowchart TB
 
     subgraph host["Existing workp host"]
         connector["Existing cloudflared connector<br/>Outbound tunnel connection"]
-        proxy["Dedicated Nginx proxy<br/>Loopback port 9081"]
+        proxy["Temporary HTTP Basic gate<br/>Dedicated Nginx proxy<br/>Loopback port 9081"]
         ords["Existing ORDS service<br/>Container port 8080"]
         connector -->|HTTP over loopback| proxy
-        proxy -->|HTTP over container network| ords
+        proxy -->|"HTTP: gateway Authorization stripped"| ords
     end
 
     subgraph database["Existing agentfactory-demo Autonomous Database"]
@@ -53,9 +54,9 @@ The browser receives an APEX session cookie. The database-side gateway holds the
 | --- | --- |
 | Browser UI | Two-step URL/login form, searchable agent cards, messages, new conversations, and collapsible history. Application CSS/JavaScript are APEX static files. |
 | Cloudflare | Public DNS/HTTPS and a hostname-specific route through the existing workp tunnel. |
-| Dedicated Nginx proxy | Routes this hostname to the existing ORDS runtime and redirects `/` to `/ords/f?p=110:9999`. |
+| Dedicated Nginx proxy | Requires the temporary HTTP Basic account before the landing page, APEX pages, forms, AJAX, logout, and health response. Routes authenticated requests to ORDS and strips the gateway credentials. |
 | ORDS | Serves APEX pages, application static files, native form submission, and AJAX requests. |
-| APEX app 110 | Public login page **9999**, authenticated workspace page **1**, custom authentication, and the page-level `PAF_API` AJAX process. |
+| APEX app 110 | Login page **9999** behind the proxy gate, authenticated workspace page **1**, custom PAF authentication, and the page-level `PAF_API` AJAX process. |
 | `PAF_CHAT` package | Endpoint validation, PAF authentication, server-side session lookup, agent authorization, REST calls, and conversation persistence. |
 | PAF | Existing user authentication, user-specific agent metadata, and agent execution through the REST run endpoint. |
 
@@ -65,11 +66,21 @@ The browser receives an APEX session cookie. The database-side gateway holds the
 sequenceDiagram
     actor User
     participant UI as Browser / APEX UI
+    participant Proxy as Temporary proxy gate
     participant App as APEX app 110 / PAF_CHAT
     participant Store as PAF_CHAT tables
     participant PAF as PAF REST API
 
-    User->>UI: Enter instance URL, then email and password
+    User->>UI: Open application
+    UI->>Proxy: Request landing page
+    Proxy-->>UI: HTTP 401 Basic challenge
+    User->>UI: Enter temporary gateway credentials
+    UI->>Proxy: Retry with HTTP Basic credentials
+    Proxy->>App: Forward after validation; strip gateway Authorization
+    App-->>UI: PAF instance and sign-in form
+    Note over UI,Proxy: Subsequent app requests also require the proxy gate
+
+    User->>UI: Enter instance URL, then PAF email and password
     UI->>App: Native APEX login over HTTPS
     App->>Store: Validate normalized URL against PAF_ENDPOINTS
     App->>PAF: GET /v1/loginValidation (Basic credentials)
@@ -103,7 +114,7 @@ sequenceDiagram
     App-->>UI: Stored messages in order
 ```
 
-The diagrams omit individual edge/proxy hops from the sequence for readability; browser requests use the component path above. There is no browser-to-PAF authentication or chat request in this implementation.
+The sequence shows the initial proxy challenge and omits repeated proxy/edge hops for readability; browser requests use the component path above. There is no browser-to-PAF authentication or chat request in this implementation.
 
 ## REST and AJAX contracts
 
@@ -139,6 +150,9 @@ Conversation and message rows are committed after a successful PAF response. The
 
 ## Session and access controls
 
+- The temporary HTTP Basic gate runs in the dedicated proxy and does not use Authentik. It accepts one approved existing account and stores only a salted password hash in private operational state. The deployed hash is readable only by the unprivileged proxy user. Gateway credentials are removed before forwarding requests to ORDS.
+- PAF sign-in still identifies the individual app user. APEX sign-out ends the PAF/APEX session; the browser can retain its HTTP Basic credentials for the browser session.
+- The proxy sends `Cache-Control: no-store` for app responses. Previously cached copies of public static files require separate edge-cache cleanup; the landing page and dynamic app endpoints require the gate.
 - The URL field is normalized and checked against `PAF_ENDPOINTS` before credentials are sent. Initially only the configured PAF base URL is allowed. Entering an arbitrary URL does not authorize another destination.
 - The browser has the secure APEX cookie `AGENT_SHOWCASE_SESSION`. It does not receive the PAF cookie. Password page items use memory-only APEX session state and are cleared after successful authentication.
 - Server-side PAF session rows must match both the authenticated APEX session ID and username. They expire after **170 minutes**. APEX has a **30-minute idle timeout** and **170-minute maximum session length**.
@@ -163,7 +177,7 @@ Conversation and message rows are committed after a successful PAF response. The
 
 The dedicated Nginx container runs as an unprivileged user with a read-only filesystem, temporary writable directories, dropped capabilities, and a pinned image digest. It forwards the APEX entry point for app 110, required native AJAX/form/localization/logout paths, and that app's static files. `/ords/apex_admin` and the builder entry point `/ords/f?p=4500:1` are rejected on the app hostname. APEX library requests under `/i/` redirect to Oracle's static CDN.
 
-The app hostname uses native PAF login through APEX. The existing database tools hostname keeps its existing Authentik access path. Adding the app route retained unrelated tunnel entries and the final catch-all; it did not replace the shared tunnel configuration or change other application routes.
+The app hostname uses the temporary proxy gate followed by native PAF login through APEX. The existing database tools hostname keeps its existing Authentik access path. Adding the app route retained unrelated tunnel entries and the final catch-all; it did not replace the shared tunnel configuration or change other application routes.
 
 ### Source ownership and operations
 
@@ -172,7 +186,7 @@ Operational sources remain in their owning directories on the deployment workspa
 | Owner directory, relative to `/home/ubuntu/work` | Important sources |
 | --- | --- |
 | `apps/apex/agent-showcase/` | `static/`, `sql/schema.sql`, `sql/paf_chat.sql`, `scripts/build_app.py`, `scripts/deploy.py`, `scripts/verify_browser.py`, `tests/browser_check.py`, `exports/f110.sql`, `exports/f110-native.sql`, and `docs/deployment.md`. |
-| `infra/ansible/` | `playbooks/deploy_apex_agent_showcase_proxy.yml` and `playbooks/files/apex-agent-showcase-*`, plus `apex-proxy.inc`. |
+| `infra/ansible/` | `playbooks/deploy_apex_agent_showcase_proxy.yml` and `playbooks/files/apex-agent-showcase-*`, plus `apex-proxy.inc` and `runbooks/apex_agent_showcase_proxy.md`. |
 | `infra/cloudflare/` | `apex_showcase_route.py`, which checks hostname conflicts, tunnel identity/health, local readiness, concurrent updates, and preservation of unrelated routes. |
 | `databases/` | Existing shared database connection helpers and clients. |
 
@@ -186,6 +200,7 @@ For rollback, remove only the app hostname's current tunnel route and matching D
 
 The 2026-10-19 public HTTPS checks used the existing editor PAF account and verified:
 
+- Anonymous and incorrect-password requests to eight landing, page, native form/AJAX, logout, and health entry paths returned HTTP 401. The approved existing gateway credentials allowed the landing redirect and native PAF login; builder/admin paths remained rejected.
 - Native APEX login and correct mapping to the authenticated server-side PAF session.
 - Exact equality between displayed agent IDs and PAF's owned/published agent IDs; **49** matched at verification time. This is an observed count, not a fixed entitlement or catalog size.
 - PAF cookie and password absence from rendered HTML and browser storage.
