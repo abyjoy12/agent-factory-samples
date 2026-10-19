@@ -1,0 +1,19 @@
+#!/bin/sh
+set -eu
+cd "$(git rev-parse --show-toplevel)"
+while read -r local_ref local_sha remote_ref remote_sha; do
+    case "$local_sha" in
+        0000000000000000000000000000000000000000) continue ;;
+    esac
+    python3 scripts/publication_guard.py --revision "$local_sha"
+    case "$remote_sha" in
+        0000000000000000000000000000000000000000)
+            commits=$(git rev-list "$local_sha" --not --remotes)
+            ;;
+        *) commits=$(git rev-list "$remote_sha..$local_sha") ;;
+    esac
+    for commit in $commits; do
+        test "$commit" != "$local_sha" || continue
+        python3 scripts/publication_guard.py --revision "$commit"
+    done
+done

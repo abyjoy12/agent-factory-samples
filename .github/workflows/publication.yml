@@ -1,0 +1,28 @@
+name: Check publication addresses
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check READMEs, catalog inputs, and tracked Pages
+        run: python scripts/publication_guard.py
+      - name: Generate and check the exact Pages output
+        env:
+          AGENT_SAMPLES_REPOSITORY_URL: ${{ github.server_url }}/${{ github.repository }}/tree/${{ github.sha }}
+          AGENT_SAMPLES_RELEASE_URL: ${{ github.server_url }}/${{ github.repository }}/releases/download/latest
+        run: |
+          python scripts/generate_docs.py
+          python scripts/publication_guard.py --pages docs

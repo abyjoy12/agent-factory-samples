@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-18T20:15:27Z",
+  "generatedAt": "2026-10-19T01:15:42Z",
   "agents": [
     {
       "slug": "business-policy-desk",
@@ -65,7 +65,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Upload the supplied paf-demo-policy-handbook.txt using the corresponding Builder component and select the uploaded filename.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
@@ -90,10 +90,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
         "The approval question cited PROC-02; the missing tax-retention question correctly reported the GAP-01 scope limit."
@@ -183,7 +183,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Create or reuse Oracle EBS Finance Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
@@ -208,10 +208,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
         "Receivables and payables specialists share the same EBS Finance binding. The earlier cross-database prototype was discarded after source-context failures; this is not a cross-database demonstration."
@@ -319,11 +319,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The collection was empty; /describe checked attribute names, while populated-result behavior remains untested.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -432,11 +432,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -544,11 +544,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -656,11 +656,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -768,11 +768,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -880,11 +880,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -992,11 +992,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -1104,11 +1104,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -1216,11 +1216,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -1328,11 +1328,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -1440,11 +1440,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -1552,11 +1552,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -1664,11 +1664,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -1776,11 +1776,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -1896,12 +1896,12 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
         "An organization lookup returned up to three IDs/codes before a single scoped on-hand query. The agent disclosed its chosen organization and preserved item, subinventory and unit context. An explicitly configured organization disables discovery.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions. This inventory graph was checked again after the scope-discovery update.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. This workflow was exported again after its instructions and scope discovery changed. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -2010,11 +2010,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -2123,11 +2123,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -2236,11 +2236,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -2349,11 +2349,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -2462,11 +2462,11 @@
         "A concrete human follow-up checklist with application changes made: none."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Verified credential profile, Build draft, model, layout and primary conversation smoke check",
       "validation_notes": [
         "The resource-specific private credential profile returned HTTP 200 for a limit=1 GET. The row contained every expected projected field and no unexpected fields.",
-        "Saved on build.oracleagentfactory.com under editor@oracleagentfactory.com using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
+        "Saved on the prepared PAF instance under the editor account using AIW26-PAF-HOL6004-BOO6096. Final readback confirmed ownership, model, unpublished state and both Agent Memory switches off.",
         "Chromium measured the rendered workflow without component overlaps, card-width mismatches or clipped notes. Numbered stages advance left to right; the Agent Description contains a walkthrough and two sample questions.",
         "The primary question returned a nonempty assistant response in a fresh conversation after credential changes, without a provider exception. The earlier primary/limitations smoke checks remain historical. Responses alone do not prove every tool invocation or business conclusion; raw tool traces were not captured in this pass.",
         "Official native export and live graph comparison completed. The graph was unchanged by reauthentication. Portable sources clear only the local REST source selection; bind an authenticated destination source before use.",
@@ -2550,7 +2550,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to JDE Replica Fulfillment Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -2575,10 +2575,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
@@ -2658,7 +2658,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to JDE Replica Finance Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -2683,10 +2683,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
@@ -2768,7 +2768,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to JDE Replica Procurement Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -2793,10 +2793,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
@@ -2893,7 +2893,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to JDE Replica Manufacturing Read Only. Bind to the GoldenGate target JDEDEMO PDB, not the original JDEORCL source. Keep the source connections and published flows separate.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -2918,10 +2918,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The primary prompt was rerun in a fresh conversation with memory explicitly disabled. The suggested limitations follow-up is illustrative and was not rerun for this sample.",
@@ -3040,7 +3040,7 @@
       "setup": [
         "Create a REST source from assets/jde-fulfillment-openapi.json, verify its AIS URL, and configure Basic Auth.",
         "Download and import the release PAF, then rebind the REST API Tools node and select a model.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Enable Agent Memory and cross-thread sharing for the same user.",
         "Delete any prior playground memories for the test user, then run both sessions.",
         "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",
@@ -3199,7 +3199,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Create or reuse JD Edwards Manufacturing Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Upload the supplied paf-demo-dispatch-plan.csv using the corresponding Builder component and select the uploaded filename.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -3225,10 +3225,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
         "Fixed-query check returned 2 rows on the validation date; live counts can change.",
@@ -3347,7 +3347,7 @@
       "setup": [
         "Create a REST source from assets/jde-fulfillment-openapi.json, verify its JPS920 AIS URL, and configure Basic Auth.",
         "Download and import the release PAF, then rebind its REST API Tools node and select a model.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Enable Agent Memory and cross-thread sharing for the same user.",
         "Delete prior playground memories for the test user and run the two-session demo.",
         "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",
@@ -3520,7 +3520,7 @@
       "setup": [
         "Create a REST API data source from assets/jde-fulfillment-openapi.json; verify the AIS URL and configure JDE Basic Auth.",
         "Download and import the release PAF using the repository archive passphrase.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Rebind the REST API Tools node to the new environment-local source.",
         "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -3671,7 +3671,7 @@
       "setup": [
         "Create a REST API source from assets/jde-fulfillment-openapi.json, verify the AIS URL, and configure Basic Auth.",
         "Download and import the release PAF, then rebind its REST API Tools node and select a model.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Enable Agent Memory and cross-thread sharing for the same user.",
         "Run both demo sessions as the same user, starting from clean memories.",
         "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",
@@ -3804,7 +3804,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Create or reuse JD Edwards Procurement Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
@@ -3829,10 +3829,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations."
       ],
@@ -3952,7 +3952,7 @@
       ],
       "setup": [
         "Follow integrations/linux-os-monitoring/README.md to deploy the monitoring service. Infrastructure automation belongs in ~/work/infra/ansible.",
-        "Check the instance outbound URL policy: the private HTTP endpoint needs administrator-approved ALLOW_INSECURE_HTTP_URLS=true and BLOCK_PRIVATE_OUTBOUND_URLS=false. Add Linux OS Monitoring as a Direct connection MCP source at http://HOST:8085/mcp and discover the six documented tools.",
+        "Check the instance outbound URL policy: the private HTTP endpoint needs administrator-approved ALLOW_INSECURE_HTTP_URLS=true and BLOCK_PRIVATE_OUTBOUND_URLS=false. Add Linux OS Monitoring as a Direct connection MCP source at http://monitor.example.invalid:8085/mcp and discover the six documented tools.",
         "Import linux-os-monitoring.paf and select the new local source on the MCP server node; review the six allowed tools. Environment-local source IDs are not portable.",
         "Select AIW26-PAF-HOL6004-BOO6096 on the Agent node. Configure that same OpenAI Compatible model name in every target instance; credentials/model definitions are not bundled.",
         "Disable Agent Memory and sharing between chat threads; exported archives do not carry these switches. Read the sticky notes left to right, then expand Agent description for the walkthrough and sample questions.",
@@ -4079,7 +4079,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to Oracle EBS Operations Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -4104,10 +4104,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
@@ -4220,7 +4220,7 @@
       "setup": [
         "Import the release .paf into an unpublished destination flow.",
         "Provide the pre-existing PAF_DEMO.EBS_CHECK_API package and its control catalog. This sample does not install that custom backend. Use a control reader able to call the six documented routines; preserve the node routine allowlist and auto_commit=false.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
         "Check permissions and connectivity against the intended demo environment before publishing.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -4337,7 +4337,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Create or reuse Oracle EBS Operations Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
@@ -4362,10 +4362,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
         "Both the batch and outage routing branches were exercised; node configuration is not a live login test."
@@ -4448,7 +4448,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to Oracle EBS Supply Chain Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -4473,10 +4473,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
@@ -4559,7 +4559,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to Oracle EBS Finance Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -4584,10 +4584,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The fixed SELECT returned 15 rows on the validation date; counts and data can change.",
@@ -4673,7 +4673,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Create or reuse Oracle EBS Supply Chain Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
@@ -4698,10 +4698,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
         "Fixed-query check returned 5 rows on the validation date; live counts can change."
@@ -4813,7 +4813,7 @@
       "setup": [
         "Import the release .paf into an unpublished destination flow.",
         "Import assets/invoice-read-openapi.json and assets/invoice-actions-openapi.json as separate REST sources. Replace the example server URL with your confirmed Fusion endpoint and configure authentication in PAF. These reconstructed contracts require target-release validation.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
         "Verify the exact POST cancellation guard support in integrations/fusion-apps/runtime/README.md before testing actions. Use valid accounting dates, item lines and distribution combinations; inspect action media-type headers.",
         "Check permissions and connectivity against the intended demo environment before publishing.",
@@ -4839,7 +4839,7 @@
         "Writes require a specific user-confirmed proposal; drafts are not reported as executed."
       ],
       "validation_date": "2026-10-18",
-      "validation_environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+      "validation_environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
       "validation_status": "Create, line cancellation and whole-invoice cancellation independently verified; fixture canceled",
       "validation_notes": [
         "The editor-owned Build draft uses AIW26-PAF-HOL6004-BOO6096. Publication and memory settings were preserved. Both REST nodes now use separately authenticated, editor-owned read/action sources with a verified private payables account.",
@@ -4926,7 +4926,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Campus Solutions Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -4951,10 +4951,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
@@ -5052,7 +5052,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Create or reuse PeopleSoft Human Capital Management Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "A DBA runs assets/monitoring-setup.sql in the chosen HCM demo PDB after reviewing the existing PAF_DATA owner and PAF_AGENT_RO reader. This is the only new database setup required by this collection.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -5078,10 +5078,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
         "Fixed-query check returned 14 rows on the validation date; live counts can change.",
@@ -5165,7 +5165,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Create or reuse PeopleSoft Financials and Supply Chain Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
@@ -5190,10 +5190,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
         "Fixed-query check returned 5 rows on the validation date; live counts can change."
@@ -5274,7 +5274,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Enterprise Learning Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -5299,10 +5299,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
@@ -5393,7 +5393,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Create or reuse PeopleSoft Enterprise Learning Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
@@ -5418,10 +5418,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
         "Fixed-query check returned 12 rows on the validation date; live counts can change."
@@ -5509,7 +5509,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Human Capital Management Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -5534,10 +5534,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
@@ -5626,7 +5626,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Financials and Supply Chain Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -5651,10 +5651,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
@@ -5737,7 +5737,7 @@
       "setup": [
         "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
         "Rebind each database node to PeopleSoft Customer Relationship Management Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
         "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -5762,10 +5762,10 @@
         "A clear distinction between the observed sample and claims it cannot establish."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+      "validation_environment": "the prepared PAF instance; existing read-only demo application sources",
       "validation_status": "Passed live demo run; unpublished draft",
       "validation_notes": [
-        "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+        "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
         "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
         "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
         "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",
@@ -5862,7 +5862,7 @@
       "setup": [
         "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
         "Create or reuse PeopleSoft Human Capital Management Read Only and rebind the nodes listed in assets/source-bindings.json.",
-        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+        "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
         "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
         "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
       ],
@@ -5887,10 +5887,10 @@
         "The follow-up stays within the documented data and action boundaries."
       ],
       "validation_date": "2026-10-17",
-      "validation_environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+      "validation_environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
       "validation_status": "Passed live smoke validation",
       "validation_notes": [
-        "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+        "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
         "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
         "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations."
       ],

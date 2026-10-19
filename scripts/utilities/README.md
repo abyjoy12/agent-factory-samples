@@ -13,7 +13,7 @@ Run `python scripts/utilities/agent_sample.py --help` or append `--help` to a
 subcommand for the full option list.
 
 The implementation follows the internal
-[Agent Builder - Import / Export specification](https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=19943727175).
+Agent Builder import/export format specification.
 It uses a random 16-byte salt, PBKDF2-HMAC-SHA256 with 100,000 iterations, a
 32-byte key, and AES-256-GCM with a random 12-byte IV. The Base64 envelope is
 `salt || IV || ciphertext || 16-byte authentication tag`.

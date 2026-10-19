@@ -46,7 +46,7 @@ All suggested follow-ups are for human review. The workflow does not execute app
 
 **Passed live smoke validation — 2026-10-17.**
 
-- One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.
+- One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.
 - Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.
 - This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.
 - Fixed-query check returned 2 rows on the validation date; live counts can change.
@@ -63,4 +63,4 @@ All suggested follow-ups are for human review. The workflow does not execute app
 
 See [slides/README.md](slides/README.md) for a presenter sequence. The root README compares all demos and explains which features are implemented.
 
-The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on `build.oracleagentfactory.com`. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.
+The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on the prepared PAF instance. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.

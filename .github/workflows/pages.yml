@@ -24,6 +24,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Reject deployment addresses in publication inputs
+        run: python scripts/publication_guard.py
+
       - name: Install utility dependencies
         run: python -m pip install -r scripts/requirements.txt
 
@@ -35,6 +38,9 @@ jobs:
           AGENT_SAMPLES_REPOSITORY_URL: ${{ github.server_url }}/${{ github.repository }}/tree/${{ github.sha }}
           AGENT_SAMPLES_RELEASE_URL: ${{ github.server_url }}/${{ github.repository }}/releases/download/latest
         run: python scripts/generate_docs.py
+
+      - name: Reject deployment addresses in the Pages artifact
+        run: python scripts/publication_guard.py --pages docs
 
       - name: Upload generated documentation
         uses: actions/upload-artifact@v4

@@ -47,7 +47,7 @@
   "setup": [
     "Import the generated .paf with the repository passphrase; keep it unpublished while reviewing.",
     "Rebind each database node to PeopleSoft Campus Solutions Read Only. Reuse the existing curated views. This expansion required no reader-grant or database-schema changes on the validated environment.",
-    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
     "Disable Agent Memory and sharing between chat threads for this flow; those switches are not bundled in the official export.",
     "Run the primary prompt, inspect the actual evidence, and use the limitations follow-up.",
     "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
@@ -75,10 +75,10 @@
   },
   "validation": {
     "date": "2026-10-17",
-    "environment": "build.oracleagentfactory.com; existing read-only demo application sources",
+    "environment": "the prepared PAF instance; existing read-only demo application sources",
     "status": "Passed live demo run; unpublished draft",
     "notes": [
-      "The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.",
+      "The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.",
       "Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.",
       "This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.",
       "The fixed SELECT returned 10 rows on the validation date; counts and data can change.",

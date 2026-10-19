@@ -56,4 +56,4 @@ Expected behavior:
 - [`assets/jde-fulfillment-openapi.json`](assets/jde-fulfillment-openapi.json) — sanitized read-only REST data-source definition
 - `slides/` — reserved for presentation material; no deck is included
 
-The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on `build.oracleagentfactory.com`. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.
+The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on the prepared PAF instance. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.

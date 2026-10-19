@@ -77,7 +77,7 @@
   "setup": [
     "Import the release .paf into an unpublished destination flow.",
     "Provide the pre-existing PAF_DEMO.EBS_CHECK_API package and its control catalog. This sample does not install that custom backend. Use a control reader able to call the six documented routines; preserve the node routine allowlist and auto_commit=false.",
-    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
     "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
     "Check permissions and connectivity against the intended demo environment before publishing.",
     "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."

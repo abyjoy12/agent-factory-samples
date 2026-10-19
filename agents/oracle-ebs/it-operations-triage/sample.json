@@ -54,7 +54,7 @@
   "setup": [
     "Import the release .paf with the repository archive passphrase. Imported flows are unpublished until reviewed.",
     "Create or reuse Oracle EBS Operations Read Only and rebind the nodes listed in assets/source-bindings.json.",
-    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
     "Disable Agent Memory and sharing between chat threads for this flow. This instance enables them by default; the official export does not include those switches. Run the documented primary prompt, inspect the evidence and dates, then publish for the demo audience.",
     "Read the numbered sticky notes from left to right. Agent Description provides workflow details and sample questions; use its expand control to read the full guide. The 2026-10-18 layout/model update preserves the workflow wiring and documented memory mode; the earlier validation record describes the original demo runs."
   ],
@@ -82,10 +82,10 @@
   },
   "validation": {
     "date": "2026-10-17",
-    "environment": "build.oracleagentfactory.com; application demo databases or the supplied fictional handbook",
+    "environment": "the prepared PAF instance; application demo databases or the supplied fictional handbook",
     "status": "Passed live smoke validation",
     "notes": [
-      "One primary business prompt completed against this exact graph on build.oracleagentfactory.com. Response wording depends on the selected model.",
+      "One primary business prompt completed against this exact graph on the prepared PAF instance. Response wording depends on the selected model.",
       "Fixed queries were checked separately where present. Database/application sample data was not copied into this repository.",
       "This is a demo validation, not certification of business accuracy, policy compliance or production readiness. Review returned evidence during presentations.",
       "Both the batch and outage routing branches were exercised; node configuration is not a live login test."

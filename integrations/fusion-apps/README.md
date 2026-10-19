@@ -6,7 +6,7 @@ These are separate from the existing **Invoice Review and Actions — Fusion ERP
 
 ## Current status — 2026-10-18
 
-All twenty review agents are saved under **editor@oracleagentfactory.com** on [Build](https://build.oracleagentfactory.com), using **AIW26-PAF-HOL6004-BOO6096**. Each remains unpublished with Agent Memory and cross-thread sharing off. Settings were read back after saving. Chromium measured all twenty graphs without overlaps, card-width mismatches or clipped notes; their Agent Descriptions include both sample questions.
+All twenty review agents are saved under **the editor account** on the prepared PAF instance, using **AIW26-PAF-HOL6004-BOO6096**. Each remains unpublished with Agent Memory and cross-thread sharing off. Settings were read back after saving. Chromium measured all twenty graphs without overlaps, card-width mismatches or clipped notes; their Agent Descriptions include both sample questions.
 
 Resource-specific Fusion accounts replaced the earlier shared login. All twenty REST probes returned HTTP 200; nineteen returned rows with the expected field projection, and opportunities returned an empty collection. All twenty primary questions then returned a response in a fresh conversation without a provider exception. These are conversation smoke checks, not complete business or authorization tests. See the [Fusion verification record](validation-2026-10-18.json) and [49-sample account/model audit](../workflow-layout/build-validation-2026-10-18.json). Raw business records and account credentials are excluded.
 

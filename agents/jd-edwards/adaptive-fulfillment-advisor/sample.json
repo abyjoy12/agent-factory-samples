@@ -81,7 +81,7 @@
   "setup": [
     "Create a REST source from assets/jde-fulfillment-openapi.json, verify its AIS URL, and configure Basic Auth.",
     "Download and import the release PAF, then rebind the REST API Tools node and select a model.",
-    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
     "Enable Agent Memory and cross-thread sharing for the same user.",
     "Delete any prior playground memories for the test user, then run both sessions.",
     "This catalog now uses the editor-owned consolidation copy. Configure the documented memory mode manually; official archives do not carry memory switches or learned memories.",

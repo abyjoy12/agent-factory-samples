@@ -22,7 +22,7 @@ The SQL returned 15 groups when checked directly against the demo database. MCP 
 
 ## Blockers encountered
 
-1. Creating a dedicated `PAF EBS Finance Demo` managed MCP server against the existing identity domain returned `400 InvalidParameter`: the identity-domain issuer must match its domain URL. The existing shared SSO domain uses the legacy issuer `https://identity.oraclecloud.com/`. Its shared SSO configuration was not changed.
+1. Creating a dedicated `PAF EBS Finance Demo` managed MCP server against the existing identity domain returned `400 InvalidParameter`: the identity-domain issuer must match its domain URL. The existing SSO domain uses a legacy shared issuer. Its shared SSO configuration was not changed.
 2. Creating an isolated identity domain returned `404 NotAuthorizedOrNotFound`, including in the tenancy home region. No isolated domain was created. This is an OCI service authorization/visibility response, not a Codex approval rejection.
 
 No new managed MCP server, custom toolset, replacement identity domain or Vault secret was created by these attempts. A domain administrator must supply a compatible isolated domain, or authorize and assess the impact of changing the existing shared domain. Then server creation can proceed.

@@ -4,7 +4,7 @@ Review non-secure CRM case workload by business unit, raw status and priority wi
 
 ## Status
 
-Created and tried on build PAF on **2026-10-17**. This is an **unpublished draft**, owned by `editor@oracleagentfactory.com`. Find the exact title in Agent Builder. The official export is [workflow.json](workflow.json); generated `.paf` archives stay in ignored `dist/`.
+Created and tried on build PAF on **2026-10-17**. This is an **unpublished draft**, owned by the editor account. Find the exact title in Agent Builder. The official export is [workflow.json](workflow.json); generated `.paf` archives stay in ignored `dist/`.
 
 ## Demo prompts
 
@@ -44,7 +44,7 @@ Evidence grain is business unit + raw case status + raw priority, covering only 
 
 ## Validation
 
-- The exact exported visual graph completed its primary business prompt on build.oracleagentfactory.com with memory disabled.
+- The exact exported visual graph completed its primary business prompt on the prepared PAF instance with memory disabled.
 - Database rows, model responses, credentials, access tokens and private audit files are not included in this public sample.
 - This is a working demo path, not a comprehensive business accuracy, regression, load or authorization certification. Inspect evidence when presenting.
 - The fixed SELECT returned 10 rows on the validation date; counts and data can change.
@@ -59,4 +59,4 @@ Delete only this new draft if it is no longer wanted. Reuse and retain the pre-e
 
 See [slides/README.md](slides/README.md).
 
-The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on `build.oracleagentfactory.com`. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.
+The AI World lab model is `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible), already configured on the prepared PAF instance. Configure the same model name in each final lab instance; the archive excludes model definitions and credentials. Read the numbered workflow notes from left to right, and use the expand control beside Agent Description for the walkthrough and sample questions.

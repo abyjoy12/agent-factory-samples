@@ -78,7 +78,7 @@
   "setup": [
     "Import the release .paf into an unpublished destination flow.",
     "Import assets/invoice-read-openapi.json and assets/invoice-actions-openapi.json as separate REST sources. Replace the example server URL with your confirmed Fusion endpoint and configure authentication in PAF. These reconstructed contracts require target-release validation.",
-    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on build.oracleagentfactory.com and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
+    "Select AIW26-PAF-HOL6004-BOO6096 on every Agent node. This OpenAI Compatible connection is configured on the prepared PAF instance and is the required model for the final AI World lab instances. Configure that same model name in each destination; model definitions and credentials are not bundled.",
     "Create or select the sources listed in assets/source-bindings.json; replace every environment-local node binding.",
     "Verify the exact POST cancellation guard support in integrations/fusion-apps/runtime/README.md before testing actions. Use valid accounting dates, item lines and distribution combinations; inspect action media-type headers.",
     "Check permissions and connectivity against the intended demo environment before publishing.",
@@ -107,7 +107,7 @@
   },
   "validation": {
     "date": "2026-10-18",
-    "environment": "build.oracleagentfactory.com; editor@oracleagentfactory.com; authorized Fusion HTTPS endpoint",
+    "environment": "the prepared PAF instance; the editor account; authorized Fusion HTTPS endpoint",
     "status": "Create, line cancellation and whole-invoice cancellation independently verified; fixture canceled",
     "notes": [
       "The editor-owned Build draft uses AIW26-PAF-HOL6004-BOO6096. Publication and memory settings were preserved. Both REST nodes now use separately authenticated, editor-owned read/action sources with a verified private payables account.",

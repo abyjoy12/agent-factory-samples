@@ -1,6 +1,6 @@
 # AI World workflow layout verification
 
-The 2026-10-18 repair covers the 28 catalog workflows on `build.oracleagentfactory.com`. All 144 processing nodes now read from left to right, with 134 numbered native sticky notes above their stages. All 31 Agent nodes select `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible). Their descriptions explain the workflow, its boundaries and at least two sample questions; use the expand control beside Agent Description to read the full text.
+The 2026-10-18 repair covers the 28 catalog workflows on the prepared PAF instance. All 144 processing nodes now read from left to right, with 134 numbered native sticky notes above their stages. All 31 Agent nodes select `AIW26-PAF-HOL6004-BOO6096` (OpenAI Compatible). Their descriptions explain the workflow, its boundaries and at least two sample questions; use the expand control beside Agent Description to read the full text.
 
 The defect came from saved layout data: 119 generic cards in 22 catalog workflows forced an outer width of 340 pixels while the Builder rendered narrower inner forms. This left blank strips and misplaced connection handles. Removing the forced dimensions lets the Builder measure each card naturally. Dependency columns and measured vertical spacing prevent overlaps, including parallel branches.
 
@@ -8,7 +8,7 @@ The native `.paf` format was valid. It is an encrypted Agent Factory workflow ar
 
 ## Expanded Build verification — 2026-10-18
 
-The current pass covers all **49 catalog samples** and **52 Agent nodes** under **editor@oracleagentfactory.com**. All use `AIW26-PAF-HOL6004-BOO6096`. Chromium measured every workflow without overlaps, card-width mismatches or clipped sticky notes, and every Agent Description has at least two sample questions. Publication and memory settings were preserved; the twenty new Fusion review drafts have both memory switches off and remain unpublished.
+The current pass covers all **49 catalog samples** and **52 Agent nodes** under **the editor account**. All use `AIW26-PAF-HOL6004-BOO6096`. Chromium measured every workflow without overlaps, card-width mismatches or clipped sticky notes, and every Agent Description has at least two sample questions. Publication and memory settings were preserved; the twenty new Fusion review drafts have both memory switches off and remain unpublished.
 
 The [current sanitized record](build-validation-2026-10-18.json) records the ownership, model, settings, layout and conversation smoke checks per sample. The initial pass included 49 primary requests, 20 Fusion limitations requests and three additional read-only requests covering the two JDE memory flows and the invoice/action flow. These checked response availability, without proving every tool invocation, cross-session learning or business conclusion.
 

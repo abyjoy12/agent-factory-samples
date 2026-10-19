@@ -82,7 +82,7 @@
   ],
   "setup": [
     "Follow integrations/linux-os-monitoring/README.md to deploy the monitoring service. Infrastructure automation belongs in ~/work/infra/ansible.",
-    "Check the instance outbound URL policy: the private HTTP endpoint needs administrator-approved ALLOW_INSECURE_HTTP_URLS=true and BLOCK_PRIVATE_OUTBOUND_URLS=false. Add Linux OS Monitoring as a Direct connection MCP source at http://HOST:8085/mcp and discover the six documented tools.",
+    "Check the instance outbound URL policy: the private HTTP endpoint needs administrator-approved ALLOW_INSECURE_HTTP_URLS=true and BLOCK_PRIVATE_OUTBOUND_URLS=false. Add Linux OS Monitoring as a Direct connection MCP source at http://monitor.example.invalid:8085/mcp and discover the six documented tools.",
     "Import linux-os-monitoring.paf and select the new local source on the MCP server node; review the six allowed tools. Environment-local source IDs are not portable.",
     "Select AIW26-PAF-HOL6004-BOO6096 on the Agent node. Configure that same OpenAI Compatible model name in every target instance; credentials/model definitions are not bundled.",
     "Disable Agent Memory and sharing between chat threads; exported archives do not carry these switches. Read the sticky notes left to right, then expand Agent description for the walkthrough and sample questions.",

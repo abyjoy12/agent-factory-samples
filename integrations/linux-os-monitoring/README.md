@@ -12,7 +12,7 @@ flowchart LR
   F --> C
 ```
 
-The MCP endpoint is `http://PRIVATE_MONITOR_IP:8085/mcp` using Streamable HTTP. Authentication is deliberately absent for this private connection. Host firewall rules allow only the Factory private source addresses and deny other sources; add matching private OCI ingress only if needed. A private bind address alone does **not** prevent access through an OCI public-IP mapping. No public ingress, tunnel or DNS route is required.
+The MCP endpoint is `http://monitor.example.invalid:8085/mcp` using Streamable HTTP. Authentication is deliberately absent for this private connection. Host firewall rules allow only the Factory private source addresses and deny other sources; add matching private OCI ingress only if needed. A private bind address alone does **not** prevent access through an OCI public-IP mapping. No public ingress, tunnel or DNS route is required.
 
 ## What the Agent can observe
 
@@ -105,7 +105,7 @@ python3 -m unittest discover -s integrations/linux-os-monitoring/tests -v
 python3 -m venv /tmp/linux-monitoring-client
 /tmp/linux-monitoring-client/bin/pip install -r integrations/linux-os-monitoring/requirements.txt
 /tmp/linux-monitoring-client/bin/python integrations/linux-os-monitoring/smoke_client.py \
-  --url http://PRIVATE_MONITOR_IP:8085/mcp
+  --url http://monitor.example.invalid:8085/mcp
 # Run the client from an allowed source or through an SSH tunnel.
 ```
 

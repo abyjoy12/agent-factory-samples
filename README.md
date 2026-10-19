@@ -12,7 +12,7 @@ For example, **Capacity planning** brings together workforce, learning and campu
 
 The catalog now has **49 samples**, including [twenty new Fusion review agents](integrations/fusion-apps/): six ERP, six HCM, six SCM and two CX workflows. Each uses bounded GET tools, follows a numbered left-to-right layout, and includes detailed Agent Description and sample questions. Inventory discovers one accessible organization when scope is missing. The setup guide includes private authentication, scoped inventory queries, deployment, export and destination validation.
 
-All **49 samples** are saved under **editor@oracleagentfactory.com** on [Build](https://build.oracleagentfactory.com), and all **52 Agent nodes** select **AIW26-PAF-HOL6004-BOO6096**. All 49 rendered layouts passed the overlap, card-width and sticky-note checks. Seventy-two read-only conversation requests returned responses without provider exceptions, including primary and limitations questions for every new Fusion review. These are smoke checks; they do not establish complete business accuracy or action coverage. See the [current verification record](integrations/workflow-layout/build-validation-2026-10-18.json).
+All **49 samples** are saved under **the editor account** on the prepared PAF instance, and all **52 Agent nodes** select **AIW26-PAF-HOL6004-BOO6096**. All 49 rendered layouts passed the overlap, card-width and sticky-note checks. Seventy-two read-only conversation requests returned responses without provider exceptions, including primary and limitations questions for every new Fusion review. These are smoke checks; they do not establish complete business accuracy or action coverage. See the [current verification record](integrations/workflow-layout/build-validation-2026-10-18.json).
 
 Resource-specific Fusion credentials now give HTTP 200 for all twenty REST probes: nineteen return projected data, while opportunities remain empty. Twenty fresh primary conversation smoke checks passed after reauthentication. The separate [invoice action agent](agents/fusion-erp/invoice-review-actions/) passed creation, line cancellation and whole-invoice cancellation with independent Fusion readback; the new USD 0.02 fixture is canceled at zero amount. Build also received the required [POST cancellation runtime fix](integrations/fusion-apps/runtime/). See the [Fusion verification record](integrations/fusion-apps/validation-2026-10-18.json) for evidence and limits.
 
@@ -34,7 +34,7 @@ See the [selection decisions, migration status and replication guide](integratio
 
 ## Module expansion and JDE replica drafts — 2026-10-17
 
-At this earlier expansion the catalog contained **26 workflow samples**. This expansion adds **eight PSFT/EBS module drafts** and records the **four JDE replica drafts** from the preceding setup. All twelve are saved on build PAF under `editor@oracleagentfactory.com`, with Agent Memory and cross-thread sharing disabled. They remain unpublished.
+At this earlier expansion the catalog contained **26 workflow samples**. This expansion adds **eight PSFT/EBS module drafts** and records the **four JDE replica drafts** from the preceding setup. All twelve are saved on build PAF under the editor account, with Agent Memory and cross-thread sharing disabled. They remain unpublished.
 
 | Application / module | New draft |
 | --- | --- |
@@ -66,7 +66,7 @@ These drafts currently use direct PAF SQL/PLSQL components. Neither remote MCP p
 
 ## Original business demo collection
 
-**Ten original business demos, plus the four original JDE fulfillment and memory examples.** The new demos are deployed on [build.oracleagentfactory.com](https://build.oracleagentfactory.com). The linked guides contain their current purpose-first titles; the table describes the original collection. The public [catalog](https://kgvarun.github.io/agent-factory-samples/) provides setup guides and the [latest release](https://github.com/kgvarun/agent-factory-samples/releases/tag/latest) provides importable `.paf` files.
+**Ten original business demos, plus the four original JDE fulfillment and memory examples.** The new demos are deployed on the prepared PAF instance. The linked guides contain their current purpose-first titles; the table describes the original collection. The public [catalog](https://kgvarun.github.io/agent-factory-samples/) provides setup guides and the [latest release](https://github.com/kgvarun/agent-factory-samples/releases/tag/latest) provides importable `.paf` files.
 
 | Business audience | Demo | Builder capability to show |
 | --- | --- | --- |
@@ -104,7 +104,7 @@ Policy Desk uses direct file grounding; it is not a vector Knowledge Agent. The 
 
 - Reuse the existing curated JDE, PeopleSoft and EBS sources. Each `assets/source-bindings.json` names the exact source and affected nodes; schema references and deterministic SQL are included where applicable. Credentials and actual database rows are excluded.
 - **Disable Agent Memory and sharing between chat threads for all ten new demos.** This instance enables them by default. Old prototype responses were recalled during development until these per-flow switches were disabled. The official export does not bundle these switches. Do not alter the original memory demos.
-- After import, rebind source IDs, select `AIW26-PAF-HOL6004-BOO6096` on every Agent node, and upload supplied file assets again. This OpenAI Compatible model is configured on `build.oracleagentfactory.com` and is the model for the final AI World labs. Configure the same name in each destination; model definitions and credentials are excluded from workflow archives. The earlier demo validation used `xai.grok-4.3`; output wording and model quality can vary.
+- After import, rebind source IDs, select `AIW26-PAF-HOL6004-BOO6096` on every Agent node, and upload supplied file assets again. This OpenAI Compatible model is configured on the prepared PAF instance and is the model for the final AI World labs. Configure the same name in each destination; model definitions and credentials are excluded from workflow archives. The earlier demo validation used `xai.grok-4.3`; output wording and model quality can vary.
 - Historical JDE/EBS/PeopleSoft dates remain historical. Only database-monitoring observations and actual query clocks describe the observation time. The fictional policy and visit are labeled in their assets.
 - To adapt a demo to another application/version, copy it into a new use-case folder with a distinct slug/title, inspect that version's view columns and grain, revise SQL and instructions, and repeat the business prompt. Do not assume EBS, PeopleSoft and JDE status codes, effective dates or units are interchangeable. These samples do not claim validation on every application version.
 
@@ -321,6 +321,29 @@ Open `http://localhost:8000`. The site groups use cases by application and inclu
 The Pages workflow regenerates and validates the site on every push to `main` and always uploads `rendered-agent-pages-<commit>` as an Actions artifact. Public repositories deploy automatically.
 
 For a private repository, the organization plan must support GitHub Pages. Enable Pages with **Build and deployment → Source → GitHub Actions**, then create the repository variable `ENABLE_GITHUB_PAGES=true`. Until then, deployment is skipped without hiding documentation-build failures.
+
+## Publication privacy
+
+Deployment URLs, hostnames, IP addresses, and deployment-domain email addresses
+must not appear in READMEs or GitHub Pages, including diagrams and code blocks.
+Use role descriptions or reserved example addresses. Public reference links are
+restricted to the approved hosts in `scripts/publication_guard.py`.
+
+Enable the repository hooks in each checkout:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The commit hook checks staged content; the push hook checks every new commit.
+Pages generation rejects unapproved addresses before writing catalog content,
+and GitHub Actions checks the exact output before uploading an artifact.
+
+```bash
+python3 scripts/publication_guard.py --staged
+python3 scripts/generate_docs.py
+python3 scripts/publication_guard.py --pages docs
+```
 
 ## Validate a contribution
 
