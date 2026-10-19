@@ -1,12 +1,12 @@
 # Agent Showcase — APEX architecture
 
-Agent Showcase gives a signed-in Private Agent Factory (PAF) user a dedicated chat interface for their **owned, published agents**. The deployed application is [apex.oracleagentfactory.com](https://apex.oracleagentfactory.com). Its initial PAF instance is [build.oracleagentfactory.com](https://build.oracleagentfactory.com).
+Agent Showcase gives a signed-in Private Agent Factory (PAF) user a dedicated chat interface for their **owned, published agents**. It connects to an administrator-approved PAF instance.
 
 This document records the implementation deployed and verified on **2026-10-19**. It is repository documentation under `integrations/`; it is not an agent sample or an entry in the generated GitHub Pages catalog.
 
 ## User flow
 
-1. Open the landing page and enter the PAF instance URL. The initial value is `https://build.oracleagentfactory.com`.
+1. Open the landing page and enter the PAF instance URL, or use the configured default.
 2. Continue and sign in with the existing PAF email and password. No separate APEX end-user account is required.
 3. Choose from agents that PAF identifies as both owned by this user and published.
 4. Chat with the selected agent through PAF REST APIs.
@@ -19,12 +19,12 @@ This document records the implementation deployed and verified on **2026-10-19**
 ```mermaid
 flowchart TB
     browser["User browser<br/>Agent Showcase UI"]
-    edge["Cloudflare DNS and HTTPS edge<br/>apex.oracleagentfactory.com"]
+    edge["Cloudflare DNS and HTTPS edge<br/>Dedicated application hostname"]
     cdn["Oracle APEX static CDN<br/>APEX JavaScript and CSS"]
 
     subgraph host["Existing workp host"]
         connector["Existing cloudflared connector<br/>Outbound tunnel connection"]
-        proxy["Dedicated Nginx proxy<br/>127.0.0.1:9081"]
+        proxy["Dedicated Nginx proxy<br/>Loopback port 9081"]
         ords["Existing ORDS service<br/>Container port 8080"]
         connector -->|HTTP over loopback| proxy
         proxy -->|HTTP over container network| ords
@@ -38,7 +38,7 @@ flowchart TB
         gateway -->|Server-side state| tables
     end
 
-    paf["Private Agent Factory<br/>build.oracleagentfactory.com/agentFactory<br/>Existing accounts, agents, and execution"]
+    paf["Private Agent Factory<br/>Configured PAF instance<br/>Existing accounts, agents, and execution"]
 
     browser -->|HTTPS: pages, login, AJAX| edge
     edge -->|Existing Cloudflare Tunnel| connector
@@ -107,7 +107,7 @@ The diagrams omit individual edge/proxy hops from the sequence for readability; 
 
 ## REST and AJAX contracts
 
-All PAF paths below are relative to the normalized base URL `https://build.oracleagentfactory.com/agentFactory`.
+All PAF paths below are relative to the configured, allowlisted PAF base URL, including its `/agentFactory` context path.
 
 | Purpose | PAF request | Application behavior |
 | --- | --- | --- |
@@ -139,11 +139,11 @@ Conversation and message rows are committed after a successful PAF response. The
 
 ## Session and access controls
 
-- The URL field is normalized and checked against `PAF_ENDPOINTS` before credentials are sent. Initially only the Build base URL is allowed. Entering an arbitrary URL does not authorize another destination.
+- The URL field is normalized and checked against `PAF_ENDPOINTS` before credentials are sent. Initially only the configured PAF base URL is allowed. Entering an arbitrary URL does not authorize another destination.
 - The browser has the secure APEX cookie `AGENT_SHOWCASE_SESSION`. It does not receive the PAF cookie. Password page items use memory-only APEX session state and are cleared after successful authentication.
 - Server-side PAF session rows must match both the authenticated APEX session ID and username. They expire after **170 minutes**. APEX has a **30-minute idle timeout** and **170-minute maximum session length**.
 - Logout deletes the stored session even when its local expiry has passed. PAF logout is best effort; it is not a claim of global logout across other PAF browser sessions.
-- The database schema uses **NO AUTHENTICATION**, a **100 MB** quota, `CREATE SESSION`, `CREATE TABLE`, `CREATE PROCEDURE`, and execution grants for `SYS.UTL_HTTP` and `SYS.UTL_URL`. Its HTTPS ACL is scoped to `build.oracleagentfactory.com:443`.
+- The database schema uses **NO AUTHENTICATION**, a **100 MB** quota, `CREATE SESSION`, `CREATE TABLE`, `CREATE PROCEDURE`, and execution grants for `SYS.UTL_HTTP` and `SYS.UTL_URL`. Its HTTPS ACL is scoped to the approved PAF host on port **443**.
 - Message rendering creates DOM text nodes, including structured tables. Agent-supplied HTML is not executed.
 - Expired session rows are removed on a successful sign-in. Conversation records persist; no scheduled retention or deletion job is installed.
 
@@ -151,14 +151,14 @@ Conversation and message rows are committed after a successful PAF response. The
 
 | Setting | Deployed value |
 | --- | --- |
-| Public app hostname | `apex.oracleagentfactory.com` |
-| Existing database tools hostname | `db.oracleagentfactory.com` |
+| Public app entry | Dedicated application hostname |
+| Existing database tools entry | Separate authenticated tools hostname |
 | APEX database / version | Existing `agentfactory-demo` Autonomous Database / **26.1.5** |
 | Workspace / schema | Separate `AGENT_SHOWCASE` / `PAF_CHAT` |
 | Application / alias | **110** / `AGENT-SHOWCASE` |
 | Existing workspace retained | `AGENTFACTORY_DEMO` |
-| Initial PAF instance | `https://build.oracleagentfactory.com/agentFactory` |
-| Dedicated origin listener | `127.0.0.1:9081` on workp |
+| Initial PAF instance | Administrator-configured and allowlisted instance |
+| Dedicated origin listener | Loopback port **9081** on the application host |
 | Upstream | Existing ORDS container on port **8080** |
 
 The dedicated Nginx container runs as an unprivileged user with a read-only filesystem, temporary writable directories, dropped capabilities, and a pinned image digest. It forwards the APEX entry point for app 110, required native AJAX/form/localization/logout paths, and that app's static files. `/ords/apex_admin` and the builder entry point `/ords/f?p=4500:1` are rejected on the app hostname. APEX library requests under `/i/` redirect to Oracle's static CDN.
