@@ -2,13 +2,13 @@
 
 Agent Showcase gives a signed-in Private Agent Factory (PAF) user a dedicated chat interface for their **owned, published agents**. It connects to an administrator-approved PAF instance.
 
-This document records the implementation deployed and verified on **2026-10-19**. It is repository documentation under `integrations/`; it is not an agent sample or an entry in the generated GitHub Pages catalog.
+This document records the implementation deployed on **2026-10-19**, with multi-instance login verified on **2026-10-20**. It is repository documentation under `integrations/`; it is not an agent sample or an entry in the generated GitHub Pages catalog.
 
 ## User flow
 
 1. Complete Cloudflare human verification. Managed Challenge may verify the browser automatically or request an interaction.
 2. Pass the browser's temporary proxy username/password prompt.
-3. On the APEX landing page, enter the PAF instance URL or use the configured default.
+3. On the APEX landing page, enter a registered PAF instance URL or use the configured default. Both an HTTPS root URL and its `/agentFactory` base path are accepted.
 4. Continue and sign in with the existing PAF email and password. No separate APEX end-user account is required.
 5. Choose from agents that PAF identifies as both owned by this user and published.
 6. Chat with the selected agent through PAF REST APIs.
@@ -89,7 +89,7 @@ sequenceDiagram
 
     User->>UI: Enter instance URL, then PAF email and password
     UI->>App: Native APEX login over HTTPS
-    App->>Store: Validate normalized URL against PAF_ENDPOINTS
+    App->>Store: Resolve root or context URL against PAF_ENDPOINTS
     App->>PAF: GET /v1/loginValidation (Basic credentials)
     PAF-->>App: Valid user ID and PAF session cookie
     App->>Store: Bind PAF session to authenticated APEX session
@@ -161,11 +161,11 @@ Conversation and message rows are committed after a successful PAF response. The
 - The temporary HTTP Basic gate runs in the dedicated proxy and does not use Authentik. It accepts one approved existing account and stores only a salted password hash in private operational state. The deployed hash is readable only by the unprivileged proxy user. Gateway credentials are removed before forwarding requests to ORDS.
 - PAF sign-in still identifies the individual app user. APEX sign-out ends the PAF/APEX session; the browser can retain its HTTP Basic credentials for the browser session.
 - The proxy sends `Cache-Control: no-store` for app responses. Cloudflare accepted a purge for the app hostname only; the previously cached static-file path now receives the edge challenge before app content is served.
-- The URL field is normalized and checked against `PAF_ENDPOINTS` before credentials are sent. Initially only the configured PAF base URL is allowed. Entering an arbitrary URL does not authorize another destination.
+- The URL field accepts a registered HTTPS root or `/agentFactory` URL and resolves it to the exact `PAF_ENDPOINTS` entry before credentials are sent. The build and AIW-PM instances are registered; the build instance remains the default. An unregistered instance receives a configuration message before credential validation. Entering an arbitrary URL does not authorize another destination.
 - The browser has the secure APEX cookie `AGENT_SHOWCASE_SESSION`. It does not receive the PAF cookie. Password page items use memory-only APEX session state and are cleared after successful authentication.
 - Server-side PAF session rows must match both the authenticated APEX session ID and username. They expire after **170 minutes**. APEX has a **30-minute idle timeout** and **170-minute maximum session length**.
 - Logout deletes the stored session even when its local expiry has passed. PAF logout is best effort; it is not a claim of global logout across other PAF browser sessions.
-- The database schema uses **NO AUTHENTICATION**, a **100 MB** quota, `CREATE SESSION`, `CREATE TABLE`, `CREATE PROCEDURE`, and execution grants for `SYS.UTL_HTTP` and `SYS.UTL_URL`. Its HTTPS ACL is scoped to the approved PAF host on port **443**.
+- The database schema uses **NO AUTHENTICATION**, a **100 MB** quota, `CREATE SESSION`, `CREATE TABLE`, `CREATE PROCEDURE`, and execution grants for `SYS.UTL_HTTP` and `SYS.UTL_URL`. Its HTTPS ACL is scoped to each registered PAF host on port **443**.
 - Message rendering creates DOM text nodes, including structured tables. Agent-supplied HTML is not executed.
 - Expired session rows are removed on a successful sign-in. Conversation records persist; no scheduled retention or deletion job is installed.
 
@@ -179,7 +179,7 @@ Conversation and message rows are committed after a successful PAF response. The
 | Workspace / schema | Separate `AGENT_SHOWCASE` / `PAF_CHAT` |
 | Application / alias | **110** / `AGENT-SHOWCASE` |
 | Existing workspace retained | `AGENTFACTORY_DEMO` |
-| Initial PAF instance | Administrator-configured and allowlisted instance |
+| PAF instances | Administrator-registered build default and AIW-PM instance |
 | Dedicated origin listener | Loopback port **9081** on the application host |
 | Upstream | Existing ORDS container on port **8080** |
 
@@ -193,14 +193,14 @@ Operational sources remain in their owning directories on the deployment workspa
 
 | Owner directory, relative to `/home/ubuntu/work` | Important sources |
 | --- | --- |
-| `apps/apex/agent-showcase/` | `static/`, `sql/schema.sql`, `sql/paf_chat.sql`, `scripts/build_app.py`, `scripts/deploy.py`, `scripts/verify_browser.py`, `tests/browser_check.py`, `exports/f110.sql`, `exports/f110-native.sql`, and `docs/deployment.md`. |
+| `apps/apex/agent-showcase/` | `static/`, `sql/schema.sql`, `sql/paf_chat.sql`, `scripts/build_app.py`, `scripts/deploy.py`, `scripts/register_instance.py`, `scripts/verify_browser.py`, `tests/browser_check.py`, `tests/test_instances.py`, `tests/instance_login_check.py`, `exports/f110.sql`, `exports/f110-native.sql`, and `docs/deployment.md`. |
 | `infra/ansible/` | `playbooks/deploy_apex_agent_showcase_proxy.yml` and `playbooks/files/apex-agent-showcase-*`, plus `apex-proxy.inc`, `runbooks/apex_agent_showcase_proxy.md`, and `runbooks/apex_showcase_challenge.md`. |
 | `infra/cloudflare/` | `apex_showcase_route.py` checks hostname conflicts, tunnel health, local readiness, concurrent updates, and unrelated routes. `apex_showcase_challenge.py` plans, applies, and verifies only the dedicated challenge rule while preserving unrelated rules. |
 | `databases/` | Existing shared database connection helpers and clients. |
 
 The schema deployment creates the workspace, app tables/package, grants, and scoped ACL. The initial app import refuses to overwrite an existing application ID. A subsequent `refresh` is restricted to app 110 named `Agent Showcase` in `AGENT_SHOWCASE`; it saves a protected native export first and preserves the conversation tables.
 
-Changing PAF instances requires coordinated updates to the endpoint allowlist, login default/normalization, and database network ACL. Changing the public hostname requires matching app/proxy configuration, the dedicated DNS/tunnel route, and the challenge rule expression. Updating a displayed default alone does not grant access to another PAF instance.
+Adding a PAF instance uses `scripts/register_instance.py` to plan or apply its canonical endpoint registration and exact-host port-443 database ACL. Existing registrations and the default are preserved. The landing page accepts the root or context URL of any registered instance without another app refresh. Changing the displayed default is a separate configuration change. Changing the public hostname requires matching app/proxy configuration, the dedicated DNS/tunnel route, and the challenge rule expression. Updating a displayed default alone does not grant access to another PAF instance.
 
 For rollback, remove only the app hostname's current tunnel route and matching DNS record after checking for concurrent changes, then stop only its dedicated proxy if needed. Do not restore an old whole-tunnel snapshot over newer routes. Preserve the database data; dropping the workspace/schema or deleting conversations is a separate destructive operation.
 
@@ -219,5 +219,7 @@ The 2026-10-19 public HTTPS checks before challenge deployment used the existing
 The full public chat flow passed before the final error-banner adjustment; public sign-in, authorization, mobile layout, expiry, and logout were checked again on the final app definition. Local simulated-API browser checks also passed for structured response rendering, inert HTML injection, and absence of automatic send retries. All deployed PL/SQL objects compiled without errors.
 
 After challenge deployment, fresh public requests to nine landing, APEX, AJAX/form, localization, logout, health, and static entry paths received HTTP 403 with `cf-mitigated: challenge`, without an APEX form or cache HIT. API readback confirmed the enabled hostname-scoped rule and preservation of unrelated rules. The separate tools login path remained reachable. The real password gate, native PAF login, 49 owned/published agents, isolation, mobile layout, expiry, and logout passed again through the local HTTPS adapter. These checks verified public interception and origin behavior separately; they did not complete an interactive human challenge or repeat agent execution.
+
+The 2026-10-20 multi-instance checks passed for a second existing account on both root and context URLs of AIW-PM, and for the editor account on AIW-PM and the build default. Accounts with no owned/published agents still authenticate and see an empty state. Five offline registration tests and ten database URL checks passed. Native failure checks distinguish unregistered/insecure instances from invalid credentials and clear the password. Build retained its 49-agent result and rejected cross-user and cross-instance history access. All nine existing conversations and 18 messages were preserved. These origin browser checks kept the public challenge enabled and did not repeat agent execution.
 
 Private verification records, screenshots, runtime transcripts, credentials, cookies, database connection material, and tunnel tokens are excluded from this repository. These checks establish the initial application flow; they do not validate every agent's business output, tool side effect, long-running execution, or importing pre-existing PAF history.
