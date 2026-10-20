@@ -1,4 +1,4 @@
-name: Check publication addresses
+name: Validate contributions
 
 on:
   pull_request:
@@ -17,6 +17,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install utility dependencies
+        run: python -m pip install -r scripts/requirements.txt
+      - name: Run repository tests
+        run: python -m unittest discover -s tests -v
+      - name: Test contribution origin policy
+        run: node --test tests/test_contribution_origin.cjs
       - name: Check READMEs, catalog inputs, and tracked Pages
         run: python scripts/publication_guard.py
       - name: Generate and check the exact Pages output
@@ -26,3 +32,14 @@ jobs:
         run: |
           python scripts/generate_docs.py
           python scripts/publication_guard.py --pages docs
+      - name: Build and round-trip validate disposable archives
+        run: |
+          python - <<'PY'
+          import os
+          import secrets
+          import subprocess
+          import sys
+
+          environment = dict(os.environ, PAF_ARCHIVE_PASSWORD=secrets.token_urlsafe(32))
+          subprocess.run([sys.executable, "scripts/build_release.py"], env=environment, check=True)
+          PY

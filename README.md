@@ -351,6 +351,12 @@ python3 scripts/generate_docs.py
 python3 scripts/publication_guard.py --pages docs
 ```
 
+## Contributing
+
+Submit changes through a pull request from a branch in your fork to `main`.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the review process, validation commands,
+and administrator exemption. Upstream write access is reserved for maintainers.
+
 ## Validate a contribution
 
 ```bash
