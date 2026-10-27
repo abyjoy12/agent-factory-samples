@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0",
+  "status": "UNBOUND_DESIGN",
+  "connectionAliases": {
+    "evidence": "EVIDENCE_PROVIDER",
+    "staging": "STAGING_SERVICE",
+    "identity": "TRUSTED_IDENTITY_CONTEXT"
+  },
+  "bindings": [
+    {
+      "logicalTool": "list_work_order_reschedule_candidates",
+      "providerAlias": "EVIDENCE_PROVIDER",
+      "destinationBinding": null
+    },
+    {
+      "logicalTool": "preview_work_order_reschedule",
+      "providerAlias": "EVIDENCE_PROVIDER",
+      "destinationBinding": null
+    },
+    {
+      "logicalTool": "stage_work_order_reschedule",
+      "providerAlias": "STAGING_SERVICE",
+      "destinationBinding": null
+    },
+    {
+      "logicalTool": "get_staging_receipt",
+      "providerAlias": "STAGING_SERVICE",
+      "destinationBinding": null
+    }
+  ],
+  "modelAlias": "DESTINATION_MODEL",
+  "memorySettings": {
+    "enabled": false,
+    "shareBetweenChatThreads": false
+  },
+  "hostApplicationRequired": null,
+  "physicalSchemaRequired": null,
+  "nativeWorkflowIncluded": false,
+  "selectedRuntime": "OPAF",
+  "mcpServerAlias": "ORACLE_BUSINESS_TOOLS_MCP",
+  "opafWorkflowBinding": null,
+  "opafAgentBinding": null
+}

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "1.0",
+  "adapterId": "planning-sample-reference",
+  "status": "SOURCE_REVIEW_ONLY_NOT_RUNTIME_VALIDATED",
+  "host": "Existing Planning App reference",
+  "coreContractsMustRemainUnchanged": true,
+  "mappings": {
+    "wo-reschedule-staging": {
+      "logicalToPhysicalRecords": {
+        "SourceContext": "MPDF_RUNTIME_CONFIG and source dimensional keys",
+        "BusinessObjectReference": "MPDF_HJ_EBS_JOB",
+        "ChangeProposal": "MPDF_WO_PO_CHANGES",
+        "StagedChangePayload": "MPDF_EBS_DISCRETE_JOBS_IFACE",
+        "ChangeAuditEvent": "MPDF_WO_PO_CHANGE_EVENTS"
+      },
+      "legacyToolReferences": [
+        {
+          "name": "list_candidates",
+          "implementationStatus": "ADAPTER_BINDING_REQUIRED",
+          "sideEffect": "READ_ONLY",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "additionalProperties": false
+          },
+          "requirements": [
+            "Apply trusted scope",
+            "Return as-of and truncation",
+            "Bound results even if legacy source LIST is unbounded"
+          ]
+        },
+        {
+          "name": "preview_candidate",
+          "implementationStatus": "ADAPTER_BINDING_REQUIRED",
+          "sideEffect": "READ_ONLY",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "organization_id": {
+                "type": "integer"
+              },
+              "transaction_id": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "organization_id",
+              "transaction_id"
+            ],
+            "additionalProperties": false
+          },
+          "requirements": [
+            "Exact identity and mapping",
+            "Exact fields to be persisted",
+            "Preview consistency token where implemented"
+          ]
+        },
+        {
+          "name": "stage_recommendation",
+          "implementationStatus": "EXISTING_LOCAL_SOURCE_REQUIRES_TRUSTED_ADAPTER",
+          "sideEffect": "LOCAL_STAGING",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "organization_id": {
+                "type": "integer"
+              },
+              "transaction_id": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "organization_id",
+              "transaction_id"
+            ],
+            "additionalProperties": false
+          },
+          "implementation": "MPDF_RESCHEDULE_STAGE_API.STAGE_RECOMMENDATION('WO', organization_id, transaction_id)",
+          "preconditions": [
+            "Explicit user staging instruction",
+            "Authorized scope",
+            "Valid distinct recommendation",
+            "Stored target mapping"
+          ],
+          "transactionOwnership": "Invoking application commits or rolls back and verifies readback"
+        },
+        {
+          "name": "read_staging_receipt",
+          "implementationStatus": "ADAPTER_BINDING_REQUIRED",
+          "sideEffect": "READ_ONLY",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "action_id": {
+                "type": "string",
+                "pattern": "^[A-Fa-f0-9]{32}$"
+              }
+            },
+            "required": [
+              "action_id"
+            ],
+            "additionalProperties": false
+          },
+          "requirements": [
+            "Enforce actor and organization access",
+            "Verify decision and payload linkage",
+            "Expose incomplete or unknown outcomes"
+          ]
+        }
+      ],
+      "legacySourceObjects": [
+        "MPDF_WO_PO_SOURCE_V",
+        "MPDF_RESCHEDULE_CANDIDATES_V",
+        "MPDF_WO_PO_CHANGES",
+        "MPDF_WO_PO_CHANGE_EVENTS",
+        "MPDF_HJ_EBS_JOB",
+        "MPDF_EBS_DISCRETE_JOBS_IFACE"
+      ]
+    },
+    "po-change-staging": {
+      "logicalToPhysicalRecords": {
+        "SourceContext": "MPDF_RUNTIME_CONFIG and source dimensional keys",
+        "BusinessObjectReference": "MPDF_EBS_PO_TARGET_MAP",
+        "ChangeProposal": "MPDF_WO_PO_CHANGES",
+        "StagedChangePayload": "MPDF_EBS_PO_CHANGES",
+        "ChangeAuditEvent": "MPDF_WO_PO_CHANGE_EVENTS"
+      },
+      "legacyToolReferences": [
+        {
+          "name": "list_candidates",
+          "implementationStatus": "ADAPTER_BINDING_REQUIRED",
+          "sideEffect": "READ_ONLY",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            "additionalProperties": false
+          },
+          "requirements": [
+            "Apply trusted scope",
+            "Return as-of and truncation",
+            "Bound results even if legacy source LIST is unbounded"
+          ]
+        },
+        {
+          "name": "preview_candidate",
+          "implementationStatus": "ADAPTER_BINDING_REQUIRED",
+          "sideEffect": "READ_ONLY",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "organization_id": {
+                "type": "integer"
+              },
+              "transaction_id": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "organization_id",
+              "transaction_id"
+            ],
+            "additionalProperties": false
+          },
+          "requirements": [
+            "Exact identity and mapping",
+            "Exact fields to be persisted",
+            "Preview consistency token where implemented"
+          ]
+        },
+        {
+          "name": "stage_recommendation",
+          "implementationStatus": "EXISTING_LOCAL_SOURCE_REQUIRES_TRUSTED_ADAPTER",
+          "sideEffect": "LOCAL_STAGING",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "organization_id": {
+                "type": "integer"
+              },
+              "transaction_id": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "organization_id",
+              "transaction_id"
+            ],
+            "additionalProperties": false
+          },
+          "implementation": "MPDF_RESCHEDULE_STAGE_API.STAGE_RECOMMENDATION('PO', organization_id, transaction_id)",
+          "preconditions": [
+            "Explicit user staging instruction",
+            "Authorized scope",
+            "Valid distinct recommendation",
+            "Stored target mapping"
+          ],
+          "transactionOwnership": "Invoking application commits or rolls back and verifies readback"
+        },
+        {
+          "name": "read_staging_receipt",
+          "implementationStatus": "ADAPTER_BINDING_REQUIRED",
+          "sideEffect": "READ_ONLY",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "action_id": {
+                "type": "string",
+                "pattern": "^[A-Fa-f0-9]{32}$"
+              }
+            },
+            "required": [
+              "action_id"
+            ],
+            "additionalProperties": false
+          },
+          "requirements": [
+            "Enforce actor and organization access",
+            "Verify decision and payload linkage",
+            "Expose incomplete or unknown outcomes"
+          ]
+        },
+        {
+          "name": "stage_manual_decision",
+          "optional": true,
+          "implementationStatus": "EXISTING_LOCAL_SOURCE_REQUIRES_TRUSTED_ADAPTER",
+          "sideEffect": "LOCAL_STAGING",
+          "implementation": "MPDF_PO_STAGE_API.REQUEST('STAGE', payload)",
+          "completion": "DECISION_ONLY_STAGED",
+          "requirements": [
+            "No payload-created claim",
+            "Complete-key authorization adapter",
+            "Positive desired total quantity when present",
+            "No change rejected"
+          ]
+        }
+      ],
+      "legacySourceObjects": [
+        "MPDF_WO_PO_SOURCE_V",
+        "MPDF_RESCHEDULE_CANDIDATES_V",
+        "MPDF_WO_PO_CHANGES",
+        "MPDF_WO_PO_CHANGE_EVENTS",
+        "MPDF_EBS_PO_TARGET_MAP",
+        "MPDF_EBS_PO_CHANGES"
+      ]
+    }
+  },
+  "nativeStatusMapping": {
+    "review": {
+      "DRAFT": "DRAFT",
+      "APPROVED": "APPROVED",
+      "REJECTED": "REJECTED"
+    },
+    "mapping": {
+      "VERIFIED": "RESOLVED",
+      "UNVERIFIED": "UNRESOLVED",
+      "CONFLICT": "CONFLICT"
+    },
+    "handoff": {
+      "NOT_READY": "NOT_READY",
+      "READY": "READY"
+    }
+  },
+  "notes": [
+    "Existing source does not implement every generic contract guarantee",
+    "No executable adapter is delivered",
+    "Do not pass proposal version/request key as legacy arguments without implementing adapter semantics"
+  ],
+  "implementationReference": "implementation-reference.json"
+}

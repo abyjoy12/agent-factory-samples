@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "displayName": "Planning App",
+  "applicationPlatform": "Oracle APEX",
+  "applicationId": 166,
+  "existingDatabaseObjectPrefix": "MPDF",
+  "scope": "Private bindings and existing physical implementation remain unchanged",
+  "liveApplicationRenamed": false,
+  "role": "Existing sample business case and reference implementation"
+}

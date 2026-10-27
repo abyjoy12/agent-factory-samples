@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "status": "PRIVATE_BINDINGS_REQUIRED",
+  "serverAlias": "ORACLE_BUSINESS_TOOLS_MCP",
+  "endpoint": null,
+  "authenticationBinding": null,
+  "roles": {
+    "EBS_READ": {
+      "purpose": "Operational EBS evidence",
+      "access": "Approved bounded reads; no EBS business writes",
+      "privateConnectionBinding": null,
+      "trustedCallerPolicyBinding": null,
+      "sessionIsolation": "Target, privilege profile and caller scope isolated"
+    },
+    "PLANNING_READ": {
+      "purpose": "MSC planning evidence at its origin or approved read copy",
+      "access": "Approved bounded reads",
+      "privateConnectionBinding": null,
+      "trustedCallerPolicyBinding": null,
+      "sessionIsolation": "Target, privilege profile and caller scope isolated"
+    },
+    "AI_READ": {
+      "purpose": "Optional 26ai semantics, retrieval and evaluation evidence",
+      "access": "Approved reads; feature prerequisites validated separately",
+      "privateConnectionBinding": null,
+      "trustedCallerPolicyBinding": null,
+      "sessionIsolation": "Target, privilege profile and caller scope isolated"
+    },
+    "STAGING_WRITE": {
+      "purpose": "Customer-selected proposal/payload/audit store",
+      "access": "Restricted draft procedures and receipt readback; no EBS execution",
+      "privateConnectionBinding": null,
+      "trustedCallerPolicyBinding": null,
+      "sessionIsolation": "Target, privilege profile and caller scope isolated"
+    }
+  },
+  "rawDatabaseToolsInBusinessAgentAllowlist": false,
+  "downstreamEbsExecutionIncluded": false
+}

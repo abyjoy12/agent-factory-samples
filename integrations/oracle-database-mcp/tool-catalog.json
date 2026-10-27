@@ -1,0 +1,250 @@
+{
+  "schemaVersion": "1.0",
+  "status": "PROPOSED_BUSINESS_TOOL_FACADE",
+  "tools": [
+    {
+      "name": "list_work_order_reschedule_candidates",
+      "registrationStatus": "PROPOSED_NOT_DISCOVERED",
+      "runtimeValidation": "NOT_PERFORMED",
+      "effect": "READ_ONLY",
+      "routeRoles": [
+        "PLANNING_READ",
+        "EBS_READ"
+      ],
+      "routePolicy": "Server-controlled; use only necessary roles for the use case",
+      "contractSource": "../ebs-staging-blueprints/agents/wo-reschedule-staging/contracts/tools.json",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "trustedCallerRequired": true,
+      "acceptsRawSql": false,
+      "acceptsArbitraryConnection": false,
+      "requiresExplicitStagingIntent": false,
+      "executesEbsBusinessTransaction": false
+    },
+    {
+      "name": "preview_work_order_reschedule",
+      "registrationStatus": "PROPOSED_NOT_DISCOVERED",
+      "runtimeValidation": "NOT_PERFORMED",
+      "effect": "READ_ONLY",
+      "routeRoles": [
+        "PLANNING_READ",
+        "EBS_READ"
+      ],
+      "routePolicy": "Server-controlled; use only necessary roles for the use case",
+      "contractSource": "../ebs-staging-blueprints/agents/wo-reschedule-staging/contracts/tools.json",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "candidate_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "candidate_ref"
+        ],
+        "additionalProperties": false
+      },
+      "trustedCallerRequired": true,
+      "acceptsRawSql": false,
+      "acceptsArbitraryConnection": false,
+      "requiresExplicitStagingIntent": false,
+      "executesEbsBusinessTransaction": false
+    },
+    {
+      "name": "stage_work_order_reschedule",
+      "registrationStatus": "PROPOSED_NOT_DISCOVERED",
+      "runtimeValidation": "NOT_PERFORMED",
+      "effect": "LOCAL_STAGING",
+      "routeRoles": [
+        "STAGING_WRITE"
+      ],
+      "routePolicy": "Server-controlled; use only necessary roles for the use case",
+      "contractSource": "../ebs-staging-blueprints/agents/wo-reschedule-staging/contracts/tools.json",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "proposal_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_key": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "proposal_ref",
+          "expected_version",
+          "request_key"
+        ],
+        "additionalProperties": false
+      },
+      "trustedCallerRequired": true,
+      "acceptsRawSql": false,
+      "acceptsArbitraryConnection": false,
+      "requiresExplicitStagingIntent": true,
+      "executesEbsBusinessTransaction": false
+    },
+    {
+      "name": "get_staging_receipt",
+      "registrationStatus": "PROPOSED_NOT_DISCOVERED",
+      "runtimeValidation": "NOT_PERFORMED",
+      "effect": "READ_ONLY",
+      "routeRoles": [
+        "STAGING_WRITE"
+      ],
+      "routePolicy": "Server-controlled; use only necessary roles for the use case",
+      "contractSource": "../ebs-staging-blueprints/agents/wo-reschedule-staging/contracts/tools.json",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "action_id"
+        ],
+        "additionalProperties": false
+      },
+      "trustedCallerRequired": true,
+      "acceptsRawSql": false,
+      "acceptsArbitraryConnection": false,
+      "requiresExplicitStagingIntent": false,
+      "executesEbsBusinessTransaction": false
+    },
+    {
+      "name": "list_purchase_order_change_candidates",
+      "registrationStatus": "PROPOSED_NOT_DISCOVERED",
+      "runtimeValidation": "NOT_PERFORMED",
+      "effect": "READ_ONLY",
+      "routeRoles": [
+        "EBS_READ",
+        "PLANNING_READ"
+      ],
+      "routePolicy": "Server-controlled; use only necessary roles for the use case",
+      "contractSource": "../ebs-staging-blueprints/agents/po-change-staging/contracts/tools.json",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "trustedCallerRequired": true,
+      "acceptsRawSql": false,
+      "acceptsArbitraryConnection": false,
+      "requiresExplicitStagingIntent": false,
+      "executesEbsBusinessTransaction": false
+    },
+    {
+      "name": "preview_purchase_order_change",
+      "registrationStatus": "PROPOSED_NOT_DISCOVERED",
+      "runtimeValidation": "NOT_PERFORMED",
+      "effect": "READ_ONLY",
+      "routeRoles": [
+        "EBS_READ",
+        "PLANNING_READ"
+      ],
+      "routePolicy": "Server-controlled; use only necessary roles for the use case",
+      "contractSource": "../ebs-staging-blueprints/agents/po-change-staging/contracts/tools.json",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "candidate_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "candidate_ref"
+        ],
+        "additionalProperties": false
+      },
+      "trustedCallerRequired": true,
+      "acceptsRawSql": false,
+      "acceptsArbitraryConnection": false,
+      "requiresExplicitStagingIntent": false,
+      "executesEbsBusinessTransaction": false
+    },
+    {
+      "name": "stage_purchase_order_change",
+      "registrationStatus": "PROPOSED_NOT_DISCOVERED",
+      "runtimeValidation": "NOT_PERFORMED",
+      "effect": "LOCAL_STAGING",
+      "routeRoles": [
+        "STAGING_WRITE"
+      ],
+      "routePolicy": "Server-controlled; use only necessary roles for the use case",
+      "contractSource": "../ebs-staging-blueprints/agents/po-change-staging/contracts/tools.json",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "proposal_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_key": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "proposal_ref",
+          "expected_version",
+          "request_key"
+        ],
+        "additionalProperties": false
+      },
+      "trustedCallerRequired": true,
+      "acceptsRawSql": false,
+      "acceptsArbitraryConnection": false,
+      "requiresExplicitStagingIntent": true,
+      "executesEbsBusinessTransaction": false
+    }
+  ],
+  "engineeringOnlyNativeTools": [
+    "list-connections",
+    "connect",
+    "disconnect",
+    "run-sql",
+    "run-sqlcl",
+    "schema-information"
+  ],
+  "nativeToolInventoryNote": "Documented SQLcl examples; actual deployed availability/version must be discovered",
+  "connectionSelection": "Internal role routing only",
+  "allCapabilitiesDoesNotMeanAllAgentPermissions": true
+}
