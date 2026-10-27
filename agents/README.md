@@ -18,3 +18,11 @@ Each use-case directory contains one reviewable Agent Builder workflow, its arch
 - [Cross-application](cross-application/)
 
 Application and use-case slugs in `sample.json` must match their directory names. The agent `slug` remains independent and determines the stable release asset filename.
+
+## Design blueprints
+
+The [EBS staging blueprints](../integrations/ebs-staging-blueprints/README.md) cover WO reschedule and PO change draft creation. They live under integrations while native workflows and destination validation are pending. Follow their promotion guide before adding either to this runnable sample tree.
+
+## Shared capability model
+
+The [registry model](../architecture/registry-model.md) separates reusable agents from shared tools, skills and workflow tasks. The agreed target is independent canonical tool definitions referenced by agents. Existing sample folders and design-local contracts remain in their current form until a deliberate migration preserves catalog and release compatibility.

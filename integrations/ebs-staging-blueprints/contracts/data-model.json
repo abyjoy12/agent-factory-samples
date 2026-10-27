@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0",
+  "status": "LOGICAL_CONTRACT_NOT_PHYSICAL_DDL",
+  "records": {
+    "SourceContext": {
+      "purpose": "Evidence identity and authorized scope",
+      "fields": [
+        "source_system",
+        "source_instance",
+        "planning_context",
+        "business_scope",
+        "source_as_of",
+        "extracted_at",
+        "queried_at"
+      ]
+    },
+    "BusinessObjectReference": {
+      "purpose": "Stable typed identity without assuming universal table keys",
+      "fields": [
+        "object_type",
+        "source_keys",
+        "display_reference",
+        "target_keys",
+        "mapping_status",
+        "mapping_provenance",
+        "mapping_as_of"
+      ]
+    },
+    "ChangeProposal": {
+      "purpose": "Versioned before/after decision draft",
+      "fields": [
+        "action_id",
+        "version",
+        "request_key",
+        "object_reference",
+        "change_type",
+        "current_values",
+        "proposed_values",
+        "recommendation_origin",
+        "evidence_refs",
+        "review_status",
+        "created_by",
+        "created_at"
+      ]
+    },
+    "StagedChangePayload": {
+      "purpose": "Linked destination staging representation",
+      "fields": [
+        "payload_ref",
+        "action_id",
+        "proposal_version",
+        "request_key",
+        "payload_type",
+        "values",
+        "payload_status"
+      ]
+    },
+    "ChangeAuditEvent": {
+      "purpose": "Durable history of draft creation and changes",
+      "fields": [
+        "event_ref",
+        "action_id",
+        "proposal_version",
+        "actor_ref",
+        "event_type",
+        "before_values",
+        "after_values",
+        "occurred_at"
+      ]
+    }
+  },
+  "notes": [
+    "No physical table, schema, sequence, application ID or UI route is prescribed",
+    "Use trusted scope rather than authorizing identity from model arguments",
+    "Manufacturing organization and purchasing operating unit are not interchangeable",
+    "No numeric plan ID is mandatory; planning_context may be absent for manual or nonplanning evidence"
+  ]
+}

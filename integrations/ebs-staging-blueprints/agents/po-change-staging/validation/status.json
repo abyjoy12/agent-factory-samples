@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "status": "DESIGN_ONLY",
+  "coreApplicationNeutral": true,
+  "nativeWorkflowAvailable": false,
+  "destinationValidated": false,
+  "businessAcceptanceExecuted": false,
+  "downstreamIntegrationIncluded": false,
+  "selectedRuntimeRelease": "26.10.0.0.0",
+  "releaseEvidence": "User-supplied About screen; not a workflow/API validation"
+}

@@ -137,6 +137,18 @@ The earlier executive prototype using different database connections failed with
 
 These four samples form a progression from a stateless shortage investigation to a realistic, end-user-oriented Agent Memory demonstration. Their six JDE tools are read-only Simple Table Query operations over F4211, F4201, F41021, F4311, F4101, and F0101.
 
+## Business Agent Workbench strategy
+
+The [architecture guide](architecture/README.md) records the agreed design for the combined registry/testing companion, OPAF 26.10 execution, shared business tools, workflow tasks and skills, business-case evaluation, autonomous monitoring, cases and human worklists, and the coding-agent/APEXlang handoff. The new EBS Agent Blueprint Showcase will use a fresh App ID; the existing Planning App remains the sample business case. The companion and registry extensions remain design work; existing runnable samples retain their own runtime and validation versions.
+
+## EBS staging blueprints
+
+[WO reschedule and PO change staging designs](integrations/ebs-staging-blueprints/README.md) define application-neutral draft creation, logical tools, controls and acceptance cases. An optional demo adapter supplies host-specific bindings. They leave EBS integration to the customer. These design artifacts are separate from the runnable catalog until native workflows and validation are available.
+
+## Oracle Database MCP
+
+[Oracle Database MCP guidance](integrations/oracle-database-mcp/README.md) documents the shared database gateway design, verified gateway discovery, direct-source evidence options and proposed business-tool routing. Keep actual endpoint bindings private. Gateway protocol and native tool discovery are verified; database access and new business-tool registrations remain unverified.
+
 ## Source and release contract
 
 Each use-case folder under `agents/<application>/<use-case>/` contains:

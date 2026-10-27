@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0",
+  "status": "HOSTNAME_TLS_MCP_DISCOVERY_VERIFIED_DATABASE_ACCESS_UNTESTED",
+  "evidence": [
+    {
+      "type": "USER_REPORTED",
+      "serverPort": 8093,
+      "reportedTargets": [
+        "EBS",
+        "26ai"
+      ],
+      "endpoint": null,
+      "implementation": null,
+      "serverVersion": null,
+      "toolsDiscovered": false
+    },
+    {
+      "type": "PRIVATE_WORKSPACE_CONFIG_REVIEW",
+      "upstreamTransport": "SSE",
+      "upstreamPort": 8080,
+      "path": "/sse",
+      "deploymentAddressIncluded": false
+    },
+    {
+      "type": "WORKSPACE_SOURCE_REVIEW",
+      "component": "SQLcl client and EBS contract facade",
+      "facadeDefaultPort": 8081,
+      "registeredToolNames": [
+        "list_ebs_query_contracts",
+        "discover_ebs_metadata",
+        "run_ebs_contract"
+      ],
+      "fixedQueryContractIds": [
+        "SUPPLIER_OPEN_DELIVERIES_V1",
+        "SUPPLIER_DELAY_IMPACT_V1",
+        "TOP_OPEN_WORK_ORDERS_V1"
+      ],
+      "sourceReadOnly": true,
+      "sourceMultiDatabaseRoutingVerified": false,
+      "runtimeVerified": false
+    },
+    {
+      "type": "BOUNDED_PROTOCOL_PROBE",
+      "targets": "Configured workspace upstream and user-reported port on the same configured host",
+      "result": "MCP_INITIALIZATION_NOT_COMPLETED",
+      "databaseQueriesExecuted": false,
+      "writesExecuted": false,
+      "limitation": "Does not verify the separately reported deployment endpoint or prove absence of its server"
+    },
+    {
+      "type": "USER_SUPPLIED_ENDPOINT_AND_TLS_PROBE",
+      "publicScheme": "HTTPS",
+      "publicPort": 443,
+      "publicPath": "/mcp",
+      "deploymentAddressIncluded": false,
+      "reportedInternalPort": 8093,
+      "edgeToInternalRoutingVerified": false,
+      "result": "TLS_CERTIFICATE_VERIFICATION_FAILED_SELF_SIGNED",
+      "certificateVerificationDisabled": false,
+      "mcpInitialized": false,
+      "toolsDiscovered": false,
+      "databaseQueriesExecuted": false,
+      "writesExecuted": false
+    },
+    {
+      "type": "PROJECT_CHAT_RETRIEVAL",
+      "chatTitle": "Create OCI HTTPS load balancer",
+      "purpose": "Resolved trusted hostname routes and distinct existing gateway services",
+      "deploymentAddressesIncluded": false
+    },
+    {
+      "type": "FRESH_PROTOCOL_AND_TOOL_DISCOVERY",
+      "serviceRole": "primary_sqlcl",
+      "publicPort": 443,
+      "backendPortFromProjectConfiguration": 8093,
+      "path": "/mcp",
+      "transport": "STREAMABLE_HTTP",
+      "normalTlsVerification": true,
+      "protocolVersion": "2025-03-26",
+      "serverInfo": {
+        "name": "SQLcl MCP Gateway",
+        "version": "4.0.7"
+      },
+      "toolNames": [
+        "list-connections",
+        "connect",
+        "disconnect",
+        "run-sqlcl",
+        "run-sql"
+      ],
+      "databaseConnectionsOpened": false,
+      "businessQueriesExecuted": false,
+      "stagingWritesExecuted": false,
+      "note": "Server version is the gateway reported version; underlying SQLcl/database versions not established"
+    },
+    {
+      "type": "FRESH_PROTOCOL_AND_TOOL_DISCOVERY",
+      "serviceRole": "newebs_gateway",
+      "publicPort": 8443,
+      "backendPortFromProjectConfiguration": 8094,
+      "path": "/mcp",
+      "transport": "STREAMABLE_HTTP",
+      "normalTlsVerification": true,
+      "protocolVersion": "2025-03-26",
+      "serverInfo": {
+        "name": "NEWEBS SQLcl MCP Gateway",
+        "version": "4.0.7"
+      },
+      "toolNames": [
+        "list-connections",
+        "connect",
+        "disconnect",
+        "run-sqlcl",
+        "run-sql"
+      ],
+      "databaseConnectionsOpened": false,
+      "businessQueriesExecuted": false,
+      "stagingWritesExecuted": false,
+      "note": "Server version is the gateway reported version; underlying SQLcl/database versions not established"
+    }
+  ],
+  "outstanding": [
+    "Underlying SQLcl version and operator authentication model",
+    "Saved database alias-to-role mappings and actual connected identities",
+    "EBS/planning/26ai object availability and grants",
+    "Trusted caller scope and session isolation",
+    "Registration and validation of named business tools"
+  ],
+  "scope": "Documentation only; no deployment or authorization change"
+}

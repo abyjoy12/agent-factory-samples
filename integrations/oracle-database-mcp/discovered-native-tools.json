@@ -1,0 +1,279 @@
+{
+  "schemaVersion": "1.0",
+  "status": "DISCOVERED_WITH_NORMAL_TLS",
+  "services": [
+    {
+      "label": "primary_sqlcl",
+      "status": "PROTOCOL_AND_TOOL_DISCOVERY_VERIFIED",
+      "normalTlsVerification": true,
+      "publicPort": 443,
+      "path": "/mcp",
+      "protocolVersion": "2025-03-26",
+      "serverInfo": {
+        "name": "SQLcl MCP Gateway",
+        "version": "4.0.7"
+      },
+      "tools": [
+        {
+          "name": "list-connections",
+          "inputSchema": {
+            "properties": {
+              "filter": {
+                "type": "string",
+                "description": "This is the filter that will be used to refine the list of connections",
+                "default": ""
+              },
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "type": "object"
+          },
+          "annotations": null
+        },
+        {
+          "name": "connect",
+          "inputSchema": {
+            "properties": {
+              "connection_name": {
+                "type": "string",
+                "description": "The name of the saved connection you want to connect to"
+              },
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "required": [
+              "connection_name"
+            ],
+            "type": "object"
+          },
+          "annotations": null
+        },
+        {
+          "name": "disconnect",
+          "inputSchema": {
+            "properties": {
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "type": "object"
+          },
+          "annotations": null
+        },
+        {
+          "name": "run-sqlcl",
+          "inputSchema": {
+            "properties": {
+              "sqlcl": {
+                "type": "string",
+                "description": "The SQLcl command to execute"
+              },
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "required": [
+              "sqlcl"
+            ],
+            "type": "object"
+          },
+          "annotations": null
+        },
+        {
+          "name": "run-sql",
+          "inputSchema": {
+            "properties": {
+              "sql": {
+                "type": "string",
+                "description": "The SQL query to execute"
+              },
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "required": [
+              "sql"
+            ],
+            "type": "object"
+          },
+          "annotations": null
+        }
+      ],
+      "databaseToolsInvoked": false
+    },
+    {
+      "label": "newebs_gateway",
+      "status": "PROTOCOL_AND_TOOL_DISCOVERY_VERIFIED",
+      "normalTlsVerification": true,
+      "publicPort": 8443,
+      "path": "/mcp",
+      "protocolVersion": "2025-03-26",
+      "serverInfo": {
+        "name": "NEWEBS SQLcl MCP Gateway",
+        "version": "4.0.7"
+      },
+      "tools": [
+        {
+          "name": "list-connections",
+          "inputSchema": {
+            "properties": {
+              "filter": {
+                "type": "string",
+                "description": "This is the filter that will be used to refine the list of connections",
+                "default": ""
+              },
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "type": "object"
+          },
+          "annotations": null
+        },
+        {
+          "name": "connect",
+          "inputSchema": {
+            "properties": {
+              "connection_name": {
+                "type": "string",
+                "description": "The name of the saved connection you want to connect to"
+              },
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "required": [
+              "connection_name"
+            ],
+            "type": "object"
+          },
+          "annotations": null
+        },
+        {
+          "name": "disconnect",
+          "inputSchema": {
+            "properties": {
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "type": "object"
+          },
+          "annotations": null
+        },
+        {
+          "name": "run-sqlcl",
+          "inputSchema": {
+            "properties": {
+              "sqlcl": {
+                "type": "string",
+                "description": "The SQLcl command to execute"
+              },
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "required": [
+              "sqlcl"
+            ],
+            "type": "object"
+          },
+          "annotations": null
+        },
+        {
+          "name": "run-sql",
+          "inputSchema": {
+            "properties": {
+              "sql": {
+                "type": "string",
+                "description": "The SQL query to execute"
+              },
+              "mcp_client": {
+                "type": "string",
+                "description": "Specify the name and version of the MCP client implementation being used (e.g. Copilot, Claude, Cline...)",
+                "default": "UNKNOWN-MCP-CLIENT"
+              },
+              "model": {
+                "type": "string",
+                "description": "The name (and version) of the language model being used by the MCP client to process requests (e.g. gpt-4.1, claude-sonnet-4, llama4...",
+                "default": "UNKNOWN-LLM"
+              }
+            },
+            "required": [
+              "sql"
+            ],
+            "type": "object"
+          },
+          "annotations": null
+        }
+      ],
+      "databaseToolsInvoked": false
+    }
+  ],
+  "limitation": "Discovery only; no native database tools invoked"
+}

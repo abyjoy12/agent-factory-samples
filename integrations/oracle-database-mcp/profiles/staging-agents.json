@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0",
+  "status": "UNBOUND_OPTIONAL_TRANSPORT_PROFILE",
+  "mcpServerAlias": "ORACLE_BUSINESS_TOOLS_MCP",
+  "agentProfiles": [
+    {
+      "agent": "wo-reschedule-staging",
+      "blueprint": "../../ebs-staging-blueprints/agents/wo-reschedule-staging/blueprint.json",
+      "allowedTools": [
+        "list_work_order_reschedule_candidates",
+        "preview_work_order_reschedule",
+        "stage_work_order_reschedule",
+        "get_staging_receipt"
+      ],
+      "forbiddenCapabilities": [
+        "Raw SQL execution",
+        "Arbitrary connection switching",
+        "Self approval",
+        "EBS business execution"
+      ],
+      "identityBinding": "Trusted service context outside model arguments"
+    },
+    {
+      "agent": "po-change-staging",
+      "blueprint": "../../ebs-staging-blueprints/agents/po-change-staging/blueprint.json",
+      "allowedTools": [
+        "list_purchase_order_change_candidates",
+        "preview_purchase_order_change",
+        "stage_purchase_order_change",
+        "get_staging_receipt"
+      ],
+      "forbiddenCapabilities": [
+        "Raw SQL execution",
+        "Arbitrary connection switching",
+        "Self approval",
+        "EBS business execution"
+      ],
+      "identityBinding": "Trusted service context outside model arguments"
+    }
+  ],
+  "stagingStoreSelection": "SelectAIAJ initially; customer-replaceable",
+  "requiresReplicatedEbsTables": false,
+  "selectedAgentRuntime": "OPAF",
+  "demoHost": "EBS Agent Blueprint Showcase (new application; ID unassigned)",
+  "runtimeProfile": "../../ebs-staging-blueprints/runtime/opaf/README.md",
+  "selectedRuntimeRelease": "26.10.0.0.0",
+  "attachmentModel": "References to independently registered business tools; task scope may narrow access",
+  "referenceSample": "Existing Planning App"
+}
