@@ -1,24 +1,26 @@
 # EBS Agent Blueprint Implementation Plan
 
-Baseline October 27, 2026. This plan consolidates the agreed architecture into an implementation sequence. Start with Purchase Order Change Staging and Work Order Reschedule Staging, prove authorized local persistence and portability, then expand the business portfolio. The approximately 50-agent catalog is a discovery roadmap, not a commitment to implement every entry.
+Baseline October 27, 2026. Aby Joy
 
-## Agreed business outcome
+This plan consolidates the agreed architecture into an implementation sequence. Start with Purchase Order Change Staging and Work Order Reschedule Staging, prove authorized local persistence and portability, then expand the business portfolio. The approximately 50-agent catalog is a discovery roadmap, not a commitment to implement every entry.
+
+## Agreed business outcome for the starter Agents
 
 An authorized planner or buyer can inspect bounded EBS or planning evidence, review exact before and after values, explicitly request a local draft, and receive a verified staging receipt. The agent stops there. A ready draft is not an EBS transaction, business approval, interface import or proof of KPI recovery. Customers choose any later integration mechanism by use case.
 
 ## System responsibilities
 
-| Component | Responsibility | Current status |
+| **Component** | **Responsibility** | **Current status** |
 | --- | --- | --- |
-| Business Agent Workbench | Combined App 130 and 181 companion concept for capability discovery, registry administration, test chat, business evaluation and shared cases and worklists | Proposed; inspect existing implementations before reuse |
+| Business Agent Workbench | Combined App 130 and 181 (Ask Oracle and Enterprise Agent & Tool Registry) companion concept for capability discovery, registry administration, test chat, business evaluation and shared cases and worklists | Proposed; inspect existing implementations before reuse |
 | OPAF 26.10.0.0.0 | Author and execute agents and workflows; obtain genuine native exports | Selected runtime; these two native workflows remain to be built |
 | Business tool MCP facade | Expose typed, bounded read and local staging operations with trusted user scope | Business wrappers and registrations remain implementation work |
 | EBS and MSC sources | Supply authorized operational and planning evidence at its actual business grain and age | Validate sources and grants; MSC may be a separate planning instance |
-| SelectAIAJ staging | Initial location for draft proposal, payload and audit services if suitable after inspection | Existing foundation is not certification of current schema or behavior |
-| EBS Agent Blueprint Showcase | New demonstration application consuming OPAF workflows and shared services | New App ID unassigned; application has not been created |
+| Record staging | Initial location for draft proposal, payload and audit services if suitable after inspection | Existing foundation is not certification of current schema or behavior |
+| EBS Agent Blueprint Showcase | New demonstration application consuming OPAF workflows and shared services | New Application unassigned; application has not been created |
 | Existing Planning App | First sample business case and optional adapter reference | Preserve the existing application and its identity |
 
-Business definitions remain independent of APEX IDs and physical schemas. App 166 and MPDF identify the existing planning reference only; do not rename or repurpose that app as the new showcase. Data copies in 26ai are optional evidence sources rather than an EBS agent prerequisite. Optional Select AI, ontology and retrieval capabilities remain separate from transaction staging.
+Business definitions remain independent of APEX IDs and physical schemas. An existing MPDF App identifies the existing planning reference only. Data copies in 26ai are optional evidence sources rather than an EBS agent prerequisite. Optional Select AI, ontology and retrieval capabilities remain separate from transaction staging.
 
 ## Reusable capability model
 
@@ -30,7 +32,7 @@ The target registry also records data contracts, deployment bindings and evaluat
 
 ## First two workflows
 
-| Workflow | Permitted capability sequence | Completion evidence |
+| **Workflow** | **Permitted capability sequence** | **Completion evidence** |
 | --- | --- | --- |
 | Purchase Order Change Staging | List candidates, preview a shipment need-by date or supported quantity change, stage only on explicit instruction, obtain receipt | Stored exact values, full typed identity, action ID and version, request key, payload and audit links, review and mapping and handoff states, limitations |
 | Work Order Reschedule Staging | List candidates, preview a start-date change, stage only on explicit instruction, obtain receipt | The same receipt contract with verified work order identity and explicit date semantics |
@@ -53,7 +55,7 @@ Historical staged copies and the October 4 transfer report are useful discovery 
 
 Use the structured work items and detailed action plan supplied with this package. All items begin at NOT_STARTED and need a named owner and evidence reference. Do not infer completion from the existence of documentation.
 
-| Track | Work items | Exit |
+| **Track** | **Work items** | **Exit** |
 | --- | --- | --- |
 | Foundation | W01 and W02 | Verified invocation contract, data identities, source age and authorization |
 | Restricted tools and workflow slices | W03 to W05 | Seven business tools and two actual OPAF workflows passing control fixtures |
@@ -94,17 +96,17 @@ Integration back to EBS remains customer-defined. A later concurrent program, re
 
 ## Open implementation decisions
 
-Confirm actual OPAF 26.10 SDK and API details, native export/import support, runtime inventory and trace interfaces, trusted identity propagation, gateway registration or facade choice, staging-store behavior, App 130 and 181 reuse, named owners and fresh showcase App ID. For later autonomy, resolve scheduler ownership, durable continuation and business closure evidence. These are implementation questions within the accepted architecture.
+Confirm actual OPAF 26.10 SDK and API details, native export/import support, runtime inventory and trace interfaces, trusted identity propagation, gateway registration or facade choice, staging-store behavior, existing Agentic Apps reuse, named owners and fresh showcase App. For later autonomy, resolve scheduler ownership, durable continuation and business closure evidence. These are implementation questions within the accepted architecture.
 
 The source-derived 50-agent catalog remains internal review material pending content and licensing clearance for external reuse. Restricted source PDFs are excluded. Candidate source objects, historical readiness and representative table families require destination validation; no portfolio entry is production certified by this plan.
 
 ## Proposed portfolio of 50 agents
 
-Historical readiness: S1 means staged data and relevant tool found in reviewed local source; S2 means foundation requiring contract work or enrichment; N means another feed is required. These are historical assessments, not current validation. Every selected agent requires fresh source, scope and runtime checks. EBS-SCM-020 and EBS-SCM-029 are the first implementation; agents 1 to 8 are follow-on planning candidates.
+Historical readiness: S1 means staged data and relevant tool found in reviewed sources; S2 means foundation requiring contract work or enrichment; N means another feed is required. These are historical assessments, not current validation. Every selected agent requires fresh source, scope and runtime checks. EBS-SCM-020 and EBS-SCM-029 are the first implementation; agents 1 to 8 are follow-on planning candidates.
 
 ### Planning
 
-| ID | Agent and decision | Readiness | Reviewable outcome |
+| **ID** | **Agent and decision** | **Readiness** | **Reviewable outcome** |
 | --- | --- | --- | --- |
 | EBS-SCM-001 | **Planner Exception Triage**: Rank exceptions with item, policy and demand context | S1 | Exception queue with evidence |
 | EBS-SCM-002 | **Demand Coverage Investigator**: Explain which dated demand lacks adequate pegged supply | S1 | Demand coverage evidence pack |
@@ -119,7 +121,7 @@ Historical readiness: S1 means staged data and relevant tool found in reviewed l
 
 ### Procurement
 
-| ID | Agent and decision | Readiness | Reviewable outcome |
+| **ID** | **Agent and decision** | **Readiness** | **Reviewable outcome** |
 | --- | --- | --- | --- |
 | EBS-SCM-011 | **Purchase Receipt Review**: Review sampled noncancelled shipments with positive unreceived arithmetic | N | Buyer follow-up draft and shipment evidence |
 | EBS-SCM-012 | **Requisition Aging and Conversion**: Prioritize stalled requisitions and identify next owner | N | Requisition action queue |
@@ -129,7 +131,7 @@ Historical readiness: S1 means staged data and relevant tool found in reviewed l
 
 ### Supplier management
 
-| ID | Agent and decision | Readiness | Reviewable outcome |
+| **ID** | **Agent and decision** | **Readiness** | **Reviewable outcome** |
 | --- | --- | --- | --- |
 | EBS-SCM-016 | **Supplier Delivery Performance**: Compare receipt performance with the correct promised-date baseline | N | Supplier delivery scorecard |
 | EBS-SCM-017 | **Supplier Quality and Return Signals**: Combine defects, receipt inspections and supplier returns | N | Supplier corrective-action evidence draft |
@@ -139,17 +141,17 @@ Historical readiness: S1 means staged data and relevant tool found in reviewed l
 
 ### Inventory
 
-| ID | Agent and decision | Readiness | Reviewable outcome |
+| **ID** | **Agent and decision** | **Readiness** | **Reviewable outcome** |
 | --- | --- | --- | --- |
 | EBS-SCM-021 | **Slow Moving Inventory Investigator**: Explain declining physical movement against available stock | N | Stock velocity and disposition candidates |
 | EBS-SCM-022 | **Lot Aging and Expiry Review**: Prioritize expiring lots with available demand and disposition context | N | Lot expiry review queue |
 | EBS-SCM-023 | **Cycle Count Variance Investigator**: Explain repeated count variances and candidate causes | N | Count variance investigation pack |
-| EBS-SCM-024 | **Interorganization Rebalancing Advisor**: Propose transfers from surplus to shortfall locations | S2 | Transfer candidate comparison |
+| EBS-SCM-024 | **Interorganization**** Rebalancing Advisor**: Propose transfers from surplus to shortfall locations | S2 | Transfer candidate comparison |
 | EBS-SCM-025 | **Item Planning Parameter Steward**: Find contradictory lead times, order modifiers and fence settings | S2 | Parameter stewardship proposal |
 
 ### Manufacturing
 
-| ID | Agent and decision | Readiness | Reviewable outcome |
+| **ID** | **Agent and decision** | **Readiness** | **Reviewable outcome** |
 | --- | --- | --- | --- |
 | EBS-SCM-026 | **Work Order Material Readiness**: Assess component shortages for specific released jobs | N | Job material readiness checklist |
 | EBS-SCM-027 | **Work Order Delay Risk**: Explain schedule risk using actual progress, material and scrap signals | N | Job risk and recovery brief |
@@ -159,7 +161,7 @@ Historical readiness: S1 means staged data and relevant tool found in reviewed l
 
 ### Quality and process manufacturing
 
-| ID | Agent and decision | Readiness | Reviewable outcome |
+| **ID** | **Agent and decision** | **Readiness** | **Reviewable outcome** |
 | --- | --- | --- | --- |
 | EBS-SCM-031 | **Quality Hold Impact**: Trace held material to dependent jobs and orders | N | Containment impact dossier |
 | EBS-SCM-032 | **Lot and Serial Genealogy Investigator**: Assemble tested upstream and downstream genealogy | N | Traceability evidence chain |
@@ -169,7 +171,7 @@ Historical readiness: S1 means staged data and relevant tool found in reviewed l
 
 ### Order management
 
-| ID | Agent and decision | Readiness | Reviewable outcome |
+| **ID** | **Agent and decision** | **Readiness** | **Reviewable outcome** |
 | --- | --- | --- | --- |
 | EBS-SCM-036 | **Sales Commitment Review**: Explain requested, promised and scheduled dates on unshipped lines | N | Customer update draft with evidence |
 | EBS-SCM-037 | **Order Hold and Scheduling Exception**: Identify holds, pricing and scheduling blockers and accountable owners | N | Order resolution checklist |
@@ -179,17 +181,17 @@ Historical readiness: S1 means staged data and relevant tool found in reviewed l
 
 ### Logistics and warehouse
 
-| ID | Agent and decision | Readiness | Reviewable outcome |
+| **ID** | **Agent and decision** | **Readiness** | **Reviewable outcome** |
 | --- | --- | --- | --- |
 | EBS-SCM-041 | **Shipment Tracking and Delivery Evidence**: Combine shipment milestones with carrier proof of delivery | N | Shipment timeline and evidence |
 | EBS-SCM-042 | **Shipment Delay Risk Triage**: Rank delivery risks from milestone and route signals | N | Shipment intervention queue |
 | EBS-SCM-043 | **Pick and Ship Exception Review**: Explain pick release, allocation and ship-confirm blockers | N | Warehouse exception checklist |
-| EBS-SCM-044 | **Interorganization In Transit Review**: Identify transfers with missing receipt or reconciliation evidence | N | In-transit reconciliation report |
+| EBS-SCM-044 | **Interorganization**** In Transit Review**: Identify transfers with missing receipt or reconciliation evidence | N | In-transit reconciliation report |
 | EBS-SCM-045 | **Sales Return and RMA Coordinator**: Explain the next step across authorization, receipt, inspection and credit | N | RMA action dossier |
 
 ### Maintenance service and close
 
-| ID | Agent and decision | Readiness | Reviewable outcome |
+| **ID** | **Agent and decision** | **Readiness** | **Reviewable outcome** |
 | --- | --- | --- | --- |
 | EBS-SCM-046 | **Maintenance Material and Downtime Risk**: Connect asset maintenance plans with spare availability and production windows | N | Maintenance readiness brief |
 | EBS-SCM-047 | **Service Parts Demand Exposure**: Identify service commitments exposed by part shortages | N | Service parts exposure queue |
