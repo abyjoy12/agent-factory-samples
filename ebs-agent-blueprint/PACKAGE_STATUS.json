@@ -1,0 +1,19 @@
+{
+  "package_version": "1.0",
+  "date": "2026-10-27",
+  "classification": "INTERNAL_REVIEW_DERIVED_CONTENT_CLEARANCE_REQUIRED",
+  "artifact_status": "ACTIONABLE_DESIGN_PACKAGE_NOT_DEPLOYED",
+  "reviewed_design_merge_commit": "c21e010643b3a2d6dab23a5c6a87a77fc75064ff",
+  "design_source_commit": "363930cf89ebf1b5c24eddf663c05160fbe5640b",
+  "native_opaf_exports_included": false,
+  "live_database_validation_performed": false,
+  "application_created": false,
+  "showcase_app_id": null,
+  "portfolio_count": 50,
+  "distinct_business_tool_count": 7,
+  "implementation_work_items": 13,
+  "repository_branch": "EBS-Agent-Blueprint",
+  "repository_path": "ebs-agent-blueprint",
+  "merged_to_main": false,
+  "publication_scope": "Consolidated design artifacts only; archives and private configuration excluded"
+}

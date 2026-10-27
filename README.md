@@ -392,3 +392,7 @@ Before contributing, confirm that:
 ## Format reference
 
 The archive layout and password envelope follow the internal Agent Builder import/export specification. The repository utility packages an existing valid Agent Builder graph; it does not translate an arbitrary agent definition into a custom flow.
+
+## EBS Agent Blueprint branch
+
+This branch includes the [consolidated EBS Agent Blueprint action package](ebs-agent-blueprint/README.md), with the implementation plan, 50-agent portfolio, registry references, reusable templates and acceptance gates. Begin with [START_HERE](ebs-agent-blueprint/START_HERE.md). The consolidation is isolated from main; the existing sample catalog remains unchanged.

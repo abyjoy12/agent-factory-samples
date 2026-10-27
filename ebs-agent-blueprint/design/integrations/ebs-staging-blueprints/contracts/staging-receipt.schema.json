@@ -1,0 +1,129 @@
+{
+  "title": "StagingReceipt",
+  "type": "object",
+  "required": [
+    "action_id",
+    "version",
+    "request_key",
+    "outcome",
+    "object_reference",
+    "stored_proposed_values",
+    "review_status",
+    "mapping_status",
+    "handoff_status",
+    "payload_ref",
+    "audit_refs",
+    "limitations",
+    "business_transaction_executed"
+  ],
+  "properties": {
+    "action_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "version": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "request_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "outcome": {
+      "enum": [
+        "DECISION_AND_PAYLOAD_STAGED",
+        "DECISION_ONLY_STAGED",
+        "UNKNOWN",
+        "FAILED"
+      ]
+    },
+    "object_reference": {
+      "type": "object"
+    },
+    "stored_proposed_values": {
+      "type": "object"
+    },
+    "review_status": {
+      "enum": [
+        "DRAFT",
+        "APPROVED",
+        "REJECTED",
+        "UNKNOWN"
+      ]
+    },
+    "mapping_status": {
+      "enum": [
+        "RESOLVED",
+        "UNRESOLVED",
+        "CONFLICT",
+        "UNKNOWN"
+      ]
+    },
+    "handoff_status": {
+      "enum": [
+        "NOT_READY",
+        "READY",
+        "UNKNOWN"
+      ]
+    },
+    "payload_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "audit_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "business_transaction_executed": {
+      "const": false
+    },
+    "adapter_extensions": {
+      "type": "object"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "DECISION_AND_PAYLOAD_STAGED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "payload_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "audit_refs": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

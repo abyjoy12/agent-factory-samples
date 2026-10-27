@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "status": "IMPLEMENTATION_BACKLOG",
+  "work_items": [
+    {
+      "id": "W01",
+      "title": "Confirm implementation baseline",
+      "owner_role": "Product owner and runtime engineer",
+      "assigned_owner": null,
+      "depends_on": [],
+      "status": "NOT_STARTED",
+      "deliverable": "Record installed OPAF version, supported SDK or REST invocation, identity propagation, response and error contract, session behavior and native export/import method.",
+      "acceptance_gate": "One reproducible read-only invocation with its actual response; unresolved API assumptions recorded.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W02",
+      "title": "Validate data and authorized scope",
+      "owner_role": "EBS functional lead and data security owner",
+      "assigned_owner": null,
+      "depends_on": [
+        "W01"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Inventory approved MSC and EBS operational evidence, keys, revision semantics, freshness, grants and permitted user scope. Inspect existing staging tables and receipt behavior.",
+      "acceptance_gate": "Ordinary and unauthorized fixtures prove row scope; source age and exact target identity are independently checked.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W03",
+      "title": "Implement seven restricted business tools",
+      "owner_role": "Integration engineer",
+      "assigned_owner": null,
+      "depends_on": [
+        "W02"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Implement the seven referenced tools behind a restricted facade or approved registration; configure read and staging connection aliases privately.",
+      "acceptance_gate": "Typed schemas, least privilege, explicit side effects, idempotency, concurrency control and committed readback pass tests; tools/list advertises business tools without agent access to generic SQL executors.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W04",
+      "title": "Build PO staging vertical slice",
+      "owner_role": "OPAF workflow builder",
+      "assigned_owner": null,
+      "depends_on": [
+        "W03"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Build list, preview, explicit staging and receipt tasks in OPAF using the PO standing instructions and referenced tools.",
+      "acceptance_gate": "Changed preview, replay, missing intent, unauthorized scope, partial and unknown persistence fixtures pass; native export captured only after actual build.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W05",
+      "title": "Build WO staging vertical slice",
+      "owner_role": "OPAF workflow builder",
+      "assigned_owner": null,
+      "depends_on": [
+        "W03",
+        "W04"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Reuse shared receipt and staging services for a WO start-date draft with complete typed identity.",
+      "acceptance_gate": "WO source and target identities, date semantics and proposal consistency validated; no EBS action or approval capability exposed.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W06",
+      "title": "Implement minimum workbench registry",
+      "owner_role": "APEX engineer and business analyst",
+      "assigned_owner": null,
+      "depends_on": [
+        "W01"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Inspect Apps 130 and 181 before reuse. Implement tool, MCP, agent, skill, workflow, task, evaluation and deployment references with separate lifecycle states.",
+      "acceptance_gate": "Capabilities discoverable before canvas use; tools attach by reference; approved definitions and discovered schemas produce visible drift findings.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W07",
+      "title": "Create new showcase application",
+      "owner_role": "APEX engineer",
+      "assigned_owner": null,
+      "depends_on": [
+        "W04",
+        "W05",
+        "W06"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Assign a fresh App ID and create EBS Agent Blueprint Showcase from a reviewed application blueprint; preserve the existing Planning App.",
+      "acceptance_gate": "User can inspect, preview, request staging and open the receipt through the OPAF bridge; actual app identity and bindings recorded privately.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W08",
+      "title": "Establish business evaluation baseline",
+      "owner_role": "Business evaluator and EBS functional lead",
+      "assigned_owner": null,
+      "depends_on": [
+        "W02"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Define Planning Ontology scenarios, deterministic expected results, negative fixtures and reviewer acceptance criteria independently of model output.",
+      "acceptance_gate": "At least 20 reviewed fixtures per pilot include empty, stale, partial, failed, ambiguous, unauthorized and adversarial conditions; expectations and owners are signed off.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W09",
+      "title": "Run end to end acceptance",
+      "owner_role": "Business evaluator and security owner",
+      "assigned_owner": null,
+      "depends_on": [
+        "W04",
+        "W05",
+        "W07",
+        "W08"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Run business and control fixtures against pinned tool, model, prompt, workflow and policy versions.",
+      "acceptance_gate": "Zero critical scope or control failures; no invented EBS success; every staged success has receipt/readback evidence; agreed performance and business targets measured.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W10",
+      "title": "Prove export and second environment import",
+      "owner_role": "Release engineer",
+      "assigned_owner": null,
+      "depends_on": [
+        "W09"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Export actual OPAF workflows, resolve dependencies, rebind private configuration in a clean destination and rerun acceptance.",
+      "acceptance_gate": "Complete native exports, checksums, import instructions, exclusions and destination test evidence allow another implementer to reproduce both workflows.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W11",
+      "title": "Expand planning portfolio",
+      "owner_role": "Product owner and business analyst",
+      "assigned_owner": null,
+      "depends_on": [
+        "W09"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Re-profile agents 1 to 8, rank measured value and data/tool reuse, and choose the next narrow decision.",
+      "acceptance_gate": "Each selected agent has a sponsor, source contract, independent acceptance cases and an achievable artifact; no requirement to implement all 50.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W12",
+      "title": "Add durable cases and human worklists",
+      "owner_role": "Companion backend engineer",
+      "assigned_owner": null,
+      "depends_on": [
+        "W06",
+        "W09"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Implement case evidence, assignments, review, concurrency, expiry, audit and customer policy; expose links or embedded views to apps.",
+      "acceptance_gate": "Human response is authorized and version-bound; continuation uses a verified runtime checkpoint or explicit case-driven reinvocation.",
+      "evidence_reference": null
+    },
+    {
+      "id": "W13",
+      "title": "Pilot bounded autonomous KPI process",
+      "owner_role": "Process owner and runtime engineer",
+      "assigned_owner": null,
+      "depends_on": [
+        "W12"
+      ],
+      "status": "NOT_STARTED",
+      "deliverable": "Add an external scheduler or verified runtime trigger, approved KPI formula, thresholds, specialist routing, work budgets and resolution criteria.",
+      "acceptance_gate": "Replay, deduplication, stale evidence, repeated breach, escalation, human wait and post-action KPI observation are tested; unresolved EBS effects remain explicitly unresolved.",
+      "evidence_reference": null
+    }
+  ],
+  "excluded": "EBS transaction execution, approval authority in the staging agents, automatic deployment and infrastructure changes"
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "0.4.0",
+  "agentId": "EBS-SCM-020",
+  "name": "Purchase Order Change Staging Agent",
+  "status": "DESIGN_ONLY",
+  "businessSystem": "Oracle E-Business Suite",
+  "hostApplication": "ANY_AUTHORIZED_APPLICATION",
+  "runtime": "OPAF",
+  "purpose": "Review and stage a proposed purchase order shipment need-by date or supported quantity change",
+  "executionMode": "LOCAL_STAGE_ONLY",
+  "completionBoundary": "Committed draft and linked payload, verified by readback; report incomplete outcomes explicitly",
+  "supportedFields": [
+    "need_by_date",
+    "quantity"
+  ],
+  "quantityExtension": "Desired total quantity; positive and unit-qualified",
+  "recommendationOrigins": [
+    "PLANNING_SYSTEM",
+    "DETERMINISTIC_RULE",
+    "USER_PROPOSAL"
+  ],
+  "logicalRecords": [
+    "SourceContext",
+    "BusinessObjectReference",
+    "ChangeProposal",
+    "StagedChangePayload",
+    "ChangeAuditEvent"
+  ],
+  "toolAllowlist": [
+    "list_purchase_order_change_candidates",
+    "preview_purchase_order_change",
+    "stage_purchase_order_change",
+    "get_staging_receipt"
+  ],
+  "authorization": "Trusted caller context and server-enforced business scope; host framework independent",
+  "humanReview": "Separate service or UI chosen by destination",
+  "agentCanApprove": false,
+  "agentCanExecuteBusinessTransaction": false,
+  "downstreamIntegration": {
+    "included": false,
+    "owner": "Implementing customer or use case",
+    "mechanism": "OPEN_EXTENSION_POINT"
+  },
+  "artifacts": {
+    "guide": "README.md",
+    "instructions": "assets/agent-instructions.md",
+    "bindings": "assets/source-bindings.json",
+    "tools": "contracts/tools.json",
+    "sourceMapping": "contracts/source-mapping.json",
+    "acceptance": "tests/acceptance.json",
+    "validation": "validation/status.json",
+    "presenter": "slides/README.md",
+    "opafDesign": "workflow.design.json"
+  },
+  "sharedContracts": {
+    "records": "../../contracts/data-model.json",
+    "receipt": "../../contracts/staging-receipt.schema.json"
+  },
+  "portability": {
+    "physicalObjectsRequired": [],
+    "applicationIdRequired": null,
+    "nativeWorkflowIncluded": false,
+    "destinationValidationRequired": true
+  },
+  "runtimeProfile": "../../runtime/opaf/README.md",
+  "runtimeDecision": "Selected implementation for this iteration; logical business contracts remain portable",
+  "runtimeRelease": "26.10.0.0.0",
+  "definitionModel": {
+    "agentInstructions": "Standing role and boundaries",
+    "tools": "References to independently governed capabilities; current local contracts are transitional",
+    "taskInstructions": "Assigned by the workflow step",
+    "skills": "Versioned reusable guidance; loading mechanism to verify"
+  }
+}

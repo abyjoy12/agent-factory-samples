@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "applicationName": "EBS Agent Blueprint Showcase",
+  "status": "PLANNED_NOT_CREATED",
+  "applicationId": null,
+  "workspace": null,
+  "idPolicy": "Assign a fresh available App ID; do not overwrite the existing Planning App",
+  "sampleBusinessCase": "Planning",
+  "referenceApplication": "Existing Planning App",
+  "companion": "Business Agent Workbench",
+  "agentRuntime": "OPAF 26.10.0.0.0"
+}

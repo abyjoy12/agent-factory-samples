@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "format": "PORTABLE_DESIGN_TEMPLATE_NOT_OPAF_NATIVE",
+  "agent_id": null,
+  "version": null,
+  "name": null,
+  "status": "DRAFT",
+  "owner": null,
+  "purpose": null,
+  "instructions_markdown": null,
+  "skill_references": [],
+  "tool_references": [],
+  "data_contract_references": [],
+  "execution_mode": "READ_ONLY",
+  "allowed_execution_modes": [
+    "READ_ONLY",
+    "LOCAL_STAGE_ONLY"
+  ],
+  "memory_enabled": false,
+  "cross_thread_sharing_enabled": false,
+  "authorization": "TRUSTED_CONTEXT_AND_SERVER_ENFORCED_SCOPE",
+  "workflow_task_references": [],
+  "evaluation_references": [],
+  "deployment": {
+    "runtime": "OPAF",
+    "baseline": "26.10.0.0.0",
+    "native_export": null,
+    "runtime_id": null,
+    "binding_reference": null,
+    "validation_evidence": null
+  },
+  "staging_policy": {
+    "explicit_intent_required": true,
+    "reviewed_version_required": true,
+    "service_request_key_required": true,
+    "committed_readback_required": true,
+    "unknown_persistence": "RECONCILE_BEFORE_RETRY"
+  },
+  "excluded_capabilities": [
+    "AGENT_SELF_APPROVAL",
+    "EBS_TRANSACTION_EXECUTION"
+  ]
+}

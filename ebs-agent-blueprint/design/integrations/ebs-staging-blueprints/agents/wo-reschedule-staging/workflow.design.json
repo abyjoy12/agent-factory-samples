@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0",
+  "artifactKind": "WORKFLOW_DESIGN_NOT_NATIVE_EXPORT",
+  "status": "NOT_BUILT_IN_OPAF",
+  "runtime": "OPAF",
+  "name": "Work Order Reschedule Staging Agent",
+  "agentId": "EBS-SCM-029",
+  "modelBinding": "DESTINATION_MODEL",
+  "memory": {
+    "enabled": false,
+    "shareBetweenThreads": false
+  },
+  "toolSource": "ORACLE_BUSINESS_TOOLS_MCP",
+  "allowedTools": [
+    "list_work_order_reschedule_candidates",
+    "preview_work_order_reschedule",
+    "stage_work_order_reschedule",
+    "get_staging_receipt"
+  ],
+  "instructions": "assets/agent-instructions.md",
+  "states": [
+    {
+      "id": "RECEIVE_REQUEST",
+      "owner": "OPAF",
+      "next": "READ_AND_PREVIEW"
+    },
+    {
+      "id": "READ_AND_PREVIEW",
+      "owner": "OPAF",
+      "tools": [
+        "list_work_order_reschedule_candidates",
+        "preview_work_order_reschedule"
+      ],
+      "next": "AWAIT_EXPLICIT_STAGING_REQUEST"
+    },
+    {
+      "id": "AWAIT_EXPLICIT_STAGING_REQUEST",
+      "owner": "OPAF",
+      "writeAllowed": false,
+      "onReadOnlyQuestion": "READ_AND_PREVIEW",
+      "onConfirmedCurrentProposal": "STAGE_DRAFT",
+      "onChangedProposal": "READ_AND_PREVIEW"
+    },
+    {
+      "id": "STAGE_DRAFT",
+      "owner": "OPAF",
+      "tools": [
+        "stage_work_order_reschedule"
+      ],
+      "requires": [
+        "Trusted scope",
+        "Explicit staging intent",
+        "Current proposal version",
+        "Stable service-managed request key"
+      ],
+      "next": "READ_RECEIPT"
+    },
+    {
+      "id": "READ_RECEIPT",
+      "owner": "OPAF",
+      "tools": [
+        "get_staging_receipt"
+      ],
+      "onUnknown": "RECONCILE_WITHOUT_BLIND_RETRY",
+      "next": "RETURN_LOCAL_OUTCOME"
+    },
+    {
+      "id": "RETURN_LOCAL_OUTCOME",
+      "owner": "OPAF",
+      "businessTransactionExecuted": false,
+      "terminal": true
+    }
+  ],
+  "hostBindings": {
+    "applicationWorkflowId": null,
+    "opafWorkflowId": null,
+    "opafAgentId": null,
+    "trustedCallerBinding": null,
+    "conversationCorrelationBinding": null
+  },
+  "forbidden": [
+    "Approve own draft",
+    "EBS submission",
+    "Raw SQL",
+    "Arbitrary connection switching"
+  ],
+  "nativeExport": null,
+  "validationStatus": "DESIGN_ONLY",
+  "targetRuntimeRelease": "26.10.0.0.0",
+  "continuationPolicy": "Conversation follow-up is distinct from durable checkpoint resume; case state and continuation contract require implementation validation"
+}

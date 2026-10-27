@@ -1,0 +1,17 @@
+{
+  "format": "PORTABLE_DESIGN_TEMPLATE_NOT_OPAF_NATIVE",
+  "workflow_id": null,
+  "version": null,
+  "step_id": null,
+  "task_instructions_markdown": null,
+  "assigned_agent_reference": null,
+  "input_mappings": {},
+  "expected_output_contract": null,
+  "permitted_tool_subset": [],
+  "completion_criteria": [],
+  "timeout_policy": null,
+  "on_success": null,
+  "on_failure": null,
+  "on_human_wait": null,
+  "case_reference": null
+}

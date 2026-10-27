@@ -1,0 +1,101 @@
+{
+  "status": "DESIGN_INDEX_NOT_DEPLOYED_REGISTRY",
+  "schema_version": "1.0",
+  "tools": [
+    {
+      "tool_id": "list_purchase_order_change_candidates",
+      "version": "1.0",
+      "implementation_status": "NOT_IMPLEMENTED_BY_THIS_PACKAGE",
+      "business_effect": "READ_ONLY",
+      "contract_references": [
+        {
+          "path": "../design/integrations/ebs-staging-blueprints/agents/po-change-staging/contracts/tools.json",
+          "selector": "list_purchase_order_change_candidates"
+        }
+      ],
+      "deployed_mcp_binding": null
+    },
+    {
+      "tool_id": "preview_purchase_order_change",
+      "version": "1.0",
+      "implementation_status": "NOT_IMPLEMENTED_BY_THIS_PACKAGE",
+      "business_effect": "READ_ONLY",
+      "contract_references": [
+        {
+          "path": "../design/integrations/ebs-staging-blueprints/agents/po-change-staging/contracts/tools.json",
+          "selector": "preview_purchase_order_change"
+        }
+      ],
+      "deployed_mcp_binding": null
+    },
+    {
+      "tool_id": "stage_purchase_order_change",
+      "version": "1.0",
+      "implementation_status": "NOT_IMPLEMENTED_BY_THIS_PACKAGE",
+      "business_effect": "LOCAL_STAGING",
+      "contract_references": [
+        {
+          "path": "../design/integrations/ebs-staging-blueprints/agents/po-change-staging/contracts/tools.json",
+          "selector": "stage_purchase_order_change"
+        }
+      ],
+      "deployed_mcp_binding": null
+    },
+    {
+      "tool_id": "get_staging_receipt",
+      "version": "1.0",
+      "implementation_status": "NOT_IMPLEMENTED_BY_THIS_PACKAGE",
+      "business_effect": "READ_ONLY",
+      "contract_references": [
+        {
+          "path": "../design/integrations/ebs-staging-blueprints/agents/po-change-staging/contracts/tools.json",
+          "selector": "get_staging_receipt"
+        },
+        {
+          "path": "../design/integrations/ebs-staging-blueprints/agents/wo-reschedule-staging/contracts/tools.json",
+          "selector": "get_staging_receipt"
+        }
+      ],
+      "deployed_mcp_binding": null
+    },
+    {
+      "tool_id": "list_work_order_reschedule_candidates",
+      "version": "1.0",
+      "implementation_status": "NOT_IMPLEMENTED_BY_THIS_PACKAGE",
+      "business_effect": "READ_ONLY",
+      "contract_references": [
+        {
+          "path": "../design/integrations/ebs-staging-blueprints/agents/wo-reschedule-staging/contracts/tools.json",
+          "selector": "list_work_order_reschedule_candidates"
+        }
+      ],
+      "deployed_mcp_binding": null
+    },
+    {
+      "tool_id": "preview_work_order_reschedule",
+      "version": "1.0",
+      "implementation_status": "NOT_IMPLEMENTED_BY_THIS_PACKAGE",
+      "business_effect": "READ_ONLY",
+      "contract_references": [
+        {
+          "path": "../design/integrations/ebs-staging-blueprints/agents/wo-reschedule-staging/contracts/tools.json",
+          "selector": "preview_work_order_reschedule"
+        }
+      ],
+      "deployed_mcp_binding": null
+    },
+    {
+      "tool_id": "stage_work_order_reschedule",
+      "version": "1.0",
+      "implementation_status": "NOT_IMPLEMENTED_BY_THIS_PACKAGE",
+      "business_effect": "LOCAL_STAGING",
+      "contract_references": [
+        {
+          "path": "../design/integrations/ebs-staging-blueprints/agents/wo-reschedule-staging/contracts/tools.json",
+          "selector": "stage_work_order_reschedule"
+        }
+      ],
+      "deployed_mcp_binding": null
+    }
+  ]
+}

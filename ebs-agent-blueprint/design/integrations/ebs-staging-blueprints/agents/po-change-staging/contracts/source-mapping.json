@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "status": "DESTINATION_MAPPING_REQUIRED",
+  "records": [
+    {
+      "logicalName": "SourceContext",
+      "destinationObject": null,
+      "fieldMappings": {}
+    },
+    {
+      "logicalName": "BusinessObjectReference",
+      "destinationObject": null,
+      "fieldMappings": {}
+    },
+    {
+      "logicalName": "ChangeProposal",
+      "destinationObject": null,
+      "fieldMappings": {}
+    },
+    {
+      "logicalName": "StagedChangePayload",
+      "destinationObject": null,
+      "fieldMappings": {}
+    },
+    {
+      "logicalName": "ChangeAuditEvent",
+      "destinationObject": null,
+      "fieldMappings": {}
+    }
+  ],
+  "statusMappings": {
+    "review": {
+      "DRAFT": null,
+      "APPROVED": null,
+      "REJECTED": null
+    },
+    "mapping": {
+      "RESOLVED": null,
+      "UNRESOLVED": null,
+      "CONFLICT": null
+    },
+    "handoff": {
+      "NOT_READY": null,
+      "READY": null
+    }
+  },
+  "scope": "Trusted source context and separately typed business scope",
+  "requiredPhysicalObjectNames": [],
+  "notes": [
+    "Preserve source keys and target keys separately",
+    "Translate status values deliberately",
+    "No application ID or schema prefix is prescribed"
+  ]
+}

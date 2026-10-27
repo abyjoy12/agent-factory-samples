@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0",
+  "exposesBusinessExecution": false,
+  "exposesApproval": false,
+  "tools": [
+    {
+      "name": "list_purchase_order_change_candidates",
+      "implementationStatus": "DESTINATION_ADAPTER_REQUIRED",
+      "sideEffect": "READ_ONLY",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          },
+          "cursor": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "authorization": "Trusted caller context outside model input; enforce permitted business scope",
+      "requirements": [
+        "Bound results and disclose truncation",
+        "Return stable candidate references and provenance"
+      ]
+    },
+    {
+      "name": "preview_purchase_order_change",
+      "implementationStatus": "DESTINATION_ADAPTER_REQUIRED",
+      "sideEffect": "READ_ONLY",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "candidate_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "candidate_ref"
+        ],
+        "additionalProperties": false
+      },
+      "authorization": "Trusted caller context outside model input; enforce permitted business scope",
+      "requirements": [
+        "Preview exact supported fields",
+        "Return proposal_ref and expected_version; bind server-side identity and scope"
+      ]
+    },
+    {
+      "name": "stage_purchase_order_change",
+      "implementationStatus": "DESTINATION_ADAPTER_REQUIRED",
+      "sideEffect": "LOCAL_STAGING",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "proposal_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_key": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "proposal_ref",
+          "expected_version",
+          "request_key"
+        ],
+        "additionalProperties": false
+      },
+      "authorization": "Trusted caller context outside model input; enforce permitted business scope",
+      "requirements": [
+        "Require explicit staging intent",
+        "Reject stale preview token",
+        "Stable request-key replay protection",
+        "Commit proposal, payload and audit or return explicit incomplete outcome"
+      ],
+      "outputContract": "../../../contracts/staging-receipt.schema.json"
+    },
+    {
+      "name": "get_staging_receipt",
+      "implementationStatus": "DESTINATION_ADAPTER_REQUIRED",
+      "sideEffect": "READ_ONLY",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "action_id"
+        ],
+        "additionalProperties": false
+      },
+      "authorization": "Trusted caller context outside model input; enforce permitted business scope",
+      "requirements": [
+        "Read only records authorized to the caller",
+        "Return actual committed values and completeness"
+      ],
+      "outputContract": "../../../contracts/staging-receipt.schema.json"
+    }
+  ],
+  "manualProposalExtension": "A destination preview service may accept authorized manual input and return the same proposal_ref/version contract; declare supported fields explicitly"
+}

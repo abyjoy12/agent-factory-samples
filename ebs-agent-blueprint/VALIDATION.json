@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-27",
+  "scope": "Artifact packaging only; no live application, database, tool or runtime validation",
+  "checks": {
+    "json_parsing": "PASS",
+    "relative_markdown_links": "PASS",
+    "balanced_markdown_fences": "PASS",
+    "unique_portfolio_entries": 50,
+    "first_implementation_agents": [
+      "EBS-SCM-020",
+      "EBS-SCM-029"
+    ],
+    "distinct_tool_references": 7,
+    "referenced_tool_input_schemas": "PASS",
+    "work_item_dependency_graph": "PASS_13_ITEMS_ACYCLIC",
+    "deployment_address_scan": "PASS",
+    "word_source_text_preservation": "PASS",
+    "word_visual_layout_review": "PASS_8_PAGES"
+  },
+  "native_exports_present": false,
+  "business_acceptance_performed": false
+}

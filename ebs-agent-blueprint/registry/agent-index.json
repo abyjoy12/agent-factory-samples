@@ -1,0 +1,29 @@
+{
+  "status": "DESIGN_INDEX_NOT_DEPLOYED_REGISTRY",
+  "agents": [
+    {
+      "agent_id": "EBS-SCM-020",
+      "name": "Purchase Order Change Staging Agent",
+      "status": "DESIGN_ONLY",
+      "definition_reference": "../design/integrations/ebs-staging-blueprints/agents/po-change-staging/blueprint.json",
+      "tool_references": [
+        "list_purchase_order_change_candidates",
+        "preview_purchase_order_change",
+        "stage_purchase_order_change",
+        "get_staging_receipt"
+      ]
+    },
+    {
+      "agent_id": "EBS-SCM-029",
+      "name": "Work Order Reschedule Staging Agent",
+      "status": "DESIGN_ONLY",
+      "definition_reference": "../design/integrations/ebs-staging-blueprints/agents/wo-reschedule-staging/blueprint.json",
+      "tool_references": [
+        "list_work_order_reschedule_candidates",
+        "preview_work_order_reschedule",
+        "stage_work_order_reschedule",
+        "get_staging_receipt"
+      ]
+    }
+  ]
+}
